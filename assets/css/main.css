@@ -1,0 +1,98 @@
+
+body {
+  background: #999;
+  text-align: center;
+  font-size: 95%;
+  line-height: 1.5;
+}
+
+.maincontainer {
+  margin: 0 auto;
+  right: auto;
+  bottom: auto;
+  width: 310px;
+  height: 350px;
+  background-color: #232323;
+  color: #FFF;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.patterncontainer {
+  margin-left: 32.5px;
+  position: absolute;
+  width: 225px;
+  height: 225px;
+  background: #404040;
+  padding: 7.5px;
+  border-radius: 10px;
+}
+
+.heading { padding-top: 5%; }
+
+.button {
+  width: 30px;
+  height: 30px;
+  background: #EC7822;
+  border-radius: 50%;
+  margin: 22.5px;
+  float: left;
+}
+
+.activebutton {
+  width: 30px;
+  height: 30px;
+  background: #e39345;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #FFF;
+  margin: 20.5px;
+  float: left;
+  -webkit-box-shadow: 0px 0px 15px 5px rgba(114, 160, 204, 1);
+  -moz-box-shadow: 0px 0px 15px 5px rgba(114, 160, 204, 1);
+  box-shadow: 0px 0px 15px 5px rgba(114, 160, 204, 1);
+}
+
+.duplicatebutton {
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 102, 51, 1);
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #FFF;
+  margin: 20.5px;
+  float: left;
+  -webkit-box-shadow: 0px 0px 15px 5px rgba(255, 102, 51, 1);
+  -moz-box-shadow: 0px 0px 15px 5px rgba(255, 102, 51, 1);
+  box-shadow: 0px 0px 15px 5px rgba(255, 102, 51, 1);
+}
+
+.button-reset {
+  margin: 20px;
+  width: 170px;
+  height: 50px;
+  color: #FFF;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #FFF;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 15px;
+  background-color: #FA8258;
+}
+
+.button-lockscreen {
+  margin: 20px;
+  width: 170px;
+  height: 50px;
+  color: #FFF;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #FFF;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 15px;
+  background-color: #2E9AFE;
+}
