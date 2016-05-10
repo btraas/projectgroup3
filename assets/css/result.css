@@ -1,0 +1,100 @@
+body {
+    margin: auto auto;
+
+      background-image: url ('images/result_buttons_home.png');
+
+	  background-repeat: no-repeat;
+	  background-size: 95px 65px;
+}
+
+.wrapper {
+    width: 320px;
+    height: 480px;
+    margin: auto auto;
+	background-color: #232323;
+	border: 1px solid black;
+}
+
+.score {
+	font-size: 180%;
+	color: white;
+	text-align: center;
+	margin-top: 50px;
+	margin-left: 15px;
+
+	width: 96%;
+	height: 50px;
+
+	background-image: url("images/result_image_scorebaord.png");
+    background-repeat: no-repeat;
+    background-size: 96% 50px;
+}
+
+
+.ranking {
+	font-size: 180%;
+	color: #00FF90;
+	text-align: center;
+	margin-top: 30px;
+	font-weight: bold;
+}
+
+.menu {
+
+	width: 90%;
+    height: 180px;
+    margin: 80px auto;
+    background-color: #404040;
+    border-radius: 20px 20px 20px 20px;
+}
+
+
+.homeBtn {
+  background-image: url ('images/result_buttons_home.png');
+  cursor:pointer;
+  background-repeat: no-repeat;
+  background-size: 95px 65px;
+
+  width: 95px;
+  height: 65px;
+  margin: 10px auto;
+}
+
+.postBtn {
+	background-image: url ('/image/result_buttons_leaderboards.png');
+	cursor:pointer;
+	width: 95px;
+ 	height: 65px;
+ 	margin: 10px auto;
+}
+
+.selectBtn {
+	background-image: url ('/image/result_buttons_level.png');
+	cursor:pointer;
+	width: 95px;
+ 	height: 65px;
+ 	margin: 10px auto;
+
+}
+
+.playBtn {
+	background-image: url ('/image/result_buttons_retry.png');
+	cursor:pointer;
+	width: 95px;
+ 	height: 65px;
+ 	margin: 10px auto;	
+}
+
+.firstRow {
+
+	width:200px;
+	margin: auto;
+
+}
+
+.secondRow {
+
+	width:200px;
+	margin: auto;
+
+}
