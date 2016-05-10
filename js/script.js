@@ -134,9 +134,9 @@ $(document).ready(function(){
 
 			            $("#line" + startpointnumber).remove();
 
-			            if (autosubmit) {
-			            	formsubmit();
-			            }
+			            // if (autosubmit) {
+			            // 	formsubmit();
+			            // }
 					}
 					getClickStarted = false;
 				});
@@ -157,26 +157,26 @@ $(document).ready(function(){
 	function formsubmit(){
 
 	    var digits = getlength(password);
-	    // if(digits<5) {
-	    // 	raiseerror("lengthTooSmall");
-	    // }
+	    if(digits<5) {
+	    	raiseerror("lengthTooSmall");
+	    }
 
 	    //checkduplicatedigits(password);
 
-	  //   if (errorraised == false && passwordset == false) {
-			// localStorage.setItem("password", password);
-			// successmessage("patternStored");
-	  //   }
-	  //   else if ( errorraised == false && passwordset == true) {
-	  //   	if (localStorage.getItem("password") == password) {
-	  //   		successmessage("screenUnlocked");
-	  //   		window.location = "./welcome.html";
-	  //   		return false;
-	  //   	}
-	  //   	else {
-	  //   		raiseerror("IncorrectPattern");
-	  //   	}
-	  //   }
+	    if (errorraised == false && passwordset == false) {
+			localStorage.setItem("password", password);
+			successmessage("patternStored");
+	    }
+	    else if ( errorraised == false && passwordset == true) {
+	    	if (localStorage.getItem("password") == password) {
+	    		successmessage("screenUnlocked");
+	    		window.location = "./welcome.html";
+	    		return false;
+	    	}
+	    	else {
+	    		raiseerror("IncorrectPattern");
+	    	}
+	    }
 	};
 
 	function getlength(number) {
