@@ -1,10 +1,5 @@
 body {
     margin: auto auto;
-
-      background-image: url ('images/result_buttons_home.png');
-
-	  background-repeat: no-repeat;
-	  background-size: 95px 65px;
 }
 
 .wrapper {
@@ -25,7 +20,7 @@ body {
 	width: 96%;
 	height: 50px;
 
-	background-image: url("images/result_image_scorebaord.png");
+	background-image: url("../../resources/result_image_scorebaord.png");
     background-repeat: no-repeat;
     background-size: 96% 50px;
 }
@@ -50,18 +45,18 @@ body {
 
 
 .homeBtn {
-  background-image: url ('images/result_buttons_home.png');
-  cursor:pointer;
-  background-repeat: no-repeat;
-  background-size: 95px 65px;
-
   width: 95px;
   height: 65px;
   margin: 10px auto;
+
+  background-image: url('../../resources/result_buttons_home.png');
+  cursor:pointer;
+  background-repeat: no-repeat;
+  background-size: 95px 65px;
 }
 
 .postBtn {
-	background-image: url ('/image/result_buttons_leaderboards.png');
+	background-image: url('../../resources/result_buttons_leaderboards.png');
 	cursor:pointer;
 	width: 95px;
  	height: 65px;
@@ -69,7 +64,7 @@ body {
 }
 
 .selectBtn {
-	background-image: url ('/image/result_buttons_level.png');
+	background-image: url('../../resources/result_buttons_level.png');
 	cursor:pointer;
 	width: 95px;
  	height: 65px;
@@ -78,7 +73,7 @@ body {
 }
 
 .playBtn {
-	background-image: url ('/image/result_buttons_retry.png');
+	background-image: url('../../resources/result_buttons_retry.png');
 	cursor:pointer;
 	width: 95px;
  	height: 65px;
