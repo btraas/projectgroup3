@@ -29,7 +29,11 @@
 
 	<script>
 		$(document).ready(function(){
-			var lock = new PatternLock('#pattern');
+			var lock = new PatternLock('#pattern', 
+			{
+				matrix : [4,4],
+				margin : 10,
+			});
 		});
 	
 	</script>
