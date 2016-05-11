@@ -220,9 +220,9 @@ $(document).ready(function(){
 		}
 	};
 
-	function checkAnswer(){
-		for(){
+	// function checkAnswer(){
+	// 	for(){
 
-		}
-	};
+	// 	}
+	// };
 });
