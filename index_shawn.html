@@ -35,12 +35,13 @@
 	var matrixSize = 320;
 	var rowSize = gridSize;
 	var numberRange = 4;
+	var maxNumber = Math.pow(5, 2);
 
 	(function generateAnswer(){
 		var answer = [];
 	
 		while(answer.length < numberRange){
-			var randomNum = Math.ceil(Math.random() * numberRange)
+			var randomNum = Math.ceil(Math.random() * maxNumber)
 			var unique = true;	
 			for(var i = 0; i < answer.length; i++){
 				if(answer[i]  == randomNum){
