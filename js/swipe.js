@@ -1,3 +1,5 @@
+var gridSize = 9;
+
 $(document).ready(function(){
 	var errorraised = false;
 	var passwordset = false;
@@ -25,7 +27,7 @@ $(document).ready(function(){
 
 	(function generatebuttons(){
 		var patterncontainer  = document.getElementById("patterncontainer");
-		for (var i = 1; i <=9; i++) {
+		for (var i = 1; i <=gridSize; i++) {
 			var button = document.createElement("div");
 			button.className = "button";
 			button.id = "button" + i;

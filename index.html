@@ -5,20 +5,38 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	<script src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js'></script>
 
+	<script srC='js/swipe.js'></script>
+
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 
-	<link rel="apple-touch-icon" href="/resources/game_icon.png">
-	<link rel="apple-touch-startup-image" href="/resources/apple-splash.png">
+	<link rel="apple-touch-icon" href="resources/game_icon.png">
+	<link rel="apple-touch-startup-image" href="resources/apple-splash.png">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="viewport" content="width=device-width">
 	<meta name="viewport" content="initial-scale=1.0">
 
+
+	<script>
+		$(document).bind("mobileinit", function(){
+ 	 	//apply overrides here
+		});
+	
+	</script>
+
 </head>
+
+
 <body>
-
-Hello world
-
-
+<h1 style="margin:150px auto 20px auto; text-align:center; color:#fff">jQuery Android Pattern Lock Demo</h1>
+<div class="maincontainer">
+    <h2 id="heading" class="heading">3x3 testing</h2>
+    <div id="patterncontainer" class="patterncontainer">
+    </div>
+</div>
 </body>
+
+
+
 </html>
