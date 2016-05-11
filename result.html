@@ -25,8 +25,8 @@
 <body>
 	<div class='wrapper'>
 
-		<div class='score'>
-			1,345,678
+		<div class='scoreArea'>
+			<div class='score'>1,345,678</div>
 		</div>
 		
 		<div class='ranking'>
@@ -36,13 +36,13 @@
 
 		<div class='menu'>
 			<div class='firstRow'>
-				<input type="button" name="button" value="Home" onclick="goHome()" class="homeBtn"/>
-				<input type="button" name="button" value="Post Score" onclick="goPost()" class="postBtn"/>
+				<input type="image" src="resources/result_buttons_home.png" onclick="goHome()" class="homeBtn">
+                <input type="image" src="resources/result_buttons_leaderboards.png" value="Post Score" onclick="goPost()" class="postBtn">
 			</div>
 
 			<div class='secondRow'>
-				<input type="button" name="button" value="Select Level" onclick="goSelect()" class="selectBtn"/>
-				<input type="button" name="button" value="Play Again" onclick="goPlay()" class="playBtn"/>
+                <input type="image" src="resources/result_buttons_level.png" onclick="goSelect()" class="selectBtn">
+                <input type="image" src="resources/result_buttons_retry.png" onclick="goPlay()" class="playBtn">
 			</div>
 
 		</div>
