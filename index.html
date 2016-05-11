@@ -28,11 +28,37 @@
 	<meta name="viewport" content="initial-scale=1.0">
 
 	<script>
-		$(document).ready(function(){
-			var lock = new PatternLock('#pattern', 
-			{
-				matrix : [4,4],
-				margin : 10,
+
+		var test_pattern = 161116; // 1 6 11 16
+
+		var buttonRadius = 0;
+    	var buttonMargin = 0;
+    	var gridSize = 4;
+    	var matrixSize = 320;
+    	var rowSize = gridSize;
+
+
+    	buttonRadius = matrixSize / rowSize;
+    	buttonMargin = buttonRadius / 10;
+    	buttonRadius = buttonRadius/2 - (buttonMargin * 2);
+
+        $(document).ready(function(){
+            var lock = new PatternLock('#pattern',
+            {
+                matrix : [gridSize, gridSize],
+                margin : buttonMargin,
+                radius: buttonRadius,
+                patternVisible: true,
+                lineOnMove: true,
+                delimiter: "", // a delimeter between the pattern
+                enableSetPattern: false,
+				onDraw:function(pattern) { 
+					if(pattern == test_pattern) alert('pass');
+					else lock.error();
+
+					window.setTimeout(function() { lock.reset(); }, 1000);
+
+				}
 			});
 		});
 	
@@ -43,6 +69,7 @@
 
 <body>
 <div class="maincontainer">
+	<img src='resources/game_logo.png' />
     <div id="pattern">
     </div>
 </div>
