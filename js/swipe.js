@@ -41,8 +41,8 @@ $(document).ready(function(){
 		}
 	}());
 
+    var numberRange = 4;
 	(function generateAnswer(){
-		var button = "button";
 		var answer = [];
 	
 		while(answer.length < numberRange){
@@ -59,14 +59,13 @@ $(document).ready(function(){
 			}
 		}
 
-		for(var index = 0; index < answer.length; index++){
-			answer[index] = button + answer[index];
-		}
-
 		//print out console
 		for(var i = 0; i < answer.length; i++){
 			console.log(answer[i] + " ");
 		}
+
+		setCookie('answer', answer[], 365);
+		
 	}());
 
 	(function main(){

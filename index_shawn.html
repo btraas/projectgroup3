@@ -13,7 +13,7 @@
 	<!-- 3rd party and our common scripts / css -->
 	<script src='js/patternlock/patternlock-bgt.js'></script>
 	<link href="js/patternlock/patternLock.css"  rel="stylesheet" type="text/css" />
-
+	<script src='js/cookie_load_write.js'></script>
 
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
@@ -33,25 +33,51 @@
 	var gridSize = 5;
 	var matrixSize = 320;
 	var rowSize = gridSize;
+	var numberRange = 4;
+
+	(function generateAnswer(){
+		var answer = [];
+	
+		while(answer.length < numberRange){
+			var randomNum = Math.ceil(Math.random() * numberRange)
+			var unique = true;	
+			for(var i = 0; i < answer.length; i++){
+				if(answer[i]  == randomNum){
+					unique = false;
+					break;
+				}
+			}
+			if(unique){
+				answer[answer.length] = randomNum;
+			}
+		}
+
+		//print out console
+		for(var i = 0; i < answer.length; i++){
+			console.log(answer[i] + " ");
+		}
+
+		setCookie('answer', answer, 365);
+	}());
 
 
 	buttonRadius = matrixSize / rowSize;
 	buttonMargin = buttonRadius / 10;
 	buttonRadius = buttonRadius/2 - (buttonMargin * 2);
 
-		$(document).ready(function(){
-			var lock = new PatternLock('#pattern', 
-			{
-				matrix : [gridSize, gridSize],
-				margin : buttonMargin,
-        		radius: buttonRadius,
-		        patternVisible: true,
-		        lineOnMove: true,
-		        delimiter: "", // a delimeter between the pattern
-		        enableSetPattern: false
-			});
+	$(document).ready(function(){
+		var lock = new PatternLock('#pattern', 
+		{
+			matrix : [gridSize, gridSize],
+			margin : buttonMargin,
+    		radius: buttonRadius,
+	        patternVisible: true,
+	        lineOnMove: true,
+	        delimiter: "", // a delimeter between the pattern
+	        enableSetPattern: false
 		});
-	
+	});
+
 	</script>
 
 </head>
