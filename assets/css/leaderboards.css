@@ -37,15 +37,28 @@ body {
 	margin: auto;
 	margin-top: 10px;
 }
-.global {
 
+.global {
+	width:110px;
 	width:70px;
 	margin: 0;
+	background-color: #E39345;
+	color: white;
+	border:none;
+	font-weight: bold;
+	font-size: 120%;
+	border-radius: 5px;
 }
 
 .local {
+	width:110px;
 	width:70px;
 	margin: 0;
+	background-color: #404040;
+	border:none;
+	color: grey;
+	font-size: 120%;
+	border-radius: 5px;
 }
 
 .list {

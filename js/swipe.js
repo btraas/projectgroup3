@@ -11,8 +11,9 @@ $(document).ready(function(){
     var htmlLine;
     var startpointnumber = 0;
     var endpointnumber = 0;
-    //if 4x4
+    //if 4x4=16
     var gridSize = 16;
+    var numberRange = 4;
     var rowSize = Math.sqrt(gridSize);
 	var buttonSize = 0;
 	var buttonMargin = 0;
@@ -20,6 +21,7 @@ $(document).ready(function(){
 
 	(function generatebuttons(){
 		var patterncontainer  = document.getElementById("patterncontainer");
+
 		for (var i = 1; i <= gridSize; i++) {
 			var button = document.createElement("div");
 
@@ -36,8 +38,34 @@ $(document).ready(function(){
 			document.getElementById("button"+i).style.margin = buttonMargin + 'px';
 
 			startposition = document.getElementById("button" + i);
+		}
+	}());
 
+	(function generateAnswer(){
+		var button = "button";
+		var answer = [];
+	
+		while(answer.length < numberRange){
+			var randomNum = Math.ceil(Math.random() * numberRange)
+			var unique = true;	
+			for(var i = 0; i < answer.length; i++){
+				if(answer[i]  == randomNum){
+					unique = false;
+					break;
+				}
+			}
+			if(unique){
+				answer[answer.length] = randomNum;
+			}
+		}
 
+		for(var index = 0; index < answer.length; index++){
+			answer[index] = button + answer[index];
+		}
+
+		//print out console
+		for(var i = 0; i < answer.length; i++){
+			console.log(answer[i] + " ");
 		}
 	}());
 
@@ -189,6 +217,12 @@ $(document).ready(function(){
 				if(numberarray[i] == numberarray[j]) {
 				}
 			}
+		}
+	};
+
+	function checkAnswer(){
+		for(){
+			
 		}
 	};
 });
