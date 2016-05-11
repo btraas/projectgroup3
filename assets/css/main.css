@@ -50,7 +50,7 @@ body {
   height: 30px;
   background: #e39345;
   border-radius: 50%;
-  border-width: 2px;
+  border-width: 0px;
   border-style: solid;
   border-color: #FFF;
   margin: 20.5px;
@@ -65,7 +65,7 @@ body {
   height: 30px;
   background: rgba(255, 102, 51, 1);
   border-radius: 50%;
-  border-width: 2px;
+  border-width: 0px;
   border-style: solid;
   border-color: #FFF;
   margin: 20.5px;
