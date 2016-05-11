@@ -2,24 +2,16 @@
 <html>
 <head>
 	<title>Memory Swipe</title>
-
-
-	<!-- Main jQuery scripts & CSS (unchanging) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	<script src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js'></script>
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 
-	<!-- 3rd party and our common scripts / css -->
-	<script src='js/patternlock/patternlock-bgt.js'></script>
-	<link href="js/patternlock/patternLock.css"  rel="stylesheet" type="text/css" />
-
+	<script src='js/swipe.js'></script>
 
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<link rel="stylesheet" href="themes/darkTheme.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 
-	<!-- Meta stuff -->
 	<link rel="apple-touch-icon" href="resources/game_icon.png">
 	<link rel="apple-touch-startup-image" href="resources/apple-splash.png">
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -27,9 +19,10 @@
 	<meta name="viewport" content="width=device-width">
 	<meta name="viewport" content="initial-scale=1.0">
 
+
 	<script>
-		$(document).ready(function(){
-			var lock = new PatternLock('#pattern');
+		$(document).bind("mobileinit", function(){
+ 	 	//apply overrides here
 		});
 	
 	</script>
@@ -38,8 +31,9 @@
 
 
 <body>
-<div class="maincontainer">
-    <div id="pattern">
+<div class='ui-page-a' data-theme=a>
+    <h2 id="heading" class="heading">Memory Swipe</h2>
+    <div id="patterncontainer" class="patterncontainer">
     </div>
 </div>
 </body>
