@@ -1,5 +1,3 @@
-var gridSize = 9;
-
 $(document).ready(function(){
 	var answerSet = false;
 	var getClickStarted = false;
@@ -14,7 +12,7 @@ $(document).ready(function(){
     var startpointnumber = 0;
     var endpointnumber = 0;
     //if 4x4
-    var gridSize = 25;
+    var gridSize = 16;
     var rowSize = Math.sqrt(gridSize);
 	var buttonSize = 0;
 	var buttonMargin = 0;
