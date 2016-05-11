@@ -1,48 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Project Group 3</title>
+	<title>Memory Swipe</title>
+
+
+	<!-- Main jQuery scripts & CSS (unchanging) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-	<script src='https://rawgit.com/kangax/fabric.js/master/dist/fabric.js' ></script>
+	<script src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js'></script>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+
+	<!-- 3rd party and our common scripts / css -->
+	<script src='js/patternlock/patternlock-bgt.js'></script>
+	<link href="js/patternlock/patternLock.css"  rel="stylesheet" type="text/css" />
+
+
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" href="themes/darkTheme.min.css" />
+
+	<!-- Meta stuff -->
+	<link rel="apple-touch-icon" href="resources/game_icon.png">
+	<link rel="apple-touch-startup-image" href="resources/apple-splash.png">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="initial-scale=1.0">
+
 	<script>
 
-	$(document).ready(function() {
+		var test_pattern = 161116; // 1 6 11 16
 
-	var canvas = new fabric.Canvas('c', { selection: false });
+		$(document).ready(function(){
+			var lock = new PatternLock('#pattern', 
+			{
+				matrix : [4,4],
+				margin : 10,
+				onDraw:function(pattern) { 
+					if(pattern == test_pattern) alert('pass');
+					else lock.error();
 
-var line, isDown;
+					window.setTimeout(function() { lock.reset(); }, 1000);
 
-canvas.on('mouse:down', function(o){
-  isDown = true;
-  var pointer = canvas.getPointer(o.e);
-  var points = [ pointer.x, pointer.y, pointer.x, pointer.y ];
-  line = new fabric.Line(points, {
-    strokeWidth: 5,
-    fill: 'green',
-    stroke: 'green',
-    originX: 'center',
-    originY: 'center'
-  });
-  canvas.add(line);
-});
-
-canvas.on('mouse:move', function(o){
-  if (!isDown) return;
-  var pointer = canvas.getPointer(o.e);
-  line.set({ x2: pointer.x, y2: pointer.y });
-  canvas.renderAll();
-});
-
-canvas.on('mouse:up', function(o){
-  isDown = false;
-});
-
-	});
-
+				}
+			});
+		});
+	
 	</script>
 
 </head>
+
+
 <body>
-<canvas id="c" width="500" height="500" style="border:1px solid #ccc"></canvas>
+<div class="maincontainer">
+    <div id="pattern">
+    </div>
+</div>
 </body>
+
+
+
 </html>
