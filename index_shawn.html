@@ -13,6 +13,7 @@
 	<!-- 3rd party and our common scripts / css -->
 	<script src='js/patternlock/patternlock-bgt.js'></script>
 	<link href="js/patternlock/patternLock.css"  rel="stylesheet" type="text/css" />
+	<!--Cookie-->
 	<script src='js/cookie_load_write.js'></script>
 
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
@@ -56,8 +57,8 @@
 		for(var i = 0; i < answer.length; i++){
 			console.log(answer[i] + " ");
 		}
-
-		setCookie('answer', answer, 365);
+		
+		setCookie('answer', JSON.stringify(answer), 365);
 	}());
 
 
