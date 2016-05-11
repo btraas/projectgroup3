@@ -10,10 +10,8 @@ body {
 	border: 1px solid black;
 }
 
-.score {
-	font-size: 180%;
-	color: white;
-	text-align: center;
+.scoreArea {
+
 	margin-top: 50px;
 	margin-left: 15px;
 
@@ -25,6 +23,13 @@ body {
     background-size: 96% 50px;
 }
 
+.score {
+	color: white;
+    font-size: 180%;
+	text-align: center;
+    padding-top: 5px;
+    letter-spacing: 3px;
+}
 
 .ranking {
 	font-size: 180%;
@@ -48,15 +53,10 @@ body {
   width: 95px;
   height: 65px;
   margin: 10px auto;
-
-  background-image: url('../../resources/result_buttons_home.png');
   cursor:pointer;
-  background-repeat: no-repeat;
-  background-size: 95px 65px;
 }
 
 .postBtn {
-	background-image: url('../../resources/result_buttons_leaderboards.png');
 	cursor:pointer;
 	width: 95px;
  	height: 65px;
@@ -64,16 +64,13 @@ body {
 }
 
 .selectBtn {
-	background-image: url('../../resources/result_buttons_level.png');
 	cursor:pointer;
 	width: 95px;
  	height: 65px;
  	margin: 10px auto;
-
 }
 
 .playBtn {
-	background-image: url('../../resources/result_buttons_retry.png');
 	cursor:pointer;
 	width: 95px;
  	height: 65px;
