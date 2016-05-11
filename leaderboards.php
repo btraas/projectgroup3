@@ -40,7 +40,7 @@
             </tr>
 
 <?php
-            $sql="SELECT 10 FROM $tb_name ORDER BY score DESC limit 0,6";
+            $sql="SELECT * FROM $tb_name ORDER BY score DESC limit 0,9";
             // ORDER BY id DESC is order result by descending
             $result=mysql_query($sql);
             $num = 1;
@@ -48,7 +48,7 @@
 ?>
 
                 <tr>
-                    <td><?php echo ++$num; ?></td>
+                    <td><?php echo ucwords($rows['id']); ?></td>
                     <td><?php echo ucwords($rows['username']); ?></td>
                     <td><?php echo ucwords($rows['score']); ?></td>
                 </tr>
