@@ -72,7 +72,7 @@ $(document).ready(function(){
 	(function main(){
 		if(!window.navigator.msPointerEnabled) {
 
-			$(".button").on("mousedown", function (event){
+			$(".button").on("mousedown touchstart", function (event){
 
 				if(!getClickStarted){
 					
@@ -100,11 +100,10 @@ $(document).ready(function(){
 				}
 			});
 
-			$(document).bind("mousemove", function(event) {
+			$(document).bind("mousemove touchmove", function(event) {
 			    if (getClickStarted){ //to avoid mousemove triggering before click
-
 			        if (event && event.preventDefault){
-			           event.preventDefault();
+			           //event.preventDefault();
 			        }
 
 			        curX = event.clientX - $("#patterncontainer").offset().left;
@@ -113,15 +112,22 @@ $(document).ready(function(){
 			        var width = Math.sqrt(Math.pow(curX - centerX1, 2) + Math.pow(curY - centerY1, 2)); //varying width and slope
 			        var slope = Math.atan2(curY - centerY1, curX - centerX1)*180/3.14;
 
+
 			        //setting varying width and slope to line
-			        $("#line" + startpointnumber).css({"width": + width +"px", "height": "4px", "transform": "rotate(" + slope + "deg)", "-webkit-transform": "rotate(" + slope + "deg)", "-moz-transform": "rotate(" + slope + "deg)"});
+			        $("#line" + startpointnumber).css({
+						"width": + width +"px", 
+						"height": "4px", 
+						"transform": "rotate(" + slope + "deg)", 
+						"-webkit-transform": "rotate(" + slope + "deg)", 
+						"-moz-transform": "rotate(" + slope + "deg)"
+					});
+
 
 			        //if button is found on the path
-    	    		$(".button").bind("mouseover", function(e) {
-
-    	    			endpointnumber = e.target.id.split("button").join("");
-
+    	    		$(".button").bind("mouseover swipe", function(e) {
+						endpointnumber = e.target.id.split("button").join("");
         				if (startpointnumber != endpointnumber) {
+
 							if (e && e.preventDefault){
 				               e.preventDefault();
 				            }
@@ -144,7 +150,6 @@ $(document).ready(function(){
 
 				            var linewidth = Math.sqrt(Math.pow(centerX2 - centerX1, 2) + Math.pow(centerY2 - centerY1, 2));
 				            var lineslope = Math.atan2(centerY2 - centerY1, centerX2 - centerX1)*180/3.14;
-
 				            $("#line" + startpointnumber + endpointnumber).css({"width": + linewidth +"px", "transform": "rotate(" + lineslope + "deg)", "-webkit-transform": "rotate(" + lineslope + "deg)", "-moz-transform": "rotate(" + lineslope + "deg)"});
 
 				            startpointnumber = endpointnumber;
