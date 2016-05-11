@@ -31,8 +31,13 @@
 
 		alert(username);
 		
+
+		if (username!=null && username!= "") {
+			alert('Current username cookie is: '+username);
+
 		if (username != null && username != "") {
 			alert('Current username cookie is: ' + username);
+
 		} else {
 			username = prompt('No username cookie, enter a new username: ',"");
 

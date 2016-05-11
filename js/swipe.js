@@ -222,7 +222,7 @@ $(document).ready(function(){
 
 	function checkAnswer(){
 		for(){
-			
+
 		}
 	};
 });
