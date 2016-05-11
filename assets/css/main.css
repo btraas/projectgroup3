@@ -4,11 +4,15 @@ body {
   text-align: center;
   font-size: 95%;
   line-height: 1.5;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
 }
 
 .maincontainer {
   margin: 0 auto;
-  right: auto;x
+  right: auto;
   bottom: auto;
   width: 310px;
   height: 350px;
@@ -16,6 +20,7 @@ body {
   color: #FFF;
   text-align: center;
   border-radius: 10px;
+  overflow: none;
 }
 
 .patterncontainer {
