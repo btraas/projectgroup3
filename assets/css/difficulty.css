@@ -1,0 +1,25 @@
+body{
+    margin: auto;
+    width: 320px;
+}
+.menu{
+    margin: auto;
+    width: 320px;
+    clear: both;
+}
+
+#text{
+    margin: auto;
+    width: 320px;
+}
+
+.levelselection{
+    margin: auto;
+    width: 320px;
+    font-family: 'Segoe UI Emoji';
+}
+
+.play{
+    margin: auto;
+    width: 320px;
+}

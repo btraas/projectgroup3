@@ -23,7 +23,6 @@ $rows=mysql_fetch_array($result);
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<link rel="stylesheet" type="text/css" href="assets/css/result.css">
 	<title>result page</title>
-
     <script>
         function goHome()  {
        		window.location = 'menu.html'
