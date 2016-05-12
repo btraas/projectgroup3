@@ -2,6 +2,13 @@ body{
     margin: auto;
     width: 320px;
 }
+
+.wrapper{
+    margin: auto;
+    width: 320px;
+    height: 480px !important;
+}
+
 .menu{
     margin: auto;
     width: 320px;

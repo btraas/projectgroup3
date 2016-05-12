@@ -1,4 +1,7 @@
 
+// enable vibration support
+navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+
 // The following functions are from external sources.
 // https://intranet.devrygreenhouses.com/rc/js/devry-ui-functions.js
 
