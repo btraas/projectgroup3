@@ -41,7 +41,7 @@
             radius = option.radius,
             html = ['<ul class="patt-wrap" style="padding:' + margin + 'px">'];
         for (var i = 0, ln = matrix[0] * matrix[1]; i < ln; i++) {
-            html.push('<li id="index' + i + '" class="patt-circ" style="margin:' + margin + 'px; width : ' + (radius * 2) + 'px; height : ' + (radius * 2) + 'px; -webkit-border-radius: ' + radius + 'px; -moz-border-radius: ' + radius + 'px; border-radius: ' + radius + 'px; "><div class="patt-dots"></div></li>');
+            html.push('<li class="patt-circ" style="margin:' + margin + 'px; width : ' + (radius * 2) + 'px; height : ' + (radius * 2) + 'px; -webkit-border-radius: ' + radius + 'px; -moz-border-radius: ' + radius + 'px; border-radius: ' + radius + 'px; "><div class="patt-dots"></div></li>');
         }
         html.push('</ul>');
         holder.html(html.join('')).css({
@@ -296,45 +296,12 @@
 
         //to delete from option object
         iObj.option.mapper = null;
-
-
-        // showing answer for 1.5 seconds
-        var answer = decodeURI(getCookie('answer')).split('|');
-        var numbers = [];
-
-        console.log("xxx:" + answer[0] + answer[1] + answer[2] + answer[3]);
-
-        for(var i = 0; i < answer.length; i++){
-            var index = "index" + (answer[i]-1);
-
-            if(i == 0) {
-                numbers[i] = Math.ceil(Math.random() * 10); 
-            } else {
-                numbers[i] = numbers[i-1] + Math.ceil(Math.random() * 4); 
-            }
-
-            document.getElementById(index).innerHTML = "" + numbers[i];
-        }
-        
-        window.setTimeout(function() { 
-
-            for(var i = 0; i < answer.length; i++){
-                var index = "index" + (answer[i]-1);
-                document.getElementById(index).innerHTML = "<div class='patt-dots'></div>";
-            }
-
-            }
-
-            , 1500);
-        /////////////////////////////////////////////////////////////////////
-
     }
 
     PatternLock.prototype = {
         constructor: PatternLock,
         //method to set options after initializtion
         option: function (key, val) {
-
             var iObj = objectHolder[this.token],
                 option = iObj.option;
             //for set methods
