@@ -11,10 +11,11 @@
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 
 	<!-- 3rd party and our common scripts / css -->
-	<script src='js/patternlock/patternlock-bgt.js'></script>
+	<script src='js/patternlock/patternLock.js'></script>
 	<link href="js/patternlock/patternLock.css"  rel="stylesheet" type="text/css" />
 	<!--Cookie-->
 	<script src='js/cookie_load_write.js'></script>
+	<script src='js/functions.js'></script>
 
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
@@ -39,21 +40,107 @@
 
 	var test_pattern = 161116; // 1 6 11 16
 
-	(function generateAnswer(){
+	/* capital G because we use it as an object */
+	function GridButton(value, values, rows, columns) // {{{
+	{
+		if( empty(value) || value < 1 || value > (rows*columns)) 
+		{
+			alert('Invalid gridButton value: '+value);
+			return false;
+		}
+
+		this.value = value;
+		this.values = values;
+		this.index = value-1;
+		this.rows = rows;
+		this.columns = columns;
+		this.numGridButtons = rows*columns;		
+
+		this.nearest = [];
+
+		this.firstRow = function()
+		{
+			return this.value <= columns;
+		}
+		this.lastRow = function()
+		{
+			return this.value > (this.numGridButtons - columns);		
+		}
+		this.firstColumn = function()
+		{
+			return (this.index == 0 || this.index % columns == 0)
+		}
+		this.lastColumn = function()
+		{
+			return this.value % columns == 0;
+		}
+		this.up = function()
+		{
+			return this.value - this.columns;
+		}
+		this.down = function()
+		{
+			return this.value + this.columns;
+		}
+
+		this.getNearest = function()
+		{
+			/*
+			console.log("Previous num: "+this.value);
+			console.log("firstRow? "+this.firstRow());
+			console.log("lastRow? "+this.lastRow());
+			console.log("firstCol? "+this.firstColumn());
+			console.log("lastCol? "+this.lastColumn());
+			*/
+			if(!this.firstRow() && !this.firstColumn()) 	this.add(this.up() - 1);
+			if(!this.firstRow())							this.add(this.up());
+			if(!this.firstRow() && !this.lastColumn())		this.add(this.up() + 1);
+			if(!this.lastColumn())							this.add(this.value + 1);
+			if(!this.lastRow() && !this.lastColumn())		this.add(this.down() + 1);
+			if(!this.lastRow())								this.add(this.down());
+			if(!this.lastRow() && !this.firstColumn())		this.add(this.down() - 1);
+			if(!this.firstColumn())							this.add(this.value - 1);
+	
+			return this.nearest;
+		}
+
+		this.add = function(val)
+		{
+			if(this.values.indexOf(val) == -1 && this.nearest.indexOf(val) == -1) 
+			{
+				this.nearest.push(val);
+			}
+
+		}
+
+
+	} // }}}
+	function getNextNumber(grid) // {{{
+	{
+		var nextNum = 0;
+
+		if(grid.length == 0)
+		{
+			nextNum = Math.ceil(Math.random() * (gridSize*gridSize));
+		}
+		else
+		{
+			var lastButton = new GridButton(grid[grid.length - 1], grid, gridSize, gridSize);
+			var values = lastButton.getNearest();
+			//console.log("Button "+grid[grid.length-1]+" values: "+JSON.stringify(values));
+
+			nextNum = values[Math.ceil(Math.random() * values.length) - 1];
+		}
+
+		return nextNum;
+
+	} // }}}
+
+	(function generateAnswer(){ // {{{ Generate the answer
 		var answer = [];
 	
 		while(answer.length < numberRange){
-			var randomNum = Math.ceil(Math.random() * maxNumber)
-			var unique = true;	
-			for(var i = 0; i < answer.length; i++){
-				if(answer[i]  == randomNum){
-					unique = false;
-					break;
-				}
-			}
-			if(unique){
-				answer[answer.length] = randomNum;
-			}
+			answer[answer.length] = getNextNumber(answer);
 		}
 
 		//print out console
@@ -61,18 +148,21 @@
 			console.log(answer[i] + " ");
 		}
 		
-		setCookie('answer', JSON.stringify(answer), 365);
+		setCookie('answer', answer.join('|'), 365);
 
-		console.log(getCookie('answer'));
-	}());
+		console.log(decodeURI(getCookie('answer')).split('|').join(''));
 
+
+	}()); // }}}
+
+	// Math to determine element sizes
 
 	buttonRadius = matrixSize / rowSize;
 	buttonMargin = buttonRadius / 10;
 	buttonRadius = buttonRadius/2 - (buttonMargin * 2);
 
 	$(document).ready(function(){
-		var lock = new PatternLock('#pattern', 
+		var lock = new PatternLock('#pattern', // Generate a grid
 		{
 			matrix : [gridSize, gridSize],
 			margin : buttonMargin,
@@ -82,9 +172,11 @@
 	        delimiter: "", // a delimeter between the pattern
 	        enableSetPattern: false,
 			onDraw:function(pattern) {
-					
+					var answer = decodeURI(getCookie('answer')).split('|').join('');
 
-                    if(pattern == test_pattern) alert('pass');
+					console.log("comparing input ("+pattern+") to answer ("+answer+")");
+
+                    if(pattern == answer) alert('pass');
                     else lock.error();
 
                     window.setTimeout(function() { lock.reset(); }, 1000);
@@ -101,6 +193,7 @@
 
 <body>
 <div class="maincontainer">
+	<img src='resources/game_logo.png' style='max-width: 100%;'/>
     <div id="pattern">
     </div>
 </div>

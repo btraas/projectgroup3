@@ -19,6 +19,7 @@ body {
 	text-align: center;
 	font-size: 160%;
 	font-weight: bold;
+	border:none;
 }
 
 .leaderboards {
