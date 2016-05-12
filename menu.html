@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<link rel="stylesheet" type="text/css" href="assets/css/menu.css">
+	<title>result page</title>
+
+    <script>
+        function onPlay()  {
+       		window.location = 'game.html'
+        }
+        function onSettings()  {
+       		window.location = 'settings.html'
+        }
+        function onBoards()  {
+       		window.location = 'leaderboards.php'
+        }
+        function onAbout()  {
+       		window.location = 'aboutus.html'
+        }
+     </script>
+</head>
+
+<body>
+	<div class='wrapper'>
+
+		<div class='logo'></div>
+
+		<div class='menu'>
+				<input type="image" src="resources/settings.png" onclick="onSettings()" class="settings">
+                <input type="image" src="resources/leaderboards.png" value="Leaderboards" onclick="onBoards()" class="leaderboards">
+                <input type="image" src="resources/info.png" onclick="onAbout()" class="about">
+		</div>
+
+		<div class='play'>
+			<input type='button' class='playBtn' value='Play' onclick='onPlay()'>
+		</div>
+
+
+	</div>
+</body>
+
+
+
+</html>

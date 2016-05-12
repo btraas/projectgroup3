@@ -26,7 +26,7 @@ $rows=mysql_fetch_array($result);
 
     <script>
         function goHome()  {
-       		window.location = 'index.html'
+       		window.location = 'menu.html'
         }
         function goPost()  {
        		window.location = 'postscore.html'
