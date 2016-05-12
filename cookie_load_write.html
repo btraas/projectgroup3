@@ -35,17 +35,19 @@
 		if (username!=null && username!= "") {
 			alert('Current username cookie is: '+username);
 
-		if (username != null && username != "") {
-			alert('Current username cookie is: ' + username);
-
-		} else {
-			username = prompt('No username cookie, enter a new username: ',"");
-
 			if (username != null && username != "") {
+				alert('Current username cookie is: ' + username);
 
-				setCookie('username', username, 365);
+			} else {
+				username = prompt('No username cookie, enter a new username: ',"");
+
+				if (username != null && username != "") {
+
+					setCookie('username', username, 365);
+				}
 			}
 		}
+
 	}
 
 	function eraseCookie(name) {
