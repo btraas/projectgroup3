@@ -38,12 +38,12 @@
 		<input type="button" class='menu' value = 'Menu' onclick='onMenu()'/>
 
     <div class="switcher">
+            <p class='theme'>Leaderboards</p>
             <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
-		    <p class='theme'>Leaderboards</p>
             <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="Global" checked="checked" />
 			<label for="radio-choice-a1">Global</label>
 			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="Local"  />
-			<label for="radio-choice-b1">Local </label>
+			<label for="radio-choice-b1">Local</label>
             </fieldset>
     </div>
 
