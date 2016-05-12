@@ -9,13 +9,19 @@
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script>
-        function goHome()  {
-       		window.location = 'index.html'
+        function goHome() {
+            window.location = 'index.html'
         }
-        function goPlay()  {
-       		window.location = 'play.html'
+        function goPlay() {
+            window.location = 'play.html'
         }
+        function updateImg(val) {
+            document.getElementById('lvImg').src = 'resources/Level/Lv'+val+'(fake).png';
+        }   
+
      </script>
+
+</script>
 	<title>Difficult page</title>
 
 </head>
@@ -26,8 +32,8 @@
 
     <div id="text"><label for="level">Difficulty:</label> </div>
     <div class="levelselection">       
-			<img src="resources/Level/Level1(fake).png" alt="Level1" height="320" width="320">
-			<input type="range" name="level" value="1" min="1" max="10">                                                       
+			<img id="lvImg" src="resources/Level/Lv1(fake).png" alt="LevelImg" height="320" width="320">
+			<input type="range" name="level" value="1" min="1" max="10" onchange="updateImg(this.value);">                                                       
 	</div>
     </br>
     <div class="play">
