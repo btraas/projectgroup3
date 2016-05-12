@@ -13,6 +13,14 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<link rel="stylesheet" type="text/css" href="assets/css/leaderboards.css">
+
+<!--Theme css-->
+    <link rel="stylesheet" href="themes/darkTheme.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
 	<title>Leaderboards</title>
 
     <script>
@@ -29,11 +37,14 @@
 
 		<input type="button" class='menu' value = 'Menu' onclick='onMenu()'/>
 
-		<div class='leaderboards'>Leaderboards</div>
-
-    <div class='buttons'>
-        <input type="button" class='global' value='Global'>
-        <input type="button" class='local' value='Local'>
+    <div class="switcher">
+            <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
+		    <p class='theme'>Leaderboards</p>
+            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="Global" checked="checked" />
+			<label for="radio-choice-a1">Global</label>
+			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="Local"  />
+			<label for="radio-choice-b1">Local </label>
+            </fieldset>
     </div>
 
 		<div class='list'>
