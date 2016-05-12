@@ -10,6 +10,9 @@
 	$tb_name="leaderboards"; // Table name
 
 	$score=$_GET['score'];
+	if($score==0 || $score == null) {
+		$score = 0;
+	}
 
 	$score = mysql_real_escape_string($score);
 	$sql = "SELECT COUNT(*) + 1 AS rank FROM $tb_name WHERE $score < score ;";
@@ -27,13 +30,14 @@
        		window.location = 'menu.html'
         }
         function goPost()  {
-       		window.location = 'postscore.html'
+			var username = prompt('Plese enter your username:',"");
+			window.location = 'post_score.php?username=' + username + "&score=" + <?php echo $score ?>;
         }
         function goSelect()  {
        		window.location = 'difficulty.html'
         }
         function goPlay()  {
-       		window.location = 'play.html'
+       		window.location = 'game.html'
         }
      </script>
 </head>

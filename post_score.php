@@ -23,7 +23,7 @@ $sql="INSERT INTO $tb_name(username, score, datetime)VALUES('$username', '$score
 $result=mysql_query($sql);
 
 if($result)
-	header('Location: result.php');
+	header("Location: result.php?score=$score");
 else {
 	echo "ERROR".mysql_error();
 }
