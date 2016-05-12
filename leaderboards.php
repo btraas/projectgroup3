@@ -54,13 +54,12 @@
 ?>
 
                 <tr>
-                    <td><?php echo ucwords($rows['id']); ?></td>
+                    <td><?php echo $num++ ?></td>
                     <td><?php echo ucwords($rows['username']); ?></td>
                     <td><?php echo ucwords($rows['score']); ?></td>
                 </tr>
 
 <?php
-              $num++;
             }
              mysql_close(); // close database connection
 ?>
