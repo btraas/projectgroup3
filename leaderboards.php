@@ -15,13 +15,20 @@
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<link rel="stylesheet" type="text/css" href="assets/css/leaderboards.css">
 	<title>Leaderboards</title>
+
+    <script>
+        function onMenu() {
+            window.location = 'index.html'
+        }
+    </script>   
+    
 </head>
 
 <body>
 
 	<div class='wrapper'>
 
-		<div class='menu'>Menu</div>
+		<input type="button" class='menu' value = 'Menu' onclick='onMenu()'/>
 
 		<div class='leaderboards'>Leaderboards</div>
 
