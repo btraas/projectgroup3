@@ -8,12 +8,20 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+        function goHome()  {
+       		window.location = 'index.html'
+        }
+        function goPlay()  {
+       		window.location = 'play.html'
+        }
+     </script>
 	<title>Difficult page</title>
 
 </head>
 <body>
 	<div class="menu">
-		<button type="button">Menu</button>
+		<button type="button" onclick="goHome()>Menu</button>
 	</div></br>
 
     <div id="text"><label for="level">Difficulty:</label> </div>
@@ -23,7 +31,7 @@
 	</div>
     </br>
     <div class="play">
-        <button type="button">Play</button>
+        <button type="button" onclick="goPlay()>Play</button>
     </div>
 </body>
 </html>
