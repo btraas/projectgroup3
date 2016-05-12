@@ -4,6 +4,11 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<link rel="stylesheet" type="text/css" href="assets/css/settings.css">
+    	<link rel="stylesheet" href="themes/darkTheme.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src='js/cookie_load_write.js'></script>
 	<title>Settings</title>
 
@@ -36,18 +41,20 @@
 		<input type="button" class='menu' value = 'Menu' onclick='onMenu()'/>
 
 		<div class='volume_text'>BGM Volume</div>
-		<input type="range" class='bgm' id='bgm' value="0" min="0" max="20" onchange ="showVal_bgm(this.value)" />
+		<input type="range" class='bgm' id='bgm' value="" min="0" max="100" onchange ="showVal_bgm(this.value)" />
 
 		<div class='volume_text'>SFX Volume</div>
-		<input type="range" class='sfx' id='sfx' value="0" min="0" max="20" onchange ='showVal_sfx(this.value)'/>
-
-		<div class='theme'>Dark/Light Theme</div>
-
-	    <div class='buttons'>
-	        <input type="button" class='dark' value='Dark'>
-	        <input type="button" class='light' value='Light'>
-	    </div>
-
+		<input type="range" class='sfx' id='sfx' value="" min="0" max="100" onchange ='showVal_sfx(this.value)'/>
+        
+        <div class="switcher">
+            <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
+		    <legend class='theme'>Dark/Light Theme</legend>
+            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="Dark" checked="checked" />
+			<label for="radio-choice-a1">Dark</label>
+			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="Light"  />
+			<label for="radio-choice-b1">Light</label>
+            </fieldset>
+        </div>
 	</div>
 
 </body>
