@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Memory Swipe</title>
+
+
+	<!-- Main jQuery scripts & CSS (unchanging) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js'></script>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+
+	<!-- 3rd party and our common scripts / css -->
+	<script src='js/patternlock/patternlock-bgt.js'></script>
+	<link href="js/patternlock/patternLock.css"  rel="stylesheet" type="text/css" />
+	<!--Cookie-->
+	<script src='js/cookie_load_write.js'></script>
+
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" href="themes/darkTheme.min.css" />
+
+	<!-- Meta stuff -->
+	<link rel="apple-touch-icon" href="resources/game_icon.png">
+	<link rel="apple-touch-startup-image" href="resources/apple-splash.png">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="initial-scale=1.0">
+
+	<script>
+	var buttonRadius = 0;
+	var buttonMargin = 0;
+	var gridSize = 5;
+	var matrixSize = 320;
+	var rowSize = gridSize;
+	var numberRange = 4;
+	var maxNumber = Math.pow(5, 2);
+
+	var test_pattern = 161116; // 1 6 11 16
+
+	(function generateAnswer(){
+		var answer = [];
+	
+		while(answer.length < numberRange){
+			var randomNum = Math.ceil(Math.random() * maxNumber)
+			var unique = true;	
+			for(var i = 0; i < answer.length; i++){
+				if(answer[i]  == randomNum){
+					unique = false;
+					break;
+				}
+			}
+			if(unique){
+				answer[answer.length] = randomNum;
+			}
+		}
+
+		//print out console
+		for(var i = 0; i < answer.length; i++){
+			console.log(answer[i] + " ");
+		}
+		
+		setCookie('answer', JSON.stringify(answer), 365);
+
+		console.log(getCookie('answer'));
+	}());
+
+
+	buttonRadius = matrixSize / rowSize;
+	buttonMargin = buttonRadius / 10;
+	buttonRadius = buttonRadius/2 - (buttonMargin * 2);
+
+	$(document).ready(function(){
+		var lock = new PatternLock('#pattern', 
+		{
+			matrix : [gridSize, gridSize],
+			margin : buttonMargin,
+    		radius: buttonRadius,
+	        patternVisible: true,
+	        lineOnMove: true,
+	        delimiter: "", // a delimeter between the pattern
+	        enableSetPattern: false,
+			onDraw:function(pattern) {
+					
+
+                    if(pattern == test_pattern) alert('pass');
+                    else lock.error();
+
+                    window.setTimeout(function() { lock.reset(); }, 1000);
+
+                }
+
+		});
+	});
+
+	</script>
+
+</head>
+
+
+<body>
+<div class="maincontainer">
+    <div id="pattern">
+    </div>
+</div>
+</body>
+
+
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<link rel="stylesheet" type="text/css" href="assets/css/settings.css">
+    <script src='js/cookie_load_write.js'></script>
+	<title>Settings</title>
+
+	<script>
+
+		function myFunction() {
+			document.getElementById("bgm").value = getCookie('bgm');
+			document.getElementById("sfx").value = getCookie('sfx');
+		}
+
+		function onMenu() {
+			window.location = 'index.html';
+		}
+
+		function showVal_bgm(val) {
+			setCookie('bgm', val, 365);
+		}
+
+		function showVal_sfx(val) {
+			setCookie('sfx', val, 365);
+		}
+
+	</script>
+
+</head>
+
+<body onload="myFunction()">
+
+	<div class='wrapper'>
+		<input type="button" class='menu' value = 'Menu' onclick='onMenu()'/>
+
+		<div class='volume_text'>BGM Volume</div>
+		<input type="range" class='bgm' id='bgm' value="0" min="0" max="20" onchange ="showVal_bgm(this.value)" />
+
+		<div class='volume_text'>SFX Volume</div>
+		<input type="range" class='sfx' id='sfx' value="0" min="0" max="20" onchange ='showVal_sfx(this.value)'/>
+
+		<div class='theme'>Dark/Light Theme</div>
+
+	    <div class='buttons'>
+	        <input type="button" class='dark' value='Dark'>
+	        <input type="button" class='light' value='Light'>
+	    </div>
+
+	</div>
+
+</body>
+
+</html>

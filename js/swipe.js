@@ -1,8 +1,7 @@
 $(document).ready(function(){
-	var errorraised = false;
-	var passwordset = false;
+	var answerSet = false;
 	var getClickStarted = false;
-	var autosubmit = true;
+	var errorRaised = false;
 	var password;
     var centerX1;
     var centerY1;
@@ -10,40 +9,73 @@ $(document).ready(function(){
     var curY = 0;
     var getClickStarted = false;
     var htmlLine;
-    var startpointnumber=0;
-    var endpointnumber=0;
-
-	(function checkIfPasswordIsSet() {
-		if (localStorage.getItem("password")) {
-			document.getElementById("heading").innerHTML = "Enter pattern to unlock screen";
-			passwordset = true;
-		}
-		else {
-			document.getElementById("heading").innerHTML = "Please set your pattern";
-		}
-	}());
+    var startpointnumber = 0;
+    var endpointnumber = 0;
+    //if 4x4=16
+    var gridSize = 16;
+    var numberRange = 4;
+    var rowSize = Math.sqrt(gridSize);
+	var buttonSize = 0;
+	var buttonMargin = 0;
+	var containerSize = 280;
 
 	(function generatebuttons(){
 		var patterncontainer  = document.getElementById("patterncontainer");
-		for (var i = 1; i <=9; i++) {
+
+		for (var i = 1; i <= gridSize; i++) {
 			var button = document.createElement("div");
+
 			button.className = "button";
 			button.id = "button" + i;
 			patterncontainer.appendChild(button);
+
+			buttonSize = containerSize / rowSize;
+			buttonMargin =	buttonSize / 10;
+			buttonSize = buttonSize - (buttonMargin * 2);
+
+			document.getElementById("button"+i).style.width = buttonSize + 'px';
+			document.getElementById("button"+i).style.height = buttonSize +'px';
+			document.getElementById("button"+i).style.margin = buttonMargin + 'px';
 
 			startposition = document.getElementById("button" + i);
 		}
 	}());
 
+    var numberRange = 4;
+	(function generateAnswer(){
+		var answer = [];
+	
+		while(answer.length < numberRange){
+			var randomNum = Math.ceil(Math.random() * numberRange)
+			var unique = true;	
+			for(var i = 0; i < answer.length; i++){
+				if(answer[i]  == randomNum){
+					unique = false;
+					break;
+				}
+			}
+			if(unique){
+				answer[answer.length] = randomNum;
+			}
+		}
+
+		//print out console
+		for(var i = 0; i < answer.length; i++){
+			console.log(answer[i] + " ");
+		}
+
+		setCookie('answer', answer[], 365);
+		
+	}());
+
 	(function main(){
 		if(!window.navigator.msPointerEnabled) {
 
-			$(".button").on("mousedown", function (event){
+			$(".button").on("mousedown touchstart", function (event){
 
 				if(!getClickStarted){
 					
 					getClickStarted = true;
-
 					var offset1 = $("#" + event.target.id).position();
 
 					centerX1 = offset1.left + $("#" + event.target.id).innerWidth()/2 + 20.5; //22.5 is the margin of the button class
@@ -65,14 +97,12 @@ $(document).ready(function(){
 
 					addline(startpointnumber, centerX1, centerY1); //initiating a moving line
 				}
-
 			});
 
-			$(document).bind("mousemove", function(event) {
+			$(document).bind("mousemove touchmove", function(event) {
 			    if (getClickStarted){ //to avoid mousemove triggering before click
-
 			        if (event && event.preventDefault){
-			           event.preventDefault();
+			           //event.preventDefault();
 			        }
 
 			        curX = event.clientX - $("#patterncontainer").offset().left;
@@ -81,15 +111,22 @@ $(document).ready(function(){
 			        var width = Math.sqrt(Math.pow(curX - centerX1, 2) + Math.pow(curY - centerY1, 2)); //varying width and slope
 			        var slope = Math.atan2(curY - centerY1, curX - centerX1)*180/3.14;
 
+
 			        //setting varying width and slope to line
-			        $("#line" + startpointnumber).css({"width": + width +"px", "height": "4px", "transform": "rotate(" + slope + "deg)", "-webkit-transform": "rotate(" + slope + "deg)", "-moz-transform": "rotate(" + slope + "deg)"});
+			        $("#line" + startpointnumber).css({
+						"width": + width +"px", 
+						"height": "4px", 
+						"transform": "rotate(" + slope + "deg)", 
+						"-webkit-transform": "rotate(" + slope + "deg)", 
+						"-moz-transform": "rotate(" + slope + "deg)"
+					});
+
 
 			        //if button is found on the path
-    	    		$(".button").bind("mouseover", function(e) {
-
-    	    			endpointnumber = e.target.id.split("button").join("");
-
+    	    		$(".button").bind("mouseover swipe", function(e) {
+						endpointnumber = e.target.id.split("button").join("");
         				if (startpointnumber != endpointnumber) {
+
 							if (e && e.preventDefault){
 				               e.preventDefault();
 				            }
@@ -112,7 +149,6 @@ $(document).ready(function(){
 
 				            var linewidth = Math.sqrt(Math.pow(centerX2 - centerX1, 2) + Math.pow(centerY2 - centerY1, 2));
 				            var lineslope = Math.atan2(centerY2 - centerY1, centerX2 - centerX1)*180/3.14;
-
 				            $("#line" + startpointnumber + endpointnumber).css({"width": + linewidth +"px", "transform": "rotate(" + lineslope + "deg)", "-webkit-transform": "rotate(" + lineslope + "deg)", "-moz-transform": "rotate(" + lineslope + "deg)"});
 
 				            startpointnumber = endpointnumber;
@@ -121,12 +157,9 @@ $(document).ready(function(){
 
 				            addline(startpointnumber, centerX1, centerY1);
         				}
-
     	    		});
 			    }
-
 				$("#patterncontainer").on("mouseup", function (event){
-
 					if(getClickStarted) {
 						if (event && event.preventDefault){
 			               event.preventDefault();
@@ -134,14 +167,10 @@ $(document).ready(function(){
 
 			            $("#line" + startpointnumber).remove();
 
-			            // if (autosubmit) {
-			            // 	formsubmit();
-			            // }
 					}
 					getClickStarted = false;
 				});
 			});
-
 		} else {
 			alert ("INTERNET EXPLORER NOT SUPPORTED!!");
 		}
@@ -155,19 +184,13 @@ $(document).ready(function(){
 	}
 
 	function formsubmit(){
-
 	    var digits = getlength(password);
-	    if(digits<5) {
-	    	raiseerror("lengthTooSmall");
-	    }
 
-	    //checkduplicatedigits(password);
-
-	    if (errorraised == false && passwordset == false) {
+	    if (errorraised == false && answerSet == false) {
 			localStorage.setItem("password", password);
 			successmessage("patternStored");
 	    }
-	    else if ( errorraised == false && passwordset == true) {
+	    else if ( errorraised == false && answerSet == true) {
 	    	if (localStorage.getItem("password") == password) {
 	    		successmessage("screenUnlocked");
 	    		window.location = "./welcome.html";
@@ -183,50 +206,22 @@ $(document).ready(function(){
 	    return number.toString().length;
 	};
 
-	// function checkduplicatedigits(number) {
-	// 	var digits = getlength(number);
-	// 	numberstring = number.toString();
-	// 	var numberarray = numberstring.split("");
-	// 	var i; var j;
-	// 	for (i = 0; i < digits-1; i++) {
-	// 		for (j = i+1; j < digits; j++) {
-	// 			if(numberarray[i] == numberarray[j]) {
-	// 				raiseerror("repeatedEntry");
-	// 			}
-	// 		}
+	function checkduplicatedigits(number) {
+		var digits = getlength(number);
+		numberstring = number.toString();
+		var numberarray = numberstring.split("");
+		var i; var j;
+		for (i = 0; i < digits-1; i++) {
+			for (j = i+1; j < digits; j++) {
+				if(numberarray[i] == numberarray[j]) {
+				}
+			}
+		}
+	};
+
+	// function checkAnswer(){
+	// 	for(){
+
 	// 	}
 	// };
-
-	function successmessage(successcode) {
-		if(successcode == "screenUnlocked") {
-			alert("You have unlocked the screen!");
-		}
-		if (successcode == "patternStored") {
-			alert("Your pattern is stored. Thanks.");
-			passwordset = true;	
-		}
-		if (successcode == "Success") {
-			alert("Pattern Reset Success!");
-		}
-		location.reload();
-	};
-
-	function raiseerror(errorcode) {
-		if(!errorraised){
-			errorraised = true;
-			if (errorcode == "lengthTooSmall") {
-				alert("The pattern is too short. Please try again.");
-			}
-			// if (errorcode == "repeatedEntry") {
-			// 	alert("You cannot use the same number twice. Please try again.");
-			// }
-			if (errorcode == "IncorrectPattern") {
-				alert("The entered pattern in incorrect. Please try again.");
-			}
-			if (errorcode == "emptyPassword") {
-				alert("You did not set the password to reset it.");
-			}
-			location.reload();
-		}
-	};
 });
