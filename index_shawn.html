@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 
 	<!-- 3rd party and our common scripts / css -->
-	<script src='js/patternlock/patternlock-bgt.js'></script>
+	<script src='js/patternlock/patternLock.js'></script>
 	<link href="js/patternlock/patternLock.css"  rel="stylesheet" type="text/css" />
 	<!--Cookie-->
 	<script src='js/cookie_load_write.js'></script>
@@ -40,7 +40,7 @@
 
 	var test_pattern = 161116; // 1 6 11 16
 
-
+	/* capital G because we use it as an object */
 	function GridButton(value, values, rows, columns) // {{{
 	{
 		if( empty(value) || value < 1 || value > (rows*columns)) 
@@ -136,17 +136,7 @@
 
 	} // }}}
 
-	function gridToAnswer(grid) // {{{
-	{
-		var ans = "";
-		for(var i = 0; i < grid.length; i++)
-		{
-			ans += grid[i];
-		}
-		return ans;
-	} // }}}
-
-	(function generateAnswer(){ // {{{
+	(function generateAnswer(){ // {{{ Generate the answer
 		var answer = [];
 	
 		while(answer.length < numberRange){
@@ -165,13 +155,14 @@
 
 	}()); // }}}
 
+	// Math to determine element sizes
 
 	buttonRadius = matrixSize / rowSize;
 	buttonMargin = buttonRadius / 10;
 	buttonRadius = buttonRadius/2 - (buttonMargin * 2);
 
 	$(document).ready(function(){
-		var lock = new PatternLock('#pattern', 
+		var lock = new PatternLock('#pattern', // Generate a grid
 		{
 			matrix : [gridSize, gridSize],
 			margin : buttonMargin,
@@ -202,6 +193,7 @@
 
 <body>
 <div class="maincontainer">
+	<img src='resources/game_logo.png' style='max-width: 100%;'/>
     <div id="pattern">
     </div>
 </div>
