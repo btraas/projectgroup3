@@ -18,7 +18,7 @@
 
     <script>
         function onMenu() {
-            window.location = 'index.html'
+            window.location = 'menu.html'
         }
     </script>   
     
