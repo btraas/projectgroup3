@@ -6,6 +6,7 @@
     	<link rel="stylesheet" href="themes/darkTheme.min.css" />
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+	<link rel='stylesheet' href='assets/css/crawl.css' />
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script>
@@ -13,8 +14,33 @@
 			window.location = 'menu.html';
 		}
 
+		$(document).ready(function()
+		{
+			var scrolltext = "<div id='titlecontent'>"+
+							"<p class='center'>EPISODE IV<br />"+
+      						"A NEW HOPE FOR MEMORY RETENTION</p>"+
+
+    						"<p>Memory Swipe will improve and/or retain your memory by playing a simple game.</p>"+
+    						"<p>To play Memory Swipe, simply remember the order of numbers when they appear. After the numbers disappear, swipe from one number to the next.</p>"+
+
+    						"<p>As you improve, you can increase the difficulty the next time you play, and have to remember more numbers to swipe.</p>"+
+
+    						"<p>This game was created by Shawn Kim, Benjamin Hao, Kelvin Zheng, Brayden Traas, and Yoshiaki Murakami</p>"+
+
+    						"<p>This game was inspired by the Android pattern lockscreen. Other than that, we are in no way affiliated with Anroid, Google, or Star Wars in any way.</p>"+
+
+    "</div>";
+			
+
+			$('#lightsaber').click(function() 
+			{
+				alert('hi');
+				$('.credits').html(scrolltext);
+			});
+		});
+
     </script>
-	<title>About</title>
+	<title>Memory Swipe :: About</title>
 </head>
 <body>
 	<div class="wrapper">
@@ -27,9 +53,11 @@
 			<p>Shawn Kin</p>
 			<p>Kelvin Zhong</p>
 			<p>Benjamin Hao</p>
+			<img id='lightsaber' src='resources/lightsaber.png'>
 		<div>
        
 
 	</div>
+
 </body>
 </html>
