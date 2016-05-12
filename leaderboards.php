@@ -7,7 +7,6 @@
     $tb_name="leaderboards"; // Table name
 ?>
 
-
 <!DOCTYPE html>
 <html>
 
