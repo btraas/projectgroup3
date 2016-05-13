@@ -67,7 +67,10 @@
                     	progress[progressIndex++] = 1;
 						alert('pass');
 
-						if(progressIndex = progress.length - 1) onResult();
+						//send to result
+						if(progressIndex == progress.length - 1){
+							onResult();
+						}
 
 						// Generate new grid
 						generateAnswer();
@@ -81,6 +84,7 @@
 
 						// calc time
 						score += calcScore(x.time());
+
 					} else {
 						lock.error();
 					}
@@ -201,7 +205,9 @@
 
 	function skip() // {{{
 	{
-		if(progressIndex = progress.length - 1) onResult();
+		if(progressIndex == progress.length - 1){
+			onResult();	
+		} 
 
 		progress[progressIndex++] = 0;
 		generateAnswer();
@@ -223,6 +229,7 @@
 	});
 
     function onResult()  {
+
    		window.location = 'result.php';
     }
 
