@@ -208,6 +208,8 @@
 			var values = lastButton.getNearest();
 			//console.log("Button "+grid[grid.length-1]+" values: "+JSON.stringify(values));
 
+			if(values.length == 0) return 0; // return 0 if no possibilities
+
 			nextNum = values[Math.ceil(Math.random() * values.length) - 1];
 		}
 		return nextNum;
@@ -215,10 +217,15 @@
 
 	function generateAnswer(){ // {{{ Generate the answer
 		var answer = []; //answer array
-	
+		var next = -1;
+
 		//Assign answer
-		while(answer.length < numberRange){
-			answer[answer.length] = getNextNumber(answer);
+
+		// getNextNumber returns 0 if there's no possibilities.
+		// End loop if we've filled up the array or there's no more possibilities
+		while(answer.length < numberRange && next != 0){
+			next = getNextNumber(answer);
+			if(next != 0) answer[answer.length] = next;
 		}
 
 		//print out console
@@ -330,7 +337,7 @@
 <body onload="show();">
 	<div class="maincontainer">
 		<div>
-			<input type="button" class='menu' value = 'Menu' onclick='location.href = "index.html"'/>
+			<input type="button" class='btn menu' value = 'Menu' onclick='location.href = "index.html"'/>
 		</div>
 		<!--Progress Bar-->
 		<div id="progressBar">
@@ -347,7 +354,7 @@
 
 		<!-- Skip Button -->
 	    <div class="button">
-				<input type='button' class='skipBtn' value='Skip' onclick='skip()'>
+				<input type='button' class='btn skipBtn' value='Skip' onclick='skip()'>
 	    </div>
 	</div>
 	
@@ -357,6 +364,11 @@
 <style type="text/css">
 	body{
 		background-color:#232323;
+	}
+
+	.ui-btn {
+		position: relative;
+		z-index: 101;
 	}
 
 	.maincontainer {
