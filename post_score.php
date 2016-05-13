@@ -8,7 +8,7 @@ $tb_name="leaderboards"; // Table name
 
 $username=$_GET['username'];
 // get values that sent from form
-$score=$_GET['score'];
+$score=base64_decode(@$_GET['random']);
 
 $datetime=date("d/m/y H:i:s"); // create date and time
 
@@ -23,7 +23,8 @@ $sql="INSERT INTO $tb_name(username, score, datetime)VALUES('$username', '$score
 $result=mysql_query($sql);
 
 if($result)
-	header("Location: result.php?score=$score");
+
+	header("Location:result.php?random=" .$_GET['random']);
 else {
 	echo "ERROR".mysql_error();
 }
