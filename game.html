@@ -63,17 +63,15 @@
 					// console.log("comparing input ("+pattern+") to answer ("+answer+")");
 					
                     if(pattern == answer) {
-                    	//check to rich the last stage and save as a cookie
-						
-
                     	progress[progressIndex++] = 1;
 						alert('pass');
-						
-						if(progressIndex == 9){
-							setCookie('pattern', pattern.join('|'), 365);
-							window.location = 'result.php'
+
+						//send to result
+						if(progressIndex == progress.length - 1){
+							onResult();
 						}
 
+						// Generate new grid
 						generateAnswer();
 						lock = new PatternLock('#pattern', grid);
 						// location.reload();
@@ -201,6 +199,19 @@
 		console.log(decodeURI(getCookie('answer')).split('|').join(''));
 	} // }}}
 
+	function skip() // {{{
+	{
+		if(progressIndex == progress.length - 1){
+			onResult();	
+		} 
+
+		progress[progressIndex++] = 0;
+		generateAnswer();
+		lock = new PatternLock('#pattern', grid);
+		progress[progressIndex] = 2;
+		showUserProgress();
+	} // }}}
+
 	$(document).ready(function(){
 		// enable vibration support
 		navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
@@ -214,6 +225,7 @@
 	});
 
     function onResult()  {
+
    		window.location = 'result.php';
     }
 
@@ -265,7 +277,7 @@
 	    </div>
 
 	    <div class="button">
-				<input type='button' class='skipBtn' value='Skip' onclick='onResult()'>
+				<input type='button' class='skipBtn' value='Skip' onclick='skip()'>
 	    </div>
 	</div>
 </body>
