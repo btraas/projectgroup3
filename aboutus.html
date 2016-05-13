@@ -33,27 +33,31 @@
 
     "</div></div>";
 			
-
+			// If we are loading this page with the easteregg hash, replace contents with scrolltext.
 			if(window.location.hash === '#easteregg')
 			{
+				// add HTML text, and remove jquery mobile styling
 				$('.credits').html(scrolltext).removeClass('ui-body-a');
+				
+				// Bring all buttons above the text
 				$('.ui-btn').css('z-index', 200);
+				
+				// Load and play music
 				var audio = new Audio('resources/starwars.mp3');
 				audio.play();
 			}
 
 
-
+			// When the user clicks the lightsaber, reload the page with the easteregg enabled
 			$('#lightsaber').click(function() 
 			{
-				//$('.credits').html(scrolltext);
 				location.href = 'aboutus.html#easteregg';
 				location.reload();
 			});
 		});
 
     </script>
-	<title>About</title>
+	<title>Memory Swipe - About</title>
 </head>
 <body>
 	<div class="wrapper">
