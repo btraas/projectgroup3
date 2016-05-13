@@ -177,6 +177,8 @@
 	        lineOnMove: true,
 	        delimiter: "", // a delimeter between the pattern
 	        enableSetPattern: false,
+	        
+			showUserProgress();
 			onDraw:function(pattern) {
 					var answer = decodeURI(getCookie('answer')).split('|').join('');
 
@@ -191,12 +193,19 @@
 						lock.error();
 					}
 
-
                     window.setTimeout(function() { lock.reset(); }, 1000);
                 }
 		});
+	});
 
-		(function showUserProgress(){
+	// function skip(){
+
+	// }
+
+	// function userSkip(){
+
+	// }
+	function showUserProgress(){
 			var progressBar = document.getElementById("progressBar");
 			//generating progress buttons
 			for(var i = 0; i < 10; i++){
@@ -217,17 +226,7 @@
 					document.getElementById("progress" + i).className = "progressButtonCurrent";
 				}
 			}
-		}());
-	});
-
-	// function skip(){
-
-	// }
-
-	// function userSkip(){
-
-	// }
-
+		};
 	</script>
 
 </head>
