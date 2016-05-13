@@ -1,5 +1,6 @@
 body {
-    margin: auto auto;
+    width: 320px;
+    height: 480px;
 }
 
 .wrapper {
