@@ -43,6 +43,11 @@
 					0, 0, 0, 0, 0]; //user progress 0: off, 1: on, 2:current
 	var progressIndex = 0;// user progress index
 
+	// Math to determine elements sizes
+	buttonRadius = matrixSize / rowSize;
+	buttonMargin = buttonRadius / 10;
+	buttonRadius = buttonRadius/2 - (buttonMargin * 2);
+
 	var grid = {
 			matrix : [gridSize, gridSize],
 			margin : buttonMargin,
@@ -194,11 +199,6 @@
 
 		console.log(decodeURI(getCookie('answer')).split('|').join(''));
 	} // }}}
-
-	// Math to determine elements sizes
-	buttonRadius = matrixSize / rowSize;
-	buttonMargin = buttonRadius / 10;
-	buttonRadius = buttonRadius/2 - (buttonMargin * 2);
 
 	$(document).ready(function(){
 		// enable vibration support
