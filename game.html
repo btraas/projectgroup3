@@ -8,7 +8,7 @@
 	<script src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js'></script>
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-	<script src='stopwatch.js'></script>
+	<script src='js/stopwatch.js'></script>
 	
 	<!-- 3rd party and our common scripts / css -->
 	<script src='js/patternlock/patternLock.js'></script>
@@ -31,24 +31,25 @@
 	<meta name="viewport" content="initial-scale=1.0"><!-- }}} -->
 
 	<script>
-	var score = 0;
-	var buttonRadius = 0;
-	var buttonMargin = 0;
+	var score = 0; //user score
+	var buttonRadius = 0; //button radius
+	var buttonMargin = 0; //button margin
 	var matrixSize = 320; //physical matrix size
 	var gridSize = 4; //size of grid 5x5, 4x4
 	var rowSize = gridSize; //row size
 	var numberRange = 4; //number of answers
 	var maxNumber = Math.pow(rowSize, 2);//max number
-	var test_pattern = 161116; // 1 6 11 16
 	var progress = [2, 0, 0, 0, 0,
 					0, 0, 0, 0, 0]; //user progress 0: off, 1: on, 2:current
 	var progressIndex = 0;// user progress index
 	var lock = null;
+
 	// Math to determine elements sizes
 	buttonRadius = matrixSize / rowSize;
 	buttonMargin = buttonRadius / 10;
 	buttonRadius = buttonRadius/2 - (buttonMargin * 2);
 
+	// Define Grid Object for pattern lock plug-in, answer, user progress
 	var grid = {
 			matrix : [gridSize, gridSize],
 			margin : buttonMargin,
@@ -58,11 +59,13 @@
 	        delimiter: "", // a delimeter between the pattern
 	        enableSetPattern: false,
 
+	        //When user is done drawing(pattern: user input)
 			onDraw:function(pattern) {
 					var answer = decodeURI(getCookie('answer')).split('|').join('');
 
 					// console.log("comparing input ("+pattern+") to answer ("+answer+")");
-					
+
+					//when user input is correct
                     if(pattern == answer) {
                     	progress[progressIndex++] = 1;
 
@@ -73,25 +76,31 @@
 
 						// Generate new grid
 						generateAnswer();
+
+						//Assign new Grid
 						lock = new PatternLock('#pattern', grid);
-						// location.reload();
+						
+						//Assign Current status on user progress
 						progress[progressIndex] = 2;
+						//Show user progress
 						showUserProgress();
+						
 						// for( var i = 0; i < progress.length; i++){
 						// 	console.log("progress[" + i + "]: " + progress[i]);
 						// }
 
-						// calc time
+						//Calc score
 						score += calcScore(x.time());
-
 					} else {
 						lock.error();
 					}
 
+					//Removing pattern from visual
                     window.setTimeout(function() { lock.reset(); }, 1000);
-            }
-		};
+            }//end of onDraw fucntion
+		};//end of grid
 
+	//Button Object
 	/* capital G because we use it as an object */
 	function GridButton(value, values, rows, columns) // {{{
 	{
@@ -164,7 +173,7 @@
 			}
 
 		}
-	} // }}}
+	} // }}} end of GridButton object
 
 	function getNextNumber(grid) // {{{
 	{
@@ -183,11 +192,12 @@
 			nextNum = values[Math.ceil(Math.random() * values.length) - 1];
 		}
 		return nextNum;
-	} // }}}
+	} // }}} end of getNExtNumber()
 
 	function generateAnswer(){ // {{{ Generate the answer
-		var answer = [];
+		var answer = []; //answer array
 	
+		//Assign answer
 		while(answer.length < numberRange){
 			answer[answer.length] = getNextNumber(answer);
 		}
@@ -197,70 +207,82 @@
 		// 	console.log(answer[i] + " ");
 		// }
 		
+		//Save answer in cookie
 		setCookie('answer', answer.join('|'), 365);
 
 		console.log(decodeURI(getCookie('answer')).split('|').join(''));
-	} // }}}
+	} // }}}end of generateAnswer()
 
-	function skip() // {{{
+	function skip() // {{{ Skip button
 	{
+		//Direc user to result scene if all progress is done
 		if(progressIndex >= progress.length - 1){
 			onResult();	
 		} 
 
+		//Make current progress Skipped(failed)
 		progress[progressIndex++] = 0;
+		//Genearte newAnswer
 		generateAnswer();
+		//Assgin into new grid
 		lock = new PatternLock('#pattern', grid);
+		//Make new progress in curretn
 		progress[progressIndex] = 2;
+		//show user progress
 		showUserProgress();
-	} // }}}
+	} // }}} end of skip()
 
+	//When the game is first loaded
 	$(document).ready(function(){
-		// enable vibration support
-		navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+		//not now
+		// // enable vibration support
+		// navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
-		if (navigator.vibrate) {
-				// vibration API supported
-		}
+		// if (navigator.vibrate) {
+		// 		// vibration API supported
+		// }
+		showUserProgress(); //Show progress at firstime
+		lock = new PatternLock('#pattern',  grid);// Generate a grid at firstime
+	});//end of ready(function())
 
-		showUserProgress();
-		lock = new PatternLock('#pattern',  grid);// Generate a grid		
-	});
-
+	//Send user to result scene
     function onResult()  {
 
    		window.location = 'result.php?random='+window.btoa(score);
     }
 
+    //Visualizing user progress
     function showUserProgress(){
 
-				$('#overlay').css('z-index', 100);
-				window.setTimeout(function() {$('#overlay').css('z-index', -100)}, 3000)
+			$('#overlay').css('z-index', 100);
+			window.setTimeout(function() {$('#overlay').css('z-index', -100)}, 3000)
 
-				var progressBar = document.getElementById("progressBar");
-				//generating progress buttons
-				if(empty(document.getElementById("progress0"))){
-					for(var i = 0; i < 10; i++){
-						var button = document.createElement("div");
-						button.className = "progressButtonOff";
-						button.id = "progress" + i;
-						progressBar.appendChild(button);
-					}
-				}
+			var progressBar = document.getElementById("progressBar");
 
-				//check user progress and visualizing based on userProgress array
+			//generating progress buttons
+			if(empty(document.getElementById("progress0"))){
 				for(var i = 0; i < 10; i++){
-					// console.log("showUserProgrss():" + progress[i]);
-					if(progress[i] == 0){
-				 	document.getElementById("progress" + i).className = "progressButtonOff";
-					} else if(progress[i] == 1) {
-						document.getElementById("progress" + i).className = "progressButtonOn";
-					} else if(progress[i] == 2) {
-						document.getElementById("progress" + i).className = "progressButtonCurrent";
-					}
-				}//end of for
-		}
+					var button = document.createElement("div");
+					button.className = "progressButtonOff";
+					button.id = "progress" + i;
+					progressBar.appendChild(button);
+				}
+			}
 
+			//check user progress and visualizing based on userProgress array
+			for(var i = 0; i < 10; i++){
+				// console.log("showUserProgrss():" + progress[i]);
+				if(progress[i] == 0){
+			 	document.getElementById("progress" + i).className = "progressButtonOff";
+				} else if(progress[i] == 1) {
+					document.getElementById("progress" + i).className = "progressButtonOn";
+				} else if(progress[i] == 2) {
+					document.getElementById("progress" + i).className = "progressButtonCurrent";
+				}
+			}//end of for
+		}//end of showUserProgress()
+
+		//Calculating the scroe based on user progress and time
 		function calcScore(time) {
 			var h = m = s = ms = 0;
 			var newTime = '';
@@ -282,22 +304,20 @@
 			}
 
 			return val;
-		}
-
+		}//end of caclScore()
 	</script>
-
 </head>
-
 
 <body onload="show();">
 	<div class="maincontainer">
 		<div>
 			<input type="button" class='menu' value = 'Menu' onclick='location.href = "index.html"'/>
 		</div>
-
+		<!--Progress Bar-->
 		<div id="progressBar">
 		</div>
 
+		<!--Stop Watch-->
 		<div id="stopWatch">
 			<span id="time"></span>
 		</div>
@@ -306,10 +326,12 @@
 	    <div id="pattern" style='position: relative;'>
 	    </div>
 
+		<!-- Skip Button -->
 	    <div class="button">
 				<input type='button' class='skipBtn' value='Skip' onclick='skip()'>
 	    </div>
 	</div>
+	
 	<div id='overlay' style='width: 100%; height: 100%; position: absolute; top: 0; z-index: 100'></div>
 </body>
 

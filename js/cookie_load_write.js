@@ -1,3 +1,6 @@
+/** get cookie 
+	c_name: the name of the cookie key 
+**/
 function getCookie(c_name) {
 	if (document.cookie.length > 0) {
 		c_start = document.cookie.indexOf(c_name + "=");
@@ -11,12 +14,20 @@ function getCookie(c_name) {
 	return "";
 }
 
+/** set cookie
+	c_name: the name of the cookie key 
+	value: the value of the key
+	expiredays: the expire days for the cookie
+**/
 function setCookie(c_name, value, expiredays) {
 	var exdate = new Date();
 	exdate.setDate(exdate.getDate() + expiredays);
 	document.cookie = c_name + "=" + escape(value)+ ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString());
 }
 
+/**
+	The example of using getCookie and setCookie functions
+**/
 function checkCookie() {
 	var username = getCookie('username');
 
