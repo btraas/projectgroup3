@@ -45,13 +45,13 @@
 
 	if(!empty(getCookie('progressIndex'))){
 		progressIndex = getCookie('progressIndex');
-		console.log("progressIndex" + progressIndex);
 	}
+	console.log("progressIndex" + progressIndex);
 
 	if(!empty(getCookie('progress'))){
 		progress = getCookie('progress').split('|');
-		console.log("progress" + progress);
 	}
+	console.log("progress" + progress);
 
 	/* capital G because we use it as an object */
 	function GridButton(value, values, rows, columns) // {{{
@@ -169,7 +169,6 @@
 	buttonRadius = buttonRadius/2 - (buttonMargin * 2);
 
 	$(document).ready(function(){
-		
 		// enable vibration support
 		navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
@@ -311,8 +310,7 @@
 		height: 25px;
 		margin: 2.5px 2.5px 2.5px 4px;
 		border-radius:15px;
-		background-color:#fff;
-
+		background-color:#EC7822;
 	}
 
 	#stopWatch{
