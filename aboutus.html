@@ -32,10 +32,14 @@
     "</div>";
 			
 
+			if(window.location.hash === '#easteregg') $('.credits').html(scrolltext);
+
+
+
 			$('#lightsaber').click(function() 
 			{
-				alert('hi');
-				$('.credits').html(scrolltext);
+				//$('.credits').html(scrolltext);
+				location.href = 'aboutus.html#easteregg';
 			});
 		});
 
@@ -47,7 +51,7 @@
 				<input type="button" class='menu' value = 'Menu' onclick='onMenu()'/>
         
 		<div class="credits" data-role="content" data-theme="a">
-             <img src="/resources/game_logo_200.png" alt="game_logo" width="300px" height="120px">
+             <img src="/resources/game_logo2.png" alt="game_logo" width="300px" height="120px">
 			<h2>Code,Design,Development</h2>
 			<p>Brayden Trass</p>
 			<p>Shawn Kin</p>
