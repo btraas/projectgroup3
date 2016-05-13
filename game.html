@@ -50,7 +50,7 @@
 	buttonRadius = buttonRadius/2 - (buttonMargin * 2);
 
 	// Define Grid Object for pattern lock plug-in, answer, user progress
-	var grid = {
+	var grid = { // {{{
 			matrix : [gridSize, gridSize],
 			margin : buttonMargin,
     		radius: buttonRadius,
@@ -98,12 +98,18 @@
 					//Removing pattern from visual
                     window.setTimeout(function() { lock.reset(); }, 1000);
             }//end of onDraw fucntion
-		};//end of grid
+		};//end of grid }}}
 
-	//Button Object
+	/* GridButton Object
+		
+		Represents one circle/button on a grid.
+		Contains accessor functions to get information about this GridButton
+
+	*/
 	/* capital G because we use it as an object */
 	function GridButton(value, values, rows, columns) // {{{
 	{
+		// Ensure there are valid parameters
 		if( empty(value) || value < 1 || value > (rows*columns)) 
 		{
 			alert('Invalid gridButton value: '+value);
@@ -119,15 +125,15 @@
 
 		this.nearest = [];
 
-		this.firstRow = function()
+		this.firstRow = function() // returns true if this GridButton is on the first row
 		{
 			return this.value <= columns;
 		}
-		this.lastRow = function()
+		this.lastRow = function() // returns true if this GridButton is on the last row
 		{
 			return this.value > (this.numGridButtons - columns);		
 		}
-		this.firstColumn = function()
+		this.firstColumn = function() // etc.
 		{
 			return (this.index == 0 || this.index % columns == 0)
 		}
@@ -135,15 +141,20 @@
 		{
 			return this.value % columns == 0;
 		}
-		this.up = function()
+		this.up = function() // returns the position of the GridButton directly above
 		{
 			return this.value - this.columns;
 		}
-		this.down = function()
+		this.down = function() // returns the position of the GridButton directly below
 		{
 			return this.value + this.columns;
 		}
 
+
+		// This function returns all the nearest unique possibilities to this gridButton
+		// (Options of the next GridButton to swipe to)
+		// If this is the top-left grid button, it will return an array with the positions of
+		// the button to the right, bottom-right, and bottom.
 		this.getNearest = function()
 		{
 			/*
@@ -153,8 +164,15 @@
 			console.log("firstCol? "+this.firstColumn());
 			console.log("lastCol? "+this.lastColumn());
 			*/
+
+			// If not first row and not first column, 
+			// add the circle to the top left as a possibility
 			if(!this.firstRow() && !this.firstColumn()) 	this.add(this.up() - 1);
+
+			// If not the first row, add the button directly above as a possibility
 			if(!this.firstRow())							this.add(this.up());
+
+			// etc.
 			if(!this.firstRow() && !this.lastColumn())		this.add(this.up() + 1);
 			if(!this.lastColumn())							this.add(this.value + 1);
 			if(!this.lastRow() && !this.lastColumn())		this.add(this.down() + 1);
@@ -165,6 +183,7 @@
 			return this.nearest;
 		}
 
+		// Used by getNearest function only, add this button position if it's unique
 		this.add = function(val)
 		{
 			if(this.values.indexOf(val) == -1 && this.nearest.indexOf(val) == -1) 
