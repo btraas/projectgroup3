@@ -209,7 +209,7 @@
     function showUserProgress(){
 				var progressBar = document.getElementById("progressBar");
 				//generating progress buttons
-				if(empty(progressBar)){
+				if(empty(document.getElementById("progress0"))){
 					for(var i = 0; i < 10; i++){
 						var button = document.createElement("div");
 						button.className = "progressButtonOff";
