@@ -184,40 +184,40 @@
 
 					console.log("comparing input ("+pattern+") to answer ("+answer+")");
 
-                    if(pattern == answer) {
+                    if(pattern == answer) 
+					{
 						alert('pass');
 						location.reload();
-					} else {
-						lock.error();
 					}
+                    else lock.error();
 
 
                     window.setTimeout(function() { lock.reset(); }, 1000);
                 }
 		});
 
-	(function userProgress(){
-		var progressBar = document.getElementById("progressBar");
-		//generating progress buttons
-		for(var i = 0; i < 10; i++){
-			var button = document.createElement("div");
-			button.className = "progressButtonOff";
-			button.id = "progress" + i;
+		function userProgress(){
+			var progressBar = document.getElementById("progressBar");
+			//generating progress buttons
+			for(var i = 0; i < 10; i++){
+				var button = document.createElement("div");
+				button.className = "progressButtonOff";
+				button.id = "progress" + i;
 
-			progressBar.appendChild(button);
-		}
+				progressBar.appendChild(button);
+			}
 
-		//check user progress and visualizing based on userProgress array
-		for(var i = 0; i <= progressIndex; i++){
-			if(userProgress[i] == 0){
-		 	document.getElementById("progress" + i).className = "progressButtonOff";
-			} else if(userProgress[i] == 1) {
-				document.getElementById("progress" + i).className = "progressButtonOn";
-			} else {
-				document.getElementById("progress" + i).className = "progressButtonCurrent";
+			//check user progress and visualizing based on userProgress array
+			for(var i = 0; i <= progressIndex; i++){
+				if(userProgress[i] == 0){
+			 	document.getElementById("progress" + i).className = "progressButtonOff";
+				} else if(userProgress[i] == 1) {
+					document.getElementById("progress" + i).className = "progressButtonOn";
+				} else {
+					document.getElementById("progress" + i).className = "progressButtonCurrent";
+				}
 			}
 		}
-	}());
 	});
 
 	

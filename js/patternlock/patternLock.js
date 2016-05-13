@@ -152,8 +152,6 @@
 
                     }
 
-
-
                     //add the current element on pattern
                     elm.addClass('hovered');
                     //push pattern on array
@@ -304,18 +302,20 @@
 
         console.log("xxx:" + answer[0] + answer[1] + answer[2] + answer[3]);
 
-        for(var i = 0; i < answer.length; i++){
-            var index = "index" + (answer[i]-1);
+        if(empty(answer)){
+            alert("It's offline, no cookie available, please try again.");
+        } else {
+            for(var i = 0; i < answer.length; i++){
+                var index = "index" + (answer[i]-1);
 
-            if(i == 0) {
-                numbers[i] = Math.ceil(Math.random() * 10); 
-            } else {
-                numbers[i] = numbers[i-1] + Math.ceil(Math.random() * 4); 
+                if(i == 0) {
+                    numbers[i] = Math.ceil(Math.random() * 10); 
+                } else {
+                    numbers[i] = numbers[i-1] + Math.ceil(Math.random() * 4); 
+                }
+                document.getElementById(index).innerHTML = "" + numbers[i];
             }
-
-            document.getElementById(index).innerHTML = "" + numbers[i];
         }
-        
         window.setTimeout(function() { 
 
             for(var i = 0; i < answer.length; i++){
