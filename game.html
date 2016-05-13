@@ -42,7 +42,7 @@
 	var progress = [2, 0, 0, 0, 0,
 					0, 0, 0, 0, 0]; //user progress 0: off, 1: on, 2:current
 	var progressIndex = 0;// user progress index
-
+	var lock = null;
 	// Math to determine elements sizes
 	buttonRadius = matrixSize / rowSize;
 	buttonMargin = buttonRadius / 10;
@@ -196,7 +196,7 @@
 				// vibration API supported
 		}
 	
-		var lock = new PatternLock('#pattern',  grid);// Generate a grid
+		lock = new PatternLock('#pattern',  grid);// Generate a grid
 
 		(function showUserProgress(){
 				var progressBar = document.getElementById("progressBar");
