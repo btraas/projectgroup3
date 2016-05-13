@@ -8,7 +8,7 @@
 	<script src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js'></script>
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-	<link rel="stylesheet" href="game.css"
+	
 	
 	<!-- 3rd party and our common scripts / css -->
 	<script src='js/patternlock/patternLock.js'></script>
@@ -18,7 +18,7 @@
 	<script src='js/cookie_load_write.js'></script>
 	<script src='js/functions.js'></script>
 
-	<link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
+	<!--<link rel="stylesheet" type="text/css" href="assets/css/main.css"/>-->
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<link rel="stylesheet" href="themes/darkTheme.min.css" />
 
@@ -33,13 +33,17 @@
 	<script>
 	var buttonRadius = 0;
 	var buttonMargin = 0;
-	var gridSize = 5;
-	var matrixSize = 320;
-	var rowSize = gridSize;
-	var numberRange = 4;
-	var maxNumber = Math.pow(5, 2);
-
+	var matrixSize = 320; //physical matrix size
+	var gridSize = 5; //size of grid 5x5, 4x4
+	var rowSize = gridSize; //row size
+	var numberRange = 4; //number of answers
+	var maxNumber = Math.pow(5, 2);//max number
 	var test_pattern = 161116; // 1 6 11 16
+	var progress = [2, 0, 0, 0, 0,
+					0, 0, 0, 0, 0]; //user progress 0: off, 1: on, 2:current
+	var progressIndex = 0;// user progress index
+
+	setCookie('userProgress', progress.join('|'), 365);
 
 	/* capital G because we use it as an object */
 	function GridButton(value, values, rows, columns) // {{{
@@ -113,9 +117,8 @@
 			}
 
 		}
-
-
 	} // }}}
+
 	function getNextNumber(grid) // {{{
 	{
 		var nextNum = 0;
@@ -132,9 +135,7 @@
 
 			nextNum = values[Math.ceil(Math.random() * values.length) - 1];
 		}
-
 		return nextNum;
-
 	} // }}}
 
 	(function generateAnswer(){ // {{{ Generate the answer
@@ -152,8 +153,6 @@
 		setCookie('answer', answer.join('|'), 365);
 
 		console.log(decodeURI(getCookie('answer')).split('|').join(''));
-
-
 	}()); // }}}
 
 	// Math to determine element sizes
@@ -177,15 +176,47 @@
 
 					console.log("comparing input ("+pattern+") to answer ("+answer+")");
 
-                    if(pattern == answer) alert('pass');
-                    else lock.error();
+                    if(pattern == answer){
+                    	alert('pass');	
+                    }  else lock.error();
 
                     window.setTimeout(function() { lock.reset(); }, 1000);
-
                 }
-
 		});
+
+	(function userProgress(){
+		var progressBar = document.getElementById("progressBar");
+		//generating progress buttons
+		for(var i = 0; i < 10; i++){
+			var button = document.createElement("div");
+			button.className = "progressButtonOff";
+			button.id = "progress" + i;
+
+			progressBar.appendChild(button);
+		}
+
+		//check user progress and visualizing based on userProgress array
+		for(var i = 0; i <= progressIndex; i++){
+			if(userProgress[i] == 0){
+		 	document.getElementById("progress" + i).className = "progressButtonOff";
+			} else if(userProgress[i] == 1) {
+				document.getElementById("progress" + i).className = "progressButtonOn";
+			} else {
+				document.getElementById("progress" + i).className = "progressButtonCurrent";
+			}
+		}
+	}());
 	});
+
+	
+
+	// function skip(){
+
+	// }
+
+	// function userSkip(){
+
+	// }
 
 	</script>
 
@@ -193,13 +224,92 @@
 
 
 <body>
-<div class="maincontainer">
-	<img class='logo' src='resources/game_logo.png'/>
-    <div id="pattern">
-    </div>
-</div>
+	<div class="maincontainer">
+		<div>
+			<input type="button" class='menu' value = 'Menu' onclick='onMenu()'/>
+		</div>
+
+		<div id="progressBar">
+		</div>
+
+		<div id="stopWatch">
+			99:99
+		</div>
+
+		<!--Pattern Grid-->
+	    <div id="pattern">
+	    </div>
+
+	    <div class="button">
+				<input type='button' class='skipBtn' value='Skip' onclick='onPlay()'>
+	    </div>
+	</div>
 </body>
 
+<style type="text/css">
+	body{
+		background-color:#232323;
+	}
+
+	.maincontainer {
+	  margin: 0 auto;
+	  right: auto;
+	  bottom: auto;
+	  width: 320px;
+	  height: 100%;
+	  background-color: #232323;
+	  color: #FFF;
+	  text-align: center;
+	  /* border-radius: 10px; */
+	  overflow: none;
+	}
+
+	#progressBar {
+		height: 30px;
+		background-color: #404040;
+		margin-bottom: 1%;
+	}	
+
+	.progressButtonCurrent {
+		float:left;
+		width: 25px;
+		height: 25px;
+		margin:2.5px 2.5px 2.5px 2.5px;
+		border-radius:15px;
+		background-color:#00FF90;
+	}
+
+	.progressButtonOff {
+		float:left;
+		width: 25px;
+		height: 25px;
+		margin:2.5px 2.5px 2.5px 2.5px;
+		border-radius:15px;
+		background-color:#fff;
+	}
+
+	.progressButtonOn {
+		float:left;
+		width: 25px;
+		height: 25px;
+		margin:2.5px 2.5px 2.5px 2.5px;
+		border-radius:15px;
+		background-color:#fff;
+
+	}
+
+	#stopWatch{
+		text-align: right;
+		font-size: 170%;
+		padding-right: 1%;
+		margin:0;
+	}
+
+	#pattern{
+		background-color: #404040;
+		margin-bottom:5%;
+	}
+</style>
 
 
 </html>
