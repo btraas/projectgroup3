@@ -233,6 +233,10 @@
     }
 
     function showUserProgress(){
+
+				$('#overlay').css('z-index', 100);
+				window.setTimeout(function() {$('#overlay').css('z-index', -100)}, 3000)
+
 				var progressBar = document.getElementById("progressBar");
 				//generating progress buttons
 				if(empty(document.getElementById("progress0"))){
@@ -299,13 +303,14 @@
 		</div>
 
 		<!--Pattern Grid-->
-	    <div id="pattern">
+	    <div id="pattern" style='position: relative;'>
 	    </div>
 
 	    <div class="button">
 				<input type='button' class='skipBtn' value='Skip' onclick='skip()'>
 	    </div>
 	</div>
+	<div id='overlay' style='width: 100%; height: 100%; position: absolute; top: 0; z-index: 100'></div>
 </body>
 
 <style type="text/css">
