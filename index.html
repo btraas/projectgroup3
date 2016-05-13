@@ -11,17 +11,17 @@
     <script src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js'></script>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="themes/darkTheme.min.css" />
 
     <!-- 3rd party and our common scripts / css -->
     <script src='js/patternlock/patternLock.js'></script>
     <link href="js/patternlock/patternLock.css"  rel="stylesheet" type="text/css" />
+
     <!--Cookie-->
     <script src='js/cookie_load_write.js'></script>
     <script src='js/functions.js'></script>
-
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-    <link rel="stylesheet" href="themes/darkTheme.min.css" />
 
     <!-- Meta stuff -->
     <link rel="apple-touch-icon" href="resources/game_icon.png">
@@ -32,15 +32,22 @@
     <meta name="viewport" content="initial-scale=1.0"><!-- }}} -->
 
     <script>
+       // function that take users to difficulty page 
         function onPlay()  {
        		window.location = 'difficulty.html'
         }
+
+        // function that takes users to setting page
         function onSettings()  {
        		window.location = 'settings.html'
         }
+
+        // function that takes users to leaderboards page
         function onBoards()  {
        		window.location = 'leaderboards.php'
         }
+
+        // function that takes users to about page
         function onAbout()  {
        		window.location = 'aboutus.html'
         }
