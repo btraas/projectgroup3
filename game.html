@@ -43,16 +43,15 @@
 					0, 0, 0, 0, 0]; //user progress 0: off, 1: on, 2:current
 	var progressIndex = 0;// user progress index
 
-	if(!empty(getCookie('progressIndex')){
+	if(!empty(getCookie('progressIndex'))){
 		progressIndex = getCookie('progressIndex');
 		console.log("progressIndex" + progressIndex);
 	}
-	
-	if(!empty(getCookie('progress')){
+
+	if(!empty(getCookie('progress'))){
 		progress = getCookie('progress').split('|');
 		console.log("progress" + progress);
 	}
-	
 
 	/* capital G because we use it as an object */
 	function GridButton(value, values, rows, columns) // {{{
