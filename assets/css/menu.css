@@ -32,10 +32,11 @@ body {
 }
 
 .icon {
-	width: 90px;
-	height: 90px;
+	width: 70px;
+	height: 70px;
 	cursor:pointer;
-	margin: 10px auto;
+	margin: 30px auto;
+	margin-top: 10px;
 }
 
 .play {
