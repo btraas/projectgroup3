@@ -28,15 +28,18 @@
 
 </head>
 <body>
-    <div class="maincontainer">
+    <div class="wrapper">
 	    <div>
 	    	<input type="button" class='menu' onclick="goHome()" value='Menu' />
 	    </div>
 
         <div id="text"><label for="level">Difficulty:</label> </div>
-        <div class="levelselection">       
-	    		<img id="lvImg" src="resources/Level/Lv1(fake).png" alt="LevelImg" height="320" width="320">
-		    	<input type="range" name="level" value="1" min="1" max="10" onchange="updateImg(this.value);">                                                       
+               
+	    <div class="lvimg">
+        		<img id="lvImg" src="resources/Level/Lv1(fake).png" alt="LevelImg" height="280" width="280">
+		</div>
+        <div class="levelselection">
+            	<input type="range" name="level" value="1" min="1" max="10" onchange="updateImg(this.value);">                                                       
     	</div>
 
         <div class="play">
