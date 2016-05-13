@@ -12,6 +12,7 @@ body {
 	border: 1px solid black;
 }
 
+/* nothing, darkTheme.css included it */
 .menu {
 	margin-top: 20px;
 	width: 100%;
@@ -21,9 +22,10 @@ body {
 	text-align: center;
 	font-size: 160%;
 	font-weight: bold;
-  border:none;
+    border:none;
 }
 
+/* nothing, darkTheme.css included it */
 .volume_text {
 	color: white;
     font-size: 180%;
@@ -35,13 +37,14 @@ body {
     margin-left: 8px;
 }
 
-
+/* set fixed size for buttons*/
 .buttons {
 	width: 230px;
 	margin: auto;
 	margin-top: 10px;
 }
 
+/* nothing, darkTheme.css included it */
 .theme {
 	  color: white;
     font-size: 160%;
@@ -53,12 +56,15 @@ body {
     margin-left: 8px;
 }
 
+/* set switcher centre align */
 .switcher{
     margin: auto;
     width:320px;
     text-align: center;
     
 }
+
+/* nothing, darkTheme.css included it */
 .dark {
 	width:110px;
 	height: 42px;
@@ -71,6 +77,7 @@ body {
 	border-radius: 5px;
 }
 
+/* nothing, darkTheme.css included it */
 .light {
 	width:110px;
 	height: 42px;
@@ -82,9 +89,10 @@ body {
 	border-radius: 5px;
 }
 
+/* stylize text in about page*/
 .credits{
     margin: 0 auto;
-    width: 298 px;
+    width: 298px;
     text-align: center;
 }
 
