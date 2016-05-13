@@ -209,7 +209,7 @@
     function showUserProgress(){
 				var progressBar = document.getElementById("progressBar");
 				//generating progress buttons
-				if(empty(progressBar){
+				if(empty(progressBar)){
 					for(var i = 0; i < 10; i++){
 						var button = document.createElement("div");
 						button.className = "progressButtonOff";
@@ -218,6 +218,7 @@
 						progressBar.appendChild(button);
 					}
 				}
+
 				//check user progress and visualizing based on userProgress array
 				for(var i = 0; i <= progressIndex; i++){
 					if(progress[i] == 0){
