@@ -10,18 +10,6 @@ body {
 	border: 1px solid black;
 }
 
-.menu {
-	margin-top: 40px;
-	width: 100%;
-	height: 35px;
-	background-color: #EC7822;
-	color: white;
-	text-align: center;
-	font-size: 160%;
-	font-weight: bold;
-	border:none;
-}
-
 .leaderboards {
 	color: white;
     font-size: 180%;
