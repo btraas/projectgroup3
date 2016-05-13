@@ -1,202 +1,70 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<link rel="stylesheet" type="text/css" href="assets/css/menu.css">
 	<title>Memory Swipe</title>
 
-
 	<!-- Main jQuery scripts & CSS (unchanging) {{{ -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-	<script src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js'></script>
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js'></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 
-	<!-- 3rd party and our common scripts / css -->
-	<script src='js/patternlock/patternLock.js'></script>
-	<link href="js/patternlock/patternLock.css"  rel="stylesheet" type="text/css" />
-	<!--Cookie-->
-	<script src='js/cookie_load_write.js'></script>
-	<script src='js/functions.js'></script>
+    <!-- 3rd party and our common scripts / css -->
+    <script src='js/patternlock/patternLock.js'></script>
+    <link href="js/patternlock/patternLock.css"  rel="stylesheet" type="text/css" />
+    <!--Cookie-->
+    <script src='js/cookie_load_write.js'></script>
+    <script src='js/functions.js'></script>
 
-	<link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-	<link rel="stylesheet" href="themes/darkTheme.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="themes/darkTheme.min.css" />
 
-	<!-- Meta stuff -->
-	<link rel="apple-touch-icon" href="resources/game_icon.png">
-	<link rel="apple-touch-startup-image" href="resources/apple-splash.png">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta name="viewport" content="width=device-width">
-	<meta name="viewport" content="initial-scale=1.0"><!-- }}} -->
-
-	<script>
-	var buttonRadius = 0;
-	var buttonMargin = 0;
-	var gridSize = 5;
-	var matrixSize = 320;
-	var rowSize = gridSize;
-	var numberRange = 4;
-	var maxNumber = Math.pow(5, 2);
-
-	var test_pattern = 161116; // 1 6 11 16
-
-	/* capital G because we use it as an object */
-	function GridButton(value, values, rows, columns) // {{{
-	{
-		if( empty(value) || value < 1 || value > (rows*columns)) 
-		{
-			alert('Invalid gridButton value: '+value);
-			return false;
-		}
-
-		this.value = value;
-		this.values = values;
-		this.index = value-1;
-		this.rows = rows;
-		this.columns = columns;
-		this.numGridButtons = rows*columns;		
-
-		this.nearest = [];
-
-		this.firstRow = function()
-		{
-			return this.value <= columns;
-		}
-		this.lastRow = function()
-		{
-			return this.value > (this.numGridButtons - columns);		
-		}
-		this.firstColumn = function()
-		{
-			return (this.index == 0 || this.index % columns == 0)
-		}
-		this.lastColumn = function()
-		{
-			return this.value % columns == 0;
-		}
-		this.up = function()
-		{
-			return this.value - this.columns;
-		}
-		this.down = function()
-		{
-			return this.value + this.columns;
-		}
-
-		this.getNearest = function()
-		{
-			/*
-			console.log("Previous num: "+this.value);
-			console.log("firstRow? "+this.firstRow());
-			console.log("lastRow? "+this.lastRow());
-			console.log("firstCol? "+this.firstColumn());
-			console.log("lastCol? "+this.lastColumn());
-			*/
-			if(!this.firstRow() && !this.firstColumn()) 	this.add(this.up() - 1);
-			if(!this.firstRow())							this.add(this.up());
-			if(!this.firstRow() && !this.lastColumn())		this.add(this.up() + 1);
-			if(!this.lastColumn())							this.add(this.value + 1);
-			if(!this.lastRow() && !this.lastColumn())		this.add(this.down() + 1);
-			if(!this.lastRow())								this.add(this.down());
-			if(!this.lastRow() && !this.firstColumn())		this.add(this.down() - 1);
-			if(!this.firstColumn())							this.add(this.value - 1);
-	
-			return this.nearest;
-		}
-
-		this.add = function(val)
-		{
-			if(this.values.indexOf(val) == -1 && this.nearest.indexOf(val) == -1) 
-			{
-				this.nearest.push(val);
-			}
-
-		}
+    <!-- Meta stuff -->
+    <link rel="apple-touch-icon" href="resources/game_icon.png">
+    <link rel="apple-touch-startup-image" href="resources/apple-splash.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1.0"><!-- }}} -->
 
 
-	} // }}}
-	function getNextNumber(grid) // {{{
-	{
-		var nextNum = 0;
-
-		if(grid.length == 0)
-		{
-			nextNum = Math.ceil(Math.random() * (gridSize*gridSize));
-		}
-		else
-		{
-			var lastButton = new GridButton(grid[grid.length - 1], grid, gridSize, gridSize);
-			var values = lastButton.getNearest();
-			//console.log("Button "+grid[grid.length-1]+" values: "+JSON.stringify(values));
-
-			nextNum = values[Math.ceil(Math.random() * values.length) - 1];
-		}
-
-		return nextNum;
-
-	} // }}}
-
-	(function generateAnswer(){ // {{{ Generate the answer
-		var answer = [];
-	
-		while(answer.length < numberRange){
-			answer[answer.length] = getNextNumber(answer);
-		}
-
-		//print out console
-		for(var i = 0; i < answer.length; i++){
-			console.log(answer[i] + " ");
-		}
-		
-		setCookie('answer', answer.join('|'), 365);
-
-		console.log(decodeURI(getCookie('answer')).split('|').join(''));
-
-
-	}()); // }}}
-
-	// Math to determine element sizes
-
-	buttonRadius = matrixSize / rowSize;
-	buttonMargin = buttonRadius / 10;
-	buttonRadius = buttonRadius/2 - (buttonMargin * 2);
-
-	$(document).ready(function(){
-		var lock = new PatternLock('#pattern', // Generate a grid
-		{
-			matrix : [gridSize, gridSize],
-			margin : buttonMargin,
-    		radius: buttonRadius,
-	        patternVisible: true,
-	        lineOnMove: true,
-	        delimiter: "", // a delimeter between the pattern
-	        enableSetPattern: false,
-			onDraw:function(pattern) {
-					var answer = decodeURI(getCookie('answer')).split('|').join('');
-
-					console.log("comparing input ("+pattern+") to answer ("+answer+")");
-
-                    if(pattern == answer) alert('pass');
-                    else lock.error();
-
-                    window.setTimeout(function() { lock.reset(); }, 1000);
-
-                }
-
-		});
-	});
-
-	</script>
-
+    <script>
+        function onPlay()  {
+       		window.location = 'difficulty.html'
+        }
+        function onSettings()  {
+       		window.location = 'settings.html'
+        }
+        function onBoards()  {
+       		window.location = 'leaderboards.php'
+        }
+        function onAbout()  {
+       		window.location = 'aboutus.html'
+        }
+     </script>
 </head>
 
-
 <body>
-<div class="maincontainer">
-	<img class='logo' src='resources/game_logo.png'/>
-    <div id="pattern">
-    </div>
-</div>
+	<div class='maincontainer'>
+
+		<img class='logo' src='resources/game_logo.png' />
+
+		<div class='menu'>
+				<input type="image" src="resources/settings.png" onclick="onSettings()" class="settings">
+                <input type="image" src="resources/leaderboards.png" value="Leaderboards" onclick="onBoards()" class="leaderboards">
+                <input type="image" src="resources/info.png" onclick="onAbout()" class="about">
+		</div>
+
+		<div class='play'>
+			<input type='button' class='playBtn' value='Play' onclick='onPlay()'>
+		</div>
+
+
+	</div>
 </body>
 
 

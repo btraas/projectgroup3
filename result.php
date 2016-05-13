@@ -2,21 +2,23 @@
 <html>
 
 <?php
-require_once('config.php');
+	require_once('config.php');
 
-// Connect to server and select database.
-mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)or die("cannot connect");
-mysql_select_db(DB_DATABASE)or die("cannot select DB");
-$tb_name="leaderboards"; // Table name
+	// Connect to server and select database.
+	mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)or die("cannot connect");
+	mysql_select_db(DB_DATABASE)or die("cannot select DB");
+	$tb_name="leaderboards"; // Table name
 
-$score=$_GET['score'];
+	$score=$_GET['score'];
+	if($score==0 || $score == null) {
+		$score = 0;
+	}
 
-$score = mysql_real_escape_string($score);
-$sql = "SELECT 1 + (SELECT count( * ) FROM $tb_name a WHERE a.score > b.score ) AS rank FROM
-$tb_name b WHERE score = $score ORDER BY rank LIMIT 1 ;";
+	$score = mysql_real_escape_string($score);
+	$sql = "SELECT COUNT(*) + 1 AS rank FROM $tb_name WHERE $score < score ;";
 
-$result=mysql_query($sql);
-$rows=mysql_fetch_array($result);
+	$result=mysql_query($sql);
+	$rows=mysql_fetch_array($result);
 ?>
 
 <head>
@@ -28,13 +30,14 @@ $rows=mysql_fetch_array($result);
        		window.location = 'menu.html'
         }
         function goPost()  {
-       		window.location = 'postscore.html'
+			var username = prompt('Plese enter your username:',"");
+			window.location = 'post_score.php?username=' + username + "&score=" + <?php echo $score ?>;
         }
         function goSelect()  {
        		window.location = 'difficulty.html'
         }
         function goPlay()  {
-       		window.location = 'play.html'
+       		window.location = 'game.html'
         }
      </script>
 </head>
