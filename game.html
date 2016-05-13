@@ -65,6 +65,10 @@
                     if(pattern == answer) {
                     	progress[progressIndex++] = 1;
 						alert('pass');
+
+						if(progressIndex = progress.length - 1) onResult();
+
+						// Generate new grid
 						generateAnswer();
 						lock = new PatternLock('#pattern', grid);
 						// location.reload();
@@ -191,6 +195,17 @@
 		console.log(decodeURI(getCookie('answer')).split('|').join(''));
 	} // }}}
 
+	function skip() // {{{
+	{
+		if(progressIndex = progress.length - 1) onResult();
+
+		progress[progressIndex++] = 0;
+		generateAnswer();
+		lock = new PatternLock('#pattern', grid);
+		progress[progressIndex] = 2;
+		showUserProgress();
+	} // }}}
+
 	$(document).ready(function(){
 		// enable vibration support
 		navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
@@ -255,7 +270,7 @@
 	    </div>
 
 	    <div class="button">
-				<input type='button' class='skipBtn' value='Skip' onclick='onResult()'>
+				<input type='button' class='skipBtn' value='Skip' onclick='skip()'>
 	    </div>
 	</div>
 </body>
