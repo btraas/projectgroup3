@@ -12,6 +12,7 @@
 
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	
 <!--Theme css-->
     <link rel="stylesheet" href="themes/darkTheme.min.css" />
@@ -24,7 +25,7 @@
 
     <script>
         function onMenu() {
-            window.location = 'menu.html';
+            window.location = 'index.html';
         }
     </script>   
     
