@@ -65,10 +65,9 @@
 					
                     if(pattern == answer) {
                     	progress[progressIndex++] = 1;
-						alert('pass');
 
 						//send to result
-						if(progressIndex == progress.length - 1){
+						if(progressIndex >= progress.length - 1){
 							onResult();
 						}
 
@@ -205,7 +204,7 @@
 
 	function skip() // {{{
 	{
-		if(progressIndex == progress.length - 1){
+		if(progressIndex >= progress.length - 1){
 			onResult();	
 		} 
 
@@ -230,7 +229,7 @@
 
     function onResult()  {
 
-   		window.location = 'result.php';
+   		window.location = 'result.php?random='+window.btoa(score);
     }
 
     function showUserProgress(){

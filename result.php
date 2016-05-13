@@ -9,7 +9,7 @@
 	mysql_select_db(DB_DATABASE)or die("cannot select DB");
 	$tb_name="leaderboards"; // Table name
 
-	$score=$_GET['score'];
+	$score=base64_decode(@$_GET['random']);
 	if($score==0 || $score == null) {
 		$score = 0;
 	}
