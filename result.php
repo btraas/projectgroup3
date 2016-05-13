@@ -32,7 +32,7 @@
         }
         function goPost()  {
 			var username = prompt('Plese enter your username:',"");
-			window.location = 'post_score.php?username=' + username + "&score=" + <?php echo $score ?>;
+			window.location = 'post_score.php?username=' + username + "&random=" + window.btoa(<?php echo $score ?>);
         }
         function goSelect()  {
        		window.location = 'difficulty.html'
