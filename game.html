@@ -60,7 +60,7 @@
 			onDraw:function(pattern) {
 					var answer = decodeURI(getCookie('answer')).split('|').join('');
 
-					console.log("comparing input ("+pattern+") to answer ("+answer+")");
+					// console.log("comparing input ("+pattern+") to answer ("+answer+")");
 					
                     if(pattern == answer) {
                     	progress[progressIndex++] = 1;
@@ -70,9 +70,9 @@
 						// location.reload();
 						progress[progressIndex] = 2;
 						showUserProgress();
-						for( var i = 0; i < progress.length; i++){
-							console.log("progress[" + i + "]: " + progress[i]);
-						}
+						// for( var i = 0; i < progress.length; i++){
+						// 	console.log("progress[" + i + "]: " + progress[i]);
+						// }
 					} else {
 						lock.error();
 					}
@@ -182,9 +182,9 @@
 		}
 
 		//print out console
-		for(var i = 0; i < answer.length; i++){
-			console.log(answer[i] + " ");
-		}
+		// for(var i = 0; i < answer.length; i++){
+		// 	console.log(answer[i] + " ");
+		// }
 		
 		setCookie('answer', answer.join('|'), 365);
 
@@ -221,7 +221,7 @@
 
 				//check user progress and visualizing based on userProgress array
 				for(var i = 0; i < 10; i++){
-					console.log("showUserProgrss():" + progress[i]);
+					// console.log("showUserProgrss():" + progress[i]);
 					if(progress[i] == 0){
 				 	document.getElementById("progress" + i).className = "progressButtonOff";
 					} else if(progress[i] == 1) {
