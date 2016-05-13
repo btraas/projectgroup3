@@ -8,7 +8,7 @@
 	<script src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js'></script>
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-	
+	<script src='stopwatch.js'></script>
 	
 	<!-- 3rd party and our common scripts / css -->
 	<script src='js/patternlock/patternLock.js'></script>
@@ -240,7 +240,7 @@
 </head>
 
 
-<body>
+<body onload="show();">
 	<div class="maincontainer">
 		<div>
 			<input type="button" class='menu' value = 'Menu' onclick='location.href = "index.html"'/>
@@ -250,7 +250,7 @@
 		</div>
 
 		<div id="stopWatch">
-			99:99
+			<span id="time"></span>
 		</div>
 
 		<!--Pattern Grid-->
