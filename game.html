@@ -64,12 +64,14 @@
 					
                     if(pattern == answer) {
                     	progress[progressIndex++] = 1;
-                		console.log("progressIndex: " + progressIndex - 1 + "progress: " + progress[progressIndex-1]);
-
 						alert('pass');
 						generateAnswer();
 						lock = new PatternLock('#pattern', grid);
 						// location.reload();
+
+						for( var i = 0; i < progress.length; i++){
+							console.log("progress[" + i + "]: " + progress[i]);
+						}
 					} else {
 						lock.error();
 					}
