@@ -55,28 +55,25 @@
                 <th>Name</th>
                 <th>Score</th>
             </tr>
+            <!-- PHP showing user scores -->
+            <?php
+                        $sql="SELECT * FROM $tb_name ORDER BY score DESC limit 0,9";
+                        // ORDER BY id DESC is order result by descending
+                        $result=mysql_query($sql);
+                        $num = 1;
+                        while($rows=mysql_fetch_array($result)){ // Start looping table row
+            ?>
 
-<?php
-            $sql="SELECT * FROM $tb_name ORDER BY score DESC limit 0,9";
-            // ORDER BY id DESC is order result by descending
-            $result=mysql_query($sql);
-            $num = 1;
-            while($rows=mysql_fetch_array($result)){ // Start looping table row
-?>
+                            <tr>
+                                <td><?php echo $num++ ?></td>
+                                <td><?php echo ucwords($rows['username']); ?></td>
+                                <td><?php echo ucwords($rows['score']); ?></td>
+                            </tr>
 
-                <tr>
-                    <td><?php echo $num++ ?></td>
-                    <td><?php echo ucwords($rows['username']); ?></td>
-                    <td><?php echo ucwords($rows['score']); ?></td>
-                </tr>
-
-<?php
-            }
-             mysql_close(); // close database connection
-?>
-
-
-
+            <?php
+                        }
+                         mysql_close(); // close database connection
+            ?>
         </table>
 		</div>
 
