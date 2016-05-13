@@ -54,18 +54,9 @@
 		<img class='logo' alt="gamelogo" src='resources/game_logo3.png' />
 
 		<div class='menu'>
-            <div class="menu_button">
-				<input type="image" src="resources/menu_settings.png" onclick="onSettings()" class="icon settings">
-                Settings
-            </div>
-            <div class="menu_button">
-                <input type="image" src="resources/menu_leaderboards.png" value="Leaderboards" onclick="onBoards()" class="icon leaderboards">
-                Leadersboard
-            </div>
-            <div class="menu_button">
-                <input type="image" src="resources/menu_info.png" onclick="onAbout()" class="icon about">
-                About us
-            </div>
+            <input type="image" src="resources/menu_settings.png" onclick="onSettings()" class="icon settings">
+            <input type="image" src="resources/menu_leaderboards.png" value="Leaderboards" onclick="onBoards()" class="icon leaderboards">
+            <input type="image" src="resources/menu_info.png" onclick="onAbout()" class="icon about">
 		</div>
 
 		<div class='play'>
@@ -77,13 +68,12 @@
 </body>
 
 <style type="text/css">
-    .menu_button{
-        float:left;
+    .menu input{
+        margin-top: 25px;
+        margin-left: 15px;
     }
-
-    .menu_button:hover{
-        float:left;
-        
+    .menu input:hover{
+        background-image: url();
     }
 
 </style>
