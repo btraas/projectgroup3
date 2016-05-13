@@ -39,7 +39,7 @@
 	var numberRange = 4; //number of answers
 	var maxNumber = Math.pow(rowSize, 2);//max number
 	var test_pattern = 161116; // 1 6 11 16
-	var progress = [0, 0, 0, 0, 0,
+	var progress = [2, 0, 0, 0, 0,
 					0, 0, 0, 0, 0]; //user progress 0: off, 1: on, 2:current
 	var progressIndex = 0;// user progress index
 
@@ -64,6 +64,7 @@
 					
                     if(pattern == answer) {
                     	progress[progressIndex++] = 1;
+                		console.log("progressIndex: " + progressIndex - 1 + "progress: " + progress[progrssIndex-1]);
 
 						alert('pass');
 						generateAnswer();
@@ -194,6 +195,8 @@
 		if (navigator.vibrate) {
 				// vibration API supported
 		}
+	
+		var lock = new PatternLock('#pattern',  grid);// Generate a grid
 
 		(function showUserProgress(){
 				var progressBar = document.getElementById("progressBar");
@@ -217,9 +220,6 @@
 					}
 				}//end of for
 		}());	//end of funciton
-	
-		var lock = new PatternLock('#pattern', // Generate a grid
-		grid);
 	});
 
     function onResult()  {
