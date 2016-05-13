@@ -22,12 +22,13 @@
 ?>
 
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<link rel="stylesheet" type="text/css" href="assets/css/result.css">
 	<title>result page</title>
     <script>
         function goHome()  {
-       		window.location = 'menu.html'
+       		window.location = 'index.html'
         }
         function goPost()  {
 			var username = prompt('Plese enter your username:',"");
