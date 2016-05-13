@@ -72,7 +72,7 @@
 					}
 
                     window.setTimeout(function() { lock.reset(); }, 1000);
-                }
+            }
 		};
 
 	if(!empty(getCookie('progressIndex'))){
@@ -230,13 +230,15 @@
 					}
 				}//end of for
 		}());	//end of funciton
-
+	
 		var lock = new PatternLock('#pattern', // Generate a grid
 		grid);
+	});
 
     function onResult()  {
    		window.location = 'result.php';
     }
+
 	</script>
 
 </head>
