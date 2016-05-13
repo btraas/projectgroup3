@@ -39,11 +39,19 @@
 	var numberRange = 4; //number of answers
 	var maxNumber = Math.pow(5, 2);//max number
 	var test_pattern = 161116; // 1 6 11 16
-	var progress = [2, 0, 0, 0, 0,
+	var progress = [0, 0, 0, 0, 0,
 					0, 0, 0, 0, 0]; //user progress 0: off, 1: on, 2:current
 	var progressIndex = 0;// user progress index
 
-	setCookie('userProgress', progress.join('|'), 365);
+	if(!empty(getCookie('progressIndex'))){
+		progressIndex = getCookie('progressIndex');
+		console.log("progressIndex" + progressIndex);
+	}
+
+	if(!empty(getCookie('progress'))){
+		progress = getCookie('progress').split('|');
+		console.log("progress" + progress);
+	}
 
 	/* capital G because we use it as an object */
 	function GridButton(value, values, rows, columns) // {{{
@@ -155,8 +163,7 @@
 		console.log(decodeURI(getCookie('answer')).split('|').join(''));
 	}()); // }}}
 
-	// Math to determine element sizes
-
+	// Math to determine elements sizes
 	buttonRadius = matrixSize / rowSize;
 	buttonMargin = buttonRadius / 10;
 	buttonRadius = buttonRadius/2 - (buttonMargin * 2);
@@ -170,6 +177,29 @@
 				// vibration API supported
 		}
 
+		(function showUserProgress(){
+				var progressBar = document.getElementById("progressBar");
+				//generating progress buttons
+				for(var i = 0; i < 10; i++){
+					var button = document.createElement("div");
+					button.className = "progressButtonOff";
+					button.id = "progress" + i;
+
+					progressBar.appendChild(button);
+				}
+
+				//check user progress and visualizing based on userProgress array
+				for(var i = 0; i <= progressIndex; i++){
+					if(progress[i] == 0){
+				 	document.getElementById("progress" + i).className = "progressButtonOff";
+					} else if(progress[i] == 1) {
+						document.getElementById("progress" + i).className = "progressButtonOn";
+					} else {
+						document.getElementById("progress" + i).className = "progressButtonCurrent";
+					}
+				}//end of for
+		}());	//end of funciton
+
 		var lock = new PatternLock('#pattern', // Generate a grid
 		{
 			matrix : [gridSize, gridSize],
@@ -179,57 +209,28 @@
 	        lineOnMove: true,
 	        delimiter: "", // a delimeter between the pattern
 	        enableSetPattern: false,
+
 			onDraw:function(pattern) {
 					var answer = decodeURI(getCookie('answer')).split('|').join('');
 
 					console.log("comparing input ("+pattern+") to answer ("+answer+")");
 
-                    if(pattern == answer) 
-					{
+                    if(pattern == answer) {
+                    	progress[progressIndex++] = 1;
+
+                    	setCookie('porgressIndex', progressIndex, 365)
+						setCookie('progress', progress.join('|'), 365);
+
 						alert('pass');
 						location.reload();
+					} else {
+						lock.error();
 					}
-                    else lock.error();
-
 
                     window.setTimeout(function() { lock.reset(); }, 1000);
                 }
 		});
-
-		function userProgress(){
-			var progressBar = document.getElementById("progressBar");
-			//generating progress buttons
-			for(var i = 0; i < 10; i++){
-				var button = document.createElement("div");
-				button.className = "progressButtonOff";
-				button.id = "progress" + i;
-
-				progressBar.appendChild(button);
-			}
-
-			//check user progress and visualizing based on userProgress array
-			for(var i = 0; i <= progressIndex; i++){
-				if(userProgress[i] == 0){
-			 	document.getElementById("progress" + i).className = "progressButtonOff";
-				} else if(userProgress[i] == 1) {
-					document.getElementById("progress" + i).className = "progressButtonOn";
-				} else {
-					document.getElementById("progress" + i).className = "progressButtonCurrent";
-				}
-			}
-		}
 	});
-
-	
-
-	// function skip(){
-
-	// }
-
-	// function userSkip(){
-
-	// }
-
 	</script>
 
 </head>
@@ -238,7 +239,7 @@
 <body>
 	<div class="maincontainer">
 		<div>
-			<input type="button" class='menu' value = 'Menu' onclick='onMenu()'/>
+			<input type="button" class='menu' value = 'Menu' onclick='location.href = "index.html"'/>
 		</div>
 
 		<div id="progressBar">

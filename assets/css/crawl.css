@@ -131,13 +131,14 @@ h1 sub
 /* the interesting 3D scrolling stuff */
 #titles
 {
+	color: yellow;
 	position: absolute;
-	width: 18em;
+	width: 12em;
 	height: 50em;
 	bottom: 0;
 	left: 50%;
-	margin-left: -9em;
-	font-size: 350%;
+	margin-left: -6em;
+	font-size: 300%;
 	text-align: justify;
 	overflow: hidden;
 	-webkit-transform-origin: 50% 100%;

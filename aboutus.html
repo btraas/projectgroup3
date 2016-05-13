@@ -3,19 +3,22 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<link rel="stylesheet" type="text/css" href="assets/css/settings.css">
+	<link rel='stylesheet' type='text/css' href='assets/css/crawl.css'>
     	<link rel="stylesheet" href="themes/darkTheme.min.css" />
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
     <script>
         	function onMenu() {
-			window.location = 'menu.html';
+			window.location = 'index.html';
 		}
 
 		$(document).ready(function()
 		{
-			var scrolltext = "<div id='titlecontent'>"+
+			var scrolltext = "<div id='titles'><div id='titlecontent'>"+
 							"<p class='center'>EPISODE IV<br />"+
       						"A NEW HOPE FOR MEMORY RETENTION</p>"+
 
@@ -28,10 +31,15 @@
 
     						"<p>This game was inspired by the Android pattern lockscreen. Other than that, we are in no way affiliated with Anroid, Google, or Star Wars in any way.</p>"+
 
-    "</div>";
+    "</div></div>";
 			
 
-			if(window.location.hash === '#easteregg') $('.credits').html(scrolltext);
+			if(window.location.hash === '#easteregg')
+			{
+				$('.credits').html(scrolltext);
+				var audio = new Audio('resources/starwars.mp3');
+				audio.play();
+			}
 
 
 
@@ -39,6 +47,7 @@
 			{
 				//$('.credits').html(scrolltext);
 				location.href = 'aboutus.html#easteregg';
+				location.reload();
 			});
 		});
 
@@ -50,12 +59,13 @@
 				<input type="button" class='menu' value = 'Menu' onclick='onMenu()'/>
         
 		<div class="credits" data-role="content" data-theme="a">
-             <img src="/resources/game_logo2.png" alt="game_logo" width="300px" height="120px">
+             <img src="resources/game_logo3.png" alt="game_logo" width="300px" height="120px">
 			<h2>Code,Design,Development</h2>
 			<p>Brayden Trass</p>
-			<p>Shawn Kin</p>
+			<p>Shawn Kim</p>
 			<p>Kelvin Zhong</p>
 			<p>Benjamin Hao</p>
+			<img src='resources/lightsaber.png' id='lightsaber' />
 		</div>
        
 
