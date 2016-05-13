@@ -39,15 +39,20 @@
 	var numberRange = 4; //number of answers
 	var maxNumber = Math.pow(5, 2);//max number
 	var test_pattern = 161116; // 1 6 11 16
-	var progress = [2, 0, 0, 0, 0,
+	var progress = [0, 0, 0, 0, 0,
 					0, 0, 0, 0, 0]; //user progress 0: off, 1: on, 2:current
 	var progressIndex = 0;// user progress index
 
-	progressIndex = getCookie('progressIndex');
-	console.log("progressIndex" + progressIndex);
+	if(!empty(getCookie('progressIndex'))){
+		progressIndex = getCookie('progressIndex');
+		console.log("progressIndex" + progressIndex);
+	}
 
-	progress = getCookie('progress');
-	console.log("progress" + progress);
+	if(!empty(getCookie('progress'))){
+		progress = getCookie('progress').split('|');
+		console.log("progress" + progress);
+	}
+
 	/* capital G because we use it as an object */
 	function GridButton(value, values, rows, columns) // {{{
 	{
@@ -194,7 +199,7 @@
 					}
 				}//end of for
 		}());	//end of funciton
-		
+
 		var lock = new PatternLock('#pattern', // Generate a grid
 		{
 			matrix : [gridSize, gridSize],

@@ -6,7 +6,6 @@ body {
 .wrapper {
     width: 320px;
     height: 480px;
-    margin: auto auto;
 	background-color: #232323;
 	border: 1px solid black;
 }
