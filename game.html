@@ -43,6 +43,38 @@
 					0, 0, 0, 0, 0]; //user progress 0: off, 1: on, 2:current
 	var progressIndex = 0;// user progress index
 
+	var grid = {
+			matrix : [gridSize, gridSize],
+			margin : buttonMargin,
+    		radius: buttonRadius,
+	        patternVisible: true,
+	        lineOnMove: true,
+	        delimiter: "", // a delimeter between the pattern
+	        enableSetPattern: false,
+
+			onDraw:function(pattern) {
+					var answer = decodeURI(getCookie('answer')).split('|').join('');
+
+					console.log("comparing input ("+pattern+") to answer ("+answer+")");
+					geneateAnswer();
+                    if(pattern == answer) {
+                    	progress[progressIndex++] = 1;
+
+                    	setCookie('porgressIndex', progressIndex, 365)
+						setCookie('progress', progress.join('|'), 365);
+
+						alert('pass');
+						generateAnswer();
+						lock = new PatternLock('#pattern', grid);
+						// location.reload();
+					} else {
+						lock.error();
+					}
+
+                    window.setTimeout(function() { lock.reset(); }, 1000);
+                }
+		};
+
 	if(!empty(getCookie('progressIndex'))){
 		progressIndex = getCookie('progressIndex');
 	}
@@ -146,7 +178,7 @@
 		return nextNum;
 	} // }}}
 
-	(function generateAnswer(){ // {{{ Generate the answer
+	function generateAnswer(){ // {{{ Generate the answer
 		var answer = [];
 	
 		while(answer.length < numberRange){
@@ -161,7 +193,7 @@
 		setCookie('answer', answer.join('|'), 365);
 
 		console.log(decodeURI(getCookie('answer')).split('|').join(''));
-	}()); // }}}
+	} // }}}
 
 	// Math to determine elements sizes
 	buttonRadius = matrixSize / rowSize;
@@ -200,37 +232,7 @@
 		}());	//end of funciton
 
 		var lock = new PatternLock('#pattern', // Generate a grid
-		{
-			matrix : [gridSize, gridSize],
-			margin : buttonMargin,
-    		radius: buttonRadius,
-	        patternVisible: true,
-	        lineOnMove: true,
-	        delimiter: "", // a delimeter between the pattern
-	        enableSetPattern: false,
-
-			onDraw:function(pattern) {
-					var answer = decodeURI(getCookie('answer')).split('|').join('');
-
-					console.log("comparing input ("+pattern+") to answer ("+answer+")");
-
-                    if(pattern == answer) {
-                    	progress[progressIndex++] = 1;
-
-                    	setCookie('porgressIndex', progressIndex, 365)
-						setCookie('progress', progress.join('|'), 365);
-
-						alert('pass');
-						generateAnswer();
-						// location.reload();
-					} else {
-						lock.error();
-					}
-
-                    window.setTimeout(function() { lock.reset(); }, 1000);
-                }
-		});
-	});
+		grid);
 
     function onResult()  {
    		window.location = 'result.php'
