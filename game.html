@@ -43,6 +43,11 @@
 					0, 0, 0, 0, 0]; //user progress 0: off, 1: on, 2:current
 	var progressIndex = 0;// user progress index
 
+	progressIndex = getCookie('progressIndex');
+	console.log("progressIndex" + progressIndex);
+
+	progress = getCookie('progress')).split('|').join('')
+	console.log("progress" + progress);
 	/* capital G because we use it as an object */
 	function GridButton(value, values, rows, columns) // {{{
 	{
@@ -153,8 +158,30 @@
 		console.log(decodeURI(getCookie('answer')).split('|').join(''));
 	}()); // }}}
 
-	// Math to determine element sizes
+	(function showUserProgress(){
+			var progressBar = document.getElementById("progressBar");
+			//generating progress buttons
+			for(var i = 0; i < 10; i++){
+				var button = document.createElement("div");
+				button.className = "progressButtonOff";
+				button.id = "progress" + i;
 
+				progressBar.appendChild(button);
+			}
+
+			//check user progress and visualizing based on userProgress array
+			for(var i = 0; i <= progressIndex; i++){
+				if(progress[i] == 0){
+			 	document.getElementById("progress" + i).className = "progressButtonOff";
+				} else if(progress[i] == 1) {
+					document.getElementById("progress" + i).className = "progressButtonOn";
+				} else {
+					document.getElementById("progress" + i).className = "progressButtonCurrent";
+				}
+			}//end of for
+	};());	//end of funciton
+
+	// Math to determine elements sizes
 	buttonRadius = matrixSize / rowSize;
 	buttonMargin = buttonRadius / 10;
 	buttonRadius = buttonRadius/2 - (buttonMargin * 2);
@@ -177,8 +204,7 @@
 	        lineOnMove: true,
 	        delimiter: "", // a delimeter between the pattern
 	        enableSetPattern: false,
-	        
-			showUserProgress();
+
 			onDraw:function(pattern) {
 					var answer = decodeURI(getCookie('answer')).split('|').join('');
 
@@ -186,7 +212,10 @@
 
                     if(pattern == answer) {
                     	progress[progressIndex++] = 1;
+
+                    	setCookie('porgressIndex', progressIndex, 365)
 						setCookie('progress', progress.join('|'), 365);
+
 						alert('pass');
 						location.reload();
 					} else {
@@ -197,36 +226,6 @@
                 }
 		});
 	});
-
-	// function skip(){
-
-	// }
-
-	// function userSkip(){
-
-	// }
-	function showUserProgress(){
-			var progressBar = document.getElementById("progressBar");
-			//generating progress buttons
-			for(var i = 0; i < 10; i++){
-				var button = document.createElement("div");
-				button.className = "progressButtonOff";
-				button.id = "progress" + i;
-
-				progressBar.appendChild(button);
-			}
-
-			//check user progress and visualizing based on userProgress array
-			for(var i = 0; i <= progressIndex; i++){
-				if(progress[i] == 0){
-			 	document.getElementById("progress" + i).className = "progressButtonOff";
-				} else if(progress[i] == 1) {
-					document.getElementById("progress" + i).className = "progressButtonOn";
-				} else {
-					document.getElementById("progress" + i).className = "progressButtonCurrent";
-				}
-			}
-		};
 	</script>
 
 </head>
