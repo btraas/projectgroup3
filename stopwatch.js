@@ -72,6 +72,10 @@ function formatTime(time) {
 	return newTime;
 }
 
+	
+
+
+
 function show() {
 	$time = document.getElementById('time');
 	start();
