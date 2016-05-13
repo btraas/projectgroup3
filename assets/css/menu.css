@@ -3,6 +3,7 @@ body {
     height: 480px;
 }
 
+/** set the size of the page **/
 .wrapper {
     width: 320px;
     height: 480px;
@@ -11,6 +12,7 @@ body {
 	border: 1px solid black;
 }
 
+/** the image on the top of the page **/
 .logo {
 	margin: 0 0;
 	width: 100%;
@@ -47,6 +49,7 @@ body {
  	border-radius: 20px 20px 20px 20px;
 }
 
+/** the style for play button **/
 .playBtn {
 	cursor:pointer;
 	width: 100%;

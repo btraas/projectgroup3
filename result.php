@@ -27,6 +27,7 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/result.css">
 	<title>result page</title>
     <script>
+    	// direct to other pages accordingly
         function goHome()  {
        		window.location = 'index.html'
         }
@@ -62,6 +63,7 @@
 		</div>
 
 		<div class='menu'>
+			<!-- the first row of bottons -->
 			<div class='firstRow'>
 				<input type="image" src="resources/result_buttons_home.png" onclick="goHome()" class="homeBtn">
                 <input type="image" src="resources/result_buttons_leaderboards.png" value="Post Score" onclick="goPost()" class="postBtn">

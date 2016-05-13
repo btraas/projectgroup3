@@ -24,6 +24,7 @@
 	<title>Leaderboards</title>
 
     <script>
+        // direct to menu page
         function onMenu() {
             window.location = 'index.html';
         }

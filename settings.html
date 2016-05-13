@@ -15,12 +15,12 @@
 	<title>Settings</title>
 
 	<script>
-
+		// load from cookie and set as the default value
 		function myFunction() {
 			document.getElementById("bgm").value = getCookie('bgm');
 			document.getElementById("sfx").value = getCookie('sfx');
 		}
-
+		// direct the other pages accordingly
 		function onMenu() {
 			window.location = 'index.html';
 		}

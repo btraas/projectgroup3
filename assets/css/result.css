@@ -4,6 +4,7 @@ body {
     margin: auto;
 }
 
+/** set fixed size of the page **/
 .wrapper {
     width: 320px;
     height: 480px;
@@ -12,6 +13,7 @@ body {
 	border: 1px solid black;
 }
 
+/** set background image for score are **/
 .scoreArea {
 
 	margin-top: 50px;
@@ -50,7 +52,7 @@ body {
     border-radius: 20px 20px 20px 20px;
 }
 
-
+/** the style of buttons **/
 .homeBtn {
   width: 95px;
   height: 65px;
@@ -80,15 +82,11 @@ body {
 }
 
 .firstRow {
-
 	width:200px;
 	margin: auto;
-
 }
 
 .secondRow {
-
 	width:200px;
 	margin: auto;
-
 }
