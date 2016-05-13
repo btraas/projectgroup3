@@ -63,8 +63,17 @@
 					// console.log("comparing input ("+pattern+") to answer ("+answer+")");
 					
                     if(pattern == answer) {
+                    	//check to rich the last stage and save as a cookie
+						
+
                     	progress[progressIndex++] = 1;
 						alert('pass');
+						
+						if(progressIndex == 9){
+							setCookie('pattern', pattern.join('|'), 365);
+							window.location = 'result.php'
+						}
+
 						generateAnswer();
 						lock = new PatternLock('#pattern', grid);
 						// location.reload();
@@ -73,6 +82,7 @@
 						// for( var i = 0; i < progress.length; i++){
 						// 	console.log("progress[" + i + "]: " + progress[i]);
 						// }
+
 					} else {
 						lock.error();
 					}
