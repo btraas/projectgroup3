@@ -197,7 +197,8 @@
 		if (navigator.vibrate) {
 				// vibration API supported
 		}
-	
+
+		showUserProgress();
 		lock = new PatternLock('#pattern',  grid);// Generate a grid		
 	});
 
@@ -208,14 +209,15 @@
     function showUserProgress(){
 				var progressBar = document.getElementById("progressBar");
 				//generating progress buttons
-				for(var i = 0; i < 10; i++){
-					var button = document.createElement("div");
-					button.className = "progressButtonOff";
-					button.id = "progress" + i;
+				if(empty(progressBar){
+					for(var i = 0; i < 10; i++){
+						var button = document.createElement("div");
+						button.className = "progressButtonOff";
+						button.id = "progress" + i;
 
-					progressBar.appendChild(button);
+						progressBar.appendChild(button);
+					}
 				}
-
 				//check user progress and visualizing based on userProgress array
 				for(var i = 0; i <= progressIndex; i++){
 					if(progress[i] == 0){
