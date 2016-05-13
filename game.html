@@ -68,7 +68,7 @@
 						generateAnswer();
 						lock = new PatternLock('#pattern', grid);
 						// location.reload();
-
+						showUserProgress();
 						for( var i = 0; i < progress.length; i++){
 							console.log("progress[" + i + "]: " + progress[i]);
 						}
@@ -198,9 +198,14 @@
 				// vibration API supported
 		}
 	
-		lock = new PatternLock('#pattern',  grid);// Generate a grid
+		lock = new PatternLock('#pattern',  grid);// Generate a grid		
+	});
 
-		(function showUserProgress(){
+    function onResult()  {
+   		window.location = 'result.php';
+    }
+
+    function showUserProgress(){
 				var progressBar = document.getElementById("progressBar");
 				//generating progress buttons
 				for(var i = 0; i < 10; i++){
@@ -221,12 +226,7 @@
 						document.getElementById("progress" + i).className = "progressButtonCurrent";
 					}
 				}//end of for
-		}());	//end of funciton
-	});
-
-    function onResult()  {
-   		window.location = 'result.php';
-    }
+		}
 
 	</script>
 
