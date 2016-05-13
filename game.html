@@ -158,29 +158,6 @@
 		console.log(decodeURI(getCookie('answer')).split('|').join(''));
 	}()); // }}}
 
-	(function showUserProgress(){
-			var progressBar = document.getElementById("progressBar");
-			//generating progress buttons
-			for(var i = 0; i < 10; i++){
-				var button = document.createElement("div");
-				button.className = "progressButtonOff";
-				button.id = "progress" + i;
-
-				progressBar.appendChild(button);
-			}
-
-			//check user progress and visualizing based on userProgress array
-			for(var i = 0; i <= progressIndex; i++){
-				if(progress[i] == 0){
-			 	document.getElementById("progress" + i).className = "progressButtonOff";
-				} else if(progress[i] == 1) {
-					document.getElementById("progress" + i).className = "progressButtonOn";
-				} else {
-					document.getElementById("progress" + i).className = "progressButtonCurrent";
-				}
-			}//end of for
-	}());	//end of funciton
-
 	// Math to determine elements sizes
 	buttonRadius = matrixSize / rowSize;
 	buttonMargin = buttonRadius / 10;
@@ -195,6 +172,29 @@
 				// vibration API supported
 		}
 
+		(function showUserProgress(){
+				var progressBar = document.getElementById("progressBar");
+				//generating progress buttons
+				for(var i = 0; i < 10; i++){
+					var button = document.createElement("div");
+					button.className = "progressButtonOff";
+					button.id = "progress" + i;
+
+					progressBar.appendChild(button);
+				}
+
+				//check user progress and visualizing based on userProgress array
+				for(var i = 0; i <= progressIndex; i++){
+					if(progress[i] == 0){
+				 	document.getElementById("progress" + i).className = "progressButtonOff";
+					} else if(progress[i] == 1) {
+						document.getElementById("progress" + i).className = "progressButtonOn";
+					} else {
+						document.getElementById("progress" + i).className = "progressButtonCurrent";
+					}
+				}//end of for
+		}());	//end of funciton
+		
 		var lock = new PatternLock('#pattern', // Generate a grid
 		{
 			matrix : [gridSize, gridSize],
