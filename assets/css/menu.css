@@ -1,5 +1,6 @@
 body {
-    margin: auto auto;
+    width: 320px;
+    height: 480px;
 }
 
 .wrapper {
@@ -30,26 +31,11 @@ body {
     border-radius: 20px 20px 20px 20px;
 }
 
-
-.settings {
-	cursor:pointer;
+.icon {
 	width: 90px;
- 	height: 65px;
- 	margin: 10px auto;
-}
-
-.leaderboards {
+	height: 90px;
 	cursor:pointer;
-	width: 90px;
- 	height: 65px;
- 	margin: 10px auto;
-}
-
-.about {
-	cursor:pointer;
-	width: 90px;
- 	height: 65px;
- 	margin: 10px auto;
+	margin: 10px auto;
 }
 
 .play {
