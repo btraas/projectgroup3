@@ -89,3 +89,16 @@ body {
 .schedule tr:nth-child(1) { /* make every odd row white background */
     width:140px;
 }
+
+.switcher{
+    text-align: center;
+}
+.switcher p {
+    color: white;
+    font-size: 180%;
+    font-weight: bold;
+    padding-top: 5px;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

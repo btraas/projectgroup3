@@ -162,6 +162,14 @@
 	buttonRadius = buttonRadius/2 - (buttonMargin * 2);
 
 	$(document).ready(function(){
+		
+		// enable vibration support
+		navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+
+		if (navigator.vibrate) {
+				// vibration API supported
+		}
+
 		var lock = new PatternLock('#pattern', // Generate a grid
 		{
 			matrix : [gridSize, gridSize],
@@ -176,9 +184,18 @@
 
 					console.log("comparing input ("+pattern+") to answer ("+answer+")");
 
+<<<<<<< HEAD
                     if(pattern == answer){
                     	alert('pass');	
                     }  else lock.error();
+=======
+                    if(pattern == answer) 
+					{
+						alert('pass');
+						location.reload();
+					}
+                    else lock.error();
+>>>>>>> 8a074a5ec79de8752bcd3a65dd7bd113202094e6
 
                     window.setTimeout(function() { lock.reset(); }, 1000);
                 }

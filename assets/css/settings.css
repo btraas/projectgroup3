@@ -80,6 +80,11 @@ body {
 	border-radius: 5px;
 }
 
+.credits{
+    margin: 0 auto;
+    width: 298 px;
+    text-align: center;
+}
 
 /** styles for range input element **/
 input[type=range] {
