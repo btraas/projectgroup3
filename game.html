@@ -65,9 +65,6 @@
                     if(pattern == answer) {
                     	progress[progressIndex++] = 1;
 
-                    	setCookie('porgressIndex', progressIndex, 365)
-						setCookie('progress', progress.join('|'), 365);
-
 						alert('pass');
 						generateAnswer();
 						lock = new PatternLock('#pattern', grid);
@@ -79,16 +76,6 @@
                     window.setTimeout(function() { lock.reset(); }, 1000);
             }
 		};
-
-	if(!empty(getCookie('progressIndex'))){
-		progressIndex = getCookie('progressIndex');
-	}
-	console.log("progressIndex" + progressIndex);
-
-	if(!empty(getCookie('progress'))){
-		progress = getCookie('progress').split('|');
-	}
-	console.log("progress" + progress);
 
 	/* capital G because we use it as an object */
 	function GridButton(value, values, rows, columns) // {{{
