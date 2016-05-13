@@ -1,0 +1,22 @@
+body{
+	background-color:#232323;
+}
+
+.maincontainer {
+  margin: 0 auto;
+  right: auto;
+  bottom: auto;
+  width: 320px;
+  height: 100%;
+  background-color: #232323;
+  color: #FFF;
+  text-align: center;
+  /* border-radius: 10px; */
+  overflow: none;
+}
+
+
+#progressBar {
+	height: 20px;
+	border: 2px solid #ffffff;
+}
