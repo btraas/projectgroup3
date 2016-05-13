@@ -12,20 +12,19 @@
 
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-	<link rel="stylesheet" type="text/css" href="assets/css/leaderboards.css">
-
+	
 <!--Theme css-->
     <link rel="stylesheet" href="themes/darkTheme.min.css" />
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="assets/css/leaderboards.css">
 	<title>Leaderboards</title>
 
     <script>
         function onMenu() {
-            window.location = 'menu.html'
+            window.location = 'menu.html';
         }
     </script>   
     
@@ -34,11 +33,10 @@
 <body>
 
 	<div class='wrapper'>
-
-		<input type="button" class='menu' value = 'Menu' onclick='onMenu()'/>
+		<input type="button" class='goMenu' value = 'Menu' onclick="onMenu()" />
 
     <div class="switcher">
-            <p class='theme'>Leaderboards</p>
+            <p class='Leaderboards'>Leaderboards</p>
             <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
             <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="Global" checked="checked" />
 			<label for="radio-choice-a1">Global</label>

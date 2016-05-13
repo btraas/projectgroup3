@@ -43,8 +43,6 @@
 					0, 0, 0, 0, 0]; //user progress 0: off, 1: on, 2:current
 	var progressIndex = 0;// user progress index
 
-	setCookie('userProgress', progress.join('|'), 365);
-
 	/* capital G because we use it as an object */
 	function GridButton(value, values, rows, columns) // {{{
 	{
@@ -179,24 +177,35 @@
 	        lineOnMove: true,
 	        delimiter: "", // a delimeter between the pattern
 	        enableSetPattern: false,
+	        
+			showUserProgress();
 			onDraw:function(pattern) {
 					var answer = decodeURI(getCookie('answer')).split('|').join('');
 
 					console.log("comparing input ("+pattern+") to answer ("+answer+")");
 
-                    if(pattern == answer) 
-					{
+                    if(pattern == answer) {
+                    	progress[progressIndex++] = 1;
+						setCookie('progress', progress.join('|'), 365);
 						alert('pass');
 						location.reload();
+					} else {
+						lock.error();
 					}
-                    else lock.error();
-
 
                     window.setTimeout(function() { lock.reset(); }, 1000);
                 }
 		});
+	});
 
-		function userProgress(){
+	// function skip(){
+
+	// }
+
+	// function userSkip(){
+
+	// }
+	function showUserProgress(){
 			var progressBar = document.getElementById("progressBar");
 			//generating progress buttons
 			for(var i = 0; i < 10; i++){
@@ -209,27 +218,15 @@
 
 			//check user progress and visualizing based on userProgress array
 			for(var i = 0; i <= progressIndex; i++){
-				if(userProgress[i] == 0){
+				if(progress[i] == 0){
 			 	document.getElementById("progress" + i).className = "progressButtonOff";
-				} else if(userProgress[i] == 1) {
+				} else if(progress[i] == 1) {
 					document.getElementById("progress" + i).className = "progressButtonOn";
 				} else {
 					document.getElementById("progress" + i).className = "progressButtonCurrent";
 				}
 			}
-		}
-	});
-
-	
-
-	// function skip(){
-
-	// }
-
-	// function userSkip(){
-
-	// }
-
+		};
 	</script>
 
 </head>
