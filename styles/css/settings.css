@@ -1,0 +1,168 @@
+body {
+    width: 320px;
+    height: 480px;
+}
+
+/** set the fixed size for the page **/
+.wrapper {
+    width: 320px;
+    height: 480px;
+    margin: auto auto;
+	background-color: #232323;
+	border: 1px solid black;
+}
+
+/* nothing, darkTheme.css included it */
+.menu {
+	margin-top: 20px;
+	width: 100%;
+	height: 35px;
+	background-color: #EC7822;
+	color: white;
+	text-align: center;
+	font-size: 160%;
+	font-weight: bold;
+    border:none;
+}
+
+/* nothing, darkTheme.css included it */
+.volume_text {
+	color: white;
+    font-size: 180%;
+    font-weight: bold;
+	text-align: left;
+    padding-top: 5px;
+    letter-spacing: 1px;
+    margin-top: 45px;
+    margin-left: 8px;
+}
+
+/* set fixed size for buttons*/
+.buttons {
+	width: 230px;
+	margin: auto;
+	margin-top: 10px;
+}
+
+/* nothing, darkTheme.css included it */
+.theme {
+	  color: white;
+    font-size: 160%;
+    font-weight: bold;
+	  text-align: center;
+    padding-top: 5px;
+    letter-spacing: 1px;
+    margin-top: 40px;
+    margin-left: 8px;
+}
+
+/* set switcher centre align */
+.switcher{
+    margin: auto;
+    width:320px;
+    text-align: center;
+    
+}
+
+/* nothing, darkTheme.css included it */
+.dark {
+	width:110px;
+	height: 42px;
+	margin: 0;
+	background-color: #E39345;
+	color: white;
+	border:none;
+	font-weight: bold;
+	font-size: 140%;
+	border-radius: 5px;
+}
+
+/* nothing, darkTheme.css included it */
+.light {
+	width:110px;
+	height: 42px;
+	margin: 0;
+	background-color: #404040;
+	border:none;
+	color: grey;
+	font-size: 140%;
+	border-radius: 5px;
+}
+
+/* stylize text in about page*/
+.credits{
+    margin: 0 auto;
+    width: 298px;
+    text-align: center;
+}
+
+/** styles for range input element **/
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 10px 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 22px;
+  cursor: pointer;
+  background: white;
+  border: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  border: none;
+  height: 42px;
+  width: 20px;
+  background: #EC7822;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -11px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: white;
+  height: 22px;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 22px;
+  cursor: pointer;
+  background: white;
+}
+input[type=range]::-moz-range-thumb {
+  height: 42px;
+  width: 20px;
+  background: #EC7822;
+  cursor: pointer;
+}
+
+/** styles for MS broswers **/
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 22px;
+  cursor: pointer;
+  background: white;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #E39345;;
+
+}
+input[type=range]::-ms-fill-upper {
+  background: white;
+}
+input[type=range]::-ms-thumb {
+  height: 42px;
+  width: 20px;
+  background: #EC7822;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #E39345;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: white;
+}

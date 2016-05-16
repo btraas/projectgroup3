@@ -1,0 +1,118 @@
+body {
+  background: #999;
+  text-align: center;
+  font-size: 95%;
+  line-height: 1.5;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
+  background-color: #232323;
+}
+
+/** set fixed size of the page **/
+.maincontainer {
+  margin: 0 auto;
+  right: auto;
+  bottom: auto;
+  width: 320px;
+  height: 100%;
+  background-color: #232323;
+  color: #FFF;
+  text-align: center;
+  /* border-radius: 10px; */
+  overflow: none;
+}
+
+/** set fixed size for the pattern **/
+.patterncontainer {
+  margin-top: 25px;
+  margin-left: 5px;
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  background: #404040;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.heading { padding-top: 5px; }
+
+/** set fixed size for the button **/
+.button {
+  width: 40px;
+  height: 40px;
+  background: #EC7822;
+  border-radius: 50%;
+  margin: 10px;
+  float: left;
+}
+
+/* nothing, darkTheme.css included it */
+.activebutton {
+  width: 30px;
+  height: 30px;
+  background: #e39345;
+  border-radius: 50%;
+  border-width: 0px;
+  border-style: solid;
+  border-color: #FFF;
+  margin: 20.5px;
+  float: left;
+  -webkit-box-shadow: 0px 0px 15px 5px rgba(114, 160, 204, 1);
+  -moz-box-shadow: 0px 0px 15px 5px rgba(114, 160, 204, 1);
+  box-shadow: 0px 0px 15px 5px rgba(114, 160, 204, 1);
+}
+
+/* nothing, darkTheme.css included it */
+.duplicatebutton {
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 102, 51, 1);
+  border-radius: 50%;
+  border-width: 0px;
+  border-style: solid;
+  border-color: #FFF;
+  margin: 20.5px;
+  float: left;
+  -webkit-box-shadow: 0px 0px 15px 5px rgba(255, 102, 51, 1);
+  -moz-box-shadow: 0px 0px 15px 5px rgba(255, 102, 51, 1);
+  box-shadow: 0px 0px 15px 5px rgba(255, 102, 51, 1);
+}
+
+/* nothing, darkTheme.css included it */
+.button-reset {
+  margin: 20px;
+  width: 170px;
+  height: 50px;
+  color: #FFF;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #FFF;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 15px;
+  background-color: #FA8258;
+}
+
+/* nothing, darkTheme.css included it */
+.button-lockscreen {
+  margin: 20px;
+  width: 170px;
+  height: 50px;
+  color: #FFF;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #FFF;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 15px;
+  background-color: #2E9AFE;
+}
+
+/** set fixed size for logo **/
+.logo {
+	max-height: 300px; 
+	max-width: 100%;
+	position: relative;
+}

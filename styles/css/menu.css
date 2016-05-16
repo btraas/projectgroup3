@@ -1,0 +1,63 @@
+body {
+    width: 320px;
+    height: 480px;
+}
+
+/** set the size of the page **/
+.wrapper {
+    width: 320px;
+    height: 480px;
+    margin: auto auto;
+	background-color: #232323;
+	border: 1px solid black;
+}
+
+/** the image on the top of the page **/
+.logo {
+	margin: 0 0;
+	width: 100%;
+	height: 120px;
+	background-color: #E39345;
+
+	background-image: url("../../resources/menu_header.png");
+    background-repeat: no-repeat;
+    background-size: 100% 120px;
+}
+
+.menu {
+
+	width: 90%;
+    height: 120px;
+    margin: 80px auto;
+    background-color: #404040;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.icon {
+	width: 70px;
+	height: 70px;
+	cursor:pointer;
+	margin: 30px auto;
+	margin-top: 10px;
+}
+
+.play {
+	width: 92%;
+ 	height: 55px;
+ 	margin: 10px auto;
+ 	border:none;
+ 	border-radius: 20px 20px 20px 20px;
+}
+
+/** the style for play button **/
+.playBtn {
+	cursor:pointer;
+	width: 100%;
+ 	height: 55px;
+ 	border:none;
+ 	background-color: #EC7822;
+ 	border-radius: 15px 15px 15px 15px;
+ 	font-weight: bold;
+ 	font-size: 170%;
+ 	color: white;
+}
