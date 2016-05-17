@@ -6,8 +6,6 @@ function showCross(){
     div.animate({opacity: '0.2'}, "slow");
 	div.animate({opacity: '1.0'}, "slow");
 
-	sleep(2);
-
 	div.remove();
 }
 
@@ -19,7 +17,6 @@ function showCheck(){
     div.animate({opacity: '0.2'}, "slow");
 	div.animate({opacity: '1.0'}, "slow");
 
-	sleep(2);
 
 	div.remove();
 }
