@@ -33,6 +33,7 @@
         }
         function goPost()  {
 			var username = prompt('Plese enter your username:',"");
+			setCookie('username', username, 365);
 			window.location = 'post_score.php?username=' + username + "&random=" + window.btoa(<?php echo $score ?>);
         }
         function goSelect()  {
