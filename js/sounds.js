@@ -22,11 +22,11 @@ function BackgroundMusic(file)
 	this.audio.volume = volumes.bgm / 100;
 	this.loop = true;
 	
-	this.play() = function() {
+	this.play = function() {
 		return this.audio.play();
 	}
 
-	this.pause() = function() {
+	this.pause = function() {
 		return this.audio.pause();
 	}
 } // }}}
@@ -38,11 +38,11 @@ function SoundEffect(file)
     this.audio.volume = volumes.sfx / 100;
     this.loop = false;
 
-    this.play() = function() {
+    this.play = function() {
         return this.audio.play();
     }
 
-    this.pause() = function() {
+    this.pause = function() {
         return this.audio.pause();
     }
 } // }}}
@@ -57,8 +57,10 @@ function playSFX(file)
 // Keep looping this file, 
 function playBGM(file)
 {
+	console.log('playing '+file);
 	defaultBGM.audio.src = file;
 	defaultBGM.play();
+	defaultBGM.file = "";
 }
 
 
@@ -70,10 +72,11 @@ $(document).ready(function()
 	defaultSFX.audio.volume = volumes.sfx / 100;
 	defaultBGM.audio.volume = volumes.bgm / 100;
 
-	if(empty(defaultBGM.audio.src))
+	if(empty(defaultBGM.file))
 	{
 		var fileNum = Math.floor((Math.random() * backgroundMusicFiles.length));
 		defaultBGM.audio.src = backgroundMusicFiles[fileNum];
+		console.log('playing file '+backgroundMusicFiles[fileNum]);
 		defaultBGM.play();
 	}
 
