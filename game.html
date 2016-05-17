@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 	<script src='js/stopwatch.js'></script>
+	<script src='js/checkandmark.js'></script>
 	
 	<!-- 3rd party and our common scripts / css -->
 	<script src='js/patternlock/patternLock.js'></script>
@@ -71,6 +72,8 @@
                     if(pattern == answer) {
                     	progress[progressIndex++] = 1;
 
+                    	showCheck();
+
 						//send to result
 						if(progressIndex >= progress.length - 1){
 							onResult();
@@ -84,6 +87,7 @@
 						
 						//Assign Current status on user progress
 						progress[progressIndex] = 2;
+
 						//Show user progress
 						showUserProgress();
 						
@@ -94,6 +98,7 @@
 						//Calc score
 						score += calcScore(x.time());
 					} else {
+						showCross();
 						lock.error();
 					}
 
@@ -219,7 +224,7 @@
 
 	function generateAnswer(){ // {{{ Generate the answer
 		var answer = []; //answer array
-		var next = -1;
+		var next = - 1;
 
 		//Assign answer
 
@@ -250,12 +255,19 @@
 
 		//Make current progress Skipped(failed)
 		progress[progressIndex++] = 0;
+
+		//show cross
+		showCross();
+
 		//Genearte newAnswer
 		generateAnswer();
+
 		//Assgin into new grid
 		lock = new PatternLock('#pattern', grid);
+
 		//Make new progress in curretn
 		progress[progressIndex] = 2;
+
 		//show user progress
 		showUserProgress();
 	} // }}} end of skip()
@@ -281,6 +293,8 @@
 
     //Visualizing user progress
     function showUserProgress(){
+			$('#overlay').css('z-index', 100);
+			window.setTimeout(function() {$('#overlay').css('z-index', -100)}, 3000)
 
 			var progressBar = document.getElementById("progressBar");
 
@@ -350,7 +364,6 @@
 		<!--Pattern Grid-->
 	    <div id="pattern" style='position: relative;'>
 	    </div>
-
 		<!-- Skip Button -->
 	    <div class="button">
 				<input type='button' class='btn skipBtn' value='Skip' onclick='skip()'>
