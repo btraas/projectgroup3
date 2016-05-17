@@ -256,8 +256,9 @@
         }
     };
 
+    // timer object for showing numbers
     var timer_numbers;
-
+    // show numbers at the beggining of a game
     function showNumbers() {
         
         var answer = decodeURI(getCookie('answer')).split('|');
@@ -283,6 +284,7 @@
 
     }
 
+    // hide numbers
     function hideNumbers() {
         var answer = decodeURI(getCookie('answer')).split('|');
         var numbers = [];
