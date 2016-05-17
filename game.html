@@ -64,10 +64,6 @@
 			onDraw:function(pattern) {
 					var answer = decodeURI(getCookie('answer')).split('|').join('');
 
-					// console.log("comparing input ("+pattern+") to answer ("+answer+")");
-
-					console.log("margin:" + buttonMargin + " buttonRadius:" + buttonRadius);
-
 					//when user input is correct
                     if(pattern == answer) {
                     	progress[progressIndex++] = 1;
