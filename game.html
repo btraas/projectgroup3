@@ -63,14 +63,12 @@
 	        //When user is done drawing(pattern: user input)
 			onDraw:function(pattern) {
 					var answer = decodeURI(getCookie('answer')).split('|').join('');
-
-					//Show user progress
-					showUserProgress();
-					
+					console.log("onDraw");
 					//when user input is correct
                     if(pattern == answer) {
                     	progress[progressIndex++] = 1;
 						console.log("showcross on check");
+                    	showCheck();
 
 						//send to result
 						if(progressIndex >= progress.length - 1){
@@ -85,6 +83,9 @@
 						
 						//Assign Current status on user progress
 						progress[progressIndex] = 2;
+
+						//Show user progress
+						showUserProgress();
 						
 						// for( var i = 0; i < progress.length; i++){
 						// 	console.log("progress[" + i + "]: " + progress[i]);
@@ -93,6 +94,8 @@
 						//Calc score
 						score += calcScore(x.time());
 					} else {
+						console.log("showcross on wrong");
+						showCross();
 						lock.error();
 					}
 
@@ -250,6 +253,10 @@
 		//Make current progress Skipped(failed)
 		progress[progressIndex++] = 0;
 
+		//show cross
+		console.log("showcross on skip");
+		showCross();
+
 		//Genearte newAnswer
 		generateAnswer();
 
@@ -303,7 +310,7 @@
 			for(var i = 0; i < 10; i++){
 				// console.log("showUserProgrss():" + progress[i]);
 				if(progress[i] == 0){
-			 		document.getElementById("progress" + i).className = "progressButtonOff";
+			 	document.getElementById("progress" + i).className = "progressButtonOff";
 				} else if(progress[i] == 1) {
 					document.getElementById("progress" + i).className = "progressButtonOn";
 				} else if(progress[i] == 2) {
