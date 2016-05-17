@@ -63,7 +63,7 @@
 	        //When user is done drawing(pattern: user input)
 			onDraw:function(pattern) {
 					var answer = decodeURI(getCookie('answer')).split('|').join('');
-
+					console.log("onDraw called");
 					//when user input is correct
                     if(pattern == answer) {
                     	progress[progressIndex++] = 1;
@@ -280,7 +280,7 @@
 		// 		// vibration API supported
 		// }
 		showUserProgress(); //Show progress at firstime
-		lock = new PatternLock('#pattern',  grid);// Generate a grid at firstime
+		lock = new PatternLock('#pattern',  grid);// Generate a grid at firs time
 	});//end of ready(function())
 
 	//Send user to result scene
