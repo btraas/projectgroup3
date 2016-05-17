@@ -280,9 +280,6 @@
     //Visualizing user progress
     function showUserProgress(){
 
-			$('#overlay').css('z-index', 100);
-			window.setTimeout(function() {$('#overlay').css('z-index', -100)}, 3000)
-
 			var progressBar = document.getElementById("progressBar");
 
 			//generating progress buttons
@@ -358,7 +355,6 @@
 	    </div>
 	</div>
 	
-	<div id='overlay' style='width: 100%; height: 100%; position: absolute; top: 0; z-index: 100'></div>
 </body>
 
 <style type="text/css">
@@ -366,10 +362,6 @@
 		background-color:#232323;
 	}
 
-	.ui-btn {
-		position: relative;
-		z-index: 101;
-	}
 
 	.maincontainer {
 	  margin: 0 auto;
