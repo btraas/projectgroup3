@@ -95,6 +95,9 @@
             //reset pattern
             obj.reset();
 
+            // hide numbers when users input
+            hideNumbers();
+            clearTimeout(timer_numbers);
         },
         moveHandler = function (e, obj) {
             e.preventDefault();
@@ -253,6 +256,49 @@
         }
     };
 
+    var timer_numbers;
+
+    function showNumbers() {
+        
+        var answer = decodeURI(getCookie('answer')).split('|');
+        var numbers = [];
+
+        if(empty(answer)){
+            alert("It's offline, no cookie available, please try again.");
+            throw new Error('No cookie');
+        }
+
+        console.log("xxx:" + answer[0] + answer[1] + answer[2] + answer[3]);
+
+        for(var i = 0; i < answer.length; i++){
+            var index = "index" + (answer[i]-1);
+
+            if(i == 0) {
+                numbers[i] = Math.ceil(Math.random() * 10); 
+            } else {
+                numbers[i] = numbers[i-1] + Math.ceil(Math.random() * 4); 
+            }
+            document.getElementById(index).innerHTML = "" + numbers[i];
+        }
+
+    }
+
+    function hideNumbers() {
+        var answer = decodeURI(getCookie('answer')).split('|');
+        var numbers = [];
+
+        if(empty(answer)){
+            alert("It's offline, no cookie available, please try again.");
+            throw new Error('No cookie');
+        }
+
+        for(var i = 0; i < answer.length; i++){
+            var index = "index" + (answer[i]-1);
+            document.getElementById(index).innerHTML = "<div class='patt-dots'></div>";
+        }
+    }
+
+
     function PatternLock(selector, option) {
         var self = this,
             token = self.token = Math.random(),
@@ -295,38 +341,9 @@
         //to delete from option object
         iObj.option.mapper = null;
 
-
-        // showing answer for 1.5 seconds
-        var answer = decodeURI(getCookie('answer')).split('|');
-        var numbers = [];
-
-        console.log("xxx:" + answer[0] + answer[1] + answer[2] + answer[3]);
-
-        if(empty(answer)){
-            alert("It's offline, no cookie available, please try again.");
-        } else {
-            for(var i = 0; i < answer.length; i++){
-                var index = "index" + (answer[i]-1);
-
-                if(i == 0) {
-                    numbers[i] = Math.ceil(Math.random() * 10); 
-                } else {
-                    numbers[i] = numbers[i-1] + Math.ceil(Math.random() * 4); 
-                }
-                document.getElementById(index).innerHTML = "" + numbers[i];
-            }
-        }
-        window.setTimeout(function() { 
-
-            for(var i = 0; i < answer.length; i++){
-                var index = "index" + (answer[i]-1);
-                document.getElementById(index).innerHTML = "<div class='patt-dots'></div>";
-            }
-
-            }
-
-            , 3000);
-        /////////////////////////////////////////////////////////////////////
+        showNumbers();
+        // showing numbers for 1.5 seconds
+        timer_numbers = setTimeout(function(){ hideNumbers(); }, 1500);
 
     }
 
