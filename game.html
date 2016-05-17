@@ -47,8 +47,8 @@
 
 	// Math to determine elements sizes
 	buttonRadius = matrixSize / rowSize;
-	buttonMargin = buttonRadius / 10;
-	buttonRadius = buttonRadius/2 - (buttonMargin * 2);
+	buttonMargin = buttonRadius / 4;
+	buttonRadius = buttonRadius/6
 
 	// Define Grid Object for pattern lock plug-in, answer, user progress
 	var grid = { // {{{
@@ -63,8 +63,6 @@
 	        //When user is done drawing(pattern: user input)
 			onDraw:function(pattern) {
 					var answer = decodeURI(getCookie('answer')).split('|').join('');
-
-					// console.log("comparing input ("+pattern+") to answer ("+answer+")");
 
 					//when user input is correct
                     if(pattern == answer) {
