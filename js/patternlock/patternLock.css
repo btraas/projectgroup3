@@ -18,7 +18,6 @@
 	list-style: none;
 	margin:0;
 	padding: 0;
-	background-color: #EC7822;
 }
 .patt-circ{
 	position:relative;
@@ -38,7 +37,7 @@
 .patt-hidden .patt-circ.hovered{border:0;}
 
 .patt-dots{
-	background: #EC7822;
+	background: #fff;
 	width: 10px;
 	height: 10px;
 	border-radius:5px;
