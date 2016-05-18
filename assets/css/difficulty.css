@@ -10,13 +10,6 @@ body{
     height: 480px;
 }
 
-/* set fixed size for menu button*/
-.menu{
-    margin: auto;
-    width: 320px;
-    clear: both;
-}
-
 /* set fixed size for text */
 #text{
     margin: auto;

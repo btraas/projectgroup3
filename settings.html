@@ -42,7 +42,8 @@
 <body onload="myFunction()">
 
 	<div class='wrapper'>
-		<input type="button" class='menu' value = 'Menu' onclick='onMenu()'/>
+		<input type="button" class='menu' value = 'Menu' onclick="$('#menu').click()"/>
+		<a id='menu' href='index.html' data-transition='flow' data-direction='reverse'></a>
 
 		<div class='volume_text'>BGM Volume</div>
 		<input type="range" class='bgm' id='bgm' value="" min="0" max="100" onchange ="showVal_bgm(this.value)" />

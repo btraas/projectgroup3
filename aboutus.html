@@ -4,6 +4,7 @@
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
     <!-- Main jQuery scripts & CSS (unchanging) {{{ -->
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/settings.css">
 	<link rel='stylesheet' type='text/css' href='assets/css/crawl.css'>
     <link rel="stylesheet" href="themes/darkTheme.min.css" />
@@ -12,7 +13,7 @@
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
-	<!-- }}} -- >
+	<!-- }}} -->
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -67,12 +68,14 @@
 </head>
 <body>
 	<div class="wrapper">
-				<input type="button" style='z-index: 2000' class='menu' value = 'Menu' onclick='onMenu()'/>
+		<input type="button" class='menu' value='Menu' onclick="$('#menu').click()"/>
+		<!-- just a placeholder (invisible) for jquery mobile transitions -->
+		<a id='menu' class='' href='index.html' data-transition='flow' data-direction='reverse'></a>
         
 		<div class="credits" data-role="content" data-theme="a">
              <img src="resources/game_logo3.png" alt="game_logo" width="300px" height="120px">
 			<h2>Code,Design,Development</h2>
-			<p>Brayden Trass</p>
+			<p>Brayden Traas</p>
 			<p>Shawn Kim</p>
 			<p>Kelvin Zhong</p>
 			<p>Benjamin Hao</p>
