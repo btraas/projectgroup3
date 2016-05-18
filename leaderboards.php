@@ -23,19 +23,14 @@
     <link rel="stylesheet" type="text/css" href="assets/css/leaderboards.css">
 	<title>Leaderboards</title>
 
-    <script>
-        // direct to menu page
-        function onMenu() {
-            window.location = 'index.html';
-        }
-    </script>   
-    
 </head>
 
 <body>
 
 	<div class='wrapper'>
-		<input type="button" class='goMenu' value = 'Menu' onclick="onMenu()" />
+		<input type="button" class='goMenu' value = 'Menu' onclick="$('#menu').click()" />
+	    <!-- just a placeholder (invisible) for jquery mobile transitions -->
+		<a id='menu' class='' href='index.html' data-transition='flow' data-direction='reverse'></a>
 
     <div class="switcher">
             <p class='Leaderboards'>Leaderboards</p>
