@@ -6,6 +6,9 @@ function showCross(){
 	console.log("cross");
     cross.animate({opacity: '0.2'}, "slow");
 	cross.animate({opacity: '1.0'}, "slow");
+
+	//not appear
+	//cross.remove();
 }
 
 function showCheck(){
@@ -16,4 +19,7 @@ function showCheck(){
 	console.log("check");
     check.animate({opacity: '0.2'}, "slow");
 	check.animate({opacity: '1.0'}, "slow");
+
+	//not appear
+	//check.remove();
 }
