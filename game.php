@@ -1,35 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Memory Swipe</title>
+<?php include('header.php'); ?>
 
 	<!-- Main jQuery scripts & CSS (unchanging) {{{ -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-	<script src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js'></script>
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-	<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
-	<script src='js/stopwatch.js'></script>
 	<script src='js/check_cross.js'></script>
 	
 	<!-- 3rd party and our common scripts / css -->
 	<script src='js/patternlock/patternLock.js'></script>
 	<link href="js/patternlock/patternLock.css"  rel="stylesheet" type="text/css" />
-
-	<!--Cookie-->
-	<script src='js/cookie.js'></script>
-	<script src='js/functions.js'></script>
-
-	<!--<link rel="stylesheet" type="text/css" href="css/main.css"/>-->
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-	<link rel="stylesheet" href="css/themes/darkTheme.min.css" />
-
-	<!-- Meta stuff -->
-	<link rel="apple-touch-icon" href="resources/images/game_icon.png">
-	<link rel="apple-touch-startup-image" href="resources/images/apple-splash.png">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta name="viewport" content="width=device-width">
-	<meta name="viewport" content="initial-scale=1.0"><!-- }}} -->
+	<script src='js/stopwatch.js'></script>
+	 
+	<!-- }}} -->
 
 	<script>
 	var score = 0; //user score
@@ -275,13 +254,7 @@
 
 	//When the game is first loaded
 	$(document).bind('pageinit', function(){
-		//not now
-		// // enable vibration support
-		// navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
-
-		// if (navigator.vibrate) {
-		// 		// vibration API supported
-		// }
+		show(); // show stopwatch
 		showUserProgress(); //Show progress at firstime
 		lock = new PatternLock('#pattern',  grid);// Generate a grid at firs time
 	});//end of pageinit(function())
@@ -345,12 +318,9 @@
 			return val;
 		}//end of caclScore()
 	</script>
-</head>
-
-<body onload="show();">
-	<div class="maincontainer">
 		<div>
-			<input type="button" class='btn menu' value = 'Menu' onclick='location.href = "index.html"'/>
+			<!--<input type="button" class='btn menu' value = 'Menu' onclick='location.href = "index.html"'/>-->
+			<?php include('menu_button.php'); ?>
 		</div>
 		<!--Progress Bar-->
 		<div id="progressBar">
@@ -368,9 +338,6 @@
 	    <div class="button">
 				<input type='button' class='btn skipBtn' value='Skip' onclick='skip()'>
 	    </div>
-	</div>
-	
-</body>
 
 <style type="text/css">
 	body{
@@ -436,5 +403,4 @@
 	}
 </style>
 
-
-</html>
+<?php include('footer.php'); ?>
