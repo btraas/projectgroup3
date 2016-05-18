@@ -37,7 +37,7 @@
 .patt-hidden .patt-circ.hovered{border:0;}
 
 .patt-dots{
-	background: #FFF;
+	background: #fff;
 	width: 10px;
 	height: 10px;
 	border-radius:5px;
