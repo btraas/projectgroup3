@@ -27,16 +27,32 @@
 	    <div id="pattern" style='position: relative;'>
 	    </div>
 		<!-- Skip Button -->
-	    <div class="button">
-				<input type='button' class='btn skipBtn' value='Skip' onclick='skip()'>
-	    </div>
+		<input type='button' class='btn skipBtn' value='Skip' onclick='skip()'>
 
-		<div id='topLayer'></div>
+		<div id='topLayer'>
+			<img id="cross" class='feedback' src="resources/images/cross_mark.png" alt="cross">
+			<img id="check" class='feedback' src="resources/images/check_mark.png" alt="cross" >
+		</div>
 
 <style type="text/css">
 	body{
 		background-color:#232323;
 	}
+
+	.feedback {
+		width: 100px;
+		height: 100px;
+		
+		/* IE 8 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+
+		/* IE 5-7 */
+		filter: alpha(opacity=0);
+
+		opacity: 0;
+
+	}
+		
 
 	.maincontainer {
 	  margin: 0 auto;
@@ -95,6 +111,13 @@
 		background-color: #404040;
 		margin-bottom:5%;
 	}
+	
+	#topLayer {
+		position: absolute;
+		z-index: 999;
+		pointer-events: none;
+	}
+
 </style>
 
 <?php include('footer.php'); ?>
