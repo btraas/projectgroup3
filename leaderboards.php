@@ -20,7 +20,9 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/css/leaderboards.css">
+    <link rel="stylesheet" type="text/css" href="styles/css/leaderboards.css">
+    <script src='js/cookie_load_write.js'></script>
+
 	<title>Leaderboards</title>
 
     <script>
@@ -73,10 +75,20 @@
             <?php
                         }
 
-                        var username = getCookie('username');
-                        if(username != "")
+                        $username = $_COOKIE["username"];
+                        $rank = $_COOKIE["rank"];
+                        $score = $_COOKIE["score"];
 
-                        
+                        if($rank != "" && $score != "" && $username != "") {
+            ?>
+                            <tr class = 'highlight'>
+                                <td><?php echo $rank; ?></td>
+                                <td><?php echo $username; ?></td>
+                                <td><?php echo $score; ?></td>
+                            </tr>
+            <?php         
+                        }
+
                          mysql_close(); // close database connection
             ?>
         </table>

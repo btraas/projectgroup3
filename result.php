@@ -25,6 +25,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<link rel="stylesheet" type="text/css" href="assets/css/result.css">
+    <script src='js/cookie_load_write.js'></script>
+
 	<title>result page</title>
     <script>
     	// direct to other pages accordingly
@@ -33,6 +35,9 @@
         }
         function goPost()  {
 			var username = prompt('Plese enter your username:',"");
+
+			setCookie('rank', <?php echo $rows['rank']; ?>, 365);
+			setCookie('score', <?php echo $score; ?>, 365);
 			setCookie('username', username, 365);
 			window.location = 'post_score.php?username=' + username + "&random=" + window.btoa(<?php echo $score ?>);
         }
