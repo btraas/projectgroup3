@@ -1,6 +1,8 @@
 <?php include('header.php'); ?>
 
+<div class='logo_container' >
 <img class='logo' alt="gamelogo" src='resources/images/game_logo3.png' />
+</div>
 
 <div class='mainmenu'>
     <input type="image" src="resources/images/menu_settings.png" onclick="$('#settings').click()" class="icon settings">
