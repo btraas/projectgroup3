@@ -19,7 +19,7 @@ body {
 	height: 120px;
 	background-color: #E39345;
 
-	background-image: url("../../resources/menu_header.png");
+	/* background-image: url("../../resources/menu_header.png"); doesn't exist? */ 
     background-repeat: no-repeat;
     background-size: 100% 120px;
 }

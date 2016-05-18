@@ -5,25 +5,11 @@
     mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)or die("cannot connect");
     mysql_select_db(DB_DATABASE)or die("cannot select DB");
     $tb_name="leaderboards"; // Table name
+
+	include('header.php');
 ?>
 
-<!DOCTYPE html>
-<html>
-
-<head>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	
-<!--Theme css-->
-    <link rel="stylesheet" href="themes/darkTheme.min.css" />
-	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
-	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles/css/leaderboards.css">
-    <script src='js/cookie_load_write.js'></script>
-
-	<title>Leaderboards</title>
+<link rel="stylesheet" type="text/css" href="css/leaderboards.css">
 
 
 <script>
@@ -34,14 +20,8 @@
     }
 
 </script>
-</head>
 
-<body>
-
-	<div class='wrapper'>
-		<input type="button" class='goMenu' value = 'Menu' onclick="$('#menu').click()" />
-	    <!-- just a placeholder (invisible) for jquery mobile transitions -->
-		<a id='menu' class='' href='index.html' data-transition='flow' data-direction='reverse'></a>
+<?php include('menu_button.php'); ?>
 
     <div class="switcher">
             <p class='Leaderboards'>Leaderboards</p>
@@ -53,9 +33,9 @@
             </fieldset>
     </div>
 
-		<div class='list'>
+	<div class='list'>
 
-          <table>
+		<table>
             <tr>
                 <th>Rank</th>
                 <th>Name</th>
@@ -102,12 +82,8 @@
                         }
 
                          mysql_close(); // close database connection
-            ?>
-        </table>
-		</div>
+			?>
+	</table>
+</div>
 
-	</div>
-
-</body>
-
-</html>
+<?php include('footer.php'); ?>

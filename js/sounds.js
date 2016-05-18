@@ -64,7 +64,7 @@ function playBGM(file)
 }
 
 
-$(document).ready(function() 
+$(document).bind('pageinit', function() 
 {
 	volumes.bgm = getCookie('bgm');
 	volumes.sfx = getCookie('sfx');

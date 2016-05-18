@@ -1,16 +1,3 @@
-body {
-    width: 320px;
-    height: 480px;
-}
-
-/** set the fixed size for the page **/
-.wrapper {
-    width: 320px;
-    height: 480px;
-    margin: auto auto;
-	background-color: #232323;
-	border: 1px solid black;
-}
 
 /* nothing, darkTheme.css included it */
 .menu {
@@ -92,7 +79,6 @@ body {
 /* stylize text in about page*/
 .credits{
     margin: 0 auto;
-    width: 298px;
     text-align: center;
 }
 

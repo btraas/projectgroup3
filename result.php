@@ -24,7 +24,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-	<link rel="stylesheet" type="text/css" href="assets/css/result.css">
+	<link rel="stylesheet" type="text/css" href="css/result.css">
     <script src='js/cookie_load_write.js'></script>
 
 	<title>result page</title>
@@ -74,13 +74,13 @@
 		<div class='menu'>
 			<!-- the first row of bottons -->
 			<div class='firstRow'>
-				<input type="image" src="resources/result_buttons_home.png" onclick="goHome()" class="homeBtn">
-                <input type="image" src="resources/result_buttons_leaderboards.png" value="Post Score" onclick="goPost()" class="postBtn">
+				<input type="image" src="resources/images/result_buttons_home.png" onclick="goHome()" class="homeBtn">
+                <input type="image" src="resources/images/result_buttons_leaderboards.png" value="Post Score" onclick="goPost()" class="postBtn">
 			</div>
 
 			<div class='secondRow'>
-                <input type="image" src="resources/result_buttons_level.png" onclick="goSelect()" class="selectBtn">
-                <input type="image" src="resources/result_buttons_retry.png" onclick="goPlay()" class="playBtn">
+                <input type="image" src="resources/images/result_buttons_level.png" onclick="goSelect()" class="selectBtn">
+                <input type="image" src="resources/images/result_buttons_retry.png" onclick="goPlay()" class="playBtn">
 			</div>
 
 		</div>

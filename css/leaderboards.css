@@ -1,18 +1,3 @@
-body {
-    width: 320px;
-    height: 480px;
-}
-
-/* set the size of the page */
-.wrapper {
-    margin: auto;
-    width: 320px;
-    height: 480px;
-    margin: auto auto;
-	background-color: #232323;
-	border: 1px solid black;
-}
-
 .leaderboards {
 	color: white;
     font-size: 180%;

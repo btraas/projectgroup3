@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).bind('pageinit', function(){
 	var answerSet = false;
 	var getClickStarted = false;
 	var errorRaised = false;
