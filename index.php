@@ -19,7 +19,7 @@
 <div class='play'>
 	<input type='button' class='playBtn' value='Play' onclick="$('#play').click()">
 	<!-- just a placeholder (invisible) for jquery mobile transitions -->
-	<a id='play' href='game.php' data-transition='flow'></a>
+	<a id='play' href='difficulty.php' data-transition='flow'></a>
 </div>
 
 <?php include('footer.php'); ?>
