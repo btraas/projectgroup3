@@ -1,5 +1,5 @@
 function showCross(){
-	$('body').append('<img id="cross" src="resources/images/cross_mark.png" alt="cross" width="100px" height="100px">');
+	$('body').append('<img id="cross" src="resources/images/cross_mark.png" alt="cross" width="10%" height="10%">');
 
 	var cross = $('#cross');
 	//cross.css("position", "fixed");
@@ -12,7 +12,7 @@ function showCross(){
 }
 
 function showCheck(){
-	$('body').append('<img id="check" src="resources/images/check_mark.png" alt="cross" width="100px" height="100px">');
+	$('body').append('<img id="check" src="resources/images/check_mark.png" alt="cross" width="10%" height="10%">');
 
 	var check = $('#check');
 	//check.css("position", "fixed");
