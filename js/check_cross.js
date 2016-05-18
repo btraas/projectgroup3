@@ -7,7 +7,8 @@ function showCross(){
     cross.animate({opacity: '0.2'}, "slow");
 	cross.animate({opacity: '1.0'}, "slow");
 
-	cross.remove();
+	//not appear
+	//cross.remove();
 }
 
 function showCheck(){
@@ -19,5 +20,6 @@ function showCheck(){
     check.animate({opacity: '0.2'}, "slow");
 	check.animate({opacity: '1.0'}, "slow");
 
-	check.remove();
+	//not appear
+	//check.remove();
 }
