@@ -19,9 +19,7 @@
         }
      </script>
 
-	    <div>
-			<?php include('menu_button.php'); ?>
-	    </div>
+		<?php include('menu_button.php'); ?>
 
         <div id="text"><label for="level">Difficulty:</label> </div>
                
@@ -32,8 +30,12 @@
             	<input type="range" name="level" value="1" min="1" max="10" onchange="updateImg(this.value);">
     	</div>
 
-        <div class="play">
-            <button type="button" onclick="goPlay()">Play</button>
-        </div>
+        <!--<button type="button" onclick="goPlay()">Play</button>-->
+		<div class='play'>
+		    <input type='button' class='playBtn' value='Play' onclick="$('#play').click()">
+		    <!-- just a placeholder (invisible) for jquery mobile transitions -->
+		    <a id='play' href='game.php' data-transition='flow'></a>
+		</div>
+
 
 <?php include('footer.php'); ?>
