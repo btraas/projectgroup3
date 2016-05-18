@@ -1,25 +1,31 @@
 function showCross(){
-	$('body').append('<img id="cross" src="resources/images/cross_mark.png" alt="cross" width="10%" height="10%">');
+	var cross = '<img id="cross" src="resources/images/cross_mark.png" alt="cross" width="100px" height="100px">';
 
-	var cross = $('#cross');
 	//cross.css("position", "fixed");
 	console.log("cross");
-    cross.animate({opacity: '0.2'}, "slow");
-	cross.animate({opacity: '1.0'}, "slow");
 
-	//not appear
-	//cross.remove();
+	$('#topLayer').append(cross);
+
+	cross = $('#cross');
+    cross.animate({opacity: '0.2'}, "slow");
+	cross.animate({opacity: '1.0'}, "slow", function(){
+		cross.remove();
+	});
 }
 
 function showCheck(){
-	$('body').append('<img id="check" src="resources/images/check_mark.png" alt="cross" width="10%" height="10%">');
-
-	var check = $('#check');
+	var check = '<img id="check" src="resources/images/check_mark.png" alt="cross" width="100px" height="100px">';
+	
 	//check.css("position", "fixed");
 	console.log("check");
+
+	$('#topLayer').append(check);
+
+	check = $('#check');
     check.animate({opacity: '0.2'}, "slow");
-	check.animate({opacity: '1.0'}, "slow");
+	check.animate({opacity: '1.0'}, "slow", function(){
+		check.remove();
+	});
 
 	//not appear
-	//check.remove();
 }
