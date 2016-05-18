@@ -6,6 +6,7 @@ mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)or die("cannot connect");
 mysql_select_db(DB_DATABASE)or die("cannot select DB");
 $tb_name="leaderboards"; // Table name
 
+$gamemode=$_GET['gamemode'];
 $username=$_GET['username'];
 // get values that sent from form
 $score=base64_decode(@$_GET['random']);
@@ -19,7 +20,7 @@ if($username == '')
     $username = 'null';
 
 // Insert topic to database
-$sql="INSERT INTO $tb_name(username, score, datetime)VALUES('$username', '$score', '$datetime')";
+$sql="INSERT INTO $tb_name(username, score, gamemode, datetime)VALUES('$username', '$score', '$gamemode', '$datetime')";
 $result=mysql_query($sql);
 
 if($result)

@@ -82,6 +82,7 @@ body {
 .list tr:nth-child(1) { /* make every odd row white background */
     width:140px;
 }
+
 .highlight {
 	background-color: #00FF90;
 }
