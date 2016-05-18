@@ -16,7 +16,7 @@
 	<link href="js/patternlock/patternLock.css"  rel="stylesheet" type="text/css" />
 
 	<!--Cookie-->
-	<script src='js/cookie_load_write.js'></script>
+	<script src='js/cookie.js'></script>
 	<script src='js/functions.js'></script>
 
 	<!--<link rel="stylesheet" type="text/css" href="css/main.css"/>-->
