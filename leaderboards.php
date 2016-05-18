@@ -72,7 +72,7 @@
 
                         $sql="SELECT * FROM $tb_name WHERE gamemode = $gamemode ORDER BY score DESC limit 0,9";
                         // ORDER BY id DESC is order result by descending
-                        echo $sql;
+
                         $result=mysql_query($sql);
                         $num = 1;
                         while($rows=mysql_fetch_array($result)){ // Start looping table row
