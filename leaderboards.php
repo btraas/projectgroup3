@@ -25,6 +25,15 @@
 
 	<title>Leaderboards</title>
 
+
+<script>
+
+    function radioClick(val){
+            setCookie('gamemode', val , 365);
+            location.reload();
+    }
+
+</script>
 </head>
 
 <body>
@@ -37,10 +46,10 @@
     <div class="switcher">
             <p class='Leaderboards'>Leaderboards</p>
             <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
-            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="Global" checked="checked" />
-			<label for="radio-choice-a1">Global</label>
-			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="Local"  />
-			<label for="radio-choice-b1">Local</label>
+            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="0" checked="checked" onclick="radioClick(this.value);"/>
+			<label for="radio-choice-a1">Classic</label>
+			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="1"  onclick="radioClick(this.value);"/>
+			<label for="radio-choice-b1">Challenge</label>
             </fieldset>
     </div>
 
@@ -54,8 +63,16 @@
             </tr>
             <!-- PHP showing user scores -->
             <?php
-                        $sql="SELECT * FROM $tb_name ORDER BY score DESC limit 0,9";
+                        $gamemode = $_COOKIE['gamemode'];
+
+                        // default for classic mode
+                        if($gamemode == "") {
+                            $gamemode = 0;
+                        }
+
+                        $sql="SELECT * FROM $tb_name WHERE gamemode = $gamemode ORDER BY score DESC limit 0,9";
                         // ORDER BY id DESC is order result by descending
+
                         $result=mysql_query($sql);
                         $num = 1;
                         while($rows=mysql_fetch_array($result)){ // Start looping table row

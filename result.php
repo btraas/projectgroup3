@@ -35,12 +35,15 @@
         }
         function goPost()  {
 			var username = prompt('Plese enter your username:',"");
+			var gamemode = getCookie('gamemode');
 
 			setCookie('rank', <?php echo $rows['rank']; ?>, 365);
 			setCookie('score', <?php echo $score; ?>, 365);
 			setCookie('username', username, 365);
-			window.location = 'post_score.php?username=' + username + "&random=" + window.btoa(<?php echo $score ?>);
+
+			window.location = 'post_score.php?username=' + username + "&gamemode=" + gamemode + "&random=" + window.btoa(<?php echo $score ?>);
         }
+        
         function goSelect()  {
        		window.location = 'difficulty.html'
         }
