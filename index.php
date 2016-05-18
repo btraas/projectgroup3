@@ -17,22 +17,9 @@
 </div>
 
 <div class='play'>
-	<input type='button' class='playBtn' value='Play' onclick='onPlay()'>
+	<input type='button' class='playBtn' value='Play' onclick="$('#play').click()">
+	<!-- just a placeholder (invisible) for jquery mobile transitions -->
+	<a id='play' href='game.php' data-transition='flow'></a>
 </div>
-
-<style type="text/css">
-	.mainmenu {
-		min-height: 230px;
-		padding-top: 50px;
-	}
-    .mainmenu input{
-        margin-top: 25px;
-        margin-left: 15px;
-    }
-    .mainmenu input:hover{
-        background-image: url();
-    }
-
-</style>
 
 <?php include('footer.php'); ?>
