@@ -14,7 +14,7 @@ function showCross(){
 }
 
 function showCheck(){
-	var check = '<img id="check" src="resources/images/check_mark.png" alt="cross" width="100px" height="100px">'\;
+	var check = '<img id="check" src="resources/images/check_mark.png" alt="cross" width="100px" height="100px">';
 	
 	//check.css("position", "fixed");
 	console.log("check");
