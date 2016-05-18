@@ -67,6 +67,11 @@
 
             <?php
                         }
+
+                        var username = getCookie('username');
+                        if(username != "")
+
+                        
                          mysql_close(); // close database connection
             ?>
         </table>

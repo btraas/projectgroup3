@@ -36,7 +36,7 @@
 	var buttonRadius = 0; //button radius
 	var buttonMargin = 0; //button margin
 	var matrixSize = 320; //physical matrix size
-	var gridSize = 4; //size of grid 5x5, 4x4
+	var gridSize = 5; //size of grid 5x5, 4x4
 	var rowSize = gridSize; //row size
 	var numberRange = 4; //number of answers
 	var maxNumber = Math.pow(rowSize, 2);//max number
@@ -47,8 +47,8 @@
 
 	// Math to determine elements sizes
 	buttonRadius = matrixSize / rowSize;
-	buttonMargin = buttonRadius / 4;
-	buttonRadius = buttonRadius/6
+	buttonMargin = buttonRadius / 5.4;
+	buttonRadius = buttonRadius/6;
 
 	// Define Grid Object for pattern lock plug-in, answer, user progress
 	var grid = { // {{{
@@ -63,11 +63,11 @@
 	        //When user is done drawing(pattern: user input)
 			onDraw:function(pattern) {
 					var answer = decodeURI(getCookie('answer')).split('|').join('');
-
+					console.log("onDraw");
 					//when user input is correct
                     if(pattern == answer) {
                     	progress[progressIndex++] = 1;
-
+						console.log("showcross on check");
                     	showCheck();
 
 						//send to result
@@ -79,6 +79,8 @@
 						generateAnswer();
 
 						//Assign new Grid
+						lock = null;
+						alert("test");
 						lock = new PatternLock('#pattern', grid);
 						
 						//Assign Current status on user progress
@@ -94,6 +96,7 @@
 						//Calc score
 						score += calcScore(x.time());
 					} else {
+						console.log("showcross on wrong");
 						showCross();
 						lock.error();
 					}
@@ -253,12 +256,14 @@
 		progress[progressIndex++] = 0;
 
 		//show cross
+		console.log("showcross on skip");
 		showCross();
 
 		//Genearte newAnswer
 		generateAnswer();
 
 		//Assgin into new grid
+		lock = null;
 		lock = new PatternLock('#pattern', grid);
 
 		//Make new progress in curretn
@@ -278,7 +283,7 @@
 		// 		// vibration API supported
 		// }
 		showUserProgress(); //Show progress at firstime
-		lock = new PatternLock('#pattern',  grid);// Generate a grid at firstime
+		lock = new PatternLock('#pattern',  grid);// Generate a grid at firs time
 	});//end of ready(function())
 
 	//Send user to result scene
@@ -345,6 +350,8 @@
 
 <body onload="show();">
 	<div class="maincontainer">
+		<div id="topLayer">
+		</div>
 		<div>
 			<input type="button" class='btn menu' value = 'Menu' onclick='location.href = "index.html"'/>
 		</div>
