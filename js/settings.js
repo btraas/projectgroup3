@@ -14,5 +14,6 @@ function showVal_bgm(val) {
 function showVal_sfx(val) {
 	setCookie('sfx', val, 365); // save setting
 	SFX.volume(val);			// set volume now
+	SFX.play("resources/sounds/sfx_test.wav");
 }
 
