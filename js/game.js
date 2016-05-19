@@ -75,8 +75,11 @@
 	/**
 		GridButton Object
 		
+		Brayden Traas May 11/2016
+
 		Represents one circle/button on a grid.
 		Contains accessor functions to get information about this GridButton
+
 	*/
 	function GridButton(value, values, rows, columns) // {{{
 	{
@@ -157,6 +160,7 @@
 		// Used by getNearest function only, add this button position if it's unique
 		this.add = function(val)
 		{
+			// Add this gridbutton if it's unique, and we haven't already added this as an option for the next gridbutton
 			if(this.values.indexOf(val) == -1 && this.nearest.indexOf(val) == -1) 
 			{
 				this.nearest.push(val);
@@ -240,15 +244,15 @@
 
 	//When the game is first loaded
 	$(document).bind('pageinit', function(){
-		generateAnswer();
-		show(); // show stopwatch
-		showUserProgress(); //Show progress at firstime
-		lock = new PatternLock('#pattern',  grid);// Generate a grid at firs time
+		generateAnswer();	// generate a new answer
+		show();				// show stopwatch
+		showUserProgress(); // Show progress the first time
+		lock = new PatternLock('#pattern',  grid);	// Generate a grid on page load with parameters defined in "grid" above
 	});//end of pageinit(function())
 
 	//Send user to result scene
     function onResult()  {
-   		window.location = 'result.php?random='+window.btoa(score);
+   		window.location = 'result.php?random='+window.btoa(score); // "random" is the post key, score is the value, in base64
     }
 
     //Visualizing user progress {{{

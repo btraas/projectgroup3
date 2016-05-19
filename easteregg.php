@@ -18,7 +18,7 @@
 
     						"<p>This game was created by Shawn Kim, Benjamin Hao, Kelvin Zheng, Brayden Traas, and Yoshiaki Murakami.</p>"+
 
-    						"<p>This game was inspired by the Android pattern lockscreen. We are in no way affiliated with Anroid, Google, or Star Wars in any way.</p>"+
+    						"<p>This game was inspired by the Android pattern lockscreen. We are in no way affiliated with Android, Google, or Star Wars in any way.</p>"+
 
     "</div></div>";
 			
@@ -29,7 +29,7 @@
 			$('.ui-btn').css('z-index', 200);
 			
 			// Load and play music
-			playBGM('sounds/starwars.mp3');
+			playBGM('resources/sounds/starwars.mp3');
 
 
 		});
