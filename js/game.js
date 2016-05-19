@@ -335,6 +335,8 @@ function getRandomOdd(range) {
 
 function skip() // {{{ Skip button
 {
+	SFX.play("resources/sounds/sfx_test.wav");
+
 	//Direc user to result scene if all progress is done
 	if(progressIndex >= progress.length - 1){
 		onResult();	
