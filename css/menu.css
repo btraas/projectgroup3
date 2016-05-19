@@ -1,17 +1,3 @@
-body {
-    width: 320px;
-    height: 480px;
-}
-
-/** set the size of the page **/
-.wrapper {
-    width: 320px;
-    height: 480px;
-    margin: auto auto;
-	background-color: #232323;
-	border: 1px solid black;
-}
-
 /** the image on the top of the page **/
 .logo {
 	margin: 0 0;
@@ -32,12 +18,17 @@ body {
     border-radius: 20px 20px 20px 20px;
 }
 
+.mainmenu {
+	margin: 10px;
+	margin-top: 20%;
+
+	bottom: 0;
+}
+
 .icon {
-	width: 70px;
-	height: 70px;
+	width: 15%;
+	padding: 15px;
 	cursor:pointer;
-	margin: 30px auto;
-	margin-top: 10px;
 }
 
 .play {
@@ -46,6 +37,7 @@ body {
  	margin: 10px auto;
  	border:none;
  	border-radius: 20px 20px 20px 20px;
+	bottom: 0;
 }
 
 /** the style for play button **/
