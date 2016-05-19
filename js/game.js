@@ -243,7 +243,7 @@
 	} // }}} end of skip()
 
 	//When the game is first loaded
-	$(document).bind('pageinit', function(){
+	$(document).on('pagebeforeshow', function(){
 		generateAnswer();	// generate a new answer
 		if(!empty($('#stopWatch').html())) show();				// show stopwatch
 		showUserProgress(); // Show progress the first time
