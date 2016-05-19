@@ -65,6 +65,8 @@ body{
     #progressNumber {
         float:left;
         color: #fff;
+        font-size:1.6em;
+        margin-left: 5px;
     }
 
     #stopWatch{
