@@ -37,8 +37,8 @@ body{
 
     .progressButtonCurrent {
         float:left;
-        width: 20px;
-        height: 20px;
+        width: 22px;
+        height: 22px;
         margin: 2px 1px 1px 2px;
         border-radius:20px;
         background-color:#00FF90;
@@ -46,8 +46,8 @@ body{
 
     .progressButtonOff {
         float:left;
-        width: 20px;
-        height: 20px;
+        width: 22px;
+        height: 22px;
         margin: 2px 1px 1px 2px;
         border-radius:20px;
         background-color:#fff;
@@ -55,8 +55,8 @@ body{
 
     .progressButtonOn {
         float:left;
-        width: 20px;
-        height: 20px;
+        width: 22px;
+        height: 22px;
         margin: 2px 1px 1px 2px;
         border-radius:20px;
         background-color:#EC7822;
