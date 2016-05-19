@@ -1,11 +1,19 @@
 // This file contains objects and functions for sounds
 // Brayden Traas May 2016
 
+// Default volumes if no cookie is set
 var volumes = {
 	bgm : 100,
 	sfx : 100
 
 };
+
+// Volume multipliers. We want SFX > BGM
+var volumeMultipliers = {
+	bgm: 0.15,
+	sfx: 1
+};
+
 
 var backgroundMusicFiles = [
 	"resources/sounds/bgm_divider.mp3",
@@ -17,6 +25,8 @@ var backgroundMusicFiles = [
 
 var SFX = new SoundEffect("");
 var BGM = new BackgroundMusic("")
+
+var tmpTimeout;
 
 // BackroundMusic object {{{
 function BackgroundMusic(file)
@@ -33,7 +43,12 @@ function BackgroundMusic(file)
 	
 	this.volume = function(value)
 	{
+		// convert percent to decimal
 		if(value >= 1) value = value / 100; 
+
+		// multiply by multiplier (we want SFX > BGM at max)
+		value = value*volumeMultipliers.bgm;
+
 		self.audio.volume = value;
 	}
 
@@ -111,7 +126,7 @@ function BackgroundMusic(file)
 	this.audio.addEventListener("ended", this.next);
 
 
-} // }}}
+} // }}} 
 // SoundEffect object {{{
 function SoundEffect(file) 
 {
@@ -122,10 +137,18 @@ function SoundEffect(file)
     this.audio.volume = volumes.sfx / 100;
     this.loop = false;
 
+	this.nextFile = ""; // only queue 1 file, unlike BGM
+
 	this.volume = function(value)
     {
+		// convert percent to decimal
         if(value >= 1) value = value / 100;
+
+        // multiply by multiplier (we want SFX > BGM at max)
+        value = value*volumeMultipliers.sfx;
+
         self.audio.volume = value;
+
     }
 
 	{this.load = function(file){
@@ -152,25 +175,34 @@ function SoundEffect(file)
 
     this.play = function(file) {
 
-		self.load(file);
-        return this.audio.play();
+		if(!this.audio.ended && !empty(this.src))
+		{
+			console.log('queueing SFX: '+file);
+			this.nextFile = file;
+			return false;
+		}
+
+		console.log('playing SFX: '+file);
+
+		clearTimeout(tmpTimeout);
+		tmpTimeout = window.setTimeout(function() 
+		{
+			self.load(file);
+			return self.audio.play();
+		}, 200);
     }
 
+	this.next = function()
+	{
+		if(empty(self.nextFile)) return false;
+		self.play(self.nextFile);
+		self.nextFile = "";
+	}
+
+	this.audio.addEventListener("ended", this.next);
+
+
 } // }}}
-
-// Play this file once, without creating a new object.
-function playSFX(file)
-{
-	console.log('playing '+file);
-	SFX.play(file);
-}
-
-// Play one of these files, continue playlist after 
-function playBGM(file)
-{
-	console.log('playing '+file);
-	BGM.play(file);
-}
 
 $(document).bind('pageinit', function() 
 {
@@ -182,7 +214,7 @@ $(document).bind('pageinit', function()
 	SFX.volume(volumes.sfx);
 	BGM.volume(volumes.bgm);
 
-	// play a random music file to start
+	// play a random music file to start, or if the last track wasn't a standard track...
 	if(empty(BGM.file))
 	{
 		var fileNum = Math.floor((Math.random() * backgroundMusicFiles.length));

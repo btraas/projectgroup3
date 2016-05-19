@@ -4,7 +4,7 @@
 <link rel='stylesheet' type='text/css' href='css/crawl.css'>
 
 <script>
-		$(document).bind('pageinit', function()
+		$(document).on('pagebeforeshow', "[data-url='/easteregg.php']", function()
 		{
             //easter egg scroll text
 			var scrolltext = "<div id='titles'><div id='titlecontent'>"+
@@ -23,22 +23,29 @@
     "</div></div>";
 			
 			// add HTML text, and remove jquery mobile styling
-			$('.credits').html(scrolltext).removeClass('ui-body-a');
+			$('#starwars').html(scrolltext).removeClass('ui-body-a');
 			
 			// Bring all buttons above the text
 			$('.ui-btn').css('z-index', 200);
 			
 			// Load and play music
-			playBGM('resources/sounds/starwars.mp3');
+			BGM.play('resources/sounds/starwars.mp3');
 
 
+		});
+
+
+		// Go to the next playlist song when leaving this page.
+		$(document).on('pagebeforehide', "[data-url='/easteregg.php']", function() 
+		{
+			BGM.next();
 		});
 
 </script>
         
 <?php include('menu_button.php'); ?>
 
-		<div class="credits" data-role="content" data-theme="a">
+		<div id='starwars' class="credits" data-role="content" data-theme="a">
 		</div>
        
 <?php include('footer.php'); ?>

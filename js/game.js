@@ -245,7 +245,7 @@
 	//When the game is first loaded
 	$(document).bind('pageinit', function(){
 		generateAnswer();	// generate a new answer
-		show();				// show stopwatch
+		if(!empty($('#stopWatch').html())) show();				// show stopwatch
 		showUserProgress(); // Show progress the first time
 		lock = new PatternLock('#pattern',  grid);	// Generate a grid on page load with parameters defined in "grid" above
 	});//end of pageinit(function())
