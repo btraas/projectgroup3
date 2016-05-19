@@ -17,3 +17,24 @@ function showVal_sfx(val) {
 	SFX.play("resources/sounds/sfx_test.wav");
 }
 
+//save local storage for bgm and sfx slider
+function setUpEventHandlers() {
+    $("#bgm, #sfx").change(function() {
+        localStorage[this.id] = $(this).val();
+    });
+}
+
+//load from local storage for bgm and sfx slider
+function loadLocalStorageValues() {
+    $("#bgm, #sfx").each(function() {
+        if (typeof localStorage[this.id] !== "undefined") {
+            $(this).val(localStorage[this.id]);
+        }
+    });
+}
+
+//run local storage functions
+$(function() {
+    setUpEventHandlers();
+    loadLocalStorageValues();
+});
