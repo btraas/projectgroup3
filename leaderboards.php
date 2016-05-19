@@ -16,7 +16,16 @@
 
     function radioClick(val){
             setCookie('gamemode', val , 365);
-            location.reload();
+            //location.reload();
+
+			$.mobile.changePage(
+    		window.location.href,
+    		{
+    	  		allowSamePageTransition : false,
+    	  		transition              : 'none',
+    	  		showLoadMsg             : false,
+    	  		reloadPage              : true
+    		});
     }
 
 </script>
@@ -26,9 +35,9 @@
     <div class="switcher">
             <p class='Leaderboards'>Leaderboards</p>
             <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
-            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="0" checked="checked" onclick="radioClick(this.value);"/>
+            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="0" <?php if(@$_COOKIE['gamemode']!=1) echo "checked" ?> onclick="radioClick(this.value);"/>
 			<label for="radio-choice-a1">Classic</label>
-			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="1"  onclick="radioClick(this.value);"/>
+			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="1" <?php if(@$_COOKIE['gamemode']==1) echo "checked" ?> onclick="radioClick(this.value);"/>
 			<label for="radio-choice-b1">Challenge</label>
             </fieldset>
     </div>
@@ -44,7 +53,7 @@
             <!-- PHP showing user scores -->
             <?php
                         $gamemode = $_COOKIE['gamemode'];
-
+						
                         // default for classic mode
                         if($gamemode == "") {
                             $gamemode = 0;
@@ -52,6 +61,8 @@
 
                         $sql="SELECT * FROM $tb_name WHERE gamemode = $gamemode ORDER BY score DESC limit 0,9";
                         // ORDER BY id DESC is order result by descending
+
+						//echo $sql;
 
                         $result=mysql_query($sql);
                         $num = 1;
