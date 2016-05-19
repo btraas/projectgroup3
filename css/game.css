@@ -16,7 +16,6 @@ body{
 
     }
 
-
     .maincontainer {
       margin: 0 auto;
       right: auto;
@@ -40,8 +39,8 @@ body{
         float:left;
         width: 20px;
         height: 20px;
-        margin: 2.5px 2.5px 2.5px 4px;
-        border-radius:15px;
+        margin: 1px 1px 1px 2px;
+        border-radius:20px;
         background-color:#00FF90;
     }
 
@@ -49,8 +48,8 @@ body{
         float:left;
         width: 20px;
         height: 20px;
-        margin:2.5px 2.5px 2.5px 4px;
-        border-radius:15px;
+        margin: 1px 1px 1px 2px;
+        border-radius:20px;
         background-color:#fff;
     }
 
@@ -58,8 +57,8 @@ body{
         float:left;
         width: 20px;
         height: 20px;
-        margin: 2.5px 2.5px 2.5px 4px;
-        border-radius:15px;
+        margin: 1px 1px 1px 2px;
+        border-radius:20px;
         background-color:#EC7822;
     }
 
