@@ -36,6 +36,7 @@
 			<img id="check" class='feedback' src="resources/images/check_mark.png" alt="cross" >
 		</div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <style type="text/css">
 	body{
 		background-color:#232323;
@@ -121,6 +122,8 @@
 	}
 
 </style>
+=======
+>>>>>>> a6750202cc6aaa148a3e1914367a9eea11dbaa24
 =======
 >>>>>>> a6750202cc6aaa148a3e1914367a9eea11dbaa24
 
