@@ -65,6 +65,26 @@
         };
     }
 
+    // global variable for current index of button
+    var currentIdx = 0;
+    // global variable for the time when mouse moves on a button
+    var fromTime;
+    // determine how long user stay on a button
+    function onHold(index, period) {
+        if(currentIdx != index) {
+            currentIdx = index;
+            fromTime = new Date();
+            return false;
+        } else {
+            var toTime = new Date();
+            var difference = toTime.getTime() - fromTime.getTime();
+            if(difference > period) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     var startHandler = function (e, obj) {
             e.preventDefault();
             var iObj = objectHolder[obj.token];
@@ -122,76 +142,82 @@
 
             if (idx) {
                 if (patternAry.indexOf(pattId) == -1) {
-                    var elm = $(li[idx - 1]),
-                        direction; //direction of pattern
 
-                    //check and mark if any points are in middle of previous point and current point, if it does check them
-                    if (iObj.lastPosObj) {
-                        var lastPosObj = iObj.lastPosObj,
-                            ip = lastPosObj.i,
-                            jp = lastPosObj.j,
-                            iDiff = Math.abs(posObj.i - ip),
-                            jDiff = Math.abs(posObj.j - jp);
+                    // button will be activated after 500 milliseconds
+                    if(onHold(idx, 500) || patternAry.length == 0) {
 
-                        while (((iDiff == 0 && jDiff > 1) || (jDiff == 0 && iDiff > 1) || (jDiff == iDiff && jDiff > 1)) && !(jp == posObj.j && ip == posObj.i)) {
-                            ip = iDiff ? Math.min(posObj.i, ip) + 1 : ip;
-                            jp = jDiff ? Math.min(posObj.j, jp) + 1 : jp;
-                            iDiff = Math.abs(posObj.i - ip);
-                            jDiff = Math.abs(posObj.j - jp);
+                        var elm = $(li[idx - 1]),
+                            direction; //direction of pattern
 
-                            var nextIdx = (jp - 1) * iObj.option.matrix[1] + ip,
-                                nextPattId = iObj.mapperFunc(nextIdx) || nextIdx;
+    /*          do not need to mark any points are in middle
+                        //check and mark if any points are in middle of previous point and current point, if it does check them
+                        if (iObj.lastPosObj) {
+                            var lastPosObj = iObj.lastPosObj,
+                                ip = lastPosObj.i,
+                                jp = lastPosObj.j,
+                                iDiff = Math.abs(posObj.i - ip),
+                                jDiff = Math.abs(posObj.j - jp);
 
-                            if (patternAry.indexOf(nextPattId) == -1) {
-                                $(li[nextIdx - 1]).addClass('hovered');
-                                //push pattern on array
-                                patternAry.push(nextPattId);
+                            while (((iDiff == 0 && jDiff > 1) || (jDiff == 0 && iDiff > 1) || (jDiff == iDiff && jDiff > 1)) && !(jp == posObj.j && ip == posObj.i)) {
+                                ip = iDiff ? Math.min(posObj.i, ip) + 1 : ip;
+                                jp = jDiff ? Math.min(posObj.j, jp) + 1 : jp;
+                                iDiff = Math.abs(posObj.i - ip);
+                                jDiff = Math.abs(posObj.j - jp);
+
+                                var nextIdx = (jp - 1) * iObj.option.matrix[1] + ip,
+                                    nextPattId = iObj.mapperFunc(nextIdx) || nextIdx;
+
+                                if (patternAry.indexOf(nextPattId) == -1) {
+                                    $(li[nextIdx - 1]).addClass('hovered');
+                                    //push pattern on array
+                                    patternAry.push(nextPattId);
+                                }
                             }
+                            direction = [];
+                            posObj.j - lastPosObj.j > 0 ? direction.push('s') : posObj.j - lastPosObj.j < 0 ? direction.push('n') : 0;
+                            posObj.i - lastPosObj.i > 0 ? direction.push('e') : posObj.i - lastPosObj.i < 0 ? direction.push('w') : 0;
+                            direction = direction.join('-');
+
                         }
-                        direction = [];
-                        posObj.j - lastPosObj.j > 0 ? direction.push('s') : posObj.j - lastPosObj.j < 0 ? direction.push('n') : 0;
-                        posObj.i - lastPosObj.i > 0 ? direction.push('e') : posObj.i - lastPosObj.i < 0 ? direction.push('w') : 0;
-                        direction = direction.join('-');
+    */
+                        //add the current element on pattern
+                        elm.addClass('hovered');
+                        //push pattern on array
+                        patternAry.push(pattId);
 
+                        //add start point for line
+                        var margin = iObj.option.margin,
+                            radius = iObj.option.radius,
+                            newX = (posObj.i - 1) * (2 * margin + 2 * radius) + 2 * margin + radius,
+                            newY = (posObj.j - 1) * (2 * margin + 2 * radius) + 2 * margin + radius;
+
+                        if (patternAry.length != 1) {
+                            //to fix line
+                            var lA = getLengthAngle(iObj.lineX1, newX, iObj.lineY1, newY);
+                            iObj.line.css({
+                                'width': (lA.length + 10) + 'px',
+                                'transform': 'rotate(' + lA.angle + 'deg)'
+                            });
+
+                            if (!lineOnMove) iObj.line.show();
+                        }
+
+                        //add direction class on pattern circle and lines
+                        if (direction) {
+                            iObj.lastElm.addClass(direction + " dir");
+                            iObj.line.addClass(direction + " dir");
+                        }
+                        //to create new line
+                        var line = $('<div class="patt-lines" style="top:' + (newY - 5) + 'px; left:' + (newX - 5) + 'px"></div>');
+                        iObj.line = line;
+                        iObj.lineX1 = newX;
+                        iObj.lineY1 = newY;
+                        //add on dom
+                        iObj.holder.append(line);
+                        if (!lineOnMove) iObj.line.hide();
+
+                        iObj.lastElm = elm;
                     }
-
-                    //add the current element on pattern
-                    elm.addClass('hovered');
-                    //push pattern on array
-                    patternAry.push(pattId);
-
-                    //add start point for line
-                    var margin = iObj.option.margin,
-                        radius = iObj.option.radius,
-                        newX = (posObj.i - 1) * (2 * margin + 2 * radius) + 2 * margin + radius,
-                        newY = (posObj.j - 1) * (2 * margin + 2 * radius) + 2 * margin + radius;
-
-                    if (patternAry.length != 1) {
-                        //to fix line
-                        var lA = getLengthAngle(iObj.lineX1, newX, iObj.lineY1, newY);
-                        iObj.line.css({
-                            'width': (lA.length + 10) + 'px',
-                            'transform': 'rotate(' + lA.angle + 'deg)'
-                        });
-
-                        if (!lineOnMove) iObj.line.show();
-                    }
-
-                    //add direction class on pattern circle and lines
-                    if (direction) {
-                        iObj.lastElm.addClass(direction + " dir");
-                        iObj.line.addClass(direction + " dir");
-                    }
-                    //to create new line
-                    var line = $('<div class="patt-lines" style="top:' + (newY - 5) + 'px; left:' + (newX - 5) + 'px"></div>');
-                    iObj.line = line;
-                    iObj.lineX1 = newX;
-                    iObj.lineY1 = newY;
-                    //add on dom
-                    iObj.holder.append(line);
-                    if (!lineOnMove) iObj.line.hide();
-
-                    iObj.lastElm = elm;
                 }
                 iObj.lastPosObj = posObj;
 

@@ -196,7 +196,9 @@
 		// getNextNumber returns 0 if there's no possibilities.
 		// End loop if we've filled up the array or there's no more possibilities
 		while(answer.length < numberRange && next != 0){
-			next = getNextNumber(answer);
+		//	next = getNextNumber(answer);
+			next= getRandomNum(gridSize * gridSize );
+
 			if(next != 0) answer[answer.length] = next;
 		}
 
@@ -210,6 +212,35 @@
 
 		console.log(decodeURI(getCookie('answer')).split('|').join(''));
 	} // }}}end of generateAnswer()
+
+
+	// generates random numbers within the range(1-range)
+	// 
+	function getRandomNum(range) {
+		return Math.ceil(Math.random() * range);
+	}
+
+
+	//generates only even numbers within the range(1-range)
+	function getRandomEven(range) {
+		var val;
+		do{
+			val = Math.ceil(Math.random() * range);
+		} while(val % 2 != 0);
+
+		return val;
+	}
+
+	//generates only odd numbers within the range(1-range)
+	function getRandomOdd(range) {
+		var val;
+		do{
+			val = Math.ceil(Math.random() * range);
+		} while(val % 2 == 0);
+
+		return val;
+	}
+
 
 	function skip() // {{{ Skip button
 	{
