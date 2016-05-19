@@ -335,6 +335,8 @@ function getRandomOdd(range) {
 
 function skip() // {{{ Skip button
 {
+	SFX.play("resources/sounds/sfx_test.wav");
+
 	//Direc user to result scene if all progress is done
 	if(progressIndex >= progress.length - 1){
 		onResult();	
@@ -401,7 +403,7 @@ function showUserProgress(){
 		}
 	}// end of for
 
-	$('#progressNumber').text( (progressIndex + 1) + "/10")g;
+	$('#progressNumber').text( (progressIndex + 1) + "/10");
 }// end of showUserProgress() }}}
 
 // Calculating the scroe based on user progress and time {{{

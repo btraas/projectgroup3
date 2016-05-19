@@ -145,6 +145,7 @@ function BackgroundMusic(file)
 
 
 } // }}} 
+
 // SoundEffect object {{{
 function SoundEffect(file) 
 {
