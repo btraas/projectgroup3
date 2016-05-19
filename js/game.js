@@ -33,7 +33,6 @@
 					//when user input is correct
                     if(pattern == answer) {
                     	progress[progressIndex++] = 1;
-						console.log("showcross on check");
                     	showCheck();
 
 						//send to result
@@ -62,8 +61,6 @@
 						//Calc score
 						score += calcScore(x.time());
 					} else {
-						console.log("showcross on wrong");
-						showCross();
 						lock.error();
 					}
 
@@ -223,10 +220,6 @@
 
 		//Make current progress Skipped(failed)
 		progress[progressIndex++] = 0;
-
-		//show cross
-		console.log("showcross on skip");
-		showCross();
 
 		//Genearte newAnswer
 		generateAnswer();
