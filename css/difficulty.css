@@ -1,14 +1,3 @@
-body{
-    margin: auto;
-    width: 320px;
-}
-
-/** set fixed size of the page **/
-.wrapper{
-    margin: auto;
-    width: 320px;
-    height: 480px;
-}
 
 /* set fixed size for text */
 #text{
