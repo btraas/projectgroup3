@@ -4,7 +4,7 @@ function showCross(){
 
 	cross = $('#cross');
 	cross.animate({opacity: '1.0'}, "slow", function(){
-		check.animate({opacity:'0.0'}, "fast");
+		check.animate({opacity:'0.0'}, "slow");
 	});
 }
 
@@ -14,7 +14,7 @@ function showCheck(){
 
 	check = $('#check');
 	check.animate({opacity: '1.0'}, "slow", function(){
-		check.animate({opacity:'0.0'}, "fast");
+		check.animate({opacity:'0.0'}, "slow");
 	});
 	//not appear
 }

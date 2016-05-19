@@ -32,7 +32,6 @@
 			<img id="cross" class='feedback' src="resources/images/cross_mark.png" alt="cross">
 			<img id="check" class='feedback' src="resources/images/check_mark.png" alt="cross" >
 		</div>
-
 <style type="text/css">
 	body{
 		background-color:#232323;
