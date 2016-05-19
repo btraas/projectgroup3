@@ -122,6 +122,15 @@ function GridButton(value, values, rows, columns) // {{{
 	}
 
 
+<<<<<<< HEAD
+		// getNextNumber returns 0 if there's no possibilities.
+		// End loop if we've filled up the array or there's no more possibilities
+		while(answer.length < numberRange && next != 0){
+		//	next = getNextNumber(answer);
+			next= getRandomNum(gridSize * gridSize );
+
+			if(next != 0) answer[answer.length] = next;
+=======
 	// This function returns all the nearest unique possibilities to this gridButton
 	// (Options of the next GridButton to swipe to)
 	// If this is the top-left grid button, it will return an array with the positions of
@@ -161,6 +170,7 @@ function GridButton(value, values, rows, columns) // {{{
 		if(this.values.indexOf(val) == -1 && this.nearest.indexOf(val) == -1)
 		{
 			this.nearest.push(val);
+>>>>>>> 16526fbf8ab94ebaec3b4a7bdaff9078219bd243
 		}
 
 	}
@@ -170,7 +180,40 @@ function getNextNumber(grid) // {{{
 {
 	var nextNum = 0;
 
+<<<<<<< HEAD
+
+	// generates random numbers within the range(1-range)
+	// 
+	function getRandomNum(range) {
+		return Math.ceil(Math.random() * range);
+	}
+
+
+	//generates only even numbers within the range(1-range)
+	function getRandomEven(range) {
+		var val;
+		do{
+			val = Math.ceil(Math.random() * range);
+		} while(val % 2 != 0);
+
+		return val;
+	}
+
+	//generates only odd numbers within the range(1-range)
+	function getRandomOdd(range) {
+		var val;
+		do{
+			val = Math.ceil(Math.random() * range);
+		} while(val % 2 == 0);
+
+		return val;
+	}
+
+
+	function skip() // {{{ Skip button
+=======
 	if(grid.length == 0)
+>>>>>>> 16526fbf8ab94ebaec3b4a7bdaff9078219bd243
 	{
 		nextNum = Math.ceil(Math.random() * (gridSize*gridSize));
 	}
