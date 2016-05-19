@@ -281,7 +281,7 @@ function showUserProgress(){
 	}// end of for
 
 	progressBar.appendChild(progressNum);
-	document.getElementByID("progressNumber").innerHTML = progressIndex + "/10";
+	//document.getElementByID("progressNumber").innerHTML = progressIndex + "/10";
 }// end of showUserProgress() }}}
 
 	// Calculating the scroe based on user progress and time {{{
