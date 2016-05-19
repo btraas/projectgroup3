@@ -202,6 +202,108 @@ function generateAnswer(){ // {{{ Generate the answer
 		if(next != 0) answer[answer.length] = next;
 	}
 
+<<<<<<< HEAD
+		console.log(decodeURI(getCookie('answer')).split('|').join(''));
+	} // }}}end of generateAnswer()
+
+	function skip() // {{{ Skip button
+	{
+		//Direc user to result scene if all progress is done
+		if(progressIndex >= progress.length - 1){
+			onResult();	
+		} 
+
+		//Make current progress Skipped(failed)
+		progress[progressIndex++] = 0;
+
+		//show cross
+		console.log("showcross on skip");
+		showCross();
+
+		//Genearte newAnswer
+		generateAnswer();
+
+		//Assgin into new grid
+		lock = null;
+		lock = new PatternLock('#pattern', grid);
+
+		//Make new progress in curretn
+		progress[progressIndex] = 2;
+
+		//show user progress
+		showUserProgress();
+	} // }}} end of skip()
+
+	//When the game is first loaded
+	$(document).on('pagebeforeshow', function(){
+
+		// This is a new game. Score has not been posted yet.
+		setCookie('posted', 'f', 1);
+
+		generateAnswer();	// generate a new answer
+		if(!empty($('#stopWatch').html())) show();				// show stopwatch
+		showUserProgress(); // Show progress the first time
+		lock = new PatternLock('#pattern',  grid);	// Generate a grid on page load with parameters defined in "grid" above
+	});//end of pageinit(function())
+
+	//Send user to result scene
+    function onResult()  {
+   		window.location = 'result.php?random='+window.btoa(score); // "random" is the post key, score is the value, in base64
+    }
+
+    //Visualizing user progress {{{
+    function showUserProgress(){
+			$('#overlay').css('z-index', 100);
+			window.setTimeout(function() {$('#overlay').css('z-index', -100)}, 3000)
+
+			var progressBar = document.getElementById("progressBar");
+
+			//generating progress buttons
+			if(empty(document.getElementById("progress0"))){
+				for(var i = 0; i < 10; i++){
+					var button = document.createElement("div");
+					button.className = "progressButtonOff";
+					button.id = "progress" + i;
+					progressBar.appendChild(button);
+				}
+			}
+
+			//check user progress and visualizing based on userProgress array
+			for(var i = 0; i < 10; i++){
+				// console.log("showUserProgrss():" + progress[i]);
+				if(progress[i] == 0){
+			 	document.getElementById("progress" + i).className = "progressButtonOff";
+				} else if(progress[i] == 1) {
+					document.getElementById("progress" + i).className = "progressButtonOn";
+				} else if(progress[i] == 2) {
+					document.getElementById("progress" + i).className = "progressButtonCurrent";
+				}
+			}// end of for
+		}// end of showUserProgress() }}}
+
+		// Calculating the scroe based on user progress and time {{{
+		function calcScore(time) {
+			var h = m = s = ms = 0;
+			var newTime = '';
+
+			h = Math.floor( time / (60 * 60 * 1000) );
+			time = time % (60 * 60 * 1000);
+			m = Math.floor( time / (60 * 1000) );
+			time = time % (60 * 1000);
+			s = Math.floor( time / 1000 );
+			ms = time % 1000;
+
+			var val = 0;
+			var timeleft = 120 - m*60 - s;
+
+			if(timeleft >= 0) {
+				val += 10 + timeleft;
+			} else {
+				val += 10;
+			}
+
+			return val;
+		}//end of caclScore() }}}
 	//print out console
 	// for(var i = 0; i < answer.length; i++){
 	// 	console.log(answer[i] + " ");
