@@ -203,7 +203,7 @@ function generateAnswer(){ // {{{ Generate the answer
 	}
 
 		console.log(decodeURI(getCookie('answer')).split('|').join(''));
-	} // }}}end of generateAnswer()
+} // }}}end of generateAnswer()
 
 	function skip() // {{{ Skip button
 	{
@@ -303,16 +303,6 @@ function generateAnswer(){ // {{{ Generate the answer
 
 			return val;
 		}//end of caclScore() }}}
-	//print out console
-	// for(var i = 0; i < answer.length; i++){
-	// 	console.log(answer[i] + " ");
-	// }
-	
-	//Save answer in cookie
-	setCookie('answer', answer.join('|'), 365);
-
-	console.log(decodeURI(getCookie('answer')).split('|').join(''));
-} // }}}end of generateAnswer()
 
 
 // generates random numbers within the range(1-range)
