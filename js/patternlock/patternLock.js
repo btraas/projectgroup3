@@ -41,7 +41,7 @@
             radius = option.radius,
             html = ['<ul class="patt-wrap" style="padding:' + margin + 'px">'];
         for (var i = 0, ln = matrix[0] * matrix[1]; i < ln; i++) {
-            html.push('<li id="index' + i + '" class="patt-circ" style="margin:' + margin + 'px; width : ' + (radius * 2) + 'px; height : ' + (radius * 2) + 'px; -webkit-border-radius: ' + radius + 'px; -moz-border-radius: ' + radius + 'px; border-radius: ' + radius + 'px; background-color:#EC7822; color:#EC7822"><div class="patt-dots"></div></li>');
+            html.push('<li id="index' + i + '" class="patt-circ" style="margin:' + margin + 'px; width : ' + (radius * 2) + 'px; height : ' + (radius * 2) + 'px; -webkit-border-radius: ' + radius + 'px; -moz-border-radius: ' + radius + 'px; border-radius: ' + radius + 'px; background-color:#EC7822;"><div class="patt-dots"></div></li>');
         }
         html.push('</ul>');
         holder.html(html.join('')).css({
