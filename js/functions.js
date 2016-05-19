@@ -248,7 +248,7 @@ function empty(mixed_var) { // {{{
     for (key in mixed_var) {
       // TODO: should we check for own properties only?
       //if (mixed_var.hasOwnProperty(key)) {
-      return false;
+      if(!empty(mixed_var[key])) return false;
       //}
     }
     return true;

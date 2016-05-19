@@ -265,7 +265,8 @@
         var numbers = [];
 
         if(empty(answer)){
-            alert("It's offline, no cookie available, please try again.");
+            alert("Error: No cookie available, please try again.");
+			location.href = 'index.php';
             throw new Error('No cookie');
         }
 
