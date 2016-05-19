@@ -255,6 +255,7 @@ function showUserProgress(){
 
 	var progressBar = document.getElementById("progressBar");
 	var progressNum = document.createElement("div");
+	progressNum.id = "progressNumber";
 
 	//generating progress buttons
 	if(empty(document.getElementById("progress0"))){
@@ -266,8 +267,6 @@ function showUserProgress(){
 		}
 	}
 
-	progressNum.id = "progressNumber";
-	progressBar.appendChild(progressNum);
 
 	//check user progress and visualizing based on userProgress array
 	for(var i = 0; i < 10; i++){
@@ -281,7 +280,8 @@ function showUserProgress(){
 		}
 	}// end of for
 
-	document.getElementByID("progressNumber").write( progressIndex + "/10");
+	progressBar.appendChild(progressNum);
+	document.getElementByID("progressNumber").innerHTML = progressIndex + "/10";
 }// end of showUserProgress() }}}
 
 	// Calculating the scroe based on user progress and time {{{
