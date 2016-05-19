@@ -244,6 +244,10 @@
 
 	//When the game is first loaded
 	$(document).on('pagebeforeshow', function(){
+
+		// This is a new game. Score has not been posted yet.
+		setCookie('posted', 'f', 1);
+
 		generateAnswer();	// generate a new answer
 		if(!empty($('#stopWatch').html())) show();				// show stopwatch
 		showUserProgress(); // Show progress the first time
