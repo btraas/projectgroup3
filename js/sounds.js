@@ -33,7 +33,7 @@ function BackgroundMusic(file)
 	
 	this.volume = function(value)
 	{
-		if(value > 1) value = value / 100; 
+		if(value >= 1) value = value / 100; 
 		self.audio.volume = value;
 	}
 
@@ -124,7 +124,7 @@ function SoundEffect(file)
 
 	this.volume = function(value)
     {
-        if(value > 1) value = value / 100;
+        if(value >= 1) value = value / 100;
         self.audio.volume = value;
     }
 
