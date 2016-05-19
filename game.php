@@ -4,7 +4,7 @@
 	<script src='js/patternlock/patternLock.js'></script>
 	<link href="js/patternlock/patternLock.css"  rel="stylesheet" type="text/css" />
 	<script src='js/stopwatch.js'></script>
-	
+
 
 	<!-- Javascript and CSS pertaining to this page -->
 
@@ -12,6 +12,7 @@
 	<script src='js/check_cross.js'></script>
 
 	<script src='js/game.js'></script>
+	<script src='js/difficulty.js'></script>
 	<link href="css/game.css" rel='stylesheet' type='text/css' />
 
 		<?php include('menu_button.php'); ?>

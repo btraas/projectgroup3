@@ -1,15 +1,53 @@
-	var score = 0; //user score
+        // function that changes images when swiping slider
+        function updateImg(val) {
+            document.getElementById('lvImg').src = 'resources/level/Lv'+val+'(fake).png';
+            var level = document.getElementById("lvImg").value;
+    if (level == 1){
+        var gridSize = 2;
+        var numberRange = 3;
+    }
+    if (level == 2){
+        var gridSize = 3;
+        var numberRange = 4;
+    }
+    if (level == 3){
+        var gridSize = 3;
+        var numberRange = 5;
+    }
+   if (level == 4){
+        var gridSize = 3;
+        var numberRange = 6;
+    }
+    if (level == 5){
+        var gridSize = 4;
+        var numberRange = 6;
+    }
+  if (level == 6){
+        var gridSize = 4;
+        var numberRange = 7;
+    }
+   if (level == 7){
+        var gridSize = 4;
+        var numberRange = 8;
+    }
+    else{
+        var gridSize = 5;
+        var numberRange = 8;
+    }
+}
+    var score = 0; //user score
 	var buttonRadius = 0; //button radius
 	var buttonMargin = 0; //button margin
 	var matrixSize = 320; //physical matrix size
-	var gridSize = 5; //size of grid 5x5, 4x4
+	//var gridSize = 5; //size of grid 5x5, 4x4
 	var rowSize = gridSize; //row size
-	var numberRange = 4; //number of answers
+	//var numberRange = 4; //number of answers
 	var maxNumber = Math.pow(rowSize, 2);//max number
 	var progress = [2, 0, 0, 0, 0,
 					0, 0, 0, 0, 0]; //user progress 0: off, 1: on, 2:current
 	var progressIndex = 0;// user progress index
 	var lock = null;
+
 
 	// Math to determine elements sizes
 	buttonRadius = matrixSize / rowSize;
