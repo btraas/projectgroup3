@@ -202,7 +202,6 @@ function generateAnswer(){ // {{{ Generate the answer
 		if(next != 0) answer[answer.length] = next;
 	}
 
-<<<<<<< HEAD
 		console.log(decodeURI(getCookie('answer')).split('|').join(''));
 	} // }}}end of generateAnswer()
 
