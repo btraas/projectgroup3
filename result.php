@@ -31,7 +31,7 @@
     <script>
     	// direct to other pages accordingly
         function goHome()  {
-       		window.location = 'index.html'
+       		window.location = 'index.php'
         }
         function goPost()  {
 			var username = prompt('Plese enter your username:',"");
@@ -45,10 +45,10 @@
         }
         
         function goSelect()  {
-       		window.location = 'difficulty.html'
+       		window.location = 'difficulty.php'
         }
         function goPlay()  {
-       		window.location = 'game.html'
+       		window.location = 'game.php'
         }
      </script>
 </head>

@@ -13,7 +13,7 @@
 			<p>Kelvin Zhong</p>
 			<p>Benjamin Hao</p>
 			<img src='resources/images/lightsaber.png' id='lightsaber' onclick="$('#easteregg').click();" />
-			<a href='easteregg.php' data-transition='flow' id='easteregg'></a>
+			<a href='easteregg.php' data-transition='pop' id='easteregg'></a>
 		</div>
        
 <?php include('footer.php'); ?>

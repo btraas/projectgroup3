@@ -1,15 +1,18 @@
 <?php include('header.php'); ?>
 
-	<!-- Main jQuery scripts & CSS (unchanging) {{{ -->
-	<script src='js/check_cross.js'></script>
-	
 	<!-- 3rd party and our common scripts / css -->
 	<script src='js/patternlock/patternLock.js'></script>
 	<link href="js/patternlock/patternLock.css"  rel="stylesheet" type="text/css" />
 	<script src='js/stopwatch.js'></script>
-	 
-	<!-- }}} -->
+	
+
+	<!-- Javascript and CSS pertaining to this page -->
+
+	<!-- Script for animating check / cross -->
+	<script src='js/check_cross.js'></script>
+
 	<script src='js/game.js'></script>
+	<link href="css/game.css" rel='stylesheet' type='text/css' />
 
 		<?php include('menu_button.php'); ?>
 
@@ -32,6 +35,7 @@
 			<img id="cross" class='feedback' src="resources/images/cross_mark.png" alt="cross">
 			<img id="check" class='feedback' src="resources/images/check_mark.png" alt="cross" >
 		</div>
+<<<<<<< HEAD
 <style type="text/css">
 	body{
 		background-color:#232323;
@@ -117,5 +121,7 @@
 	}
 
 </style>
+=======
+>>>>>>> a6750202cc6aaa148a3e1914367a9eea11dbaa24
 
 <?php include('footer.php'); ?>

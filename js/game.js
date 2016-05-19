@@ -72,13 +72,15 @@
             }//end of onDraw fucntion
 		};//end of grid }}}
 
-	/* GridButton Object
+	/**
+		GridButton Object
 		
+		Brayden Traas May 11/2016
+
 		Represents one circle/button on a grid.
 		Contains accessor functions to get information about this GridButton
 
 	*/
-	/* capital G because we use it as an object */
 	function GridButton(value, values, rows, columns) // {{{
 	{
 		// Ensure there are valid parameters
@@ -158,6 +160,7 @@
 		// Used by getNearest function only, add this button position if it's unique
 		this.add = function(val)
 		{
+			// Add this gridbutton if it's unique, and we haven't already added this as an option for the next gridbutton
 			if(this.values.indexOf(val) == -1 && this.nearest.indexOf(val) == -1) 
 			{
 				this.nearest.push(val);
@@ -240,18 +243,19 @@
 	} // }}} end of skip()
 
 	//When the game is first loaded
-	$(document).bind('pageinit', function(){
-		show(); // show stopwatch
-		showUserProgress(); //Show progress at firstime
-		lock = new PatternLock('#pattern',  grid);// Generate a grid at firs time
+	$(document).on('pagebeforeshow', function(){
+		generateAnswer();	// generate a new answer
+		if(!empty($('#stopWatch').html())) show();				// show stopwatch
+		showUserProgress(); // Show progress the first time
+		lock = new PatternLock('#pattern',  grid);	// Generate a grid on page load with parameters defined in "grid" above
 	});//end of pageinit(function())
 
 	//Send user to result scene
     function onResult()  {
-   		window.location = 'result.php?random='+window.btoa(score);
+   		window.location = 'result.php?random='+window.btoa(score); // "random" is the post key, score is the value, in base64
     }
 
-    //Visualizing user progress
+    //Visualizing user progress {{{
     function showUserProgress(){
 			$('#overlay').css('z-index', 100);
 			window.setTimeout(function() {$('#overlay').css('z-index', -100)}, 3000)
@@ -278,10 +282,10 @@
 				} else if(progress[i] == 2) {
 					document.getElementById("progress" + i).className = "progressButtonCurrent";
 				}
-			}//end of for
-		}//end of showUserProgress()
+			}// end of for
+		}// end of showUserProgress() }}}
 
-		//Calculating the scroe based on user progress and time
+		// Calculating the scroe based on user progress and time {{{
 		function calcScore(time) {
 			var h = m = s = ms = 0;
 			var newTime = '';
@@ -303,4 +307,5 @@
 			}
 
 			return val;
-		}//end of caclScore()
+		}//end of caclScore() }}}
+
