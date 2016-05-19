@@ -374,10 +374,7 @@ function onResult()  {
 function showUserProgress(){
 	$('#overlay').css('z-index', 100);
 	window.setTimeout(function() {$('#overlay').css('z-index', -100)}, 3000)
-
 	var progressBar = document.getElementById("progressBar");
-	var progressNum = document.createElement("div");
-	progressNum.id = "progressNumber";
 
 	//generating progress buttons
 	if(empty(document.getElementById("progress0"))){
@@ -387,13 +384,16 @@ function showUserProgress(){
 			button.id = "progress" + i;
 			progressBar.appendChild(button);
 		}
+		var progressNum = document.createElement("div");
+		progressNum.id = "progressNumber";
+		progressBar.appendChild(progressNum);
 	}
 
 	//check user progress and visualizing based on userProgress array
 	for(var i = 0; i < 10; i++){
 		// console.log("showUserProgrss():" + progress[i]);
 		if(progress[i] == 0){
-	 	document.getElementById("progress" + i).className = "progressButtonOff";
+	 		document.getElementById("progress" + i).className = "progressButtonOff";
 		} else if(progress[i] == 1) {
 			document.getElementById("progress" + i).className = "progressButtonOn";
 		} else if(progress[i] == 2) {
@@ -402,7 +402,6 @@ function showUserProgress(){
 	}// end of for
 
 	$('#progressNumber').innerHTML = progressIndex + "/10";
-	progressBar.appendChild(progressNum);
 }// end of showUserProgress() }}}
 
 // Calculating the scroe based on user progress and time {{{
