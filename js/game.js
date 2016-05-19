@@ -285,6 +285,8 @@
 			window.setTimeout(function() {$('#overlay').css('z-index', -100)}, 3000)
 
 			var progressBar = document.getElementById("progressBar");
+			var progressNum = document.createElement("div");
+			progressNum.id = "progressNumber";
 
 			//generating progress buttons
 			if(empty(document.getElementById("progress0"))){
@@ -307,6 +309,8 @@
 					document.getElementById("progress" + i).className = "progressButtonCurrent";
 				}
 			}// end of for
+
+//	    	document.getElementByID("progressNumber").innerHTML = progressIndex + "/10";
 		}// end of showUserProgress() }}}
 
 		// Calculating the scroe based on user progress and time {{{
