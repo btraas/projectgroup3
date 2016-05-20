@@ -15,6 +15,8 @@
 //	To reset a paused stopwatch
 //		obj.stop();
 //
+//	Source URL: https://gist.github.com/electricg/4372563
+//
 var	clsStopwatch = function() {
 		// Private vars
 		var	startAt	= 0;	// Time of last start / resume. (0 if not running)
