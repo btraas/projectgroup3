@@ -25,13 +25,10 @@
 
 <!-- This needs to be in this PHP file to set these variables -->
 <script>
-	
+	BGM.play('resources/sounds/bgm_scoreboard.mp3');
+
 	var rank = <?php echo $rows['rank']; ?>;
 	var score = <?php echo $score; ?>;
-
-	while(true){
-		BGM.play('resources/sounds/bgm_scoreboard.mp3');
-	}
 </script>
 
 	<link rel="stylesheet" type="text/css" href="css/result.css">
