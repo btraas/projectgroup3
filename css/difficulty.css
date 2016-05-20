@@ -22,3 +22,6 @@
 .lvimg{
     text-align: center;
 }
+.lvimg > img {
+	height: 200px;
+}
