@@ -14,7 +14,7 @@ function goPost()  {
 	}
 
 	var username = prompt('Plese enter your username:',"");
-    var gamemode = getCookie('gamemode');
+    var gameMode = getCookie('gameMode');
 
     setCookie('rank', rank, 365);
     setCookie('score', score, 365);
@@ -22,7 +22,7 @@ function goPost()  {
 	setCookie('posted', 't', 1);
 	
 
-    window.location = 'post_score.php?username=' + username + "&gamemode=" + gamemode + "&random=" + window.btoa(score);
+    window.location = 'post_score.php?username=' + username + "&gamemode=" + gameMode + "&random=" + window.btoa(score);
 }
 
 
