@@ -17,6 +17,11 @@
 
 		<?php include('menu_button.php'); ?>
 
+		<div id='topLayer'>
+			<!-- <img id="cross" class='feedback' src="resources/images/cross_mark.png" alt="cross"> -->
+			<img id="check" class='feedback' src="resources/images/check_mark.png" alt="check" >
+		</div>
+		
 		<!--Progress Bar-->
 		<div id="progressBar">
 		</div>
@@ -34,8 +39,4 @@
 			<input type='button' class='btn skipBtn' value='Skip' onclick='skip()'>
 		</div>
 
-		<div id='topLayer'>
-			<img id="cross" class='feedback' src="resources/images/cross_mark.png" alt="cross">
-			<img id="check" class='feedback' src="resources/images/check_mark.png" alt="cross" >
-		</div>
 <?php include('footer.php'); ?>

@@ -1,72 +1,75 @@
-    .feedback {
-        width: 100px;
-        height: 100px;
+#progressBar {
+    height: 30px;
+    background-color: #404040;
+    margin-bottom: 1%;
+}
 
-        /* IE 8 */
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+.progressButtonCurrent {
+    float:left;
+    width: 24px;
+    height: 24px;
+    margin: 2px 1px 1px 1px;
+    border-radius:24px;
+    background-color:#00FF90;
+}
 
-        /* IE 5-7 */
-        filter: alpha(opacity=0);
+.progressButtonOff {
+    float:left;
+    width: 24px;
+    height: 24px;
+    margin: 2px 1px 1px 1px;
+    border-radius:24px;
+    background-color:#fff;
+}
 
-        opacity: 0;
+.progressButtonOn {
+    float:left;
+    width: 24px;
+    height: 24px;
+    margin: 2px 1px 1px 1px;
+    border-radius:24px;
+    background-color:#EC7822;
+}
 
-    }
+#progressBar {
+    height: 30px;
+    background-color: #404040;
+    margin-bottom: 1%;
+}
 
-    #progressBar {
-        height: 30px;
-        background-color: #404040;
-        margin-bottom: 1%;
-    }
+#progressNumber {
+    float:left;
+    color: #fff;
+    font-size: 1.4em;
+    margin-left: 5px;
+}
 
-    .progressButtonCurrent {
-        float:left;
-        width: 24px;
-        height: 24px;
-        margin: 2px 1px 1px 1px;
-        border-radius:24px;
-        background-color:#00FF90;
-    }
+#stopWatch{
+    text-align: right;
+    font-size: 170%;
+    padding-right: 1%;
+    margin:0;
+}
+#pattern{
+    background-color: #404040;
+    margin-bottom:5%;
+}
 
-    .progressButtonOff {
-        float:left;
-        width: 24px;
-        height: 24px;
-        margin: 2px 1px 1px 1px;
-        border-radius:24px;
-        background-color:#fff;
-    }
+#topLayer {
+    margin: auto;
+    width:100%;
+    height:100%;
+    position: fixed;
+    z-index: 999;
+    pointer-events: none;
+}
 
-    .progressButtonOn {
-        float:left;
-        width: 24px;
-        height: 24px;
-        margin: 2px 1px 1px 1px;
-        border-radius:24px;
-        background-color:#EC7822;
-    }
-
-    #progressNumber {
-        float:left;
-        color: #fff;
-        font-size: 1.4em;
-        margin-left: 5px;
-    }
-
-    #stopWatch{
-        text-align: right;
-        font-size: 170%;
-        padding-right: 1%;
-        margin:0;
-    }
-
-    #pattern{
-        background-color: #404040;
-        margin-bottom:5%;
-    }
-
-    #topLayer {
-        position: absolute;
-        z-index: 999;
-        pointer-events: none;
-    }
-
+#check {
+    width: 50%;
+    height: 50%;
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    /* IE 5-7 */
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
