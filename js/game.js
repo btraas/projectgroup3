@@ -1,3 +1,6 @@
+
+
+var gamemode = 0; // 0 for classic game, 1 for challenge mode
 var score = 0; //user score
 var buttonRadius = 0; //button radius
 var buttonMargin = 0; //button margin
@@ -10,6 +13,7 @@ var progress = [2, 0, 0, 0, 0,
 				0, 0, 0, 0, 0]; //user progress 0: off, 1: on, 2:current
 var progressIndex = 0;// user progress index
 var lock = null;
+
 
 // Math to determine elements sizes
 buttonRadius = matrixSize / rowSize;
@@ -32,8 +36,8 @@ var grid = { // {{{
 				console.log("onDraw");
 				//when user input is correct
                 if(pattern == answer) {
-                	progress[progressIndex++] = 1;
                 	showCheck();
+                	progress[progressIndex++] = 1;
 
 					//send to result
 					if(progressIndex >= progress.length - 1){
@@ -44,8 +48,8 @@ var grid = { // {{{
 					generateAnswer();
 
 					//Assign new Grid
+					console.log("new grid");
 					lock = null;
-					alert("test");
 					lock = new PatternLock('#pattern', grid);
 					
 					//Assign Current status on user progress
@@ -81,7 +85,8 @@ function generateAnswer(){ // {{{ Generate the answer
 		next= getRandomNum(gridSize * gridSize );
 		if(next != 0) answer[answer.length] = next;
 	}
-
+		//Save answer in cookie
+		setCookie('answer', answer.join('|'), 365);
 		console.log(decodeURI(getCookie('answer')).split('|').join(''));
 } // }}}end of generateAnswer()
 
@@ -94,10 +99,6 @@ function generateAnswer(){ // {{{ Generate the answer
 
 		//Make current progress Skipped(failed)
 		progress[progressIndex++] = 0;
-
-		//show cross
-		console.log("showcross on skip");
-		showCross();
 
 		//Genearte newAnswer
 		generateAnswer();
@@ -160,31 +161,6 @@ function generateAnswer(){ // {{{ Generate the answer
 			}// end of for
 		}// end of showUserProgress() }}}
 
-		// Calculating the scroe based on user progress and time {{{
-		function calcScore(time) {
-			var h = m = s = ms = 0;
-			var newTime = '';
-
-			h = Math.floor( time / (60 * 60 * 1000) );
-			time = time % (60 * 60 * 1000);
-			m = Math.floor( time / (60 * 1000) );
-			time = time % (60 * 1000);
-			s = Math.floor( time / 1000 );
-			ms = time % 1000;
-
-			var val = 0;
-			var timeleft = 120 - m*60 - s;
-
-			if(timeleft >= 0) {
-				val += 10 + timeleft;
-			} else {
-				val += 10;
-			}
-
-			return val;
-		}//end of caclScore() }}}
-
-
 // generates random numbers within the range(1-range)
 // 
 function getRandomNum(range) {
@@ -241,6 +217,12 @@ function skip() // {{{ Skip button
 
 //When the game is first loaded
 $(document).on('pagebeforeshow', function(){
+
+	// get values from cookie based on difficulty level
+	gridSize = getCookie("gridSize");
+	numberRange = getCookie("numberRange");
+	gameMode = getCookie("gameMode");
+
 	generateAnswer();	// generate a new answer
 	if(!empty($('#stopWatch').html())) show();				// show stopwatch
 	showUserProgress(); // Show progress the first time
@@ -288,25 +270,23 @@ function showUserProgress(){
 
 // Calculating the scroe based on user progress and time {{{
 function calcScore(time) {
-	var h = m = s = ms = 0;
+	var mins = secs = 0;
 	var newTime = '';
 
-	h = Math.floor( time / (60 * 60 * 1000) );
 	time = time % (60 * 60 * 1000);
-	m = Math.floor( time / (60 * 1000) );
+	mins = Math.floor( time / (60 * 1000) );
 	time = time % (60 * 1000);
-	s = Math.floor( time / 1000 );
-	ms = time % 1000;
+	secs = Math.floor( time / 1000 );
 
-	var val = 0;
-	var timeleft = 120 - m*60 - s;
+	var score = 0;
+	var timeleft = 120 - mins*60 - secs;
 
 	if(timeleft >= 0) {
-		val += 10 + timeleft;
+		score += 10 + timeleft;
 	} else {
-		val += 10;
+		score += 10;
 	}
 
-	return val;
+	return score;
 }//end of caclScore() }}}
 
