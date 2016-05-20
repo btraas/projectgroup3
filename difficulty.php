@@ -19,7 +19,7 @@
 
         // function that changes images when swiping slider
         function updateImg(val) {
-            document.getElementById('lvImg').src = 'resources/level/Lv'+val+'(fake).png';
+            document.getElementById('lvImg').src = 'resources/level/Lv'+val+'.png';
 
             switch(val) {
                 case '1':
