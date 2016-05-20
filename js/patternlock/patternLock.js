@@ -402,7 +402,7 @@ var showSeconds = 15;
             document.getElementById(index).innerHTML = html;
         }
 
-        if(fakeNums > 0) {
+        if(fakeNums > 0 && gameMode == 1) {
             showFakeNums();
         }
     }
@@ -418,7 +418,7 @@ var showSeconds = 15;
         }
 
         for(var i = 0; i < gridSize * gridSize; i++){
-            var index = "index" + (answer[i]-1);
+            var index = "index" + i;
             document.getElementById(index).innerHTML = "<div class='patt-dots'></div>";
         }
     }
