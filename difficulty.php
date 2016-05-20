@@ -7,6 +7,11 @@
         var numberRange = 4;
         var fakeNums = 0;
 
+        // load from cookie and set as the default value
+        $(document).bind('pageinit', function(){
+                $("#level").val(getCookie('level')).slider('refresh');
+        });
+
         // function that takes users to menu page
         function goHome() {
             window.location = 'index.php';
@@ -89,6 +94,7 @@
             setCookie("numberRange", numberRange, 365);
             setCookie("gameMode", gameMode, 365);
             setCookie("fakeNums", fakeNums, 365);
+            setCookie("level", val, 365);
 
         }
 
@@ -115,7 +121,7 @@
         		<img id="lvImg" src="resources/level/Lv1.png" alt="Level Image" >
 		</div>
         <div class="levelselection">
-            	<input type="range" name="level" value="1" min="1" max="7" onchange="updateImg(this.value);">
+            	<input type="range" name="level" id ="level" value="1" min="1" max="7" onchange="updateImg(this.value);">
     	</div>
 
         <!--<button type="button" onclick="goPlay()">Play</button>-->

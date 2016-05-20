@@ -307,21 +307,28 @@ var showSeconds = 15;
         for(var i = 0; i < answer.length; i++){
             var index = "index" + (answer[i]-1);
 
-            if(i == 0) {
-                if(gameMode) {
-                    numbers[i] = getRandomEven(average);
+            if(gameMode == 0) {
+                numbers[i] = i + 1;
+            } else if(gameMode == 1) {
+                if(i == 0) {
+                    if(gameMode) {
+                        numbers[i] = getRandomEven(average);
+                    } else {
+                        numbers[i] = getRandomNum(average); 
+                    }
+                    
                 } else {
-                    numbers[i] = getRandomNum(average); 
-                }
-                
-            } else {
 
-                if(gameMode) {
-                    numbers[i] = numbers[i-1] + getRandomEven(average);
-                } else {
-                    numbers[i] = numbers[i-1] + getRandomNum(average);
+                    if(gameMode) {
+                        numbers[i] = numbers[i-1] + getRandomEven(average);
+                    } else {
+                        numbers[i] = numbers[i-1] + getRandomNum(average);
+                    }
                 }
-                
+            } else {
+                alert("Error: No game mode is selected(1).");
+                location.href = 'index.php';
+                throw new Error('No game mode');
             }
 
 			var html = "<div class='number'>"+numbers[i]+"</div>";
