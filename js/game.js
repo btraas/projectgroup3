@@ -47,6 +47,7 @@ var grid = { // {{{
 				//when user input is correct
                 if(pattern == answer) {
                 	showCheck();
+            		SFX.sound('resources/sounds/sfx_ui_16.ogg');
                 	progress[progressIndex++] = 1;
 
 					//send to result
@@ -160,7 +161,7 @@ function getRandomOdd(range) {
 
 function skip() // {{{ Skip button
 {
-	SFX.play("resources/sounds/sfx_test.wav");
+	SFX.sound('resources/sounds/sfx_ui_19.ogg');
 
 	//Direc user to result scene if all progress is done
 	if(progressIndex >= progress.length - 1){
