@@ -167,6 +167,8 @@ function skip() // {{{ Skip button
 	//Make current progress Skipped(failed)
 	progress[progressIndex++] = 0;
 
+	showCheck();
+
 	//Genearte newAnswer
 	generateAnswer();
 
