@@ -67,6 +67,11 @@
 	transform-origin:5px 5px;
 	-ms-transform-origin:5px 5px; /* IE 9 */
 	-webkit-transform-origin:5px 5px;
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0.5)";
+    /* IE 5-7 */
+    filter: alpha(opacity=0.5);
+    opacity: 0.5;
 }
 
 .patt-hidden .patt-lines{

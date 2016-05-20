@@ -305,10 +305,22 @@
             var index = "index" + (answer[i]-1);
 
             if(i == 0) {
-                numbers[i] = Math.ceil(Math.random() * average); 
+                if(gameMode) {
+                    numbers[i] = getRandomEven(average);
+                } else {
+                    numbers[i] = getRandomNum(average); 
+                }
+                
             } else {
-                numbers[i] = numbers[i-1] + Math.ceil(Math.random() * average); 
+
+                if(gameMode) {
+                    numbers[i] = numbers[i-1] + getRandomEven(average);
+                } else {
+                    numbers[i] = numbers[i-1] + getRandomNum(average);
+                }
+                
             }
+
             document.getElementById(index).innerHTML = "" + numbers[i];
         }
 
