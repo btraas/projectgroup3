@@ -20,8 +20,13 @@ if($username == '')
     $username = 'null';
 
 // Insert topic to database
-$sql="INSERT INTO $tb_name(username, score, gamemode, datetime)VALUES('$username', '$score', '$gameMode', '$datetime')";
+$sql="INSERT INTO $tb_name(username, score, gamemode, datetime) VALUES('$username', '$score', '$gameMode', '$datetime')";
+
+echo $sql;
+
 $result=mysql_query($sql);
+
+exit();
 
 if($result)
 
