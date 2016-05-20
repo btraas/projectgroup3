@@ -27,14 +27,16 @@
 
 <!-- This needs to be in this PHP file to set these variables -->
 <script>
-	BGM.play('resources/sounds/bgm_scoreboard.mp3');
+	$(document).on('pageshow', "[data-url='/result.php']", function(){
+		BGM.play('resources/sounds/bgm_scoreboard.mp3');
 
-	var rank = <?php echo $rows['rank']; ?>;
-	var score = <?php echo $score; ?>;
+		var rank = <?php echo $rows['rank']; ?>;
+		var score = <?php echo $score; ?>;
 
-	for(var i = 0; i <= <?php echo $score; ?>; i++){
-		$('.score span').text(i);
-	}
+		for(var i = 0; i <= <?php echo $score; ?>; i++){
+			$('.score').text(i);
+		}
+});
 </script>
 
 	<link rel="stylesheet" type="text/css" href="css/result.css">
