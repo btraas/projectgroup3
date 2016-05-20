@@ -79,14 +79,25 @@ var grid = { // {{{
 function generateAnswer(){ // {{{ Generate the answer
 	var answer = []; //answer array
 	var next = - 1;
+	var valid = false;
 
 	//Assign answer
 
 	// getNextNumber returns 0 if there's no possibilities.
 	// End loop if we've filled up the array or there's no more possibilities
 	while(answer.length < numberRange && next != 0){
-		next= getRandomNum(gridSize * gridSize );
-		if(next != 0) answer[answer.length] = next;
+		next= getRandomNum(gridSize * gridSize);
+
+		valid = true;
+		for(var i = 0; i < answer.length; i++) {
+			if(answer[i] == next) {
+				valid = false;
+			}
+		}
+		if(valid) {
+			answer[answer.length] = next;
+		}
+		
 	}
 		//Save answer in cookie
 		setCookie('answer', answer.join('|'), 365);
