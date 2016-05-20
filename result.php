@@ -17,7 +17,7 @@
 	$gm = @$_COOKIE['gameMode'];
 
 	$score = mysql_real_escape_string($score);
-	$sql = "SELECT COUNT(*) + 1 AS rank FROM $tb_name WHERE gamemode = $gm AND $score < score ;";
+	$sql = "SELECT COUNT(*) + 1 AS rank FROM $tb_name WHERE gamemode = $gm AND $score <= score ;";
 
 	$result=mysql_query($sql);
 	$rows=mysql_fetch_array($result);
