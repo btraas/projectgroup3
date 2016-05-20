@@ -38,12 +38,12 @@
 
 .patt-dots{
 	background: #fff;
-	width: 15px;
-	height: 15px;
-	border-radius:15px;
+	width: 10px;
+	height: 10px;
+	border-radius:5px;
 	position:absolute;
-	top:40%;
-	left:40%;
+	top:50%;
+	left:50%;
 	margin-top:-5px;
 	margin-left:-5px;
 }
