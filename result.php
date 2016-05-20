@@ -25,8 +25,16 @@
 
 <!-- This needs to be in this PHP file to set these variables -->
 <script>
-var rank = <?php echo $rows['rank']; ?>;
-var score = <?php echo $score; ?>;
+	BGM.play('resources/sounds/bgm_scoreboard.mp3');
+
+	var rank = <?php echo $rows['rank']; ?>;
+	var score = <?php echo $score; ?>;
+
+	// Go to the next playlist song when leaving this page.
+	$(document).on('pagebeforehide', "[data-url='/result.php']", function(){
+		BGM.next();
+	});
+
 </script>
 
 	<link rel="stylesheet" type="text/css" href="css/result.css">
@@ -62,7 +70,6 @@ var score = <?php echo $score; ?>;
                 <input type="image" src="resources/images/result_buttons_retry.png" onclick="goPlay()" class="playBtn">
 				<a id='game' href='./game.php' data-transition='flow' data-direction='reverse'></a>
 			</div>
-
 		</div>
 
 <?php include('footer.php');
