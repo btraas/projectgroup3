@@ -36,8 +36,8 @@ var grid = { // {{{
 				console.log("onDraw");
 				//when user input is correct
                 if(pattern == answer) {
-                	progress[progressIndex++] = 1;
                 	showCheck();
+                	progress[progressIndex++] = 1;
 
 					//send to result
 					if(progressIndex >= progress.length - 1){
@@ -48,8 +48,8 @@ var grid = { // {{{
 					generateAnswer();
 
 					//Assign new Grid
+					console.log("new grid");
 					lock = null;
-					alert("test");
 					lock = new PatternLock('#pattern', grid);
 					
 					//Assign Current status on user progress
@@ -99,10 +99,6 @@ function generateAnswer(){ // {{{ Generate the answer
 
 		//Make current progress Skipped(failed)
 		progress[progressIndex++] = 0;
-
-		//show cross
-		console.log("showcross on skip");
-		showCross();
 
 		//Genearte newAnswer
 		generateAnswer();
