@@ -83,6 +83,40 @@ function createGrid() // {{{
                 }
 
                 //Removing pattern from visual
+                	showCheck();
+            		SFX.sound('resources/sounds/sfx_ui_16.ogg');
+                	progress[progressIndex++] = 1;
+
+					//send to result
+					if(progressIndex >= progress.length - 1){
+						onResult();
+					}
+
+					// Generate new grid
+					generateAnswer();
+
+					//Assign new Grid
+					console.log("new grid");
+					lock = null;
+					lock = new PatternLock('#pattern', grid);
+					
+					//Assign Current status on user progress
+					progress[progressIndex] = 2;
+
+					//Show user progress
+					showUserProgress();
+					
+					// for( var i = 0; i < progress.length; i++){
+					// 	console.log("progress[" + i + "]: " + progress[i]);
+					// }
+
+					//Calc score
+					score += calcScore(x.time());
+				} else {
+					lock.error();
+				}
+
+				//Removing pattern from visual
                 window.setTimeout(function() { lock.reset(); }, 1000);
         }//end of onDraw fucntion
     };//end of grid }}}
@@ -178,7 +212,7 @@ function getRandomOdd(range) {
 
 function skip() // {{{ Skip button
 {
-	SFX.play("resources/sounds/sfx_test.wav");
+	SFX.sound('resources/sounds/sfx_ui_19.ogg');
 
 	//Direc user to result scene if all progress is done
 	if(progressIndex >= progress.length - 1){
