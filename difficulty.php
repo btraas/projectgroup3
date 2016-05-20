@@ -40,7 +40,7 @@
                     numberRange = 3;
 
                     if(gameMode == 1){
-                        fakeNums = 0;
+                        fakeNums = 1;
                     }
                     break;
                 case '3':
