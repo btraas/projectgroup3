@@ -41,7 +41,7 @@
 /** the style of buttons **/
 .homeBtn {
   width: 95px;
-  height: 65px;
+  height: 100px;
   margin: 10px auto;
   cursor:pointer;
 }
@@ -49,21 +49,21 @@
 .postBtn {
 	cursor:pointer;
 	width: 95px;
- 	height: 65px;
+ 	height: 100px;
  	margin: 10px auto;
 }
 
 .selectBtn {
 	cursor:pointer;
 	width: 95px;
- 	height: 65px;
+ 	height: 100px;
  	margin: 10px auto;
 }
 
 .playBtn {
 	cursor:pointer;
 	width: 95px;
- 	height: 65px;
+ 	height: 100px;
  	margin: 10px auto;	
 }
 
