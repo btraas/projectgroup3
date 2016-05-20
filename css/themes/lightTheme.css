@@ -24,7 +24,7 @@ button,
 .ui-btn {
 	font-size: 1em;
 	line-height: 1.3;
-	    font-family: sans-serif /*{global-font-family}*/;
+	 font-family: sans-serif /*{global-font-family}*/;
 }
 legend,
 .ui-input-text input,
@@ -212,7 +212,7 @@ html .ui-alt-icon .ui-radio-off:after {
 }
 /* Loader */
 .ui-icon-loading {
-	background: url("../../../../Desktop/themes/images/ajax-loader.gif");
+	background: url("images/ajax-loader.gif");
 	background-size: 2.875em 2.875em;
 }
 /* Swatches */
@@ -226,7 +226,7 @@ html .ui-body-a .ui-bar-inherit,
 html body .ui-group-theme-a .ui-bar-inherit {
 	background-color: #00d6c6 /*{a-bar-background-color}*/;
 	border-color: #dddddd /*{a-bar-border}*/;
-	color: #ffffff /*{a-bar-color}*/;
+	color: #000000 /*{a-bar-color}*/;
 	text-shadow: 0 /*{a-bar-shadow-x}*/ 1px /*{a-bar-shadow-y}*/ 0 /*{a-bar-shadow-radius}*/ #eeeeee /*{a-bar-shadow-color}*/;
 	font-weight: bold;
 }
@@ -299,7 +299,7 @@ html body .ui-group-theme-a .ui-btn:visited,
 html head + body .ui-btn.ui-btn-a:visited {
 	background-color: #3fd5cf /*{a-bup-background-color}*/;
 	border-color: #dddddd /*{a-bup-border}*/;
-	color: #ffffff /*{a-bup-color}*/;
+	color: #000000 /*{a-bup-color}*/;
 	text-shadow: 0 /*{a-bup-shadow-x}*/ 1px /*{a-bup-shadow-y}*/ 0 /*{a-bup-shadow-radius}*/ #f3f3f3 /*{a-bup-shadow-color}*/;
 }
 /* Button hover */
@@ -310,7 +310,7 @@ html body .ui-group-theme-a .ui-btn:hover,
 html head + body .ui-btn.ui-btn-a:hover {
 	background-color: #06b7b2 /*{a-bhover-background-color}*/;
 	border-color: #dddddd /*{a-bhover-border}*/;
-	color: #ffffff /*{a-bhover-color}*/;
+	color: #000000 /*{a-bhover-color}*/;
 	text-shadow: 0 /*{a-bhover-shadow-x}*/ 1px /*{a-bhover-shadow-y}*/ 0 /*{a-bhover-shadow-radius}*/ #f3f3f3 /*{a-bhover-shadow-color}*/;
 }
 /* Button down */
@@ -321,7 +321,7 @@ html body .ui-group-theme-a .ui-btn:active,
 html head + body .ui-btn.ui-btn-a:active {
 	background-color: #0db0c5 /*{a-bdown-background-color}*/;
 	border-color: #dddddd /*{a-bdown-border}*/;
-	color: #333333 /*{a-bdown-color}*/;
+	color: #000000 /*{a-bdown-color}*/;
 	text-shadow: 0 /*{a-bdown-shadow-x}*/ 1px /*{a-bdown-shadow-y}*/ 0 /*{a-bdown-shadow-radius}*/ #f3f3f3 /*{a-bdown-shadow-color}*/;
 }
 /* Active button */
