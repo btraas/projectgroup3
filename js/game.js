@@ -69,124 +69,6 @@ var grid = { // {{{
         }//end of onDraw fucntion
 	};//end of grid }}}
 
-/**
-	GridButton Object
-	
-	Brayden Traas May 11/2016
-
-	Represents one circle/button on a grid.
-	Contains accessor functions to get information about this GridButton
-
-*/
-function GridButton(value, values, rows, columns) // {{{
-{
-	// Ensure there are valid parameters
-	if( empty(value) || value < 1 || value > (rows*columns)) 
-	{
-		alert('Invalid gridButton value: '+value);
-		return false;
-	}
-
-	this.value = value;
-	this.values = values;
-	this.index = value-1;
-	this.rows = rows;
-	this.columns = columns;
-	this.numGridButtons = rows*columns;		
-
-	this.nearest = [];
-
-	this.firstRow = function() // returns true if this GridButton is on the first row
-	{
-		return this.value <= columns;
-	}
-	this.lastRow = function() // returns true if this GridButton is on the last row
-	{
-		return this.value > (this.numGridButtons - columns);		
-	}
-	this.firstColumn = function() // etc.
-	{
-		return (this.index == 0 || this.index % columns == 0)
-	}
-	this.lastColumn = function()
-	{
-		return this.value % columns == 0;
-	}
-	this.up = function() // returns the position of the GridButton directly above
-	{
-		return this.value - this.columns;
-	}
-	this.down = function() // returns the position of the GridButton directly below
-	{
-		return this.value + this.columns;
-	}
-
-
-	// This function returns all the nearest unique possibilities to this gridButton
-	// (Options of the next GridButton to swipe to)
-	// If this is the top-left grid button, it will return an array with the positions of
-	// the button to the right, bottom-right, and bottom.
-	this.getNearest = function()
-	{
-		/*
-		console.log("Previous num: "+this.value);
-		console.log("firstRow? "+this.firstRow());
-		console.log("lastRow? "+this.lastRow());
-		console.log("firstCol? "+this.firstColumn());
-		console.log("lastCol? "+this.lastColumn());
-		*/
-
-		// If not first row and not first column, 
-		// add the circle to the top left as a possibility
-		if(!this.firstRow() && !this.firstColumn()) 	this.add(this.up() - 1);
-
-		// If not the first row, add the button directly above as a possibility
-		if(!this.firstRow())							this.add(this.up());
-
-		// etc.
-		if(!this.firstRow() && !this.lastColumn())		this.add(this.up() + 1);
-		if(!this.lastColumn())							this.add(this.value + 1);
-		if(!this.lastRow() && !this.lastColumn())		this.add(this.down() + 1);
-		if(!this.lastRow())								this.add(this.down());
-		if(!this.lastRow() && !this.firstColumn())		this.add(this.down() - 1);
-		if(!this.firstColumn())							this.add(this.value - 1);
-
-		return this.nearest;
-	}
-
-	// Used by getNearest function only, add this button position if it's unique
-	this.add = function(val)
-	{
-		// Add this gridbutton if it's unique, and we haven't already added this as an option for the next gridbutton
-		if(this.values.indexOf(val) == -1 && this.nearest.indexOf(val) == -1) 
-		{
-			this.nearest.push(val);
-		}
-
-	}
-} // }}} end of GridButton object
-
-function getNextNumber(grid) // {{{
-{
-	var nextNum = 0;
-
-	if(grid.length == 0)
-	{
-		nextNum = Math.ceil(Math.random() * (gridSize*gridSize));
-	}
-	else
-	{
-		var lastButton = new GridButton(grid[grid.length - 1], grid, gridSize, gridSize);
-		var values = lastButton.getNearest();
-		//console.log("Button "+grid[grid.length-1]+" values: "+JSON.stringify(values));
-
-		if(values.length == 0) return 0; // return 0 if no possibilities
-
-		nextNum = values[Math.ceil(Math.random() * values.length) - 1];
-	}
-	return nextNum;
-} // }}} end of getNExtNumber()
-
 function generateAnswer(){ // {{{ Generate the answer
 	var answer = []; //answer array
 	var next = - 1;
@@ -196,9 +78,7 @@ function generateAnswer(){ // {{{ Generate the answer
 	// getNextNumber returns 0 if there's no possibilities.
 	// End loop if we've filled up the array or there's no more possibilities
 	while(answer.length < numberRange && next != 0){
-	//	next = getNextNumber(answer);
 		next= getRandomNum(gridSize * gridSize );
-
 		if(next != 0) answer[answer.length] = next;
 	}
 
@@ -335,6 +215,8 @@ function getRandomOdd(range) {
 
 function skip() // {{{ Skip button
 {
+	SFX.play("resources/sounds/sfx_test.wav");
+
 	//Direc user to result scene if all progress is done
 	if(progressIndex >= progress.length - 1){
 		onResult();	
@@ -401,7 +283,7 @@ function showUserProgress(){
 		}
 	}// end of for
 
-	$('#progressNumber').innerHTML = progressIndex + "/10";
+	$('#progressNumber').text( (progressIndex + 1) + "/10");
 }// end of showUserProgress() }}}
 
 // Calculating the scroe based on user progress and time {{{
