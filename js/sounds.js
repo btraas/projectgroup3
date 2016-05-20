@@ -58,6 +58,7 @@ function BackgroundMusic(file)
 	this.audio = new Audio(self.file);
 	this.audio.volume = volumes.bgm / 100;
 	this.loop = true;
+	this.time = 0;
 	
 	this.volume = function(value)
 	{
