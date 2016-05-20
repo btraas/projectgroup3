@@ -31,7 +31,7 @@
 	var score = <?php echo $score; ?>;
 
 	for(var i = 0; i <= <?php echo $score; ?>; i++){
-		$('.score').write(i);
+		$('.score').html(i);
 	}
 </script>
 
@@ -40,7 +40,7 @@
     	<div id='topMargin'>
     	</div>
 		<div class='scoreArea'>
-			<div class='score'>  </div>
+			<div class='score'>0</div>
 		</div>
 		
 		<div class='ranking'>
