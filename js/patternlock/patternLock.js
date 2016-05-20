@@ -115,12 +115,17 @@ var showSeconds = 15;
             iObj.wrapTop = offset.top;
             iObj.wrapLeft = offset.left;
 
+            // hide numbers when users input
+            if(numbers_showing) {
+                hideNumbers();
+
+                if(timer_numbers != 0 && timer_numbers != null) {
+                    clearTimeout(timer_numbers);
+                }
+            }
+
             //reset pattern
             obj.reset();
-
-            // hide numbers when users input
-            hideNumbers();
-            clearTimeout(timer_numbers);
         },
         moveHandler = function (e, obj) {
             e.preventDefault();
@@ -224,6 +229,8 @@ var showSeconds = 15;
                 }
                 iObj.lastPosObj = posObj;
 
+            } else { // mouse moves out from a button
+                currentIdx = 0;
             }
 
 
@@ -352,7 +359,8 @@ var showSeconds = 15;
     }
 
     // timer object for showing numbers
-    var timer_numbers;
+    var timer_numbers = 0;
+    var numbers_showing = true ;
     // show numbers at the beggining of a game
     function showNumbers() {
         
@@ -370,6 +378,7 @@ var showSeconds = 15;
 
         console.log("xxx:" + answer[0] + answer[1] + answer[2] + answer[3]);
 
+        numbers_showing = true;
         // generates number for showing on matrix
         for(var i = 0; i < answer.length; i++) {
             var index = "index" + (answer[i]-1);
@@ -421,8 +430,9 @@ var showSeconds = 15;
             var index = "index" + i;
             document.getElementById(index).innerHTML = "<div class='patt-dots'></div>";
         }
-    }
 
+        numbers_showing = false;
+    }
 
     function PatternLock(selector, option) {
         var self = this,
