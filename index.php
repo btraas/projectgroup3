@@ -19,7 +19,7 @@
 </div>
 
 <div class='bottom'>
-	<input type='button' class='playBtn' value='Play' onclick="$('#difficulty').click()">
+	<input type='button' class='playBtn' value='Play' onclick="$('#difficulty').click(); SFX.play('resources/sounds/sfx_test.wav');">
 	<!-- just a placeholder (invisible) for jquery mobile transitions -->
 	<a id='difficulty' href='difficulty.php' data-transition='flow'></a>
 </div>
