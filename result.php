@@ -14,8 +14,10 @@
 		$score = 0;
 	}
 
+	$gm = @$_COOKIE['gameMode'];
+
 	$score = mysql_real_escape_string($score);
-	$sql = "SELECT COUNT(*) + 1 AS rank FROM $tb_name WHERE $score < score ;";
+	$sql = "SELECT COUNT(*) + 1 AS rank FROM $tb_name WHERE gamemode = $gm AND $score <= score ;";
 
 	$result=mysql_query($sql);
 	$rows=mysql_fetch_array($result);
@@ -25,15 +27,19 @@
 
 <!-- This needs to be in this PHP file to set these variables -->
 <script>
-var rank = <?php echo $rows['rank']; ?>;
-var score = <?php echo $score; ?>;
+	BGM.play('resources/sounds/bgm_scoreboard.mp3');
+
+	var rank = <?php echo $rows['rank']; ?>;
+	var score = <?php echo $score; ?>;
 </script>
 
 	<link rel="stylesheet" type="text/css" href="css/result.css">
     <script src='js/result.js'></script>
 
-		<div class='scoreArea' id="scoreArea">
-			<div class='score' id=" score"> <?php echo $score; ?> </div>
+    	<div id='topMargin'>
+    	</div>
+		<div class='scoreArea'>
+			<div class='score' id="score"> <?php echo $score;?> </div>
 		</div>
 		
 		<div class='ranking'>
@@ -62,7 +68,6 @@ var score = <?php echo $score; ?>;
                 <input type="image" src="resources/images/result_buttons_retry.png" onclick="goPlay()" class="playBtn">
 				<a id='game' href='./game.php' data-transition='flow' data-direction='reverse'></a>
 			</div>
-
 		</div>
 
 <?php include('footer.php');

@@ -40,7 +40,7 @@ body, .ui-page {
   /*background-color: #232323;*/
   text-align: center;
   /* border-radius: 10px; */
-  overflow: none;
+  overflow: hidden;
 }
 
 /** set fixed size for the pattern **/

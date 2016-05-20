@@ -23,7 +23,6 @@ fakeNums = getCookie("fakeNums");
 level = getCookie("level");
 
 // set matrix width / height by window width
-matrixSize = $(window).width();
 
 // Math to determine elements sizes
 buttonRadius = matrixSize / rowSize;
@@ -52,7 +51,7 @@ function createGrid() // {{{
                 if(pattern == answer) {
                 //Removing pattern from visual
                 	showCheck();
-            		SFX.play('resources/sounds/sfx_ui_16.ogg');
+            		SFX.play('resources/sounds/sfx_ui_check.ogg');
                 	progress[progressIndex++] = 1;
 
 					//send to result
@@ -127,8 +126,11 @@ $(document).on('pageshow', "[data-url='/game.php']", function(){
 
 	// set sizes
 
+	var matrixMultiplier = 1.3;
+
 	// set matrix width / height by window width
-	matrixSize = $('.maincontainer').width();
+	matrixSize = $(window).width() * matrixMultiplier;
+	if($(window).width() > 1000) matrixSize = 1000 * matrixMultiplier;
 
 	// Math to determine elements sizes
 	buttonRadius = matrixSize / rowSize;
@@ -180,7 +182,7 @@ function getRandomOdd(range) {
 
 function skip() // {{{ Skip button
 {
-	SFX.play('resources/sounds/sfx_ui_19.ogg');
+	SFX.play('resources/sounds/sfx_ui_skip.ogg');
 
 	//Direc user to result scene if all progress is done
 	if(progressIndex >= progress.length - 1){

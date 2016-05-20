@@ -23,7 +23,13 @@
     <script src='js/sounds.js'></script>
     <script src='js/functions.js'></script>
     <script src='js/theme.js'></script>
-
+	<script>
+		$(document).on('pagebeforeshow', changePageSFX);
+		function changePageSFX()
+		{
+			SFX.play("resources/sounds/sfx_test.wav");
+		}
+	</script>
     <!-- Meta stuff -->
     <link rel="apple-touch-icon" href="resources/game_icon.png">
     <link rel="apple-touch-startup-image" href="resources/apple-splash.png">

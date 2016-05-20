@@ -15,7 +15,7 @@
 <script>
 
     function radioClick(val){
-            setCookie('gameMode', val , 365);
+            setCookie('leaderboard_gameMode', val , 365);
             //location.reload();
 
 			$.mobile.changePage(
@@ -35,9 +35,9 @@
     <div class="switcher">
             <div class='Leaderboards' id="leaderboards_text">Leaderboards</div>
             <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
-            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="0" <?php if(@$_COOKIE['gameMode']!=1) echo "checked" ?> onclick="radioClick(this.value);"/>
+            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="0" <?php if(@$_COOKIE['leaderboard_gameMode']!=1) echo "checked" ?> onclick="radioClick(this.value);"/>
 			<label for="radio-choice-a1">Classic</label>
-			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="1" <?php if(@$_COOKIE['gameMode']==1) echo "checked" ?> onclick="radioClick(this.value);"/>
+			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="1" <?php if(@$_COOKIE['leaderboard_gameMode']==1) echo "checked" ?> onclick="radioClick(this.value);"/>
 			<label for="radio-choice-b1">Challenge</label>
             </fieldset>
     </div>
@@ -52,24 +52,34 @@
             </tr>
             <!-- PHP showing user scores -->
             <?php
-                        $gameMode = $_COOKIE['gameMode'];
+                        $lb_gameMode = $_COOKIE['leaderboard_gameMode'];
+						$gameMode = $_COOKIE['gameMode'];
 						
                         // default for classic mode
-                        if($gameMode == "") {
-                            $gameMode = 0;
+                        if(empty($lb_gameMode)) {
+                            $lb_gameMode = 0;
                         }
 
-                        $sql="SELECT * FROM $tb_name WHERE gamemode = $gameMode ORDER BY score DESC limit 0,9";
+                        $sql="SELECT * FROM $tb_name WHERE gamemode = $lb_gameMode ORDER BY score DESC limit 0,9";
                         // ORDER BY id DESC is order result by descending
 
 						//echo $sql;
 
                         $result=mysql_query($sql);
                         $num = 1;
+						$highlighted = false;
+
+						$username = $_COOKIE["username"];
+					    $rank = $_COOKIE["rank"];
+						$score = $_COOKIE["score"];
+
                         while($rows=mysql_fetch_array($result)){ // Start looping table row
+
+
             ?>
 
-                            <tr>
+
+                            <tr <?php if(!$highlighted && $rows['username']==$username && $rows['score']==$score) { echo "class='highlight'"; $highlighted = true; } ?>>
                                 <td><?php echo $num++ ?></td>
                                 <td><?php echo ucwords($rows['username']); ?></td>
                                 <td><?php echo ucwords($rows['score']); ?></td>
@@ -78,11 +88,7 @@
             <?php
                         }
 
-                        $username = $_COOKIE["username"];
-                        $rank = $_COOKIE["rank"];
-                        $score = $_COOKIE["score"];
-
-                        if($rank != "" && $score != "" && $username != "") {
+                        if(!$highlighted && $gameMode == $lb_gameMode && $rank != "" && $score != "" && $username != "") {
             ?>
                             <tr class = 'highlight'>
                                 <td><?php echo $rank; ?></td>
