@@ -232,12 +232,14 @@ var confirmTime = 500;
 
                         iObj.lastElm = elm;
                     }
-                }
+                } else { // mouse moves out from a button
+                            currentIdx = 0;
+                            resetCircle()
+                        }
                 iObj.lastPosObj = posObj;
 
             } else { // mouse moves out from a button
                 currentIdx = 0;
-
                 resetCircle()
             }
 
