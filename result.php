@@ -29,6 +29,10 @@
 
 	var rank = <?php echo $rows['rank']; ?>;
 	var score = <?php echo $score; ?>;
+
+	for(var i = 0; i <= <?php echo $score; ?>; i++){
+		$('.score').write(i);
+	}
 </script>
 
 	<link rel="stylesheet" type="text/css" href="css/result.css">
@@ -36,7 +40,7 @@
     	<div id='topMargin'>
     	</div>
 		<div class='scoreArea'>
-			<div class='score'> <?php echo $score; ?> </div>
+			<div class='score'>  </div>
 		</div>
 		
 		<div class='ranking'>
