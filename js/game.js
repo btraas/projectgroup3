@@ -220,7 +220,7 @@ function showUserProgress(){
 		}
 	}// end of for
 
-	if(progressIndex <= 10){
+	if(progressIndex < 10){
 		$('#progressNumber').text( (progressIndex + 1) + "/10");
 	}
 }// end of showUserProgress() }}}
