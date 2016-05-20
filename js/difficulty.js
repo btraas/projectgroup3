@@ -81,7 +81,7 @@ function updateImg(val) {
             }
             break;
         default:
-            gridSize = 3;
+            gridSize = 2;
             numberRange = 4;
             fakeNums = 0;
     }
