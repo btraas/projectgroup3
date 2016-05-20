@@ -247,7 +247,10 @@ function showUserProgress(){
 		}
 		var progressNum = document.createElement("div");
 		progressNum.id = "progressNumber";
+
+		if(progressNum != null){
 		progressBar.appendChild(progressNum);
+		}
 	}
 
 	//check user progress and visualizing based on userProgress array
