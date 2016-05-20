@@ -33,7 +33,7 @@
 
 	<link rel="stylesheet" type="text/css" href="css/result.css">
     <script src='js/result.js'></script>
-    	<div id='top-margin'>
+    	<div id='topMargin'>
     	</div>
 		<div class='scoreArea'>
 			<div class='score'> <?php echo $score; ?> </div>
