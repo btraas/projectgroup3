@@ -220,7 +220,9 @@ function showUserProgress(){
 		}
 	}// end of for
 
-	$('#progressNumber').text( (progressIndex + 1) + "/10");
+	if(progressIndex <= 10){
+		$('#progressNumber').text( (progressIndex + 1) + "/10");
+	}
 }// end of showUserProgress() }}}
 
 // Calculating the scroe based on user progress and time {{{
