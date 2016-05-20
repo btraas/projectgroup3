@@ -289,11 +289,14 @@
         
         var answer = decodeURI(getCookie('answer')).split('|');
         var numbers = [];
+        var average;
 
         if(empty(answer)){
             alert("Error: No cookie available, please try again(2).");
 			location.href = 'index.php';
             throw new Error('No cookie');
+        } else {
+            average = 100 / answer.length;
         }
 
         console.log("xxx:" + answer[0] + answer[1] + answer[2] + answer[3]);
@@ -302,9 +305,9 @@
             var index = "index" + (answer[i]-1);
 
             if(i == 0) {
-                numbers[i] = Math.ceil(Math.random() * 10); 
+                numbers[i] = Math.ceil(Math.random() * average); 
             } else {
-                numbers[i] = numbers[i-1] + Math.ceil(Math.random() * 4); 
+                numbers[i] = numbers[i-1] + Math.ceil(Math.random() * average); 
             }
             document.getElementById(index).innerHTML = "" + numbers[i];
         }
