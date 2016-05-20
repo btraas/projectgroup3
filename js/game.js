@@ -94,6 +94,7 @@ function generateAnswer(){ // {{{ Generate the answer
 				valid = false;
 			}
 		}
+		
 		if(valid) {
 			answer[answer.length] = next;
 		}
