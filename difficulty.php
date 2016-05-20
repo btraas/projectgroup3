@@ -67,7 +67,7 @@
         <div id="text"><label for="level">Difficulty:</label> </div>
 
             <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
-            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="0"  onclick=""/>
+            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="0" checked="checked" onclick=""/>
 			<label for="radio-choice-a1">Classic</label>
 			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="1"  onclick=""/>
 			<label for="radio-choice-b1">Challenge</label>
