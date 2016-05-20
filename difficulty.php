@@ -126,7 +126,7 @@
 
         <!--<button type="button" onclick="goPlay()">Play</button>-->
 		<div class='bottom'>
-		    <input type='button' class='gameBtn' value='Play' onclick="$('#game').click(); SFX.play('resources/sounds/sfx_test.wav');">
+		    <input type='button' class='gameBtn' value='Play' onclick="$('#game').click()">
 		    <!-- just a placeholder (invisible) for jquery mobile transitions -->
 		    <a id='game' href='game.php' data-transition='flow'></a>
 		</div>
