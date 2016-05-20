@@ -19,7 +19,7 @@ gameMode = 1;
 //gameMode = getCookie("gameMode");
 
 // set matrix width / height by window width
-matrixSize = $(window).width() - 50px;
+matrixSize = $(window).width() * 2;
 
 
 // Math to determine elements sizes
