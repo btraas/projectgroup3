@@ -30,7 +30,9 @@
 	    <div id="pattern" style='position: relative;'>
 	    </div>
 		<!-- Skip Button -->
-		<input type='button' class='btn skipBtn' value='Skip' onclick='skip()'>
+		<div class='bottom'>
+			<input type='button' class='btn skipBtn' value='Skip' onclick='skip()'>
+		</div>
 
 		<div id='topLayer'>
 			<img id="cross" class='feedback' src="resources/images/cross_mark.png" alt="cross">

@@ -95,7 +95,7 @@ function generateAnswer(){ // {{{ Generate the answer
 } // }}}end of generateAnswer()
 
 //When the game is first loaded
-$(document).on('pagebeforeshow', "[data-url='/game.php']", function(){
+$(document).on('pageshow', "[data-url='/game.php']", function(){
 
 	// This is a new game. Score has not been posted yet.
 	setCookie('posted', 'f', 1);

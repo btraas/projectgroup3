@@ -18,7 +18,7 @@
 	<a id='about' href='aboutus.php' data-transition='flow'></a>
 </div>
 
-<div class='difficulty'>
+<div class='bottom'>
 	<input type='button' class='playBtn' value='Play' onclick="$('#difficulty').click()">
 	<!-- just a placeholder (invisible) for jquery mobile transitions -->
 	<a id='difficulty' href='difficulty.php' data-transition='flow'></a>

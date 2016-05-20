@@ -32,23 +32,16 @@
 }
 
 .difficulty {
-	width: 92%;
  	height: 55px;
- 	margin: 10px auto;
+	width: 100%;
  	border:none;
  	border-radius: 20px 20px 20px 20px;
+	position: absolute;
 	bottom: 0;
 }
 
-/** the style for play button **/
-.playBtn {
-	cursor:pointer;
-	width: 100%;
- 	height: 55px;
- 	border:none;
- 	background-color: #EC7822;
- 	border-radius: 15px 15px 15px 15px;
- 	font-weight: bold;
- 	font-size: 170%;
- 	color: white;
+.difficulty > div {
+	margin: 15px;
+	margin-top: 0px;
 }
+
