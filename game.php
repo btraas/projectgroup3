@@ -12,7 +12,7 @@
 	<script src='js/check_cross.js'></script>
 
 	<script src='js/game.js'></script>
-	<script src='js/difficulty.js'></script>
+	<!--<script src='js/difficulty.js'></script>-->
 	<link href="css/game.css" rel='stylesheet' type='text/css' />
 
 		<?php include('menu_button.php'); ?>

@@ -4,7 +4,7 @@ var numberRange = 4;
 var fakeNums = 0;
 
 // load from cookie and set as the default value
-$(document).bind('pageinit', function(){
+$(document).on('pageshow', "[data-url='/difficulty.php']", function(){
         $("#level").val(getCookie('level')).slider('refresh');
         document.getElementById('lvImg').src = 'resources/level/Lv'+getCookie('level')+'.png';
 });
