@@ -5,6 +5,9 @@
     Demo on: ignitersworld.com/lab/patternLock.html
 */
 
+// show the numbers for this many seconds
+var showSeconds = 15;
+
 ;(function (factory) {
     /** support UMD ***/
     var global = Function('return this')() || (42, eval)('this');
@@ -321,7 +324,8 @@
                 
             }
 
-            document.getElementById(index).innerHTML = "" + numbers[i];
+			var html = "<div class='number'>"+numbers[i]+"</div>";
+            document.getElementById(index).innerHTML = html;
         }
 
     }
@@ -387,7 +391,7 @@
 
         showNumbers();
         // showing numbers for 1.5 seconds
-        timer_numbers = setTimeout(function(){ hideNumbers(); }, 1500);
+        timer_numbers = setTimeout(function(){ hideNumbers(); }, showSeconds * 1000);
 
     }
 

@@ -65,9 +65,8 @@
 }
 
 #check {
-    top: -50%;
     width: 50%;
-    height: 50%;
+    height: 40%;
     /* IE 8 */
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     /* IE 5-7 */
