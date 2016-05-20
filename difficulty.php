@@ -19,7 +19,6 @@
 
         // function that takes users to game page
         function goPlay() {
-            //alert("game.php?gridSize=" + gridSize + "&numberRange=" + numberRange);
             window.location = "game.php";
         }
 
@@ -38,7 +37,7 @@
                     break;
                 case '2':
                     gridSize = 3;
-                    numberRange = 4;
+                    numberRange = 3;
 
                     if(gameMode == 1){
                         fakeNums = 0;
@@ -46,42 +45,42 @@
                     break;
                 case '3':
                     gridSize = 3;
-                    numberRange = 6;
+                    numberRange = 4;
 
                     if(gameMode == 1){
-                        fakeNums = 0;
+                        fakeNums = 1;
                     }
                     break;
                 case '4':
                     gridSize = 4;
-                    numberRange = 8;
-                    
+                    numberRange = 5;
+
                     if(gameMode == 1){
-                        fakeNums = 2;
+                        fakeNums = 1;
                     }
                     break;
                 case '5':
                     gridSize = 4;
-                    numberRange = 9;
+                    numberRange = 7;
+
+                    if(gameMode == 1){
+                        fakeNums = 2;
+                    }
+                    break;
+                case '6':
+                    gridSize = 5;
+                    numberRange = 6;
 
                     if(gameMode == 1){
                         fakeNums = 3;
                     }
                     break;
-                case '6':
-                    gridSize = 4;
-                    numberRange = 12;
+                case '7':
+                    gridSize = 5;
+                    numberRange = 8;
 
                     if(gameMode == 1){
                         fakeNums = 4;
-                    }
-                    break;
-                case '7':
-                    gridSize = 5;
-                    numberRange = 15;
-
-                    if(gameMode == 1){
-                        fakeNums = 5;
                     }
                     break;
                 default:
