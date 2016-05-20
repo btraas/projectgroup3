@@ -93,76 +93,18 @@ function generateAnswer(){ // {{{ Generate the answer
 		console.log(decodeURI(getCookie('answer')).split('|').join(''));
 } // }}}end of generateAnswer()
 
-	function skip() // {{{ Skip button
-	{
-		//Direc user to result scene if all progress is done
-		if(progressIndex >= progress.length - 1){
-			onResult();	
-		} 
+//When the game is first loaded
+$(document).on('pagebeforeshow', "[data-url='/game.php']", function(){
 
-		//Make current progress Skipped(failed)
-		progress[progressIndex++] = 0;
+	// This is a new game. Score has not been posted yet.
+	setCookie('posted', 'f', 1);
 
-		//Genearte newAnswer
-		generateAnswer();
+	generateAnswer();	// generate a new answer
+	if(!empty($('#stopWatch').html())) show();				// show stopwatch
+	showUserProgress(); // Show progress the first time
+	lock = new PatternLock('#pattern',  grid);	// Generate a grid on page load with parameters defined in "grid" above
+});//end of pageinit(function())
 
-		//Assgin into new grid
-		lock = null;
-		lock = new PatternLock('#pattern', grid);
-
-		//Make new progress in curretn
-		progress[progressIndex] = 2;
-
-		//show user progress
-		showUserProgress();
-	} // }}} end of skip()
-
-	//When the game is first loaded
-	$(document).on('pagebeforeshow', function(){
-
-		// This is a new game. Score has not been posted yet.
-		setCookie('posted', 'f', 1);
-
-		generateAnswer();	// generate a new answer
-		if(!empty($('#stopWatch').html())) show();				// show stopwatch
-		showUserProgress(); // Show progress the first time
-		lock = new PatternLock('#pattern',  grid);	// Generate a grid on page load with parameters defined in "grid" above
-	});//end of pageinit(function())
-
-	//Send user to result scene
-    function onResult()  {
-   		window.location = 'result.php?random='+window.btoa(score); // "random" is the post key, score is the value, in base64
-    }
-
-    //Visualizing user progress {{{
-    function showUserProgress(){
-			$('#overlay').css('z-index', 100);
-			window.setTimeout(function() {$('#overlay').css('z-index', -100)}, 3000)
-
-			var progressBar = document.getElementById("progressBar");
-
-			//generating progress buttons
-			if(empty(document.getElementById("progress0"))){
-				for(var i = 0; i < 10; i++){
-					var button = document.createElement("div");
-					button.className = "progressButtonOff";
-					button.id = "progress" + i;
-					progressBar.appendChild(button);
-				}
-			}
-
-			//check user progress and visualizing based on userProgress array
-			for(var i = 0; i < 10; i++){
-				// console.log("showUserProgrss():" + progress[i]);
-				if(progress[i] == 0){
-			 	document.getElementById("progress" + i).className = "progressButtonOff";
-				} else if(progress[i] == 1) {
-					document.getElementById("progress" + i).className = "progressButtonOn";
-				} else if(progress[i] == 2) {
-					document.getElementById("progress" + i).className = "progressButtonCurrent";
-				}
-			}// end of for
-		}// end of showUserProgress() }}}
 
 // generates random numbers within the range(1-range)
 // 
@@ -217,14 +159,6 @@ function skip() // {{{ Skip button
 	//show user progress
 	showUserProgress();
 } // }}} end of skip()
-
-//When the game is first loaded
-$(document).on('pagebeforeshow', function(){
-	generateAnswer();	// generate a new answer
-	if(!empty($('#stopWatch').html())) show();				// show stopwatch
-	showUserProgress(); // Show progress the first time
-	lock = new PatternLock('#pattern',  grid);	// Generate a grid on page load with parameters defined in "grid" above
-});//end of pageinit(function())
 
 //Send user to result scene
 function onResult()  {
