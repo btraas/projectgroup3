@@ -74,7 +74,7 @@
             </fieldset>
                
 	    <div class="lvimg">
-        		<img id="lvImg" src="resources/level/Lv1(fake).png" alt="Level Image" height="280" width="280">
+        		<img id="lvImg" src="resources/level/Lv1.png" alt="Level Image" height="280" width="280">
 		</div>
         <div class="levelselection">
             	<input type="range" name="level" value="1" min="1" max="7" onchange="updateImg(this.value);">
