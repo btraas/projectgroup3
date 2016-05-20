@@ -15,7 +15,8 @@ var lock = null;
 // get values from cookie based on difficulty level
 gridSize = getCookie("gridSize");
 numberRange = getCookie("numberRange");
-gameMode = getCookie("gameMode");
+gameMode = 1;
+//gameMode = getCookie("gameMode");
 
 
 // Math to determine elements sizes
@@ -86,6 +87,7 @@ function generateAnswer(){ // {{{ Generate the answer
 	// getNextNumber returns 0 if there's no possibilities.
 	// End loop if we've filled up the array or there's no more possibilities
 	while(answer.length < numberRange && next != 0){
+
 		next= getRandomNum(gridSize * gridSize);
 
 		valid = true;
