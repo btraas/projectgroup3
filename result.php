@@ -14,10 +14,8 @@
 		$score = 0;
 	}
 
-	$gm = $_COOKIE['gameMode'];
-
 	$score = mysql_real_escape_string($score);
-	$sql = "SELECT COUNT(*) + 1 AS rank FROM $tb_name WHERE gamemode = $gm AND $score < score ;";
+	$sql = "SELECT COUNT(*) + 1 AS rank FROM $tb_name WHERE $score < score ;";
 
 	$result=mysql_query($sql);
 	$rows=mysql_fetch_array($result);
@@ -27,16 +25,10 @@
 
 <!-- This needs to be in this PHP file to set these variables -->
 <script>
-	$(document).on('pageshow', "[data-url='/result.php']", function(){
-		BGM.play('resources/sounds/bgm_scoreboard.mp3');
+	BGM.play('resources/sounds/bgm_scoreboard.mp3');
 
-		var rank = <?php echo $rows['rank']; ?>;
-		var score = <?php echo $score; ?>;
-
-		for(var i = 0; i <= <?php echo $score; ?>; i++){
-			$('.score').text(i);
-		}
-});
+	var rank = <?php echo $rows['rank']; ?>;
+	var score = <?php echo $score; ?>;
 </script>
 
 	<link rel="stylesheet" type="text/css" href="css/result.css">
@@ -44,7 +36,7 @@
     	<div id='topMargin'>
     	</div>
 		<div class='scoreArea'>
-			<div class='score'>0</div>
+			<div class='score'> <?php echo $score;?> </div>
 		</div>
 		
 		<div class='ranking'>
