@@ -51,7 +51,7 @@ function createGrid() // {{{
                 if(pattern == answer) {
                 //Removing pattern from visual
                 	showCheck();
-            		SFX.play('resources/sounds/sfx_ui_16.ogg');
+            		SFX.play('resources/sounds/sfx_ui_check.ogg');
                 	progress[progressIndex++] = 1;
 
 					//send to result
@@ -179,7 +179,7 @@ function getRandomOdd(range) {
 
 function skip() // {{{ Skip button
 {
-	SFX.play('resources/sounds/sfx_ui_19.ogg');
+	SFX.play('resources/sounds/sfx_ui_skip.ogg');
 
 	//Direc user to result scene if all progress is done
 	if(progressIndex >= progress.length - 1){
