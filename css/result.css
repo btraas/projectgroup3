@@ -4,6 +4,7 @@
 
 	margin-top: 50px;
 	margin-left: 15px;
+    margin-bottom: 0;
 
 	width: 96%;
 	height: 50px;
@@ -30,10 +31,9 @@
 }
 
 .menu {
-
 	width: 90%;
-    height: 180px;
-    margin: 80px auto;
+    height: 260px;
+    margin: 10px auto;
     background-color: #404040;
     border-radius: 20px 20px 20px 20px;
 }
@@ -41,7 +41,7 @@
 /** the style of buttons **/
 .homeBtn {
   width: 95px;
-  height: 65px;
+  height: 100px;
   margin: 10px auto;
   cursor:pointer;
 }
@@ -49,21 +49,21 @@
 .postBtn {
 	cursor:pointer;
 	width: 95px;
- 	height: 65px;
+	height: 100px;
  	margin: 10px auto;
 }
 
 .selectBtn {
 	cursor:pointer;
 	width: 95px;
- 	height: 65px;
+ 	height: 100px;
  	margin: 10px auto;
 }
 
 .playBtn {
 	cursor:pointer;
 	width: 95px;
- 	height: 65px;
+ 	height: 100px;
  	margin: 10px auto;	
 }
 

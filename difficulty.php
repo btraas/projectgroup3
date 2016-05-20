@@ -7,6 +7,12 @@
         var numberRange = 4;
         var fakeNums = 0;
 
+        // load from cookie and set as the default value
+        $(document).bind('pageinit', function(){
+                $("#level").val(getCookie('level')).slider('refresh');
+                document.getElementById('lvImg').src = 'resources/level/Lv'+getCookie('level')+'.png';
+        });
+
         // function that takes users to menu page
         function goHome() {
             window.location = 'index.php';
@@ -14,7 +20,6 @@
 
         // function that takes users to game page
         function goPlay() {
-            //alert("game.php?gridSize=" + gridSize + "&numberRange=" + numberRange);
             window.location = "game.php";
         }
 
@@ -33,50 +38,50 @@
                     break;
                 case '2':
                     gridSize = 3;
-                    numberRange = 4;
+                    numberRange = 3;
 
                     if(gameMode == 1){
-                        fakeNums = 0;
+                        fakeNums = 1;
                     }
                     break;
                 case '3':
                     gridSize = 3;
-                    numberRange = 6;
+                    numberRange = 4;
 
                     if(gameMode == 1){
-                        fakeNums = 0;
+                        fakeNums = 1;
                     }
                     break;
                 case '4':
                     gridSize = 4;
-                    numberRange = 8;
+                    numberRange = 5;
+
+                    if(gameMode == 1){
+                        fakeNums = 1;
+                    }
+                    break;
+                case '5':
+                    gridSize = 4;
+                    numberRange = 7;
 
                     if(gameMode == 1){
                         fakeNums = 2;
                     }
                     break;
-                case '5':
-                    gridSize = 4;
-                    numberRange = 9;
+                case '6':
+                    gridSize = 5;
+                    numberRange = 6;
 
                     if(gameMode == 1){
                         fakeNums = 3;
                     }
                     break;
-                case '6':
-                    gridSize = 4;
-                    numberRange = 12;
+                case '7':
+                    gridSize = 5;
+                    numberRange = 8;
 
                     if(gameMode == 1){
                         fakeNums = 4;
-                    }
-                    break;
-                case '7':
-                    gridSize = 5;
-                    numberRange = 15;
-
-                    if(gameMode == 1){
-                        fakeNums = 5;
                     }
                     break;
                 default:
@@ -89,6 +94,7 @@
             setCookie("numberRange", numberRange, 365);
             setCookie("gameMode", gameMode, 365);
             setCookie("fakeNums", fakeNums, 365);
+            setCookie("level", val, 365);
 
         }
 
@@ -115,7 +121,7 @@
         		<img id="lvImg" src="resources/level/Lv1.png" alt="Level Image" >
 		</div>
         <div class="levelselection">
-            	<input type="range" name="level" value="1" min="1" max="7" onchange="updateImg(this.value);">
+            	<input type="range" name="level" id ="level" value="1" min="1" max="7" onchange="updateImg(this.value);">
     	</div>
 
         <!--<button type="button" onclick="goPlay()">Play</button>-->
