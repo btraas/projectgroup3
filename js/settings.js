@@ -1,7 +1,7 @@
 // load from cookie and set as the default value
 $(document).bind('pageinit', function(){
-        $("#bgm").val(getCookie('bgm'));
-        $("#sfx").val(getCookie('sfx'));
+        $("#bgm").val(getCookie('bgm')).slider('refresh');
+        $("#sfx").val(getCookie('sfx')).slider('refresh');
 });
 
 // set cookie for bgm

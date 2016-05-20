@@ -2,39 +2,127 @@
 	<link rel="stylesheet" type="text/css" href="css/difficulty.css">
     
     <script>
+        var gridSize = 3;
+        var gameMode = 0;
+        var numberRange = 4;
+        var fakeNums = 0;
 
         // function that takes users to menu page
         function goHome() {
-            window.location = 'index.php'
+            window.location = 'index.php';
         }
 
         // function that takes users to game page
         function goPlay() {
-            window.location = 'game.php'
+            //alert("game.php?gridSize=" + gridSize + "&numberRange=" + numberRange);
+            window.location = "game.php";
         }
 
         // function that changes images when swiping slider
         function updateImg(val) {
-            document.getElementById('lvImg').src = 'resources/level/Lv'+val+'(fake).png';
+            document.getElementById('lvImg').src = 'resources/level/Lv'+val+'.png';
+
+            switch(val) {
+                case '1':
+                    gridSize = 2;
+                    numberRange = 3;
+
+                    if(gameMode == 1){
+                        fakeNums = 0;
+                    }
+                    break;
+                case '2':
+                    gridSize = 3;
+                    numberRange = 4;
+
+                    if(gameMode == 1){
+                        fakeNums = 0;
+                    }
+                    break;
+                case '3':
+                    gridSize = 3;
+                    numberRange = 6;
+
+                    if(gameMode == 1){
+                        fakeNums = 0;
+                    }
+                    break;
+                case '4':
+                    gridSize = 4;
+                    numberRange = 8;
+
+                    if(gameMode == 1){
+                        fakeNums = 2;
+                    }
+                    break;
+                case '5':
+                    gridSize = 4;
+                    numberRange = 9;
+
+                    if(gameMode == 1){
+                        fakeNums = 3;
+                    }
+                    break;
+                case '6':
+                    gridSize = 4;
+                    numberRange = 12;
+
+                    if(gameMode == 1){
+                        fakeNums = 4;
+                    }
+                    break;
+                case '7':
+                    gridSize = 5;
+                    numberRange = 15;
+
+                    if(gameMode == 1){
+                        fakeNums = 5;
+                    }
+                    break;
+                default:
+                    gridSize = 3;
+                    numberRange = 4;
+                    fakeNums = 0;
+            }
+
+            setCookie("gridSize", gridSize, 365);
+            setCookie("numberRange", numberRange, 365);
+            setCookie("gameMode", gameMode, 365);
+            setCookie("fakeNums", fakeNums, 365);
+
         }
+
+        function onRadio(val) {
+            gameMode = val;
+            setCookie("gameMode", gameMode, 365);
+        }
+
+
      </script>
 
 		<?php include('menu_button.php'); ?>
 
         <div id="text"><label for="level">Difficulty:</label> </div>
+
+            <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
+            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="0" checked="checked" onclick="onRadio(this.value)"/>
+			<label for="radio-choice-a1">Classic</label>
+			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="1"  onclick="onRadio(this.value)"/>
+			<label for="radio-choice-b1">Challenge</label>
+            </fieldset>
                
 	    <div class="lvimg">
-        		<img id="lvImg" src="resources/level/Lv1(fake).png" alt="Level Image" height="280" width="280">
+        		<img id="lvImg" src="resources/level/Lv1.png" alt="Level Image" >
 		</div>
         <div class="levelselection">
-            	<input type="range" name="level" value="1" min="1" max="10" onchange="updateImg(this.value);">
+            	<input type="range" name="level" value="1" min="1" max="7" onchange="updateImg(this.value);">
     	</div>
 
         <!--<button type="button" onclick="goPlay()">Play</button>-->
-		<div class='play'>
-		    <input type='button' class='playBtn' value='Play' onclick="$('#play').click()">
+		<div class='bottom'>
+		    <input type='button' class='gameBtn' value='Play' onclick="$('#game').click()">
 		    <!-- just a placeholder (invisible) for jquery mobile transitions -->
-		    <a id='play' href='game.php' data-transition='flow'></a>
+		    <a id='game' href='game.php' data-transition='flow'></a>
 		</div>
 
 

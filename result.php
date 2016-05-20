@@ -19,42 +19,18 @@
 
 	$result=mysql_query($sql);
 	$rows=mysql_fetch_array($result);
+
+	include('header.php');
 ?>
 
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- This needs to be in this PHP file to set these variables -->
+<script>
+var rank = <?php echo $rows['rank']; ?>;
+var score = <?php echo $score; ?>;
+</script>
+
 	<link rel="stylesheet" type="text/css" href="css/result.css">
-    <script src='js/cookie_load_write.js'></script>
-
-	<title>result page</title>
-    <script>
-    	// direct to other pages accordingly
-        function goHome()  {
-       		window.location = 'index.php'
-        }
-        function goPost()  {
-			var username = prompt('Plese enter your username:',"");
-			var gamemode = getCookie('gamemode');
-
-			setCookie('rank', <?php echo $rows['rank']; ?>, 365);
-			setCookie('score', <?php echo $score; ?>, 365);
-			setCookie('username', username, 365);
-
-			window.location = 'post_score.php?username=' + username + "&gamemode=" + gamemode + "&random=" + window.btoa(<?php echo $score ?>);
-        }
-        
-        function goSelect()  {
-       		window.location = 'difficulty.php'
-        }
-        function goPlay()  {
-       		window.location = 'game.php'
-        }
-     </script>
-</head>
-
-<body>
-	<div class='wrapper'>
+    <script src='js/result.js'></script>
 
 		<div class='scoreArea'>
 			<div class='score'> <?php echo $score; ?> </div>
@@ -74,20 +50,19 @@
 		<div class='menu'>
 			<!-- the first row of bottons -->
 			<div class='firstRow'>
-				<input type="image" src="resources/images/result_buttons_home.png" onclick="goHome()" class="homeBtn">
+				<input type="image" src="resources/images/result_buttons_home.png" onclick="$('#home').click()" class="homeBtn">
+				<a id='home' href='./index.php' data-transition='flow' data-direction='reverse'></a>
                 <input type="image" src="resources/images/result_buttons_leaderboards.png" value="Post Score" onclick="goPost()" class="postBtn">
+				<a id='leaderboards' href='./leaderboards.php' data-transition='flow' data-direction='reverse'></a>
 			</div>
 
 			<div class='secondRow'>
                 <input type="image" src="resources/images/result_buttons_level.png" onclick="goSelect()" class="selectBtn">
+				<a id='difficulty' href='./difficulty.php' data-transition='flow' data-direction='reverse'></a>
                 <input type="image" src="resources/images/result_buttons_retry.png" onclick="goPlay()" class="playBtn">
+				<a id='game' href='./game.php' data-transition='flow' data-direction='reverse'></a>
 			</div>
 
 		</div>
 
-	</div>
-</body>
-
-
-
-</html>
+<?php include('footer.php');

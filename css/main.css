@@ -15,7 +15,7 @@ body {
     width: 100%;
     height: 35px;
     background-color: #EC7822;
-    color: white !important;
+    color: white;
     text-align: center;
     font-size: 160%;
     font-weight: bold;
@@ -24,15 +24,18 @@ body {
 
 /** set fixed size of the page **/
 .maincontainer {
-  position: relative;
+  position: absolute;
   margin-top : 50px;
   margin: 0 auto;
   right: auto;
   bottom: auto;
+  /*
   min-width: 320px;
   max-width: 640px;
   min-height: 480px;
+  */
   height: 100%;
+  width: 100%;
   background-color: #232323;
   color: #FFF;
   text-align: center;
@@ -136,4 +139,18 @@ body {
 .logo_container {
 	background-color: #E39345;
 	width: 100%;
+}
+
+.bottom {
+	height: 55px;
+    width: 100%;
+    border:none;
+    border-radius: 20px 20px 20px 20px;
+    position: absolute;
+	bottom: 0;
+}
+
+.bottom > div {
+	margin: 15px;
+	margin-top: 0px;
 }

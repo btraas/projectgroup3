@@ -1,6 +1,23 @@
 // This file contains objects and functions for sounds
 // Brayden Traas May 2016
 
+/* Usage:
+
+SFX.play(file);			// Play a sound effect file
+SFX.volume(percent);	// Set SFX volume
+SFX.audio				// SFX HTML5 audio object
+
+
+BGM.play(file);			// Play a music file. After completion, a new track will be played
+BGM.volume(percent);	// Set BGM volume
+BGM.play();				// Replay this track
+BGM.next();				// Skip to next track
+BGM.prev();				// Skip to previous track
+BGM.audio				// BGM HTML5 audio object
+
+*/
+
+
 // Default volumes if no cookie is set
 var volumes = {
 	bgm : 100,
@@ -36,6 +53,7 @@ function BackgroundMusic(file)
 	var self = this;
 
 	this.index = -1;
+	this.file = file;
 
 	this.audio = new Audio(self.file);
 	this.audio.volume = volumes.bgm / 100;
@@ -127,6 +145,7 @@ function BackgroundMusic(file)
 
 
 } // }}} 
+
 // SoundEffect object {{{
 function SoundEffect(file) 
 {

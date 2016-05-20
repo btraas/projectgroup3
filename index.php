@@ -18,10 +18,10 @@
 	<a id='about' href='aboutus.php' data-transition='flow'></a>
 </div>
 
-<div class='play'>
-	<input type='button' class='playBtn' value='Play' onclick="$('#play').click()">
+<div class='bottom'>
+	<input type='button' class='playBtn' value='Play' onclick="$('#difficulty').click()">
 	<!-- just a placeholder (invisible) for jquery mobile transitions -->
-	<a id='play' href='difficulty.php' data-transition='flow'></a>
+	<a id='difficulty' href='difficulty.php' data-transition='flow'></a>
 </div>
 
 <?php include('footer.php'); ?>
