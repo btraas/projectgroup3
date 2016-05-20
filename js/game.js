@@ -83,7 +83,7 @@ function generateAnswer(){ // {{{ Generate the answer
 	}
 		//Save answer in cookie
 		setCookie('answer', answer.join('|'), 365);
-		console.log(decodeURI(getCookie('answer')).split('|').join(' '));
+		console.log(decodeURI(getCookie('answer')).split('|').join(''));
 } // }}}end of generateAnswer()
 
 	function skip() // {{{ Skip button
