@@ -58,6 +58,7 @@
 		displayMessage.removeEventListener("click", handleTouch, false);
 		// launch the app by creating it
 		var thisApp = new myNameSpace.MyApp();
+		var thisApp2 = new myNameSpace.MyApp("Game-Shot.ogg");
 	}
 
 	// create a namespace for the application
@@ -66,8 +67,8 @@
 	// this is a function closure
 	(function () {
 		// the application
-		function MyApp() {
-			this.init();
+		function MyApp(file) {
+			this.init(file);
 		}
 
 		MyApp.prototype = {
@@ -76,7 +77,7 @@
 			displayStatus: null,  // the HTML element we use to display messages to the user
 			loadProxy: null,
 
-			init: function () {
+			init: function (file) {
 				// store the DOM element so we do repeatedly pay the cost to look it up
 				this.displayStatus = document.getElementById("status");
 
@@ -91,6 +92,7 @@
 				// Create a single item to load.
 				var assetsPath = "../resources/sounds/";
 				this.src = assetsPath + "M-GameBG.ogg";
+				if(file !== undefined) this.src = assetsPath + file;
 
 				this.displayStatus.innerHTML = "Waiting for load to complete.";  // let the user know what's happening
 				// NOTE createjs.proxy is used to apply scope so we stay within the touch scope, allowing sound to play on mobile devices
