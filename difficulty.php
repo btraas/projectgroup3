@@ -10,6 +10,7 @@
         // load from cookie and set as the default value
         $(document).bind('pageinit', function(){
                 $("#level").val(getCookie('level')).slider('refresh');
+                document.getElementById('lvImg').src = 'resources/level/Lv'+getCookie('level')+'.png';
         });
 
         // function that takes users to menu page
