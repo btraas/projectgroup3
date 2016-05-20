@@ -1,5 +1,3 @@
-
-
 var gamemode = 0; // 0 for classic game, 1 for challenge mode
 var score = 0; //user score
 var buttonRadius = 0; //button radius
@@ -13,6 +11,11 @@ var progress = [2, 0, 0, 0, 0,
 				0, 0, 0, 0, 0]; //user progress 0: off, 1: on, 2:current
 var progressIndex = 0;// user progress index
 var lock = null;
+
+// get values from cookie based on difficulty level
+gridSize = getCookie("gridSize");
+numberRange = getCookie("numberRange");
+gameMode = getCookie("gameMode");
 
 
 // Math to determine elements sizes
@@ -217,12 +220,6 @@ function skip() // {{{ Skip button
 
 //When the game is first loaded
 $(document).on('pagebeforeshow', function(){
-
-	// get values from cookie based on difficulty level
-	gridSize = getCookie("gridSize");
-	numberRange = getCookie("numberRange");
-	gameMode = getCookie("gameMode");
-
 	generateAnswer();	// generate a new answer
 	if(!empty($('#stopWatch').html())) show();				// show stopwatch
 	showUserProgress(); // Show progress the first time
