@@ -15,8 +15,8 @@ function showCheck(){
 
 	check = $('#check');
 
-	check.animate({opacity: '1.0'}, 1000);
-	check.animate({opacity: '0.0'}, 800);
+	check.animate({opacity: '1.0'}, 800);
+	check.animate({opacity: '0.0'}, 500);
 
 
 	
