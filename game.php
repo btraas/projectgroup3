@@ -33,7 +33,7 @@
 		<input type='button' class='btn skipBtn' value='Skip' onclick='skip()'>
 
 		<div id='topLayer'>
-			<img id="cross" class='feedback' src="resources/images/cross_mark.png" alt="cross">
-			<img id="check" class='feedback' src="resources/images/check_mark.png" alt="cross" >
+			<!-- <img id="cross" class='feedback' src="resources/images/cross_mark.png" alt="cross"> -->
+			<img id="check" class='feedback' src="resources/images/check_mark.png" alt="check" >
 		</div>
 <?php include('footer.php'); ?>
