@@ -126,8 +126,11 @@ $(document).on('pageshow', "[data-url='/game.php']", function(){
 
 	// set sizes
 
+	var matrixMultiplier = 1.3;
+
 	// set matrix width / height by window width
-	matrixSize = $('.maincontainer').width() * 1.3;
+	matrixSize = $(window).width() * matrixMultiplier;
+	if($(window).width() > 1000) matrixSize = 1000 * matrixMultiplier;
 
 	// Math to determine elements sizes
 	buttonRadius = matrixSize / rowSize;
