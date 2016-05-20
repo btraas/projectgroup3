@@ -290,11 +290,23 @@ var showSeconds = 15;
         // for challenge mode
         var fakeArray = [];
         var valid = false;
+        var next;
+
+        var answer = decodeURI(getCookie('answer')).split('|');
+
+        if(empty(answer)){
+            alert("Error: No cookie available, please try again(3).");
+            location.href = 'index.php';
+            throw new Error('No cookie');
+        } 
+
+        console.log("xxx2:" + answer[0] + answer[1] + answer[2] + answer[3]);
+
         // generates fake numbers
         while(fakeArray.length < fakeNums){
 
             valid = true;
-            next= generateOdd(99);
+            next= getRandomOdd(99);
             for(var i = 0; i < fakeArray.length; i++) {
                 if(fakeArray[i] == next) {
                     valid = false;
@@ -306,7 +318,7 @@ var showSeconds = 15;
             }
         }
         // generates fake index for displaying fake numbers
-        for(var i = 0; i < fakeNums; i++){
+        for(var i = 0; i < fakeArray.length; i++){
             var vaild = false;
             var nextPos;
             var fakeIdx;
@@ -331,8 +343,11 @@ var showSeconds = 15;
 
             } while(!vaild);
             
+            console.log("fakeNumber:" + fakeArray[i]);
+
             fakeIdx = "index" + nextPos;
-            document.getElementById(fakeIdx).innerHTML = "" + fakeArray[i];
+            var html = "<div class='number'>"+fakeArray[i]+"</div>";
+            document.getElementById(fakeIdx).innerHTML = html;
         }
     }
 
@@ -402,7 +417,7 @@ var showSeconds = 15;
             throw new Error('No cookie');
         }
 
-        for(var i = 0; i < answer.length; i++){
+        for(var i = 0; i < gridSize * gridSize; i++){
             var index = "index" + (answer[i]-1);
             document.getElementById(index).innerHTML = "<div class='patt-dots'></div>";
         }

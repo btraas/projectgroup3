@@ -55,7 +55,7 @@
                 case '4':
                     gridSize = 4;
                     numberRange = 8;
-
+                    
                     if(gameMode == 1){
                         fakeNums = 2;
                     }
