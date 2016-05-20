@@ -41,7 +41,7 @@ body, .ui-page {
   color: #FFF;
   text-align: center;
   /* border-radius: 10px; */
-  overflow: none;
+  overflow: hidden;
 }
 
 /** set fixed size for the pattern **/
