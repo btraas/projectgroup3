@@ -42,7 +42,7 @@
 .homeBtn {
   width: 95px;
   height: 100px;
-  margin: 10px auto;
+  margin: 10px 20px auto;
   cursor:pointer;
 }
 
@@ -57,7 +57,7 @@
 	cursor:pointer;
 	width: 95px;
  	height: 100px;
- 	margin: 10px auto;
+ 	margin: 10px 20px auto;
 }
 
 .playBtn {
