@@ -31,7 +31,7 @@
 	var score = <?php echo $score; ?>;
 
 	for(var i = 0; i <= <?php echo $score; ?>; i++){
-		$('.score').text(i);
+		$('.score span').text(i);
 	}
 </script>
 
