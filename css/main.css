@@ -24,15 +24,18 @@ body {
 
 /** set fixed size of the page **/
 .maincontainer {
-  position: relative;
+  position: absolute;
   margin-top : 50px;
   margin: 0 auto;
   right: auto;
   bottom: auto;
+  /*
   min-width: 320px;
   max-width: 640px;
   min-height: 480px;
+  */
   height: 100%;
+  width: 100%;
   background-color: #232323;
   color: #FFF;
   text-align: center;
