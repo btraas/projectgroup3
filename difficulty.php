@@ -3,6 +3,7 @@
     
     <script>
         var gridSize = 3;
+        var gameMode = 0;
         var numberRange = 4;
 
         // function that takes users to menu page
@@ -13,7 +14,7 @@
         // function that takes users to game page
         function goPlay() {
             //alert("game.php?gridSize=" + gridSize + "&numberRange=" + numberRange);
-            window.location = "game.php?gridSize=" + gridSize + "&numberRange=" + numberRange;
+            window.location = "game.php";
         }
 
         // function that changes images when swiping slider
@@ -53,6 +54,10 @@
                     gridSize = 3;
                     numberRange = 4;
             }
+
+            setCookie("gridSize", gridSize, 365);
+            setCookie("numberRange", numberRange, 365);
+            setCookie("gameMode", gameMode, 365);
 
         }
      </script>
