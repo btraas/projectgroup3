@@ -161,31 +161,6 @@ function generateAnswer(){ // {{{ Generate the answer
 			}// end of for
 		}// end of showUserProgress() }}}
 
-		// Calculating the scroe based on user progress and time {{{
-		function calcScore(time) {
-			var h = m = s = ms = 0;
-			var newTime = '';
-
-			h = Math.floor( time / (60 * 60 * 1000) );
-			time = time % (60 * 60 * 1000);
-			m = Math.floor( time / (60 * 1000) );
-			time = time % (60 * 1000);
-			s = Math.floor( time / 1000 );
-			ms = time % 1000;
-
-			var val = 0;
-			var timeleft = 120 - m*60 - s;
-
-			if(timeleft >= 0) {
-				val += 10 + timeleft;
-			} else {
-				val += 10;
-			}
-
-			return val;
-		}//end of caclScore() }}}
-
-
 // generates random numbers within the range(1-range)
 // 
 function getRandomNum(range) {
