@@ -50,38 +50,6 @@ function createGrid() // {{{
                 console.log("onDraw");
                 //when user input is correct
                 if(pattern == answer) {
-                    showCheck();
-                    progress[progressIndex++] = 1;
-
-                    //send to result
-                    if(progressIndex >= progress.length - 1){
-                        onResult();
-                    }
-
-                    // Generate new grid
-                    generateAnswer();
-
-                    //Assign new Grid
-                    console.log("new grid");
-                    lock = null;
-                    lock = new PatternLock('#pattern', grid);
-
-                    //Assign Current status on user progress
-                    progress[progressIndex] = 2;
-
-                    //Show user progress
-                    showUserProgress();
-
-                    // for( var i = 0; i < progress.length; i++){
-                    //  console.log("progress[" + i + "]: " + progress[i]);
-                    // }
-
-                    //Calc score
-                    score += calcScore(x.time());
-                } else {
-                    lock.error();
-                }
-
                 //Removing pattern from visual
                 	showCheck();
             		SFX.sound('resources/sounds/sfx_ui_16.ogg');
