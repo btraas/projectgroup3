@@ -1,4 +1,4 @@
-var gamemode = 0; // 0 for classic game, 1 for challenge mode
+var gameMode = 0; // 0 for classic game, 1 for challenge mode
 var score = 0; //user score
 var buttonRadius = 0; //button radius
 var buttonMargin = 0; //button margin
@@ -17,6 +17,9 @@ gridSize = getCookie("gridSize");
 numberRange = getCookie("numberRange");
 gameMode = 1;
 //gameMode = getCookie("gameMode");
+
+// set matrix width / height by window width
+matrixSize = $(window).width() - 50px;
 
 
 // Math to determine elements sizes
