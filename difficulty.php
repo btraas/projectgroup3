@@ -22,33 +22,33 @@
             document.getElementById('lvImg').src = 'resources/level/Lv'+val+'(fake).png';
 
             switch(val) {
-                case 1:
+                case '1':
                     gridSize = 2;
                     numberRange = 3;
                     break;
-                case 2:
+                case '2':
                     gridSize = 3;
                     numberRange = 4;
                     break;
-                case 3:
-                    gridSize = 3;
-                    numberRange = 5;
-                    break;
-                case 4:
+                case '3':
                     gridSize = 3;
                     numberRange = 6;
                     break;
-                case 5:
-                    gridSize = 4;
-                    numberRange = 6;
-                    break;
-                case 6:
-                    gridSize = 4;
-                    numberRange = 7;
-                    break;
-                case 7:
+                case '4':
                     gridSize = 4;
                     numberRange = 8;
+                    break;
+                case '5':
+                    gridSize = 4;
+                    numberRange = 9;
+                    break;
+                case '6':
+                    gridSize = 4;
+                    numberRange = 12;
+                    break;
+                case '7':
+                    gridSize = 5;
+                    numberRange = 15;
                     break;
                 default:
                     gridSize = 3;
@@ -70,7 +70,7 @@
         		<img id="lvImg" src="resources/level/Lv1(fake).png" alt="Level Image" height="280" width="280">
 		</div>
         <div class="levelselection">
-            	<input type="range" name="level" value="1" min="1" max="10" onchange="updateImg(this.value);">
+            	<input type="range" name="level" value="1" min="1" max="7" onchange="updateImg(this.value);">
     	</div>
 
         <!--<button type="button" onclick="goPlay()">Play</button>-->
