@@ -222,6 +222,8 @@ function showUserProgress(){
 
 	if(progressIndex < 10){
 		$('#progressNumber').text( (progressIndex + 1) + "/10");
+	} else {
+		$('#progressNumber').text( (10) + "/10");
 	}
 }// end of showUserProgress() }}}
 
