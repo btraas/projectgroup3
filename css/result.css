@@ -30,10 +30,9 @@
 }
 
 .menu {
-
 	width: 90%;
     height: 260px;
-    margin: 80px auto;
+    margin: auto;
     background-color: #404040;
     border-radius: 20px 20px 20px 20px;
 }
