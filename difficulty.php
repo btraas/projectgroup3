@@ -5,6 +5,7 @@
         var gridSize = 3;
         var gameMode = 0;
         var numberRange = 4;
+        var fakeNums = 0;
 
         // function that takes users to menu page
         function goHome() {
@@ -25,41 +26,78 @@
                 case '1':
                     gridSize = 2;
                     numberRange = 3;
+
+                    if(gameMode == 1){
+                        fakeNums = 0;
+                    }
                     break;
                 case '2':
                     gridSize = 3;
                     numberRange = 4;
+
+                    if(gameMode == 1){
+                        fakeNums = 0;
+                    }
                     break;
                 case '3':
                     gridSize = 3;
                     numberRange = 6;
+
+                    if(gameMode == 1){
+                        fakeNums = 0;
+                    }
                     break;
                 case '4':
                     gridSize = 4;
                     numberRange = 8;
+
+                    if(gameMode == 1){
+                        fakeNums = 2;
+                    }
                     break;
                 case '5':
                     gridSize = 4;
                     numberRange = 9;
+
+                    if(gameMode == 1){
+                        fakeNums = 3;
+                    }
                     break;
                 case '6':
                     gridSize = 4;
                     numberRange = 12;
+
+                    if(gameMode == 1){
+                        fakeNums = 4;
+                    }
                     break;
                 case '7':
                     gridSize = 5;
                     numberRange = 15;
+
+                    if(gameMode == 1){
+                        fakeNums = 5;
+                    }
                     break;
                 default:
                     gridSize = 3;
                     numberRange = 4;
+                    fakeNums = 0;
             }
 
             setCookie("gridSize", gridSize, 365);
             setCookie("numberRange", numberRange, 365);
             setCookie("gameMode", gameMode, 365);
+            setCookie("fakeNums", fakeNums, 365);
 
         }
+
+        function onRadio(val) {
+            gameMode = val;
+            setCookie("gameMode", gameMode, 365);
+        }
+
+
      </script>
 
 		<?php include('menu_button.php'); ?>
@@ -67,9 +105,9 @@
         <div id="text"><label for="level">Difficulty:</label> </div>
 
             <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
-            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="0" checked="checked" onclick=""/>
+            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="0" checked="checked" onclick="onRadio(this.value)"/>
 			<label for="radio-choice-a1">Classic</label>
-			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="1"  onclick=""/>
+			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="1"  onclick="onRadio(this.value)"/>
 			<label for="radio-choice-b1">Challenge</label>
             </fieldset>
                
