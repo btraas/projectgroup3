@@ -19,7 +19,7 @@
 
         // function that changes images when swiping slider
         function updateImg(val) {
-            document.getElementById('lvImg').src = 'resources/level/Lv'+val+'(fake).png';
+            document.getElementById('lvImg').src = 'resources/level/Lv'+val+'.png';
 
             switch(val) {
                 case '1':
@@ -65,9 +65,16 @@
 		<?php include('menu_button.php'); ?>
 
         <div id="text"><label for="level">Difficulty:</label> </div>
+
+            <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
+            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="0" checked="checked" onclick=""/>
+			<label for="radio-choice-a1">Classic</label>
+			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="1"  onclick=""/>
+			<label for="radio-choice-b1">Challenge</label>
+            </fieldset>
                
 	    <div class="lvimg">
-        		<img id="lvImg" src="resources/level/Lv1(fake).png" alt="Level Image" height="280" width="280">
+        		<img id="lvImg" src="resources/level/Lv1.png" alt="Level Image" height="280" width="280">
 		</div>
         <div class="levelselection">
             	<input type="range" name="level" value="1" min="1" max="7" onchange="updateImg(this.value);">
