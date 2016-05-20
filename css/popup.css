@@ -1,11 +1,13 @@
-#failPopup{
+/*#failPopup{
 	width:100px;
 	height:200px;
 	background-color: #fff;
-}
+}*/
 
 #suceedPopup{
-	width:100px;
-	height:200px;
+    position: fixed;
+    z-index: 999;
+	width: 100px;
+	height: 200px;
 	background-color: #ff00ff;
 }

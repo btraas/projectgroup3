@@ -1,89 +1,89 @@
 body{
-        background-color:#232323;
-    }
+    background-color:#232323;
+}
 
-    .feedback {
-        width: 100px;
-        height: 100px;
+.feedback {
+    width: 100px;
+    height: 100px;
 
-        /* IE 8 */
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 
-        /* IE 5-7 */
-        filter: alpha(opacity=0);
+    /* IE 5-7 */
+    filter: alpha(opacity=0);
 
-        opacity: 0;
+    opacity: 0;
 
-    }
+}
 
-    .maincontainer {
-      margin: 0 auto;
-      right: auto;
-      bottom: auto;
-      width: 320px;
-      height: 100%;
-      background-color: #232323;
-      color: #FFF;
-      text-align: center;
-      /* border-radius: 10px; */
-      overflow: none;
-    }
+.maincontainer {
+  margin: 0 auto;
+  right: auto;
+  bottom: auto;
+  width: 320px;
+  height: 100%;
+  background-color: #232323;
+  color: #FFF;
+  text-align: center;
+  /* border-radius: 10px; */
+  overflow: none;
+}
 
-    #progressBar {
-        height: 30px;
-        background-color: #404040;
-        margin-bottom: 1%;
-    }
+#progressBar {
+    height: 30px;
+    background-color: #404040;
+    margin-bottom: 1%;
+}
 
-    .progressButtonCurrent {
-        float:left;
-        width: 24px;
-        height: 24px;
-        margin: 2px 1px 1px 1px;
-        border-radius:24px;
-        background-color:#00FF90;
-    }
+.progressButtonCurrent {
+    float:left;
+    width: 24px;
+    height: 24px;
+    margin: 2px 1px 1px 1px;
+    border-radius:24px;
+    background-color:#00FF90;
+}
 
-    .progressButtonOff {
-        float:left;
-        width: 24px;
-        height: 24px;
-        margin: 2px 1px 1px 1px;
-        border-radius:24px;
-        background-color:#fff;
-    }
+.progressButtonOff {
+    float:left;
+    width: 24px;
+    height: 24px;
+    margin: 2px 1px 1px 1px;
+    border-radius:24px;
+    background-color:#fff;
+}
 
-    .progressButtonOn {
-        float:left;
-        width: 24px;
-        height: 24px;
-        margin: 2px 1px 1px 1px;
-        border-radius:24px;
-        background-color:#EC7822;
-    }
+.progressButtonOn {
+    float:left;
+    width: 24px;
+    height: 24px;
+    margin: 2px 1px 1px 1px;
+    border-radius:24px;
+    background-color:#EC7822;
+}
 
-    #progressNumber {
-        float:left;
-        color: #fff;
-        font-size: 1.4em;
-        margin-left: 5px;
-    }
+#progressNumber {
+    float:left;
+    color: #fff;
+    font-size: 1.4em;
+    margin-left: 5px;
+}
 
-    #stopWatch{
-        text-align: right;
-        font-size: 170%;
-        padding-right: 1%;
-        margin:0;
-    }
+#stopWatch{
+    text-align: right;
+    font-size: 170%;
+    padding-right: 1%;
+    margin:0;
+}
 
-    #pattern{
-        background-color: #404040;
-        margin-bottom:5%;
-    }
+#pattern{
+    background-color: #404040;
+    margin-bottom:5%;
+}
 
-    #topLayer {
-        position: absolute;
-        z-index: 999;
-        pointer-events: none;
-    }
+#topLayer {
+    position: fixed;
+    z-index: 999;
+    pointer-events: none;
+}
 

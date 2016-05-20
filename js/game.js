@@ -99,9 +99,10 @@ function generateAnswer(){ // {{{ Generate the answer
 		}
 		
 	}
-		//Save answer in cookie
-		setCookie('answer', answer.join('|'), 365);
-		console.log(decodeURI(getCookie('answer')).split('|').join(''));
+
+	//Save answer in cookie
+	setCookie('answer', answer.join('|'), 365);
+	console.log(decodeURI(getCookie('answer')).split('|').join('_'));
 } // }}}end of generateAnswer()
 
 //When the game is first loaded
@@ -111,8 +112,11 @@ $(document).on('pagebeforeshow', "[data-url='/game.php']", function(){
 	setCookie('posted', 'f', 1);
 
 	generateAnswer();	// generate a new answer
+
 	if(!empty($('#stopWatch').html())) show();				// show stopwatch
+
 	showUserProgress(); // Show progress the first time
+
 	lock = new PatternLock('#pattern',  grid);	// Generate a grid on page load with parameters defined in "grid" above
 });//end of pageinit(function())
 
