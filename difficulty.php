@@ -74,17 +74,17 @@
             </fieldset>
                
 	    <div class="lvimg">
-        		<img id="lvImg" src="resources/level/Lv1.png" alt="Level Image" height="280" width="280">
+        		<img id="lvImg" src="resources/level/Lv1.png" alt="Level Image" >
 		</div>
         <div class="levelselection">
             	<input type="range" name="level" value="1" min="1" max="7" onchange="updateImg(this.value);">
     	</div>
 
         <!--<button type="button" onclick="goPlay()">Play</button>-->
-		<div class='play'>
-		    <input type='button' class='playBtn' value='Play' onclick="$('#play').click()">
+		<div class='bottom'>
+		    <input type='button' class='gameBtn' value='Play' onclick="$('#game').click()">
 		    <!-- just a placeholder (invisible) for jquery mobile transitions -->
-		    <a id='play' href='game.php' data-transition='flow'></a>
+		    <a id='game' href='game.php' data-transition='flow'></a>
 		</div>
 
 

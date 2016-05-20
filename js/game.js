@@ -1,4 +1,4 @@
-var gamemode = 0; // 0 for classic game, 1 for challenge mode
+var gameMode = 0; // 0 for classic game, 1 for challenge mode
 var score = 0; //user score
 var buttonRadius = 0; //button radius
 var buttonMargin = 0; //button margin
@@ -7,15 +7,19 @@ var gridSize = 5; //size of grid 5x5, 4x4
 var rowSize = gridSize; //row size
 var numberRange = 4; //number of answers
 var maxNumber = Math.pow(rowSize, 2);//max number
-var progress = [2, 0, 0, 0, 0,
-				0, 0, 0, 0, 0]; //user progress 0: off, 1: on, 2:current
+var progress = [2, 2, 2, 2, 2,
+				2, 2, 2, 2, 2]; //user progress 0: off, 1: on, 2:empty
 var progressIndex = 0;// user progress index
 var lock = null;
 
 // get values from cookie based on difficulty level
 gridSize = getCookie("gridSize");
 numberRange = getCookie("numberRange");
-gameMode = getCookie("gameMode");
+gameMode = 1;
+//gameMode = getCookie("gameMode");
+
+// set matrix width / height by window width
+matrixSize = $(window).width() * 1.2;
 
 
 // Math to determine elements sizes
@@ -79,29 +83,46 @@ var grid = { // {{{
 function generateAnswer(){ // {{{ Generate the answer
 	var answer = []; //answer array
 	var next = - 1;
+	var valid = false;
 
 	//Assign answer
 
 	// getNextNumber returns 0 if there's no possibilities.
 	// End loop if we've filled up the array or there's no more possibilities
 	while(answer.length < numberRange && next != 0){
-		next= getRandomNum(gridSize * gridSize );
-		if(next != 0) answer[answer.length] = next;
+
+		next= getRandomNum(gridSize * gridSize);
+
+		valid = true;
+		for(var i = 0; i < answer.length; i++) {
+			if(answer[i] == next) {
+				valid = false;
+			}
+		}
+
+		if(valid) {
+			answer[answer.length] = next;
+		}
+		
 	}
-		//Save answer in cookie
-		setCookie('answer', answer.join('|'), 365);
-		console.log(decodeURI(getCookie('answer')).split('|').join(''));
+
+	//Save answer in cookie
+	setCookie('answer', answer.join('|'), 365);
+	console.log(decodeURI(getCookie('answer')).split('|').join('_'));
 } // }}}end of generateAnswer()
 
 //When the game is first loaded
-$(document).on('pagebeforeshow', "[data-url='/game.php']", function(){
+$(document).on('pageshow', "[data-url='/game.php']", function(){
 
 	// This is a new game. Score has not been posted yet.
 	setCookie('posted', 'f', 1);
 
 	generateAnswer();	// generate a new answer
+
 	if(!empty($('#stopWatch').html())) show();				// show stopwatch
+
 	showUserProgress(); // Show progress the first time
+
 	lock = new PatternLock('#pattern',  grid);	// Generate a grid on page load with parameters defined in "grid" above
 });//end of pageinit(function())
 
@@ -192,7 +213,7 @@ function showUserProgress(){
 		} else if(progress[i] == 1) {
 			document.getElementById("progress" + i).className = "progressButtonOn";
 		} else if(progress[i] == 2) {
-			document.getElementById("progress" + i).className = "progressButtonCurrent";
+			document.getElementById("progress" + i).className = "progressButtonEmpty";
 		}
 	}// end of for
 

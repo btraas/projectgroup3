@@ -13,7 +13,7 @@
 }
 
 /* set fixed size for play button*/
-.play{
+.game{
     margin: auto;
     width: 320px;
 }
@@ -21,4 +21,7 @@
 /* set level selection image cetre align */
 .lvimg{
     text-align: center;
+}
+.lvimg > img {
+	height: 200px;
 }

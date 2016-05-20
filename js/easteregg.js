@@ -1,4 +1,4 @@
-$(document).on('pagebeforeshow', "[data-url='/easteregg.php']", function()
+$(document).on('pageshow', "[data-url='/easteregg.php']", function()
 {
     //easter egg scroll text
     // add HTML text, and remove jquery mobile styling
