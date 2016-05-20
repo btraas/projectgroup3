@@ -14,7 +14,7 @@ function showCheck(){
 	console.log("check");
 
 	check = $('#check');
-	check.animate({'left:-100%'}, "fast");
+	check.animate({'left:-100%'}, 1000);
 	check.animate({opacity: '1.0'}, "slow", function(){
 		check.animate({'left:100%'}, "fast");
 	});
