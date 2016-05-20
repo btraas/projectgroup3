@@ -295,25 +295,23 @@ function showUserProgress(){
 
 // Calculating the scroe based on user progress and time {{{
 function calcScore(time) {
-	var h = m = s = ms = 0;
+	var mins = secs = 0;
 	var newTime = '';
 
-	h = Math.floor( time / (60 * 60 * 1000) );
 	time = time % (60 * 60 * 1000);
-	m = Math.floor( time / (60 * 1000) );
+	mins = Math.floor( time / (60 * 1000) );
 	time = time % (60 * 1000);
-	s = Math.floor( time / 1000 );
-	ms = time % 1000;
+	secs = Math.floor( time / 1000 );
 
-	var val = 0;
-	var timeleft = 120 - m*60 - s;
+	var score = 0;
+	var timeleft = 120 - mins*60 - secs;
 
 	if(timeleft >= 0) {
-		val += 10 + timeleft;
+		score += 10 + timeleft;
 	} else {
-		val += 10;
+		score += 10;
 	}
 
-	return val;
+	return score;
 }//end of caclScore() }}}
 
