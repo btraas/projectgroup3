@@ -37,8 +37,7 @@ body, .ui-page {
   max-width: 1000px;
 
   height: 100%;
-  background-color: #232323;
-  color: #FFF;
+  /*background-color: #232323;*/
   text-align: center;
   /* border-radius: 10px; */
   overflow: none;

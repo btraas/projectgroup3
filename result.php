@@ -32,8 +32,8 @@ var score = <?php echo $score; ?>;
 	<link rel="stylesheet" type="text/css" href="css/result.css">
     <script src='js/result.js'></script>
 
-		<div class='scoreArea'>
-			<div class='score'> <?php echo $score; ?> </div>
+		<div class='scoreArea' id="scoreArea">
+			<div class='score' id=" score"> <?php echo $score; ?> </div>
 		</div>
 		
 		<div class='ranking'>

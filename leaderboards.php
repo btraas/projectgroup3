@@ -33,7 +33,7 @@
 <?php include('menu_button.php'); ?>
 
     <div class="switcher">
-            <p class='Leaderboards'>Leaderboards</p>
+            <div class='Leaderboards' id="leaderboards_text">Leaderboards</div>
             <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
             <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="0" <?php if(@$_COOKIE['gameMode']!=1) echo "checked" ?> onclick="radioClick(this.value);"/>
 			<label for="radio-choice-a1">Classic</label>
