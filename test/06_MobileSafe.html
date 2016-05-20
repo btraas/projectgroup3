@@ -89,12 +89,14 @@
 					return;
 				}
 
+
 				// Create a single item to load.
 				var assetsPath = "../resources/sounds/";
 				this.src = assetsPath + "M-GameBG.ogg";
 				if(file !== undefined) this.src = assetsPath + file;
 
-				this.displayStatus.innerHTML = "Waiting for load to complete.";  // let the user know what's happening
+				console.log('playing '+this.src);
+
 				// NOTE createjs.proxy is used to apply scope so we stay within the touch scope, allowing sound to play on mobile devices
 				this.loadProxy = createjs.proxy(this.handleLoad, this);
 				createjs.Sound.alternateExtensions = ["mp3"];	// add other extensions to try loading if the src file extension is not supported
