@@ -23,7 +23,6 @@ fakeNums = getCookie("fakeNums");
 level = getCookie("level");
 
 // set matrix width / height by window width
-matrixSize = $(window).width();
 
 // Math to determine elements sizes
 buttonRadius = matrixSize / rowSize;
@@ -128,7 +127,7 @@ $(document).on('pageshow', "[data-url='/game.php']", function(){
 	// set sizes
 
 	// set matrix width / height by window width
-	matrixSize = $('.maincontainer').width();
+	matrixSize = $('.maincontainer').width() * 1.3;
 
 	// Math to determine elements sizes
 	buttonRadius = matrixSize / rowSize;
