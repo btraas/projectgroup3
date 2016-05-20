@@ -81,7 +81,8 @@ function generateAnswer(){ // {{{ Generate the answer
 		next= getRandomNum(gridSize * gridSize );
 		if(next != 0) answer[answer.length] = next;
 	}
-
+		//Save answer in cookie
+		setCookie('answer', answer.join('|'), 365);
 		console.log(decodeURI(getCookie('answer')).split('|').join(''));
 } // }}}end of generateAnswer()
 
