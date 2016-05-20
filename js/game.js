@@ -170,8 +170,6 @@ function skip() // {{{ Skip button
 	//Make current progress Skipped(failed)
 	progress[progressIndex++] = 0;
 
-	showCheck();
-
 	//Genearte newAnswer
 	generateAnswer();
 
@@ -222,7 +220,11 @@ function showUserProgress(){
 		}
 	}// end of for
 
-	$('#progressNumber').text( (progressIndex + 1) + "/10");
+	if(progressIndex < 10){
+		$('#progressNumber').text( (progressIndex + 1) + "/10");
+	} else {
+		$('#progressNumber').text( (10) + "/10");
+	}
 }// end of showUserProgress() }}}
 
 // Calculating the scroe based on user progress and time {{{
