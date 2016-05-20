@@ -16,7 +16,10 @@ function showCheck(){
 	check = $('#check');
 
 	check.animate({opacity: '1.0'}, "slow");
-	check.animate({top: '-50%'},"slow");
+	check.animate({top: '-100%'}, "slow", function(){
+		check.animate({opacity: '0.0'}, "slow");
+	});
+	
 	
 	// check.animate({opacity: '1.0'}, "slow", function(){
 	// 	check.animate({opacity:'0.0'}, "slow");
