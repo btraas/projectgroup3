@@ -21,16 +21,7 @@ body{
     margin-bottom: 1%;
 }
 
-.progressButtonCurrent {
-    float:left;
-    width: 24px;
-    height: 24px;
-    margin: 2px 1px 1px 1px;
-    border-radius:24px;
-    background-color:#00FF90;
-}
-
-.progressButtonOff {
+.progressButtonEmpty {
     float:left;
     width: 24px;
     height: 24px;
@@ -39,13 +30,22 @@ body{
     background-color:#fff;
 }
 
-.progressButtonOn {
+.progressButtonOff {
     float:left;
     width: 24px;
     height: 24px;
     margin: 2px 1px 1px 1px;
     border-radius:24px;
     background-color:#EC7822;
+}
+
+.progressButtonOn {
+    float:left;
+    width: 24px;
+    height: 24px;
+    margin: 2px 1px 1px 1px;
+    border-radius:24px;
+    background-color:#00FF90;
 }
 
 #progressNumber {

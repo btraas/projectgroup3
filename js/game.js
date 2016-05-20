@@ -7,8 +7,8 @@ var gridSize = 5; //size of grid 5x5, 4x4
 var rowSize = gridSize; //row size
 var numberRange = 4; //number of answers
 var maxNumber = Math.pow(rowSize, 2);//max number
-var progress = [2, 0, 0, 0, 0,
-				0, 0, 0, 0, 0]; //user progress 0: off, 1: on, 2:current
+var progress = [2, 2, 2, 2, 2,
+				2, 2, 2, 2, 2]; //user progress 0: off, 1: on, 2:empty
 var progressIndex = 0;// user progress index
 var lock = null;
 
@@ -94,7 +94,7 @@ function generateAnswer(){ // {{{ Generate the answer
 				valid = false;
 			}
 		}
-		
+
 		if(valid) {
 			answer[answer.length] = next;
 		}
@@ -208,7 +208,7 @@ function showUserProgress(){
 		} else if(progress[i] == 1) {
 			document.getElementById("progress" + i).className = "progressButtonOn";
 		} else if(progress[i] == 2) {
-			document.getElementById("progress" + i).className = "progressButtonCurrent";
+			document.getElementById("progress" + i).className = "progressButtonEmpty";
 		}
 	}// end of for
 
