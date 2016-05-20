@@ -2,20 +2,58 @@
 	<link rel="stylesheet" type="text/css" href="css/difficulty.css">
     
     <script>
+        var gridSize = 3;
+        var numberRange = 4;
 
         // function that takes users to menu page
         function goHome() {
-            window.location = 'index.php'
+            window.location = 'index.php';
         }
 
         // function that takes users to game page
         function goPlay() {
-            window.location = 'game.php'
+            //alert("game.php?gridSize=" + gridSize + "&numberRange=" + numberRange);
+            window.location = "game.php?gridSize=" + gridSize + "&numberRange=" + numberRange;
         }
 
         // function that changes images when swiping slider
         function updateImg(val) {
             document.getElementById('lvImg').src = 'resources/level/Lv'+val+'(fake).png';
+
+            switch(val) {
+                case 1:
+                    gridSize = 2;
+                    numberRange = 3;
+                    break;
+                case 2:
+                    gridSize = 3;
+                    numberRange = 4;
+                    break;
+                case 3:
+                    gridSize = 3;
+                    numberRange = 5;
+                    break;
+                case 4:
+                    gridSize = 3;
+                    numberRange = 6;
+                    break;
+                case 5:
+                    gridSize = 4;
+                    numberRange = 6;
+                    break;
+                case 6:
+                    gridSize = 4;
+                    numberRange = 7;
+                    break;
+                case 7:
+                    gridSize = 4;
+                    numberRange = 8;
+                    break;
+                default:
+                    gridSize = 3;
+                    numberRange = 4;
+            }
+
         }
      </script>
 
