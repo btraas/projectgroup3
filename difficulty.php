@@ -74,10 +74,10 @@
     	</div>
 
         <!--<button type="button" onclick="goPlay()">Play</button>-->
-		<div class='play'>
-		    <input type='button' class='playBtn' value='Play' onclick="$('#play').click()">
+		<div class='game'>
+		    <input type='button' class='gameBtn' value='Play' onclick="$('#game').click()">
 		    <!-- just a placeholder (invisible) for jquery mobile transitions -->
-		    <a id='play' href='game.php' data-transition='flow'></a>
+		    <a id='game' href='game.php' data-transition='flow'></a>
 		</div>
 
 
