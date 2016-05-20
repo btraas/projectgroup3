@@ -1,4 +1,7 @@
+var level = 1; // the level of difficulty
 var gameMode = 0; // 0 for classic game, 1 for challenge mode
+var fakeNums = 0; // the number of fake numbers
+
 var score = 0; //user score
 var buttonRadius = 0; //button radius
 var buttonMargin = 0; //button margin
@@ -15,12 +18,12 @@ var lock = null;
 // get values from cookie based on difficulty level
 gridSize = getCookie("gridSize");
 numberRange = getCookie("numberRange");
-gameMode = 1;
-//gameMode = getCookie("gameMode");
+gameMode = getCookie("gameMode");
+fakeNums = getCookie("fakeNums");
+level = getCookie("level");
 
 // set matrix width / height by window width
 matrixSize = $(window).width() * 1.2;
-
 
 // Math to determine elements sizes
 buttonRadius = matrixSize / rowSize;

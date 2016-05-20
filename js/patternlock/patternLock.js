@@ -285,6 +285,57 @@ var showSeconds = 15;
         }
     };
 
+
+    function showFakeNums() {
+        // for challenge mode
+        var fakeArray = [];
+        var valid = false;
+        // generates fake numbers
+        while(fakeArray.length < fakeNums){
+
+            valid = true;
+            next= generateOdd(99);
+            for(var i = 0; i < fakeArray.length; i++) {
+                if(fakeArray[i] == next) {
+                    valid = false;
+                }
+            }
+
+            if(valid) {
+                fakeArray[fakeArray.length] = next;
+            }
+        }
+        // generates fake index for displaying fake numbers
+        for(var i = 0; i < fakeNums; i++){
+            var vaild = false;
+            var nextPos;
+            var fakeIdx;
+
+            do {
+                nextPos = getRandomNum(gridSize * gridSize);
+
+                vaild = true;
+                // fake number can not be same as answer
+                for(var j = 0; j < answer.length; j++) {
+                    if(nextPos == answer[j]) {
+                        vaild = false;
+                    }
+                }
+
+                // fake number can not be same as other fake numbers
+                for(var k = 0; k < fakeArray.length; k++) {
+                    if(nextPos == fakeArray[k]) {
+                        vaild = false;
+                    }
+                }
+
+            } while(!vaild);
+            
+            fakeIdx = "index" + nextPos;
+            document.getElementById(fakeIdx).innerHTML = "" + fakeArray[i];
+        }
+    }
+
     // timer object for showing numbers
     var timer_numbers;
     // show numbers at the beggining of a game
@@ -304,30 +355,41 @@ var showSeconds = 15;
 
         console.log("xxx:" + answer[0] + answer[1] + answer[2] + answer[3]);
 
-        for(var i = 0; i < answer.length; i++){
+        // generates number for showing on matrix
+        for(var i = 0; i < answer.length; i++) {
             var index = "index" + (answer[i]-1);
 
-            if(i == 0) {
-                if(gameMode) {
-                    numbers[i] = getRandomEven(average);
+            if(gameMode == 0) {
+                numbers[i] = i + 1;
+            } else if(gameMode == 1) {
+                if(i == 0) {
+                    if(gameMode) {
+                        numbers[i] = getRandomEven(average);
+                    } else {
+                        numbers[i] = getRandomNum(average); 
+                    }
+                    
                 } else {
-                    numbers[i] = getRandomNum(average); 
-                }
-                
-            } else {
 
-                if(gameMode) {
-                    numbers[i] = numbers[i-1] + getRandomEven(average);
-                } else {
-                    numbers[i] = numbers[i-1] + getRandomNum(average);
+                    if(gameMode) {
+                        numbers[i] = numbers[i-1] + getRandomEven(average);
+                    } else {
+                        numbers[i] = numbers[i-1] + getRandomNum(average);
+                    }
                 }
-                
+            } else {
+                alert("Error: No game mode is selected(1).");
+                location.href = 'index.php';
+                throw new Error('No game mode');
             }
 
 			var html = "<div class='number'>"+numbers[i]+"</div>";
             document.getElementById(index).innerHTML = html;
         }
 
+        if(fakeNums > 0) {
+            showFakeNums();
+        }
     }
 
     // hide numbers
