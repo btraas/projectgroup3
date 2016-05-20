@@ -7,6 +7,7 @@
 
 // show the numbers for this many seconds
 var showSeconds = 15;
+var confirmTime = 500;
 
 ;(function (factory) {
     /** support UMD ***/
@@ -74,6 +75,11 @@ var showSeconds = 15;
     var fromTime;
     // determine how long user stay on a button
     function onHold(index, period) {
+
+        // starts to draw percentage progress
+        resetCircle();
+        myInterval = setInterval(drawCircle, confirmTime / 20);
+
         if(currentIdx != index) {
             currentIdx = index;
             fromTime = new Date();
@@ -152,7 +158,7 @@ var showSeconds = 15;
                 if (patternAry.indexOf(pattId) == -1) {
 
                     // button will be activated after 500 milliseconds
-                    if(onHold(idx, 500) || patternAry.length == 0) {
+                    if(patternAry.length == 0 || onHold(idx, confirmTime)) {
 
                         var elm = $(li[idx - 1]),
                             direction; //direction of pattern
@@ -231,6 +237,8 @@ var showSeconds = 15;
 
             } else { // mouse moves out from a button
                 currentIdx = 0;
+
+                resetCircle()
             }
 
 
