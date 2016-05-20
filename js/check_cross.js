@@ -14,12 +14,12 @@ function showCheck(){
 	console.log("check");
 
 	check = $('#check');
-	check.animate({'left:-100%'}, "slow");
-	check.animate({opacity: '1.0'}, "slow", function(){
-		check.animate({'left:100%'}, "slow");
+
+	check.animate({opacity: '1.0'}, "slow");
+	check.slideUp("slow", function(){
+		check.animate({opacity: '0.0'}, "slow");
 	});
 	
-	check.animate({opacity: '0.0'}, "slow");
 	
 	// check.animate({opacity: '1.0'}, "slow", function(){
 	// 	check.animate({opacity:'0.0'}, "slow");
