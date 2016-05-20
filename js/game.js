@@ -23,65 +23,71 @@ fakeNums = getCookie("fakeNums");
 level = getCookie("level");
 
 // set matrix width / height by window width
-matrixSize = $(window).width() * 1.2;
+matrixSize = $(window).width();
 
 // Math to determine elements sizes
 buttonRadius = matrixSize / rowSize;
 buttonMargin = buttonRadius / 5.4;
 buttonRadius = buttonRadius/6;
 
-// Define Grid Object for pattern lock plug-in, answer, user progress
-var grid = { // {{{
-		matrix : [gridSize, gridSize],
-		margin : buttonMargin,
-		radius: buttonRadius,
+var grid = {};
+
+//set grid on load
+function createGrid() // {{{
+{
+	return { // {{{
+        matrix : [gridSize, gridSize],
+        margin : buttonMargin,
+        radius: buttonRadius,
         patternVisible: true,
         lineOnMove: true,
         delimiter: "", // a delimeter between the pattern
         enableSetPattern: false,
 
         //When user is done drawing(pattern: user input)
-		onDraw:function(pattern) {
-				var answer = decodeURI(getCookie('answer')).split('|').join('');
-				console.log("onDraw");
-				//when user input is correct
+        onDraw:function(pattern) {
+                var answer = decodeURI(getCookie('answer')).split('|').join('');
+                console.log("onDraw");
+                //when user input is correct
                 if(pattern == answer) {
-                	showCheck();
-                	progress[progressIndex++] = 1;
+                    showCheck();
+                    progress[progressIndex++] = 1;
 
-					//send to result
-					if(progressIndex >= progress.length - 1){
-						onResult();
-					}
+                    //send to result
+                    if(progressIndex >= progress.length - 1){
+                        onResult();
+                    }
 
-					// Generate new grid
-					generateAnswer();
+                    // Generate new grid
+                    generateAnswer();
 
-					//Assign new Grid
-					console.log("new grid");
-					lock = null;
-					lock = new PatternLock('#pattern', grid);
-					
-					//Assign Current status on user progress
-					progress[progressIndex] = 2;
+                    //Assign new Grid
+                    console.log("new grid");
+                    lock = null;
+                    lock = new PatternLock('#pattern', grid);
 
-					//Show user progress
-					showUserProgress();
-					
-					// for( var i = 0; i < progress.length; i++){
-					// 	console.log("progress[" + i + "]: " + progress[i]);
-					// }
+                    //Assign Current status on user progress
+                    progress[progressIndex] = 2;
 
-					//Calc score
-					score += calcScore(x.time());
-				} else {
-					lock.error();
-				}
+                    //Show user progress
+                    showUserProgress();
 
-				//Removing pattern from visual
+                    // for( var i = 0; i < progress.length; i++){
+                    //  console.log("progress[" + i + "]: " + progress[i]);
+                    // }
+
+                    //Calc score
+                    score += calcScore(x.time());
+                } else {
+                    lock.error();
+                }
+
+                //Removing pattern from visual
                 window.setTimeout(function() { lock.reset(); }, 1000);
         }//end of onDraw fucntion
-	};//end of grid }}}
+    };//end of grid }}}
+
+} // }}}
 
 function generateAnswer(){ // {{{ Generate the answer
 	var answer = []; //answer array
@@ -116,6 +122,18 @@ function generateAnswer(){ // {{{ Generate the answer
 
 //When the game is first loaded
 $(document).on('pageshow', "[data-url='/game.php']", function(){
+
+	// set sizes
+
+	// set matrix width / height by window width
+	matrixSize = $('.maincontainer').width();
+
+	// Math to determine elements sizes
+	buttonRadius = matrixSize / rowSize;
+	buttonMargin = buttonRadius / 5.4;
+	buttonRadius = buttonRadius/6;
+	
+	grid = createGrid();
 
 	// This is a new game. Score has not been posted yet.
 	setCookie('posted', 'f', 1);
