@@ -1,7 +1,9 @@
-# Group 3 - Memory Swipe
+#Group 3 - Brayden Traas, Shawn Kim, Kelvin Zheng, Benjamin Hao
 
+#Memory Swipe
+###Improve your memory with a simple game. Simply remember the numbers that appear, and then swipe from one to the next.
 
-##Folder structure
+##Code structure
 
 * Game pages: ./
 * Scripts:    ./js/
@@ -24,3 +26,14 @@
   * **Classic**: Numbers will be shown briefly. Remember the order of the numbers (low to high) and swipe from 1 -> X. Points are given for speed and accuracy.
   * **Challenge**: Numbers will be shown briefly. The numbers may not be consecutive, but players still need to drag from lowest to highest, **except for odd numbers**. Odd numbers are thrown in at higher difficulty settings.
 * After completion of 10 rounds, players are directed to a result page showing their score. From here, players can go "Home" (main menu), post their score to the global leaderboards, choose another difficulty, or replay this difficulty. If the user chooses to post their score, they can then go to the leaderboards to view their rank against other players.
+
+## Technologies used:
+* HTML5
+* PHP5
+* Javascript
+* CSS3
+* JQuery
+* jQuery Mobile
+* PatternLock library
+* soundJS library
+
