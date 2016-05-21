@@ -3,11 +3,11 @@
 
 ##Folder structure
 
-*Game pages - Main directory
-*Scripts - js folder
-*Styles - CSS folder
-*Images/sounds - resources folder
-*SQL - sql folder
+* Game pages - Main directory
+* Scripts - js folder
+* Styles - CSS folder
+* Images/sounds - resources folder
+* SQL - sql folder
 
 
 ##Running the game
