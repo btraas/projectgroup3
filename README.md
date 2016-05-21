@@ -1,4 +1,8 @@
-#Group 3 - Brayden Traas, Shawn Kim, Kelvin Zheng, Benjamin Hao
+##Group 3 
+*Brayden Traas
+*Shawn Kim
+*Kelvin Zheng
+*Benjamin Hao
 
 #Memory Swipe
 ###Improve your memory with a simple game. Simply remember the numbers that appear, and then swipe from one to the next.
