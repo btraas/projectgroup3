@@ -14,6 +14,7 @@
 	<script src='js/game.js'></script>
 	<!--<script src='js/difficulty.js'></script>-->
 	<link href="css/game.css" rel='stylesheet' type='text/css' />
+	<link href="css/circle.css" rel='stylesheet' type='text/css' />
 
 		<?php include('menu_button.php'); ?>
 
@@ -28,6 +29,14 @@
 
 		<!--Stop Watch-->
 		<div id="stopWatch">
+
+                <div id = "myID">
+                    <div class="slice">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                    </div>
+                </div>
+
 			<span id="time"></span>
 		</div>
 

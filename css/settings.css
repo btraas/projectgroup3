@@ -14,7 +14,6 @@
 
 /* nothing, darkTheme.css included it */
 .volume_text {
-	color: white;
     font-size: 180%;
     font-weight: bold;
 	text-align: left;
@@ -33,7 +32,6 @@
 
 /* nothing, darkTheme.css included it */
 .theme {
-	  color: white;
     font-size: 160%;
     font-weight: bold;
 	  text-align: center;

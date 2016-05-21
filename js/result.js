@@ -22,7 +22,7 @@ function goPost()  {
 	setCookie('posted', 't', 1);
 	
 
-    window.location = 'post_score.php?username=' + username + "&gamemode=" + gameMode + "&random=" + window.btoa(score);
+    window.location = 'post_score.php?username=' + username + "&gameMode=" + gameMode + "&random=" + window.btoa(score);
 }
 
 

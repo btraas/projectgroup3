@@ -14,8 +14,10 @@
 		$score = 0;
 	}
 
+	$gm = @$_COOKIE['gameMode'];
+
 	$score = mysql_real_escape_string($score);
-	$sql = "SELECT COUNT(*) + 1 AS rank FROM $tb_name WHERE $score < score ;";
+	$sql = "SELECT COUNT(*) + 1 AS rank FROM $tb_name WHERE gamemode = $gm AND $score <= score ;";
 
 	$result=mysql_query($sql);
 	$rows=mysql_fetch_array($result);
@@ -33,10 +35,11 @@
 
 	<link rel="stylesheet" type="text/css" href="css/result.css">
     <script src='js/result.js'></script>
+
     	<div id='topMargin'>
     	</div>
 		<div class='scoreArea'>
-			<div class='score'> <?php echo $score;?> </div>
+			<div class='score' id="score"> <?php echo $score;?> </div>
 		</div>
 		
 		<div class='ranking'>

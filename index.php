@@ -1,6 +1,6 @@
 <?php include('header.php'); ?>
 
-<div class='logo_container' >
+<div class='logo_container' id="logocontainer" >
 <img class='logo' alt="gamelogo" src='resources/images/game_logo3.png' />
 </div>
 

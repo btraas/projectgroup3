@@ -34,7 +34,7 @@ function updateImg(val) {
             break;
         case '2':
             gridSize = 3;
-            numberRange = 3;
+            numberRange = 4;
 
             if(gameMode == 1){
                 fakeNums = 1;
@@ -42,15 +42,15 @@ function updateImg(val) {
             break;
         case '3':
             gridSize = 3;
-            numberRange = 4;
+            numberRange = 5;
 
             if(gameMode == 1){
                 fakeNums = 1;
             }
             break;
         case '4':
-            gridSize = 4;
-            numberRange = 5;
+            gridSize = 3;
+            numberRange = 6;
 
             if(gameMode == 1){
                 fakeNums = 1;
@@ -58,22 +58,22 @@ function updateImg(val) {
             break;
         case '5':
             gridSize = 4;
-            numberRange = 7;
+            numberRange = 6;
 
             if(gameMode == 1){
                 fakeNums = 2;
             }
             break;
         case '6':
-            gridSize = 5;
-            numberRange = 6;
+            gridSize = 4;
+            numberRange = 7;
 
             if(gameMode == 1){
                 fakeNums = 3;
             }
             break;
         case '7':
-            gridSize = 5;
+            gridSize = 4;
             numberRange = 8;
 
             if(gameMode == 1){
@@ -81,7 +81,7 @@ function updateImg(val) {
             }
             break;
         default:
-            gridSize = 3;
+            gridSize = 2;
             numberRange = 4;
             fakeNums = 0;
     }

@@ -5,15 +5,15 @@
 
 <?php include('menu_button.php'); ?>
 
-		<div class='volume_text'>BGM Volume</div>
+		<div class='volume_text' id="volume_text1">BGM Volume</div>
 		<input type="range" class='bgm' id='bgm' value="" min="0" max="100" onchange ="showVal_bgm(this.value)" />
 
-		<div class='volume_text'>SFX Volume</div>
+		<div class='volume_text' id="volume_text2">SFX Volume</div>
 		<input type="range" class='sfx' id='sfx' value="" min="0" max="100" onchange ='showVal_sfx(this.value)'/>
         
         <div class="switcher">
             <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
-		    <legend class='theme'>Dark/Light Theme</legend>
+		    <legend class='theme' id="theme_text">Dark/Light Theme</legend>
             <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="Dark" checked="checked" onclick="Dtheme()"/>
 			<label for="radio-choice-a1">Dark</label>
 			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="Light" onclick="Ltheme()" />

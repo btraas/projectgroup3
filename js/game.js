@@ -121,6 +121,31 @@ function generateAnswer(){ // {{{ Generate the answer
 	console.log(decodeURI(getCookie('answer')).split('|').join('_'));
 } // }}}end of generateAnswer()
 
+
+
+var counts = 0;
+var myInterval = null;
+function resetCircle() {
+        var className = document.getElementById("myID");
+        className.className = "c100 small green p0";
+
+        counts = 0;
+        if(myInterval != null) {
+	        clearInterval(myInterval);
+	        myInterval = null;
+        }
+}
+
+function drawCircle(){
+        var className = document.getElementById("myID");
+        className.className = "c100 small green p" + counts * 10;
+        counts++;
+        if(counts == 11) {
+            clearInterval(myInterval);
+            myInterval = null;
+        }
+}
+
 //When the game is first loaded
 $(document).on('pageshow', "[data-url='/game.php']", function(){
 
