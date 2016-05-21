@@ -1,8 +1,8 @@
 ##Group 3 
-*Brayden Traas
-*Shawn Kim
-*Kelvin Zheng
-*Benjamin Hao
+* Brayden Traas
+* Shawn Kim
+* Kelvin Zheng
+* Benjamin Hao
 
 #Memory Swipe
 ###Improve your memory with a simple game. Simply remember the numbers that appear, and then swipe from one to the next.
@@ -39,5 +39,11 @@
 * JQuery
 * jQuery Mobile
 * PatternLock library
-* soundJS library
+* SoundJS library
+* SW opening crawl by Tim Pietrusky
+* Pure-CSS circular percentage bar
+
+## Sprint 2 Challenges:
+* Large, unified files made it harder to collaborate (more merge conflicts). Splitting CSS, Javascript, and PHP/HTML simplified this process and prevented further issues.
+* Our light theme is taking much longer tan anticipated. Many of our CSS classes and styling are split across multiple files, so it's hard to overwrite / replace these class colors with a single CSS stylesheet.
 
