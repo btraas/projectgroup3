@@ -14,7 +14,7 @@
 //
 //	To reset a paused stopwatch
 //		obj.stop();
-//
+
 var	clsStopwatch = function() {
 		// Private vars
 		var	startAt	= 0;	// Time of last start / resume. (0 if not running)
@@ -71,10 +71,6 @@ function formatTime(time) {
 	newTime = pad(m, 2) + ':' + pad(s, 2);
 	return newTime;
 }
-
-	
-
-
 
 function show() {
 	$time = document.getElementById('time');
