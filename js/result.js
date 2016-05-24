@@ -3,7 +3,7 @@
 // Posts score to server, also saves user score locally
 
 // direct to other pages accordingly
-$(document).on('pageshow', "[data-url='/result.php']", function(){
+$(document).on('pageshow', "[data-url^='/result.php']", function(){
 	if(getCookie('posted') == 't'){
 		$('.postBtn').attr("src", "resources/images/result_buttons_leaderboards_rank.png");
 	} else {
@@ -27,9 +27,8 @@ function goPost()  {
 	    setCookie('username', username, 365);
 		setCookie('posted', 't', 1);
 		
+		$('.postBtn').attr("src", "resources/images/result_buttons_leaderboards_rank.png");
 	    window.location = 'post_score.php?username=' + username + "&gameMode=" + gameMode + "&random=" + window.btoa(score);
-
-	    $('.postBtn').attr("src", "resources/images/result_buttons_leaderboards_rank.png");
     }
 }
 
