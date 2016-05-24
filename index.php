@@ -16,6 +16,10 @@
     <input type="image" src="resources/images/menu_info.png" onclick="$('#about').click()" class="icon about">
 	<!-- just a placeholder (invisible) for jquery mobile transitions -->
 	<a id='about' href='aboutus.php' data-transition='flow'></a>
+
+    <input type="image" src="resources/images/menu_achievement.png" onclick="$('#achievement').click()" class="icon achievement">
+	<!-- just a placeholder (invisible) for jquery mobile transitions -->
+	<a id='achievement' href='achievement.php' data-transition='flow'></a>
 </div>
 
 <div class='bottom'>
