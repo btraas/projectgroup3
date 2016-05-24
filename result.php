@@ -58,7 +58,7 @@
 			<div class='firstRow'>
 				<input type="image" src="resources/images/result_buttons_home.png" onclick="$('#home').click()" class="homeBtn">
 				<a id='home' href='./index.php' data-transition='flow' data-direction='reverse'></a>
-                <input type="image" src="resources/images/result_buttons_leaderboards.png" value="Post Score" onclick="goPost()" class="postBtn">
+                <input type="image" src="resources/images/result_buttons_leaderboards_01.png" value="Post Score" onclick="goPost()" class="postBtn">
 				<a id='leaderboards' href='./leaderboards.php' data-transition='flow' data-direction='reverse'></a>
 			</div>
 
