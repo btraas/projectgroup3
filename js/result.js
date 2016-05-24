@@ -5,7 +5,7 @@
 // direct to other pages accordingly
 $(document).on('pageshow', "[data-url='/result.php']", function(){
     // $('.postBtn').attr("src", "resources/images/result_buttons_leaderboards_01.png");
-}
+});
 
 function goPost()  {
 	// Go to leaderboards if we've posted alreday
