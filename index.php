@@ -21,7 +21,11 @@
 	<!-- just a placeholder (invisible) for jquery mobile transitions -->
 	<a id='achievement' href='achievement.php' data-transition='flow'></a>
 
-    <input type="image" src="resources/images/menu_sign_up.png" onclick="$('#achievement').click()" class="icon achievement">
+    <input type="image" src="resources/images/menu_sign_up.png" onclick="$('#achievement').click()" class="icon signUp">
+	<!-- just a placeholder (invisible) for jquery mobile transitions -->
+	<a id='#' href='#' data-transition='flow'></a>
+
+    <input type="image" src="resources/images/menu_sign_in.png" onclick="$('#signIn').click()" class="icon signIn">
 	<!-- just a placeholder (invisible) for jquery mobile transitions -->
 	<a id='#' href='#' data-transition='flow'></a>
 </div>
