@@ -1,7 +1,7 @@
 
-CREATE DATABASE leaderboards;
+CREATE DATABASE memoryswipe;
 
-USE leaderboards;
+USE memoryswipe;
 
 CREATE TABLE leaderboards (
   id INTEGER NOT NULL auto_increment,
