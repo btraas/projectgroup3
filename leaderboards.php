@@ -12,23 +12,7 @@
 <link rel="stylesheet" type="text/css" href="css/leaderboards.css">
 
 
-<script>
-
-    function radioClick(val){
-            setCookie('leaderboard_gameMode', val , 365);
-            //location.reload();
-
-			$.mobile.changePage(
-    		window.location.href,
-    		{
-    	  		allowSamePageTransition : false,
-    	  		transition              : 'none',
-    	  		showLoadMsg             : false,
-    	  		reloadPage              : true
-    		});
-    }
-
-</script>
+<script src='js/leaderboards.js'></script>
 
 <?php include('menu_button.php'); ?>
 
