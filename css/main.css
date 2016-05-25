@@ -142,7 +142,7 @@ body, .ui-page {
 }
 
 .bottom {
-	height: 80px;
+	height: 100px;
     width: 100%;
     border:none;
     border-radius: 20px 20px 20px 20px;
@@ -155,11 +155,7 @@ body, .ui-page {
 	margin-top: 0px;
 }
 
-.bottom .ui-input-btn input.playBtn{
-  height: 50px;
+.bottom .ui-btn{
+  height: 85px;
 }
 
-
-.bottom .ui-input-btn input.gameBtn{
-  height: 50px;
-}
