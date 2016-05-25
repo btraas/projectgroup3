@@ -6,8 +6,8 @@
 */
 
 // show the numbers for this many seconds
-var showSeconds = 15;
-var confirmTime = 500;
+var showSeconds = 7;
+var confirmTime = 260;
 
 ;(function (factory) {
     /** support UMD ***/
@@ -76,9 +76,9 @@ var confirmTime = 500;
     // determine how long user stay on a button
     function onHold(index, period) {
 
-        // starts to draw percentage progress
-        resetCircle();
-        myInterval = setInterval(drawCircle, confirmTime / 20);
+//        starts to draw percentage progress
+//        resetCircle();
+//        myInterval = setInterval(drawCircle, confirmTime / 20);
 
         if(currentIdx != index) {
             currentIdx = index;
@@ -234,13 +234,13 @@ var confirmTime = 500;
                     }
                 } else { // mouse moves out from a button
                             currentIdx = 0;
-                            resetCircle()
+//                            resetCircle()
                         }
                 iObj.lastPosObj = posObj;
 
             } else { // mouse moves out from a button
                 currentIdx = 0;
-                resetCircle()
+//                resetCircle()
             }
 
 

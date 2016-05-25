@@ -1,13 +1,22 @@
 
-CREATE DATABASE leaderboards;
+CREATE DATABASE memoryswipe;
 
-USE leaderboards;
+USE memoryswipe;
 
 CREATE TABLE leaderboards (
   id INTEGER NOT NULL auto_increment,
   username varchar(255) default '' NOT NULL ,
   score INTEGER NOT NULL,
   gamemode INTEGER NOT NULL,
+  datetime varchar(25) NOT NULL default '',
+  PRIMARY KEY (id),
+  FOREIGN KEY (username) REFERENCES username(id) ON DELETE CASCADE
+) ENGINE=MyISAM;
+
+CREATE TABLE members (
+  id INTEGER NOT NULL auto_increment,
+  username varchar(255) default '' NOT NULL ,
+  password varchar(255) default '' NOT NULL ,
   datetime varchar(25) NOT NULL default '',
   PRIMARY KEY (id),
   FOREIGN KEY (username) REFERENCES username(id) ON DELETE CASCADE
