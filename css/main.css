@@ -155,11 +155,11 @@ body, .ui-page {
 	margin-top: 0px;
 }
 
-.bottom .ui-btn input.playBtn{
+.bottom .ui-input-btn input.playBtn{
   height: 50px;
 }
 
 
-.bottom .ui-btn input.gameBtn{
+.bottom .ui-input-btn input.gameBtn{
   height: 50px;
 }
