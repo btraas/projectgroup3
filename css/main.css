@@ -156,6 +156,8 @@ body, .ui-page {
 }
 
 .bottom .ui-btn{
-  height: 70px;
+  height: 45px;
+  font-size: 3em;
+  padding-top: 15px;
 }
 
