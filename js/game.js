@@ -122,6 +122,9 @@ function generateAnswer(){ // {{{ Generate the answer
 } // }}}end of generateAnswer()
 
 
+/* 
+//the two functions below to show and reset a circle progress bar
+//when user holds on a button
 
 var counts = 0;
 var myInterval = null;
@@ -145,6 +148,7 @@ function drawCircle(){
             myInterval = null;
         }
 }
+*/
 
 //When the game is first loaded
 $(document).on('pageshow', "[data-url='/game.php']", function(){
