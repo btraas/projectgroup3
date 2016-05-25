@@ -1,24 +1,18 @@
+
+
 //Dark theme replace the source of css root
 function Dtheme(){
     document.getElementById('theme').href = "css/themes/darkTheme.min.css";
-    document.body.style.backgroundColor = "#232323";
-    document.getElementById('maincontainer').style.backgroundColor = "#232323";
-    document.getElementById('logocontainer').style.backgroundColor = "#E39345";
-    document.getElementById('volume_text1').style.color = "white";
-    document.getElementById('volume_text2').style.color = "white";
-    document.getElementById('theme_text').style.color = "white";
-    document.getElementById('leaderboards_text').style.color = "white"; 
-    document.getElementById('score').style.color = "white";
+    document.getElementById('mainCSS').href = "css/main.css"; 
+    document.getElementById('settingsCSS').href = "css/settings.css";
+    document.getElementById('leaderboardsCSS').href = "css/leaderboards.css"; 
+    document.getElementById('resultCSS').href = "css/result.css"; 
 }
 //Ligth theme replace the source of css root
 function Ltheme(){
     document.getElementById('theme').href = "css/themes/lightTheme.min.css";
-    document.body.style.backgroundColor = "#f0f0f0";
-    document.getElementById('maincontainer').style.backgroundColor = "#f0f0f0";
-    document.getElementById('logocontainer').style.backgroundColor = "#00d6c6";
-    document.getElementById('volume_text1').style.color = "black";
-    document.getElementById('volume_text2').style.color = "black";
-    document.getElementById('theme_text').style.color = "black";
-    document.getElementById('leaderboards_text').style.color = "black";
-    document.getElementById('score').style.color = "black";
+    document.getElementById('mainCSS').href = "css/main_L.css"; 
+    document.getElementById('settingsCSS').href = "css/settings_L.css";
+    document.getElementById('leaderboardsCSS').href = "css/leaderboards_L.css";  
+    document.getElementById('resultCSS').href = "css/result_L.css"; 
 }

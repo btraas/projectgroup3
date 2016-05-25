@@ -38,3 +38,4 @@ $(function() {
     setUpEventHandlers();
     loadLocalStorageValues();
 });
+
