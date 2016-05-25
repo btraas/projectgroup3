@@ -1,6 +1,6 @@
 <?php include('header.php'); ?>
 
-<link rel="stylesheet" type="text/css" href="css/settings.css">
+<link id="settingsCSS" rel="stylesheet" type="text/css" href="css/settings.css">
 <script src='js/settings.js'></script>
 
 <?php include('menu_button.php'); ?>
@@ -14,9 +14,9 @@
         <div class="switcher">
             <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
 		    <legend class='theme' id="theme_text">Dark/Light Theme</legend>
-            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="Dark" checked="checked" onclick="Dtheme()"/>
+            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="Dark" value="0" onclick="Dtheme()"/>
 			<label for="radio-choice-a1">Dark</label>
-			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="Light" onclick="Ltheme()" />
+			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="Light" value="1" onclick="Ltheme()" />
 			<label for="radio-choice-b1">Light</label>
             </fieldset>
         </div>
