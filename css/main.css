@@ -131,7 +131,7 @@ body, .ui-page {
 
 /** set fixed size for logo **/
 .logo {
-	height: 100px; 
+	height: 80px; 
 	max-width: 320px;
 	position: relative;
 }
@@ -156,8 +156,8 @@ body, .ui-page {
 }
 
 .bottom .ui-btn{
-  height: 45px;
+  height: 35px;
   font-size: 3em;
-  padding-top: 15px;
+  padding-top: 5px;
 }
 
