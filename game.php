@@ -13,7 +13,7 @@
 
 	<script src='js/game.js'></script>
 	<!--<script src='js/difficulty.js'></script>-->
-	<link id="gameCSS" href="css/game_L.css" rel='stylesheet' type='text/css' />
+	<link id="gameCSS" href="css/game.css" rel='stylesheet' type='text/css' />
 	<link href="css/circle.css" rel='stylesheet' type='text/css' />
 
 		<?php include('menu_button.php'); ?>
