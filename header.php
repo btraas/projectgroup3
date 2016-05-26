@@ -40,7 +40,7 @@
 
 </head>
 
-<body onload="Ltheme(),Dtheme()">
+<body>
     <div class='maincontainer' id="maincontainer">
 
 
