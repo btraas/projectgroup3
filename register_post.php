@@ -85,7 +85,7 @@
 	}
 
 	//Create INSERT query
-	$qry = "INSERT INTO members(username, passcode, datetime) VALUES('$username','".md5($_POST['password_register'])."', '$datetime')";
+	$qry = "INSERT INTO members(username, passcode, datetime) VALUES('$username','".md5($_POST['password'])."', '$datetime')";
 	$result = @mysql_query($qry);
 	
 	//Check whether the query was successful or not

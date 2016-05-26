@@ -142,20 +142,28 @@ body, .ui-page {
 }
 
 .bottom {
-	height: 80px;
-    width: 100%;
+	height: 16%;
+    width: 98%;
     border:none;
     position: absolute;
 	bottom: 0;
+  margin-left: 1%;
 }
-
+.bottom.skip {
+  height: 16%;
+    width: 95%;
+    border:none;
+    position: absolute;
+  bottom: 0;
+  margin-left: 2.5%;
+}
 .bottom > div {
 	margin: auto;
 	margin-top: 0px;
 }
 
-.bottom .ui-btn{
-  height: 35px;
+.bottom.play .ui-btn{
+  height: 30%;
   font-size: 2.5em;
   padding-top: 5px;
   background-color: #EC7822;
