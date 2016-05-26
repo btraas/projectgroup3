@@ -49,7 +49,7 @@
 
 </div>
 
-<div class='bottom'>
+<div class='bottom play'>
 	<input type='button' class='playBtn' value='Play' onclick="$('#difficulty').click()">
 	<!-- just a placeholder (invisible) for jquery mobile transitions -->
 	<a id='difficulty' href='difficulty.php' data-transition='flow'></a>
