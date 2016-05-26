@@ -148,7 +148,13 @@ body, .ui-page {
     position: absolute;
 	bottom: 0;
 }
-
+.bottom.skip {
+  height: 45px;
+    width: 100%;
+    border:none;
+    position: absolute;
+  bottom: 0;
+}
 .bottom > div {
 	margin: auto;
 	margin-top: 0px;
