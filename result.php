@@ -2,7 +2,6 @@
 <html>
 
 <?php
-    include('header.php');
 	require_once('config.php');
 
 	// Connect to server and select database.
@@ -22,6 +21,9 @@
 
 	$result=mysql_query($sql);
 	$rows=mysql_fetch_array($result);
+
+    
+    include('header.php');
 ?>
 
 <!-- This needs to be in this PHP file to set these variables -->
