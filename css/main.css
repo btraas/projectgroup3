@@ -145,7 +145,6 @@ body, .ui-page {
 	height: 80px;
     width: 100%;
     border:none;
-    border-radius: 20px 20px 20px 20px;
     position: absolute;
 	bottom: 0;
 }
@@ -160,7 +159,7 @@ body, .ui-page {
   font-size: 3em;
   padding-top: 5px;
   background-color: #EC7822;
-  width: 65%;
+  width: 70%;
   -webkit-border-radius: 10px;
   border-radius: 10px;
   border: none;
