@@ -5,7 +5,9 @@
 	margin-right: 10px;
 }
 
-.info {
+.error_info {
 	height: 50px;
 	margin: 10px auto;
+	font-size: 110%;
+	color:red;
 }

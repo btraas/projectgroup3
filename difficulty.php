@@ -21,7 +21,7 @@
     	</div>
 
         <!--<button type="button" onclick="goPlay()">Play</button>-->
-		<div class='bottom'>
+		<div class='bottom play'>
 		    <input type='button' class='gameBtn' value='Play' onclick="$('#game').click()">
 		    <!-- just a placeholder (invisible) for jquery mobile transitions -->
 		    <a id='game' href='game.php' data-transition='flow'></a>

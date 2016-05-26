@@ -8,7 +8,7 @@
 /* set fixed size for level selection slider and set font*/
 .levelselection{
     margin: auto;
-    width: 320px;
+    width: 90%;
     font-family: 'Segoe UI Emoji';
 }
 
@@ -23,5 +23,5 @@
     text-align: center;
 }
 .lvimg > img {
-	height: 200px;
+	width: 60%;
 }

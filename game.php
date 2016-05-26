@@ -45,7 +45,7 @@
 	    <div id="pattern" style='position: relative;'>
 	    </div>
 		<!-- Skip Button -->
-		<div class='bottom'>
+		<div class='bottom skip'>
 			<input type='button' class='btn skipBtn' value='Skip' onclick='skip()'>
 		</div>
 
