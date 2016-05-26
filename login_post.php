@@ -36,6 +36,12 @@
 	$username = clean($_REQUEST['username']);
 	$password = clean($_REQUEST['password']);
 	
+	// in case page referrer is not login page
+	if($_SERVER['HTTP_REFERER'] == '') {
+		header("location: ".HOMEURL);
+		exit();
+	}
+
 	//Input Validations
 	if($username == '') {
 		$errmsg_arr[] = 'Username missing';
