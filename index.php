@@ -1,4 +1,5 @@
-<?php include('header.php');
+<?php 
+	include('header.php');
     session_start();
 ?>
 
@@ -28,9 +29,8 @@
 	<a id='register' href='register.php' data-transition='flow'></a>
 
 	<?php
-		if(trim($_SESSION['SESS_USERNAME']) != '') {
+		if(trim($_SESSION['SESS_USERNAME']) == '') {
 	?>
-
 	    <input type="image" src="resources/images/menu_sign_in.png" onclick="$('#login').click()" class="icon signIn">
 		<!-- just a placeholder (invisible) for jquery mobile transitions -->
 		<a id='login' href='login.php' data-transition='flow'></a>
@@ -39,7 +39,7 @@
 		} else {
 	?>
 
-	    <input type="image" src="resources/images/menu_sign_out.png" onclick="$('#logout').click()" class="icon signIn">
+	    <input type="image" src="resources/images/menu_sign_out.png" onclick="$('#logout').click()" class="icon signOut">
 		<!-- just a placeholder (invisible) for jquery mobile transitions -->
 		<a id='logout' href='logout.php' data-transition='flow'></a>
 

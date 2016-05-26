@@ -45,21 +45,23 @@
 		$errmsg_arr[] = 'Password missing';
 		$errflag = true;
 	}
-	
+
 	//If there are input validations, redirect back to the login form
-	if($errflag) {
+	if($errflag) {  
 		$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
 		session_write_close();
 		header("location: login.php");
 		exit();
 	}
-	
+
 	//Create query
 	$qry="SELECT * FROM members WHERE username='$username' AND passcode='".md5($_REQUEST['password'])."'";
+
 	$result=mysql_query($qry);
 	
 	//Check whether the query was successful or not
 	if($result) {
+
 		if(mysql_num_rows($result) == 1) {
 			//Login Successful
 			session_regenerate_id();
@@ -80,4 +82,5 @@
 	}else {
 		die("Query failed");
 	}
+
 ?>
