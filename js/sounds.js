@@ -119,6 +119,25 @@ function BackgroundMusic(file)
 		return self.audio.play();
 	}
 
+	/**
+	*	Replay function. Ignores passed parameters (when this is called via event)
+	*/
+	this.replay = function()
+	{
+		self.play();
+	}
+
+	/** 
+	*	Loop function. Load this file and continue looping, or loop current file
+	*/
+
+	this.loop = function(file)
+	{
+		self.play(file);
+		self.audio.removeEventListener('ended', self.next);
+		self.audio.addEventListener('ended', self.replay); // replay this instead of next
+	}
+
 	// Play the next track
 	this.next = function()
 	{
