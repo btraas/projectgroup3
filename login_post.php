@@ -33,12 +33,12 @@
 	}
 	
 	//Sanitize the REQUEST values - parameters may come from GET or POST
-	$login = clean($_REQUEST['username']);
+	$username = clean($_REQUEST['username']);
 	$password = clean($_REQUEST['password']);
 	
 	//Input Validations
-	if($login == '') {
-		$errmsg_arr[] = 'Email missing';
+	if($username == '') {
+		$errmsg_arr[] = 'Username missing';
 		$errflag = true;
 	}
 	if($password == '') {
@@ -55,7 +55,7 @@
 	}
 	
 	//Create query
-	$qry="SELECT * FROM members WHERE username='$login' AND passcode='".md5($_REQUEST['password'])."'";
+	$qry="SELECT * FROM members WHERE username='$username' AND passcode='".md5($_REQUEST['password'])."'";
 	$result=mysql_query($qry);
 	
 	//Check whether the query was successful or not
@@ -67,6 +67,8 @@
 			$_SESSION['SESS_USERNAME'] = $member['username'];
 			$_SESSION['SESS_PASSCODE'] = $member['passcode'];
 			session_write_close();
+
+			
 			header("location: ".HOMEURL);
 			exit();
 		}else {
