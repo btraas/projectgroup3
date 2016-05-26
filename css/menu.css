@@ -21,6 +21,7 @@
 	margin: 10px;
 	margin-top: 10%;
 	bottom: 0;
+    filter: invert(100%);
 }
 
 .icon {
