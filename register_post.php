@@ -40,6 +40,12 @@
 	$password = clean($_POST['password']);
 	$cpassword = clean($_POST['password2']);
 	
+	// in case page referrer is not register page
+	if($_SERVER['HTTP_REFERER'] == '') {
+		header("location: ".HOMEURL);
+		exit();
+	}
+
 	//Input Validations
 	if($username == '') {
 		$errmsg_arr[] = 'Username missing';

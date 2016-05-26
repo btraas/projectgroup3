@@ -2,6 +2,7 @@
 <html>
 
 <?php
+    include('header.php');
 	require_once('config.php');
 
 	// Connect to server and select database.
@@ -21,8 +22,6 @@
 
 	$result=mysql_query($sql);
 	$rows=mysql_fetch_array($result);
-
-	include('header.php');
 ?>
 
 <!-- This needs to be in this PHP file to set these variables -->
@@ -33,7 +32,8 @@
 	var score = <?php echo $score; ?>;
 </script>
 
-	<link id="resultCSS" rel="stylesheet" type="text/css" href="css/result.css">
+	<link id="resultCSS" rel="stylesheet" type="text/css" href="css/result.css
+    <script src='js/theme.js'></script>
     <script src='js/result.js'></script>
 
     	<div id='topMargin'>

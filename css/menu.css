@@ -10,7 +10,6 @@
 }
 
 .menu {
-
 	width: 90%;
     height: 120px;
     margin: 80px auto;
@@ -20,12 +19,12 @@
 
 .mainmenu {
 	margin: 10px;
-	margin-top: 20%;
+	margin-top: 10%;
 	bottom: 0;
 }
 
 .icon {
-	width: 15%;
+	width: 12%;
 	padding: 15px;
 	cursor:pointer;
 }

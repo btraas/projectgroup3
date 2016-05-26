@@ -9,9 +9,7 @@
 
     <h1>Login</h1>
 
-<div class = 'login_wrapper'>
-
-    <form action="login_post.php" method="post">
+    <form class = 'login_form' action="login_post.php" method="post">
     	<label for="username">Username:</label>
         <input type="text" id="username" name="username" size="50"  maxlength="16" />
         <label for="password">Password:</label>
@@ -33,6 +31,5 @@
 
         <button type="submit">Login</button>
     </form>
-</div>
 
 <?php include('footer.php'); ?>
