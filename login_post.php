@@ -65,10 +65,9 @@
 			session_regenerate_id();
 			$member = mysql_fetch_assoc($result);
 			$_SESSION['SESS_USERNAME'] = $member['username'];
-			$_SESSION['SESS_PASSCODE'] = $member['passcode'];
+//			$_SESSION['SESS_PASSCODE'] = $member['passcode'];
 			session_write_close();
 
-			
 			header("location: ".HOMEURL);
 			exit();
 		}else {

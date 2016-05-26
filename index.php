@@ -1,4 +1,6 @@
-<?php include('header.php'); ?>
+<?php include('header.php');
+    session_start();
+?>
 
 <div class='logo_container' id="logocontainer" >
 <img class='logo' alt="gamelogo" src='resources/images/game_logo3.png' />
@@ -25,9 +27,26 @@
 	<!-- just a placeholder (invisible) for jquery mobile transitions -->
 	<a id='register' href='register.php' data-transition='flow'></a>
 
-    <input type="image" src="resources/images/menu_sign_in.png" onclick="$('#login').click()" class="icon signIn">
-	<!-- just a placeholder (invisible) for jquery mobile transitions -->
-	<a id='login' href='login.php' data-transition='flow'></a>
+	<?php
+		if(trim($_SESSION['SESS_USERNAME']) != '') {
+	?>
+
+	    <input type="image" src="resources/images/menu_sign_in.png" onclick="$('#login').click()" class="icon signIn">
+		<!-- just a placeholder (invisible) for jquery mobile transitions -->
+		<a id='login' href='login.php' data-transition='flow'></a>
+
+	<?php
+		} else {
+	?>
+
+	    <input type="image" src="resources/images/menu_sign_out.png" onclick="$('#logout').click()" class="icon signIn">
+		<!-- just a placeholder (invisible) for jquery mobile transitions -->
+		<a id='logout' href='logout.php' data-transition='flow'></a>
+
+	<?php
+		}
+	?>
+
 </div>
 
 <div class='bottom'>
