@@ -171,12 +171,6 @@ body, .ui-page {
   animation: glowing 1500ms infinite;
 }
 
-.bottom .ui-btn{
-    height: 35px;
-  font-size: 3em;
-  padding-top: 5px;
-}
-
 @keyframes glowing {
   0% { background-color: #EC7822; box-shadow: 0 0 3px #EC7822; }
   50% { background-color: #FFA83F; box-shadow: 0 0 10px #EC7822; }
