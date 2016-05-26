@@ -158,8 +158,10 @@ $(document).on('pageshow', "[data-url='/game.php']", function(){
 	var matrixMultiplier = 1.3;
 
 	// set matrix width / height by window width
-	matrixSize = $(window).width() * matrixMultiplier;
-	if($(window).width() > 1000) matrixSize = 1000 * matrixMultiplier;
+	var minHeightWidth = $('#maincontainer').width();
+	if(($('#maincontainer').height() - 100) < minHeightWidth) minHeightWidth = $('#maincontainer').height() - 100;
+	matrixSize = minHeightWidth * matrixMultiplier;
+	//if($('#maincontainer').width() > 1000) matrixSize = 1000 * matrixMultiplier;
 
 	// Math to determine elements sizes
 	buttonRadius = matrixSize / rowSize;
