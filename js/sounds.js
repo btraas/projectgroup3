@@ -119,6 +119,17 @@ function BackgroundMusic(file)
 		return self.audio.play();
 	}
 
+	/** 
+	*	Loop function. Load this file and continue looping, or loop current file
+	*/
+
+	this.loop = function(file)
+	{
+		self.load(file);
+		self.audio.removeEventListener('ended', self.next);
+		self.audio.addEventListener('ended', self.play); // replay this instead of next
+	}
+
 	// Play the next track
 	this.next = function()
 	{
