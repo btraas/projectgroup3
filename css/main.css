@@ -143,11 +143,11 @@ body, .ui-page {
 
 .bottom {
 	height: 80px;
-    width: 95%;
+    width: 98%;
     border:none;
     position: absolute;
 	bottom: 0;
-  margin-left: 2.5%;
+  margin-left: 1%;
 }
 .bottom.skip {
   height: 50px;
