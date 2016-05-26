@@ -159,16 +159,14 @@ body, .ui-page {
   height: 35px;
   font-size: 3em;
   padding-top: 5px;
-
-  background-color: #e39345;
+  background-color: #EC7822;
+  
   -webkit-border-radius: 10px;
   border-radius: 10px;
   border: none;
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
-  font-family: Arial;
-  font-size: 20px;
   text-align: center;
   text-decoration: none;
   animation: glowing 1500ms infinite;
