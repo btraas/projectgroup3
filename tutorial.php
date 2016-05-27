@@ -13,6 +13,6 @@
 </script>
 <?php include('menu_button.php'); ?>
 	<div class="tutorial" id="tutorial_video">
-    	<iframe src="https://www.youtube.com/embed/fooLol-bUMI&amp;autoplay=1"></iframe>
+    	<iframe src="https://www.youtube.com/embed/fooLol-bUMI"></iframe>
 	</div>
 <?php include('footer.php'); ?>
