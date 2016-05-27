@@ -186,3 +186,9 @@ body, .ui-page {
   50% { background-color: #FFA83F; box-shadow: 0 0 10px #EC7822; }
   100% { background-color: #EC7822; box-shadow: 0 0 3px #EC7822; }
 }
+
+.jGrowl-info {
+	background-color: #DDDDDD;
+	color: black;
+	font-size: 130%;
+}
