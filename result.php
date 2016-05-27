@@ -39,7 +39,7 @@
         // light theme    
         if($_COOKIE['theme'] == 1) {         
     ?>
-    	 <link id="resultCSS" rel="stylesheet" type="text/css" href="css/result_2.css">
+    	 <link id="resultCSS" rel="stylesheet" type="text/css" href="css/result_L.css">
     <?php
         } else { // dark theme
     ?>
