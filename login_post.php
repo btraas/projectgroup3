@@ -20,17 +20,10 @@
 	//Select database
 	$db = mysql_select_db(DB_DATABASE);
 	if(!$db) {
+		mysql_close();
 		die("Unable to select database");
 	}
 	
-	//Function to sanitize values received from the form. Prevents SQL injection
-	function clean($str) {
-		$str = @trim($str);
-		if(get_magic_quotes_gpc()) {
-			$str = stripslashes($str);
-		}
-		return mysql_real_escape_string($str);
-	}
 	
 	//Sanitize the REQUEST values - parameters may come from GET or POST
 	$username = clean($_REQUEST['username']);
@@ -38,6 +31,7 @@
 	
 	// in case page referrer is not login page
 	if($_SERVER['HTTP_REFERER'] == '') {
+		mysql_close();
 		header("location: ".HOMEURL);
 		exit();
 	}
@@ -56,6 +50,7 @@
 	if($errflag) {  
 		$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
 		session_write_close();
+		mysql_close();
 		header("location: login.php");
 		exit();
 	}
@@ -75,6 +70,7 @@
 			$_SESSION['SESS_USERNAME'] = $member['username'];
 //			$_SESSION['SESS_PASSCODE'] = $member['passcode'];
 			session_write_close();
+			mysql_close();
 
 			header("location: ".HOMEURL);
 			exit();
@@ -82,6 +78,7 @@
 			//Login failed
 			$errmsg_arr[] = 'Username or password wrong.';
 			$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
+			mysql_close();
 			header("location: login.php");
 			exit();
 		}
