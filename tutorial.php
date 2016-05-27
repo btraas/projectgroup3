@@ -10,7 +10,6 @@
 	$(document).on('pagebeforehide', "[data-url='/tutorial.php']", function(){
 	    BGM.volume(getCookie('bgm'));
 	});
-=
 </script>
 <?php include('menu_button.php'); ?>
 	<div class="tutorial" id="tutorial_video">
