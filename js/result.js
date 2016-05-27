@@ -1,7 +1,5 @@
 // result.js
 
-// Posts score to server, also saves user score locally
-
 // direct to other pages accordingly
 $(document).on('pageshow', "[data-url^='/result.php']", function(){
 	if(getCookie('posted') == 't'){
@@ -9,8 +7,16 @@ $(document).on('pageshow', "[data-url^='/result.php']", function(){
 	} else {
 		$('.postBtn').attr("src", "resources/images/result_buttons_leaderboards_post.png");
 	}
-    
+
 });
+
+
+//exit the current bgm when they get out this page
+$(document).on('pagebeforehide', "[data-url^='/result.php']", function()
+{
+	BGM.next();
+});
+
 
 function goPost()  {
 	// Go to leaderboards if we've posted alreday
