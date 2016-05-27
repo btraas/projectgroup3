@@ -4,7 +4,7 @@
 ?>
 <link rel="stylesheet" href="css/tutorial.css" />
 <script>
-	BGM.volume(0);
+	BGM.loop('resources/sounds/bgm_nothing.m4a');
 
 	//exit the current bgm when they get out this page
 	$(document).on('pagebeforehide', "[data-url='/tutorial.php']", function(){
