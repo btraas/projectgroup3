@@ -155,6 +155,7 @@ $(document).on('pageshow', "[data-url='/game.php']", function(){
 
 	progress = [2, 2, 2, 2, 2,
 				2, 2, 2, 2, 2]; //user progress 0: off, 1: on, 2:empty
+	progressIndex = 0;
 	// set sizes
 
 	var matrixMultiplier = 1.3;
