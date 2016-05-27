@@ -1,6 +1,9 @@
 // result.js
 
 // Posts score to server, also saves user score locally
+var rank = <?php echo $rows['rank']; ?>;
+var score = <?php echo $score; ?>;
+BGM.loop('resources/sounds/bgm_scoreboard.mp3');
 
 // direct to other pages accordingly
 $(document).on('pageshow', "[data-url^='/result.php']", function(){
@@ -9,7 +12,8 @@ $(document).on('pageshow', "[data-url^='/result.php']", function(){
 	} else {
 		$('.postBtn').attr("src", "resources/images/result_buttons_leaderboards_post.png");
 	}
-    
+
+	BGM.next();
 });
 
 function goPost()  {
