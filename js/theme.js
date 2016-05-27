@@ -1,3 +1,4 @@
+
 //Dark theme replace the source of css root
 function Dtheme(){
     document.getElementById('theme').href = "css/themes/darkTheme.min.css";
@@ -21,4 +22,9 @@ function Ltheme(){
     document.getElementById('gameCSS').href = "css/game_L.css";   
     document.getElementById('resultCSS').href = "css/result_L.css"; 
     document.getElementById('leaderboardsCSS').href = "css/leaderboards_L.css";
+}
+
+// set cookie for theme
+function settheme(value){
+    setCookie("theme",value,365); //save theme
 }
