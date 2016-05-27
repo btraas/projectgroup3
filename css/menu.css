@@ -30,11 +30,12 @@
 	margin-right: auto;
 	margin-top: 2%;
 	margin-bottom: 2%;
-	background-color:#cccccc;
+/*	background-color:#cccccc;*/
 }
 
 .icon {
 	height: 27vw;
+	margin: 2vw;
 	max-height: 200px;
 	cursor:pointer;
 }
