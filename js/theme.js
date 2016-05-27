@@ -5,7 +5,6 @@ function Dtheme(){
     document.getElementById('mainCSS').href = "css/main.css"; 
     document.getElementById('menuCSS').href = "css/menu.css"; 
     document.getElementById('settingsCSS').href = "css/settings.css";
-    document.getElementById('difficultyCSS').href = "css/difficulty.css"; 
     document.getElementById('patternCSS').href = "js/patternlock/patternLock.css"; 
     document.getElementById('gameCSS').href = "css/game.css";
     document.getElementById('resultCSS').href = "css/result.css";     
@@ -17,7 +16,6 @@ function Ltheme(){
     document.getElementById('mainCSS').href = "css/main_L.css";
     document.getElementById('menuCSS').href = "css/menu_L.css";  
     document.getElementById('settingsCSS').href = "css/settings_L.css";
-    document.getElementById('difficultyCSS').href = "css/difficulty_L.css"; 
     document.getElementById('patternCSS').href = "js/patternlock/patternLock_L.css"; 
     document.getElementById('gameCSS').href = "css/game_L.css";   
     document.getElementById('resultCSS').href = "css/result_L.css"; 
