@@ -34,6 +34,13 @@ var grid = {};
 //set grid on load
 function createGrid() // {{{
 {
+	// get values from cookie based on difficulty level
+	gridSize = getCookie("gridSize");
+	numberRange = getCookie("numberRange");
+	gameMode = getCookie("gameMode");
+	fakeNums = getCookie("fakeNums");
+	level = getCookie("level");
+
 	return { // {{{
         matrix : [gridSize, gridSize],
         margin : buttonMargin,
@@ -165,13 +172,6 @@ $(document).on('pageshow', "[data-url='/game.php']", function(){
 	if(($('#maincontainer').height() - 100) < minHeightWidth) minHeightWidth = $('#maincontainer').height() - 100;
 	matrixSize = minHeightWidth * matrixMultiplier;
 	//if($('#maincontainer').width() > 1000) matrixSize = 1000 * matrixMultiplier;
-
-	// get values from cookie based on difficulty level
-	gridSize = getCookie("gridSize");
-	numberRange = getCookie("numberRange");
-	gameMode = getCookie("gameMode");
-	fakeNums = getCookie("fakeNums");
-	level = getCookie("level");
 
 	// Math to determine elements sizes
 	buttonRadius = matrixSize / rowSize;

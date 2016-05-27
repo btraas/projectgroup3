@@ -8,9 +8,15 @@
 .achievement {
 	margin: 20px 15px;
 	height:18%;
-	border: 1px solid white;
+
 	background-color: grey;
 	border-radius: 10px;
+	position:relative;
+
+    background-image: url("../../resources/images/achievement_grey.png");
+    background-size: 75% 100%; /*your percentage is the first one (width), second one (100%) is for height*/
+    background-repeat: no-repeat;
+
 }
 
 .achievement_ico {
@@ -36,4 +42,3 @@
 	 font-size: 90%;
 
 }
-
