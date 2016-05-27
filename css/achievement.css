@@ -24,15 +24,16 @@
 	float: left;
 	height: 70%;
 	width: 15%;
+	margin: 2%;
 }
 
 .achievement_text {
 	float: left;
-	margin: 10px auto;
+	margin: auto;
 }
 
 .achievement_percentage {
-	 margin: 10px auto;
+	 margin: auto;
 	 float: right;
 	 font-size: 170%;
 }
