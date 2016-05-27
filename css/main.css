@@ -9,7 +9,7 @@ body, .ui-page {
   position: fixed;
   background-color: #232323;
 }
-
+/*
 .menu {
     margin-top: 20px;
     width: 100%;
@@ -20,7 +20,7 @@ body, .ui-page {
     font-size: 160%;
     font-weight: bold;
     border:none;
-}
+}*/
 
 /** set fixed size of the page **/
 .maincontainer {

@@ -54,7 +54,7 @@
 
 		</div>
 
-		<div class='menu'>
+		<div class='result_menu'>
 			<!-- the first row of bottons -->
 			<div class='firstRow'>
 				<input type="image" src="resources/images/result_buttons_home.png" onclick="$('#home').click()" class="homeBtn">
