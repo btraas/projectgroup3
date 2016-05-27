@@ -151,11 +151,10 @@ body, .ui-page {
 }
 
 .bottom.skip {
-  height: 16%;
   width: 95%;
   border:none;
   position: absolute;
-  bottom: 0;
+  bottom: 1%;
   margin-left: 2.5%;
 }
 
