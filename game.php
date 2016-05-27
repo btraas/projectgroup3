@@ -1,15 +1,16 @@
 <?php include('header.php'); ?>
 
 	<!-- 3rd party and our common scripts / css -->
-	<script id="patternLockJS" src='js/patternlock/patternLock.js'></script>
     <?php
         // light theme    
         if($_COOKIE['theme'] == 1) {         
     ?>
+        <script id="patternLockJS" src='js/patternlock/patternLock_L.js'></script>
     	<link href="js/patternlock/patternLock_L.css"  rel="stylesheet" type="text/css" />
     <?php
         } else { // dark theme
     ?>
+        <script id="patternLockJS" src='js/patternlock/patternLock.js'></script>
     	<link href="js/patternlock/patternLock.css"  rel="stylesheet" type="text/css" />
     <?php
         }
