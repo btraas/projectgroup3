@@ -234,6 +234,8 @@ $(document).on('pageshow', "[data-url='/game.php']", function(){
 
 	// This is a new game. Score has not been posted yet.
 	setCookie('posted', 'f', 1);
+	setCookie('rank', getCookie('rank'), -1);
+    setCookie('score', getCookie('score'), -1);
 
 	generateAnswer();	// generate a new answer
 

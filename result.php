@@ -24,8 +24,11 @@
 
 	$result=mysql_query($sql);
 	$rows=mysql_fetch_array($result);
+	mysql_close();
 
-    
+	$rank = empty(@$_COOKIE['rank']) ? $rows['rank'] : $_COOKIE['rank'];
+
+
     include('header.php');
 ?>
 
@@ -33,7 +36,7 @@
 <script>
 	//loop result BGM for result
 	BGM.loop('resources/sounds/bgm_scoreboard.mp3');
-	var rank = <?php echo $rows['rank']; ?>;
+	var rank = <?php echo $rank; ?>;
 	var score = <?php echo $score; ?>;
 	var pg = <?php echo $progress ?>;
 </script>
@@ -63,8 +66,7 @@
 			Rank: 
 
 			<?php
-				echo $rows['rank'];
-				mysql_close();
+				echo $rank;
 			?>
 
 		</div>
