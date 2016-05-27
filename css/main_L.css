@@ -182,7 +182,25 @@ body, .ui-page {
 }
 
 @keyframes glowing {
-  0% { background-color: #00d6c6 ; box-shadow: 0 0 3px #00d6c6 ; }
-  50% { background-color: #7feae2; box-shadow: 0 0 10px #00d6c6 ; }
-  100% { background-color: #00d6c6 ; box-shadow: 0 0 3px #00d6c6 ; }
+  0% { background-color: #00d6c6; box-shadow: 0 0 3px #00d6c6; }
+  50% { background-color: #7feae2; box-shadow: 0 0 10px #00d6c6; }
+  100% { background-color: #00d6c6; box-shadow: 0 0 3px #00d6c6; }
+}
+
+
+.jGrowl-close {
+	font-size: 150% !important;
+	margin-top: -7px;
+}
+
+.jGrowl-info {
+	opacity: 1;
+	background-color: #DDDDDD;
+	color: black;
+	font-size: 190%;
+	margin-top: 5px;
+	border-radius: 1px !important;
+	border: 1px solid black;
+	min-width: 298px;
+	margin: 0px !important;
 }
