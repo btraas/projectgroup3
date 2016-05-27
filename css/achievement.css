@@ -1,18 +1,16 @@
-
 /* wrpper for achievement page */
 .achievement_wrapper {
 	margin: auto auto;
 	height:80%;
-
 }
 
 /* achievement box */
-.achievement {
+.achievement_row {
 	padding: 5px;
 	margin: 20px 15px;
 	height:18%;
 
-	background-color: grey;
+	background-color: #000000;
 	border-radius: 10px;
 	position:relative;
 
@@ -22,31 +20,31 @@
 
 }
 /* style for ico  */
-.achievement_ico {
+.achievement_icon {
 	float: left;
-	margin: 10px 5px;
+	height: 70%;
+	width: 15%;
+	margin: 2%;
+	margin-left:0;
 }
 
 .achievement_text {
 	float: left;
-	margin: 10px auto;
+	margin: auto;
 }
 
 .achievement_percentage {
-	 margin: 10px auto;
-	 float: right;
-	 font-size: 170%;
+	margin: auto;
+	float: right;
+	font-size: 170%;
 }
 
 .achievement_title {
-
-	 font-size: 130%;
-	 font-weight: bold;
-
+	text-align: left;
+	font-size: 100%;
+	font-weight: bold;
 }
 
 .achievement_detail {
-
-	 font-size: 55%;
-
+	font-size: 55%;
 }

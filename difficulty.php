@@ -1,5 +1,4 @@
 <?php include('header.php'); ?>
-	<link id="difficultyCSS" rel="stylesheet" type="text/css" href="css/difficulty.css">
     <script src='js/difficulty.js'></script>
 
 		<?php include('menu_button.php'); ?>
@@ -7,9 +6,9 @@
         <div id="text"><label for="level">Difficulty:</label> </div>
 
             <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
-            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="0" checked="checked" onclick="onRadio(this.value)"/>
+            <input type="radio" name="radio-choice-a2" id="radio-choice-a1" value="0" checked="checked" onclick="onRadio(this.value)"/>
 			<label for="radio-choice-a1">Classic</label>
-			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="1"  onclick="onRadio(this.value)"/>
+			<input type="radio" name="radio-choice-a2" id="radio-choice-b1" value="1"  onclick="onRadio(this.value)"/>
 			<label for="radio-choice-b1">Challenge</label>
             </fieldset>
                

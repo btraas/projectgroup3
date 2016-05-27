@@ -16,13 +16,13 @@
 
 <?php include('menu_button.php'); ?>
 
-    <div class="switcher">
+    <div class="leader_switcher">
             <div class='Leaderboards' id="leaderboards_text">Leaderboards</div>
             <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
-            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="0" <?php if(@$_COOKIE['leaderboard_gameMode']!=1) echo "checked" ?> onclick="radioClick(this.value);"/>
-			<label for="radio-choice-a1">Classic</label>
-			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="1" <?php if(@$_COOKIE['leaderboard_gameMode']==1) echo "checked" ?> onclick="radioClick(this.value);"/>
-			<label for="radio-choice-b1">Challenge</label>
+            <input type="radio" name="radio-choice-a3" id="radio-choice-e1" value="0" <?php if(@$_COOKIE['leaderboard_gameMode']!=1) echo "checked" ?> onclick="radioClick(this.value);"/>
+			<label for="radio-choice-e1">Classic</label>
+			<input type="radio" name="radio-choice-a3" id="radio-choice-f1" value="1" <?php if(@$_COOKIE['leaderboard_gameMode']==1) echo "checked" ?> onclick="radioClick(this.value);"/>
+			<label for="radio-choice-f1">Challenge</label>
             </fieldset>
     </div>
 

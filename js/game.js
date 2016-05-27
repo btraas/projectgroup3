@@ -62,7 +62,7 @@ function createGrid() // {{{
                 	progress[progressIndex++] = 1;
 
 					//send to result
-					if(progressIndex >= progress.length - 1){
+					if(progressIndex >= progress.length){
 						onResult();
 					}
 

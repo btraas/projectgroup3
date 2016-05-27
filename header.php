@@ -20,6 +20,19 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <link id="theme" rel="stylesheet" href="css/themes/darkTheme.min.css" />
 
+    <?php
+        // light theme    
+        if($_COOKIE['theme'] == 1) {         
+    ?>
+	        <link id="difficultyCSS" rel="stylesheet" type="text/css" href="css/difficulty_L.css">
+    <?php
+        } else { // dark theme
+    ?>
+            <link id="difficultyCSS" rel="stylesheet" type="text/css" href="css/difficulty.css">
+    <?php
+        }
+    ?>
+
 
     <!--Cookies-->
     <script src='js/cookie.js'></script>
