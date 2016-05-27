@@ -6,6 +6,7 @@
 }
 
 .achievement {
+	padding: 5px;
 	margin: 20px 15px;
 	height:18%;
 
@@ -14,24 +15,33 @@
 	position:relative;
 
     background-image: url("../../resources/images/achievement_grey.png");
-    background-size: 75% 100%; /*your percentage is the first one (width), second one (100%) is for height*/
+    background-size: 0% 100%; /*your percentage is the first one (width), second one (100%) is for height*/
     background-repeat: no-repeat;
 
 }
 
 .achievement_ico {
 	float: left;
-	margin: 5px 10px;
+	margin: 10px 5px;
+
 }
 
 .achievement_text {
-	 margin-left: 10px;
+	float: left;
+	margin: 10px auto;
 
+
+}
+
+.achievement_percentage {
+	 margin: 10px auto;
+	 float: right;
+	 font-size: 170%;
+	 
 }
 
 .achievement_title {
 
-	 margin-left: 15px;
 	 font-size: 130%;
 	 font-weight: bold;
 
@@ -39,6 +49,6 @@
 
 .achievement_detail {
 
-	 font-size: 90%;
+	 font-size: 55%;
 
 }

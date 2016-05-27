@@ -31,23 +31,18 @@
 	        $sql="CALL GetAchievements('$username')";
 
 	        $result=mysql_query($sql);
-            while($rows=mysql_fetch_array($result)){ // Start looping table row
+            while($rows=mysql_fetch_array($result)){ // Start looping
 
 ?>
-
-			<div class="achievement" id="<?php echo $rows['achievement_id']; ?>">
-					<div class="achievement_ico"><img alt="achievement" src="<?php echo $rows['achievement_image']; ?>" width="50" height="100%" /></div>
+			<div class="achievement" style="background-size: <?php echo $rows['percent_complete']; ?>% 100% ">
+				<div class="achievement_percentage"><?php echo $rows['percent_complete']; ?></div>
+				<div class="achievement_ico"><img alt="achievement" src="<?php echo $rows['achievement_image']; ?>" width="40" height="100%" /></div>
 					<div class="achievement_text">
 						<div class="achievement_title"><?php echo $rows['achievement_name']; ?></div>
 						<div class="achievement_detail"><?php echo $rows['achievement_description']; ?></div>
 					</div>
+					
 			</div>
-
-			<script>
-				    var progress = document.getElementById("<?php echo $rows['achievement_id']; ?>");
-				    progress.style.backgroundSize = "<?php echo $rows['percent_complete']; ?> 100%";
-
-			</script>
 <?php
 	}
 ?>
