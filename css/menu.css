@@ -35,6 +35,7 @@
 
 .icon {
 	height: 27vw;
+	margin: 2vw;
 	max-height: 200px;
 	cursor:pointer;
 }
