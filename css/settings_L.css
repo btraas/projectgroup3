@@ -44,7 +44,7 @@
 }
 
 /* set switcher centre align */
-.switcher{
+.setting_switcher{
     margin: auto;
     width:320px;
     text-align: center;

@@ -11,7 +11,7 @@
 		<div class='volume_text' id="volume_text2">SFX Volume</div>
 		<input type="range" class='sfx' id='sfx' value="" min="0" max="100" onchange ='showVal_sfx(this.value)'/>
         
-        <div class="switcher">
+        <div class="theme_switcher">
             <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
 		    <legend class='theme' id="theme_text">Dark/Light Theme</legend>
             <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="0" <?php if(@$_COOKIE['theme']!=1) echo "checked"; ?> onclick="settheme(this.value), Dtheme()"/>
