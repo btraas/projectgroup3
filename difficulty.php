@@ -7,10 +7,10 @@
         <div id="text"><label for="level">Difficulty:</label> </div>
 
             <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
-            <input type="radio" name="radio-choice-a2" id="radio-choice-a1" value="0" <?php if ($gm==0) {echo 'checked="checked"';} ?>  onclick="onRadio(this.value)"/>
-			<label for="radio-choice-a1">Classic</label>
-			<input type="radio" name="radio-choice-a2" id="radio-choice-b1" value="1" <?php if ($gm==1) {echo 'checked="checked"';} ?> onclick="onRadio(this.value)"/>
-			<label for="radio-choice-b1">Challenge</label>
+            <input type="radio" name="radio-choice-a2" id="classic-mode" value="0" <?php if ($gm==0) {echo 'checked="checked"';} ?>  onclick="onRadio(this.value)"/>
+			<label for="classic-mode">Classic</label>
+			<input type="radio" name="radio-choice-a2" id="challenge-mode" value="1" <?php if ($gm==1) {echo 'checked="checked"';} ?> onclick="onRadio(this.value)"/>
+			<label for="challenge-mode">Challenge</label>
             </fieldset>
                
 	    <div class="lvimg">
@@ -19,6 +19,8 @@
         <div class="levelselection">
             	<input type="range" name="level" id ="level" value="1" min="1" max="7" onchange="updateImg(this.value);">
     	</div>
+		<table style='vertical-align: top; text-align: left; margin: 10px;' id='info-table'>
+		</table>
 
         <!--<button type="button" onclick="goPlay()">Play</button>-->
 		<div class='bottom play'>

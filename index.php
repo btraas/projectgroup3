@@ -60,9 +60,9 @@
 	?>
 
 	<div class='main_menu_row'>
-	    <input type="image" src="resources/images/menu_tutorial.png" onclick="$('#logout').click()" class="icon tutorial">
+	    <input type="image" src="resources/images/menu_tutorial.png" onclick="$('#tutorial').click()" class="icon tutorial">
 		<!-- just a placeholder (invisible) for jquery mobile transitions -->
-		<a id='logout' href='tutorial.php' data-transition='flow'></a>
+		<a id='tutorial' href='tutorial.php' data-transition='flow'></a>
 	</div>
 
 </div>

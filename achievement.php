@@ -44,8 +44,13 @@
 	        $result=mysql_query($sql);
             while($rows=mysql_fetch_array($result)){ // Start looping
 
+			if($rows['percent_complete']<100) 
+			{
+				$rows['achievement_image'] = "resources/images/lock.png";
+			}
+
 ?>
-			<div class="achievement_row" style="background-size: <?php echo $rows['percent_complete']; ?>% 100% ">
+			<div class="achievement_row  <?php if($rows['percent_complete']<100) { echo 'locked'; }?>" style="background-size: <?php echo $rows['percent_complete']; ?>% 100% ">
 				<div class="achievement_percentage"><?php echo $rows['percent_complete']; ?>%</div>
 				<img class="achievement_icon" alt="achievement" src="<?php echo $rows['achievement_image']; ?>"/>
 					<div class="achievement_text">

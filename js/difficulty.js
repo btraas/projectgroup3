@@ -8,9 +8,17 @@ $(document).on('pageshow', "[data-url='/difficulty.php']", function(){
         $("#level").val(getCookie('level')).slider('refresh');
         document.getElementById('lvImg').src = 'resources/level/Lv'+getCookie('level')+'.png';
 
-		
+		setText();	
 
 });
+
+function setText()
+{
+	var classic_html = " <tr style='vertical-align: top;'><td>Drag from 1-x consecutive numbers to complete the grid</p></td></tr>";
+	var challenge_html = "<tr style='vertical-align: top;'><td>Drag between even numbers only. Numbers are not consecutive.</td></tr>";
+	if($('#classic-mode').is(':checked')) $('#info-table').html(classic_html);
+	else $('#info-table').html(challenge_html);
+}
 
 // function that changes images when swiping slider
 function updateImg(val) {
@@ -90,6 +98,7 @@ function updateImg(val) {
 
 function onRadio(val) {
     gameMode = val;
+	setText();
     setCookie("gameMode", gameMode, 365);
 	setCookie('leaderboard_gameMode', gameMode, 365);
 }

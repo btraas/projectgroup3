@@ -49,3 +49,6 @@
 	text-align:left;
 	font-size: 100%;
 }
+.locked {
+	opacity: 0.4;
+}
