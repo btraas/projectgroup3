@@ -3,7 +3,7 @@
 * Shawn Kim
 * Kelvin Zheng
 * Benjamin Hao
-
+* Yoshiaki Murakami
 #Memory Swipe
 ###Improve your memory with a simple game. Simply remember the numbers that appear, and then swipe from one to the next.
 
