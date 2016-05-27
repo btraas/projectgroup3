@@ -68,7 +68,7 @@ function createGrid() // {{{
                 if(pattern == answer) {
                 //Removing pattern from visual
                 	showCheck();
-            		SFX.play('resources/sounds/sfx_ui_check.ogg');
+            		SFX.play('resources/sounds/sfx_ui_input.ogg');
                 	progress[progressIndex++] = 1;
 
 					console.log("Milliseconds: "+(x.time() - lastGridTime));
@@ -129,7 +129,7 @@ function createGrid() // {{{
 					score += calcScore(x.time());
 					lastGridTime = x.time();
 				} else {
-					SFX.play('resources/sounds/sfx_ui_wrong.ogg');
+					SFX.play('resources/sounds/sfx_ui_input.ogg');
 					lock.error();
 					window.setTimeout(function() { lock.reset(); }, 100);
 				}
