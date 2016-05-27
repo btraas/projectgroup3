@@ -44,7 +44,7 @@
 
 </head>
 
-<body id="body" onload="Dtheme()">
+<body>
     <div class='maincontainer' id="maincontainer">
 
 

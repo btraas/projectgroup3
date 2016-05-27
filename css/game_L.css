@@ -1,41 +1,46 @@
 #progressBar {
-    height: 30px;
-    background-color: #f0f0f0;
+    height: 10%;
+    background-color: #f9f9f9;
     margin-bottom: 1%;
 }
 
 .progressButtonEmpty {
     float:left;
-    width: 24px;
-    height: 24px;
-    margin: 2px 1px 1px 1px;
-    border-radius:24px;
+    width: 7%;
+    height: 95%;
+    margin: 0px 1px 1px 1px;
     background-color:#cccccc;
 }
 
 .progressButtonOff {
     float:left;
-    width: 24px;
-    height: 24px;
-    margin: 2px 1px 1px 1px;
-    border-radius:24px;
+    width: 7%;
+    height: 95%;
+    margin: 0px 1px 1px 1px;
     background-color:#FF574D;
 }
 
 .progressButtonOn {
     float:left;
-    width: 24px;
-    height: 24px;
-    margin: 2px 1px 1px 1px;
-    border-radius:24px;
+    width: 7%;
+    height: 95%;
+    margin: 0px 1px 1px 1px;
     background-color:#00FF90;
+}
+
+#progressBar {
+    height: 30px;
+    background-color: #f9f9f9;
+    margin-bottom: 1%;
 }
 
 #progressNumber {
     float:left;
     color: black;
-    font-size: 1.4em;
+    font-size: 160%;
     margin-left: 5px;
+    position: absolute;
+    right: 5px;
 }
 
 #stopWatch{
@@ -46,7 +51,7 @@
     color: black;
 }
 #pattern{
-    background-color: #cccccc;
+    background-color: #CCCCCC;
     margin-bottom:5%;
 }
 
