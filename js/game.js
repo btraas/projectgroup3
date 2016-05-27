@@ -106,7 +106,7 @@ function createGrid() // {{{
 					lastGridTime = x.time();
 				} else {
 					lock.error();
-					//window.setTimeout(function() { lock.reset(); }, 1000);
+					window.setTimeout(function() { lock.reset(); }, 100);
 				}
 
 				//Removing pattern from visual
