@@ -9,3 +9,10 @@
 .register_Btn {
 	margin-top: 30px;
 }
+
+.error_info {
+	height: 50px;
+	margin: 10px auto;
+	font-size: 110%;
+	color:red;
+}
