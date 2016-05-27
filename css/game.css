@@ -7,24 +7,24 @@
 .progressButtonEmpty {
     float:left;
     width: 7%;
-    height: 24px;
-    margin: 2px 1px 1px 1px;
+    height: 95%;
+    margin: 0px 1px 1px 1px;
     background-color:#fff;
 }
 
 .progressButtonOff {
     float:left;
     width: 7%;
-    height: 24px;
-    margin: 2px 1px 1px 1px;
+    height: 95%;
+    margin: 0px 1px 1px 1px;
     background-color:#FF574D;
 }
 
 .progressButtonOn {
     float:left;
     width: 7%;
-    height: 24px;
-    margin: 2px 1px 1px 1px;
+    height: 95%;
+    margin: 0px 1px 1px 1px;
     background-color:#00FF90;
 }
 
@@ -37,8 +37,10 @@
 #progressNumber {
     float:left;
     color: #fff;
-    font-size: 200%;
+    font-size: 160%;
     margin-left: 5px;
+    position: absolute;
+    right: 5px;
 }
 
 #stopWatch{
