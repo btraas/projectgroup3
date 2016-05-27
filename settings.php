@@ -14,7 +14,7 @@
         <div class="switcher">
             <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
 		    <legend class='theme' id="theme_text">Dark/Light Theme</legend>
-            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="Dark" value="0" onchange="Dtheme()"/>
+            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="Dark" value="0" checked="checked" onchange="Dtheme()"/>
 			<label for="radio-choice-a1">Dark</label>
 			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="Light" value="1" onchange="Ltheme()" />
 			<label for="radio-choice-b1">Light</label>
