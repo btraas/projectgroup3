@@ -12,6 +12,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js'></script>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/jquery-jgrowl/1.4.1/jquery.jgrowl.min.css" />
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-jgrowl/1.4.1/jquery.jgrowl.min.js"></script>
+
     <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
     <link id="mainCSS" rel="stylesheet" type="text/css" href="css/main.css"/>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
@@ -24,10 +27,11 @@
     <script src='js/functions.js'></script>
     <script src='js/theme.js'></script>
 	<script>
-		$(document).on('pagebeforeshow', changePageSFX);
-		function changePageSFX()
+		$(document).on('pagebeforeshow', pageShow);
+		function pageShow()
 		{
 			SFX.play("resources/sounds/sfx_test.wav");
+			//if(getCookie('')) // set light or dark theme on page load
 		}
 	</script>
     <!-- Meta stuff -->
@@ -40,7 +44,7 @@
 
 </head>
 
-<body id="body" onload="Dtheme()">
+<body>
     <div class='maincontainer' id="maincontainer">
 
 

@@ -1,5 +1,5 @@
 body, .ui-page {
-  background: #f0f0f0;
+  background: #999;
   text-align: center;
   font-size: 95%;
   line-height: 1.5;
@@ -37,7 +37,7 @@ body, .ui-page {
   max-width: 1000px;
 
   height: 100%;
-  background-color: #232323;
+  background-color: #f0f0f0;
   text-align: center;
   /* border-radius: 10px; */
   overflow: hidden;
@@ -50,7 +50,7 @@ body, .ui-page {
   position: absolute;
   width: 280px;
   height: 280px;
-  background: #404040;
+  background: #00d6c6;
   padding: 10px;
   border-radius: 10px;
 }
@@ -61,7 +61,7 @@ body, .ui-page {
 .button {
   width: 40px;
   height: 40px;
-  background: #EC7822;
+  background: #00d6c6;
   border-radius: 50%;
   margin: 10px;
   float: left;
@@ -142,7 +142,7 @@ body, .ui-page {
 }
 
 .bottom {
-	height: 16%;
+	/*height: 16%;*/
     width: 98%;
     border:none;
     position: absolute;
@@ -152,9 +152,9 @@ body, .ui-page {
 
 .bottom.skip {
   height: 16%;
-    width: 95%;
-    border:none;
-    position: absolute;
+  width: 95%;
+  border:none;
+  position: absolute;
   bottom: 0;
   margin-left: 2.5%;
 }
@@ -165,11 +165,11 @@ body, .ui-page {
 }
 
 .bottom.play .ui-btn{
-  height: 30%;
+  /*height: 30%;*/
+  padding: 0;
   font-size: 2.5em;
-  padding-top: 5px;
   background-color: #00d6c6;
-  width: 70%;
+  width: 100%;
   -webkit-border-radius: 10px;
   border-radius: 10px;
   border: none;
@@ -182,7 +182,7 @@ body, .ui-page {
 }
 
 @keyframes glowing {
-  0% { background-color: #00d6c6; box-shadow: 0 0 3px #00d6c6; }
-  50% { background-color: #7feae2; box-shadow: 0 0 10px #00d6c6; }
-  100% { background-color: #00d6c6; box-shadow: 0 0 3px #00d6c6; }
+  0% { background-color: #00d6c6 ; box-shadow: 0 0 3px #00d6c6 ; }
+  50% { background-color: #7feae2; box-shadow: 0 0 10px #00d6c6 ; }
+  100% { background-color: #00d6c6 ; box-shadow: 0 0 3px #00d6c6 ; }
 }
