@@ -8,5 +8,5 @@ $(document).on('pageshow', "[data-url='/tutorial.php']", function(){
 //exit the current bgm when they get out this page
 $(document).on('pagebeforehide', "[data-url='/tutorial.php']", function()
 {
-    BGM.play();
+    BGM.next();
 });
