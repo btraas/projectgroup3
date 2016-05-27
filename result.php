@@ -29,10 +29,10 @@
 <!-- This needs to be in this PHP file to set these variables -->
 <script>
 	BGM.loop('resources/sounds/bgm_scoreboard.mp3');
-
 	var rank = <?php echo $rows['rank']; ?>;
 	var score = <?php echo $score; ?>;
 </script>
+
     <script src='js/theme.js'></script>
 	<link id="resultCSS" rel="stylesheet" type="text/css" href="css/result.css">
     <script src='js/result.js'></script>
