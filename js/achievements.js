@@ -29,7 +29,7 @@ function Achievement(id, noLoad)
 	this.load = function(callback) 
 	{
 
-		$.post('post_achievements.php?m=getachievement', { 'id' : self.id }, function (data)
+		$.post('achievements_post.php?m=getachievement', { 'id' : self.id }, function (data)
 		{
 			self.set(data, callback);
 		});
@@ -38,7 +38,7 @@ function Achievement(id, noLoad)
 	this.update = function(value)
 	{
 		self.value = value;
-		$.post('post_achievements.php?m=setachievement',
+		$.post('achievements_post.php?m=setachievement',
         {
             'id'    : self.id,
             'value' : value
