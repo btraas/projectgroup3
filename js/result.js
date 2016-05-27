@@ -1,8 +1,6 @@
 // result.js
 
-// Posts score to server, also saves user score locally
-var rank = <?php echo $rows['rank']; ?>;
-var score = <?php echo $score; ?>;
+
 BGM.loop('resources/sounds/bgm_scoreboard.mp3');
 
 // direct to other pages accordingly
