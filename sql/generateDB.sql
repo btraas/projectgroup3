@@ -55,19 +55,24 @@ CREATE DEFINER = 'g3'@'%' PROCEDURE `GetAchievements`(
 BEGIN
 
 	SELECT * FROM
+
+		-- Select achievements this user has unlocked
 		(SELECT a.*, ma.username, ma.achievement_value AS value,
 		CASE 
         	WHEN (100*ma.achievement_value/a.`achievement_max`) > 100 THEN 100
         	WHEN (100*ma.achievement_value/a.`achievement_max`) < 0 THEN 0
-        	ELSE (100*ma.achievement_value/a.`achievement_max`) END
+        	ELSE ROUND(100*ma.achievement_value/a.`achievement_max`, 0) END
         AS percent_complete 
 		FROM achievements a 
 		RIGHT JOIN  member_achievements ma ON ma.achievement_id = a.achievement_id
 		WHERE ma.username = username
 		
 		 UNION
-		
+		 -- Select all achievements
 		 SELECT a.*, username, 0, 0  FROM achievements a
 		) sq
+
+	-- Group unlocked + all achievements
 	GROUP BY achievement_id;
 END;
+
