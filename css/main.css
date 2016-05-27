@@ -203,3 +203,10 @@ body, .ui-page {
 	min-width: 298px;
 	margin: 0px !important;
 }
+
+.jGrowl img.achievement-icon {
+	-webkit-filter: invert(1);
+	filter: invert(1);
+	width: 32px;
+	height: 32px;
+}

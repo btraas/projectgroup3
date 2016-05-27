@@ -1,7 +1,7 @@
 // achievements.js - functions for updating and displaying recieved achievements
 
 // Achievement object
-function Achievement(id)
+function Achievement(id, noLoad)
 {
 	var self = this;
 
@@ -12,7 +12,7 @@ function Achievement(id)
 	this.value = 0;
 	this.image = "";
 
-	this.set = function(data)
+	this.set = function(data, callback)
 	{
 		data = JSON.parse(data);
 
@@ -22,15 +22,18 @@ function Achievement(id)
 		self.value = data.value;
 		self.image = data.image;
 		console.log(data);
+
+		if(callback) callback();
 	}
 
-	{this.load = function() {
+	this.load = function(callback) 
+	{
 
 		$.post('post_achievements.php?m=getachievement', { 'id' : self.id }, function (data)
 		{
-			self.set(data);
+			self.set(data, callback);
 		});
-	};}
+	}
 
 	this.update = function(value)
 	{
@@ -48,12 +51,14 @@ function Achievement(id)
 	}
 
 	this.complete = function() {
+		console.log("complete: value:"+self.value+" max:"+self.max)
+		if(self.value >= self.max) return;
 	
-		$.jGrowl("<img src='"+self.image+"' /> "+'Achievement unlocked: '+self.name, {theme: 'jGrowl-info'});
+		$.jGrowl("<img class='achievement-icon' src='"+self.image+"' /> "+'Achievement unlocked: '+self.name, {theme: 'jGrowl-info'});
 		self.update(self.max);
 
 	
 	}
 
-
+	if(!noLoad) this.load();
 } // }}}

@@ -15,6 +15,10 @@ var progress = [2, 2, 2, 2, 2,
 var progressIndex = 0;// user progress index
 var lock = null;
 
+var lastGridTime = 0;
+var speedDemonMS = 2000;
+
+
 // get values from cookie based on difficulty level
 gridSize = getCookie("gridSize");
 numberRange = getCookie("numberRange");
@@ -53,13 +57,25 @@ function createGrid() // {{{
         //When user is done drawing(pattern: user input)
         onDraw:function(pattern) {
                 var answer = decodeURI(getCookie('answer')).split('|').join('');
-                console.log("onDraw");
+        //        console.log("onDraw");
                 //when user input is correct
                 if(pattern == answer) {
                 //Removing pattern from visual
                 	showCheck();
             		SFX.play('resources/sounds/sfx_ui_check.ogg');
                 	progress[progressIndex++] = 1;
+
+					console.log("Milliseconds: "+(x.time() - lastGridTime));
+
+					// achievement
+					if(x.time() - lastGridTime < speedDemonMS)
+					{
+						// Achievement object #1. 2nd parameter says not to load automatically
+					    var a = new Achievement(2, true);
+					    // Load, and run the complete() function as a callback
+						a.load(a.complete);
+
+					}
 
 					//send to result
 					if(progressIndex >= progress.length){
@@ -86,12 +102,13 @@ function createGrid() // {{{
 
 					//Calc score
 					score += calcScore(x.time());
+					lastGridTime = x.time();
 				} else {
 					lock.error();
+					//window.setTimeout(function() { lock.reset(); }, 1000);
 				}
 
 				//Removing pattern from visual
-                window.setTimeout(function() { lock.reset(); }, 1000);
         }//end of onDraw fucntion
     };//end of grid }}}
 
@@ -167,7 +184,7 @@ $(document).on('pageshow', "[data-url='/game.php']", function(){
 
 	var matrixMultiplier = 1.3;
 
-
+	
 	// set matrix width / height by window width
 	var minHeightWidth = $(window).width();
 
@@ -232,6 +249,9 @@ function getRandomOdd(range) {
 function skip() // {{{ Skip button
 {
 	SFX.play('resources/sounds/sfx_ui_skip.ogg');
+
+	lastGridTime = x.time();
+	
 
 	//Direc user to result scene if all progress is done
 	if(progressIndex >= progress.length - 1){
