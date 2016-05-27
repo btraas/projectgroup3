@@ -1,15 +1,12 @@
 //tutorial.js
 
-$(document).ready(function(){
-  $('.bxslider1').bxSlider({
-    slideWidth: 200,
-    slideHeight: 100,
-    minSlides: 1,
-    maxSlides: 1,
-    slideMargin: 10,
-    randomStart: false,
-    controls: true,
-    responsive: true,
-    auto: false
-  });
+$(document).on('pageshow', "[data-url='/tutorial.php']", function(){
+    BGM.pause();
+});
+
+
+//exit the current bgm when they get out this page
+$(document).on('pagebeforehide', "[data-url='/tutorial.php']", function()
+{
+    BGM.play();
 });
