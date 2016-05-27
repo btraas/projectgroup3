@@ -6,7 +6,7 @@
         <script src="js/bxslider/jquery.bxslider.min.js"></script>
         <script src="js/tutorial.js"></script>
         <!-- bxSlider CSS file -->
-        <link href="styles/jquery.bxslider.css" rel="stylesheet" />
+        <link href="css/jquery.bxslider.css" rel="stylesheet" />
 <?php include('menu_button.php'); ?>
 	<div id="index_body_header">
 		<ul class="bxslider1">
