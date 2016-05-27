@@ -170,9 +170,11 @@ $(document).on('pageshow', "[data-url='/game.php']", function(){
 
 
 	// set matrix width / height by window width
-	var minHeightWidth = $('#maincontainer').width();
+	var minHeightWidth = $(window).width();
 
-	window.alert(minHeightWidth);
+	if(minHeightWidth > 1000){
+		minHeighWidth = 1000;
+	}
 
 	if(($('#maincontainer').height() - 100) < minHeightWidth) minHeightWidth = $('#maincontainer').height() - 100;
 	matrixSize = minHeightWidth * matrixMultiplier;
