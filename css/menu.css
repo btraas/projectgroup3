@@ -20,6 +20,7 @@
 .mainmenu {
 	margin: 10px;
 	margin-top: 10%;
+	height: 70%;
 	bottom: 0;
 }
 
@@ -27,12 +28,13 @@
 	width: 95%;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom:1%;
+	margin-top: 2%;
+	margin-bottom: 2%;
 	background-color:#cccccc;
 }
 
 .icon {
-	height: 10vw;
+	height: 11vw;
 	cursor:pointer;
 }
 
