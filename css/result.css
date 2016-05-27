@@ -33,47 +33,47 @@
 
 .menu {
 	width: 90%;
-    height: 260px;
+    height: 55%;
     margin: 10px auto;
     background-color: #404040;
     border-radius: 20px 20px 20px 20px;
 }
 
 /** the style of buttons **/
-.homeBtn {
-  width: 95px;
-  height: 100px;
-  margin: 10px auto;
-  cursor:pointer;
+.homeBtn {		
+	cursor:pointer;
+	width: 40%;
+	max-width: 150px;
+	margin: 3%;
 }
 
 .postBtn {
 	cursor:pointer;
-	width: 95px;
-	height: 100px;
- 	margin: 10px auto;
+	width: 40%;
+	max-width: 150px;
+	margin: 3%;
 }
 
 .selectBtn {
 	cursor:pointer;
-	width: 95px;
- 	height: 100px;
- 	margin: 10px auto;
+	width: 40%;
+	max-width: 150px;
+	margin: 3%;
 }
 
 .playBtn {
 	cursor:pointer;
-	width: 95px;
- 	height: 100px;
- 	margin: 10px auto;	
+	width: 40%;
+	max-width: 150px;
+	margin: 3%;
 }
 
 .firstRow {
-	width:200px;
+	width: 100%;
 	margin: auto;
 }
 
 .secondRow {
-	width:200px;
+	width: 100%;
 	margin: auto;
 }
