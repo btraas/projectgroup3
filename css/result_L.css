@@ -9,10 +9,18 @@
 	width: 96%;
 	height: 50px;
 	background-image: url("../../resources/images/result_image_scorebaord.png");
-    background-repeat: no-repeat;
-    background-size: 96% 50px;
+	background-repeat: repeat-y;
+    background-size: 96% 200px;
+    background-position: 0px 0px;
     -webkit-filter: invert(1);
     filter: invert(1);
+    
+	animation: animatedBackground 5s linear infinite;
+}
+
+@keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: 0 100%; }
 }
 
 .score {

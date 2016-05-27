@@ -9,8 +9,26 @@
 	width: 96%;
 	height: 50px;
 	background-image: url("../../resources/images/result_image_scorebaord.png");
-    background-repeat: no-repeat;
-    background-size: 96% 50px;
+	background-repeat: repeat-y;
+    background-size: 96% 200px;
+    background-position: 0px 0px;
+    
+	animation: animatedBackground 5s linear infinite;
+}
+
+@keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: 0 100%; }
+}
+
+.scoreArea background-image{
+    animation: glowing 1500ms infinite;
+}
+    
+@keyframes glowing {
+  0% { background-color: #EC7822; box-shadow: 0 0 3px #EC7822; }
+  50% { background-color: #FFA83F; box-shadow: 0 0 10px #EC7822; }
+  100% { background-color: #EC7822; box-shadow: 0 0 3px #EC7822; }
 }
 
 .score {
