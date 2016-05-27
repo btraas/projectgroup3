@@ -5,7 +5,9 @@
 	margin-right: 10px;
 }
 
-/** set top margin for submit button **/
-.register_Btn {
-	margin-top: 30px;
+.error_info {
+	height: 40px;
+	margin: auto auto;
+	font-size: 110%;
+	color:red;
 }
