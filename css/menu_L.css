@@ -21,6 +21,8 @@
 	margin: 10px;
 	margin-top: 10%;
 	bottom: 0;
+    -webkit-filter: invert(1);
+    filter: invert(1);
 }
 
 .icon {
