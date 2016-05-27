@@ -9,19 +9,18 @@
 	text-align: center;
 	font-size: 160%;
 	font-weight: bold;
-  border:none;
+    border:none;
 }
 
 /* nothing, darkTheme.css included it */
 .volume_text {
     font-size: 180%;
     font-weight: bold;
-  	text-align: left;
+	text-align: left;
     padding-top: 5px;
     letter-spacing: 1px;
     margin-top: 45px;
     margin-left: 8px;
-    color:black;
 }
 
 /* set fixed size for buttons*/
@@ -35,16 +34,16 @@
 .theme {
     font-size: 160%;
     font-weight: bold;
-	  text-align: center;
+	text-align: center;
     padding-top: 5px;
     letter-spacing: 1px;
     margin-top: 40px;
     margin-left: 8px;
-    color:black;
+    color: black;
 }
 
 /* set switcher centre align */
-.setting_switcher{
+.theme_switcher{
     margin: auto;
     width:320px;
     text-align: center;

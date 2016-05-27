@@ -1,6 +1,17 @@
 <?php include('header.php'); ?>
 
-<link id="settingsCSS" rel="stylesheet" type="text/css" href="css/settings.css">
+<?php
+        // light theme    
+        if($_COOKIE['theme'] == 1) {         
+    ?>
+    <link id="settingsCSS" rel="stylesheet" type="text/css" href="css/settings_L.css">
+    <?php
+        } else { // dark theme
+    ?>
+    <link id="settingsCSS" rel="stylesheet" type="text/css" href="css/settings.css">
+    <?php
+        }
+    ?>
 <script src='js/settings.js'></script>
 
 <?php include('menu_button.php'); ?>

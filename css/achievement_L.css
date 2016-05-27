@@ -1,0 +1,53 @@
+/* wrpper for achievement page */
+.achievement_wrapper {
+	margin: auto auto;
+	height:80%;
+}
+
+/* achievement box */
+.achievement_row {
+	padding: 5px;
+	margin: 5% 4% 4% 4%;
+	height:18%;
+
+	background-color: #ffffff;
+	border-radius: 10px;
+
+    background-image: url("../../resources/images/achievement_grey.png");
+    background-size: 0% 100%; /*your percentage is the first one (width), second one (100%) is for height*/
+    background-repeat: no-repeat;
+
+}
+/* style for ico  */
+.achievement_icon {
+	float: left;
+	height: 70%;
+	width: 15%;
+	margin: 2%;
+	margin-left:0;
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}
+
+.achievement_text {
+	margin: auto;
+}
+
+.achievement_percentage {
+	position: absolute;
+	right: 5%;
+	font-size: 170%;
+}
+
+.achievement_title {
+	width:80%;
+	text-align: left;
+	font-size: 125%;
+	font-weight: bold;
+}
+
+.achievement_detail {
+	width: 85%;
+	text-align:left;
+	font-size: 100%;
+}
