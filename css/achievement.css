@@ -33,17 +33,17 @@
 }
 
 .achievement_percentage {
-	 margin: auto;
-	 float: right;
-	 font-size: 170%;
+	margin: auto;
+	float: right;
+	font-size: 170%;
 }
 
 .achievement_title {
-	 font-size: 130%;
-	 font-weight: bold;
+	text-align: left;
+	font-size: 100%;
+	font-weight: bold;
 }
 
 .achievement_detail {
-	 font-size: 55%;
-
+	font-size: 55%;
 }
