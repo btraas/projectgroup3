@@ -31,13 +31,3 @@ function goPost()  {
 	    window.location = 'post_score.php?username=' + username + "&gameMode=" + gameMode + "&random=" + window.btoa(score);
     }
 }
-
-// function that takes users to menu page
-function goHome() {
-    window.location = 'index.php';
-}
-
-// function that takes users to game page
-function goPlay() {
-    window.location = "game.php";
-}

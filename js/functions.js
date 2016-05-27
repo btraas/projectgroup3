@@ -279,3 +279,14 @@ function readCookie(name) { // {{{
     return null;
 } // }}}
 
+
+// function that takes users to menu page
+function goHome() {
+    window.location = 'index.php';
+}
+
+// function that takes users to game page
+function goPlay() {
+    window.location = "game.php";
+}
+
