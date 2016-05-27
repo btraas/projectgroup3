@@ -80,13 +80,9 @@
 .firstRow {
 	width: 100%;
 	margin: auto;
-    -webkit-filter: invert(1);
-    filter: invert(1);
 }
 
 .secondRow {
 	width: 100%;
 	margin: auto;
-    -webkit-filter: invert(1);
-    filter: invert(1);
 }
