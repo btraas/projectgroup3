@@ -1,10 +1,12 @@
 
+/* wrpper for achievement page */
 .achievement_wrapper {
 	margin: auto auto;
 	height:80%;
 
 }
 
+/* achievement box */
 .achievement {
 	padding: 5px;
 	margin: 20px 15px;
@@ -19,25 +21,21 @@
     background-repeat: no-repeat;
 
 }
-
+/* style for ico  */
 .achievement_ico {
 	float: left;
 	margin: 10px 5px;
-
 }
 
 .achievement_text {
 	float: left;
 	margin: 10px auto;
-
-
 }
 
 .achievement_percentage {
 	 margin: 10px auto;
 	 float: right;
 	 font-size: 170%;
-	 
 }
 
 .achievement_title {
