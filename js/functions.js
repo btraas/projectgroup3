@@ -290,3 +290,7 @@ function goPlay() {
     window.location = "game.php";
 }
 
+// function that takes users to difficulty selection page
+function goSelect() {
+    window.location = "difficulty.php";
+}
