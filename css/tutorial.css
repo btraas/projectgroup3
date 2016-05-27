@@ -1,0 +1,10 @@
+#tutorial_video {
+	width:100%;
+	height:100%;
+}
+#tutorial_video iframe{
+    width: 98%;
+    border: none;
+	margin-top: auto;
+	margin-bottom: auto;
+}
