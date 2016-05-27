@@ -70,10 +70,10 @@
   background-color: #00FF90;
 }
 
-.switcher{
+.leader_switcher{
     text-align: center;
 }
-.switcher p {
+.leader_switcher p {
     color: white;
     font-size: 180%;
     font-weight: bold;

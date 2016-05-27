@@ -42,7 +42,7 @@
 }
 
 /* set switcher centre align */
-.switcher{
+.theme_switcher{
     margin: auto;
     width:320px;
     text-align: center;
