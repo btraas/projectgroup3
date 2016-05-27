@@ -14,12 +14,18 @@ CREATE TABLE leaderboards (
 ) ENGINE=InnoDB;
 
 CREATE TABLE `achievements` (
-  `achievement_id` INTEGER(11) NOT NULL AUTO_INCREMENT UNIQUE,
-  `achievement_name` VARCHAR(20) NOT NULL UNIQUE,
-  `achievement_description` TEXT(1),
-  `achievement_max` INTEGER(11) DEFAULT NULL,
-  PRIMARY KEY (`achievement_id`)
-) ENGINE=InnoDB;
+  `achievement_id` INTEGER(11) NOT NULL AUTO_INCREMENT,
+  `achievement_name` VARCHAR(20) COLLATE latin1_swedish_ci NOT NULL,
+  `achievement_description` TINYTEXT COLLATE latin1_swedish_ci,
+  `achievement_max` INTEGER(11) DEFAULT NULL COMMENT 'The \'max\' of this achievement. Used to represent user progress of this achievement',
+  `achievement_image` VARCHAR(255) COLLATE latin1_swedish_ci DEFAULT NULL,
+  PRIMARY KEY (`achievement_id`) USING BTREE,
+  UNIQUE KEY `achievement_id` (`achievement_id`) USING BTREE,
+  UNIQUE KEY `achievement_name` (`achievement_name`) USING BTREE
+) ENGINE=InnoDB
+AUTO_INCREMENT=5 CHARACTER SET 'latin1' COLLATE 'latin1_swedish_ci'
+;
+
 
 CREATE TABLE members (
   id INTEGER NOT NULL auto_increment,

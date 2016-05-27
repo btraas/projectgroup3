@@ -39,6 +39,7 @@
     <script src='js/sounds.js'></script>
     <script src='js/functions.js'></script>
     <script src='js/theme.js'></script>
+	<script src='js/achievements.js'></script>
 	<script>
 		$(document).on('pagebeforeshow', pageShow);
 
