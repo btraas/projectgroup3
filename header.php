@@ -27,23 +27,25 @@
     <script src='js/functions.js'></script>
     <script src='js/theme.js'></script>
 	<script>
-		$(document).on('pagebeforeshow', pageShow, DL_theme);
+		$(document).on('pagebeforeshow', pageShow);
+
 		function pageShow()
 		{
 			SFX.play("resources/sounds/sfx_test.wav");
 
 			//if(getCookie('')) // set light or dark theme on page load
-        function DL_theme()
+
+        }
+
         {
-            DLtheme = getCookie("theme");
-            if (DLtheme == 0){
+            // decide to use which theme
+            if (getCookie("theme") == 0){
                 Dtheme();
             }
             else {
-            Ltheme();
+              Ltheme();
             }
         }
-		
 	</script>
     <!-- Meta stuff -->
     <link rel="apple-touch-icon" href="resources/game_icon.png">
