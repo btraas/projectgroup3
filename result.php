@@ -34,7 +34,7 @@
 	var score = <?php echo $score; ?>;
 </script>
 
-	<link id="resultCSS" rel="stylesheet" type="text/css" href="css/result.css>
+	<link id="resultCSS" rel="stylesheet" type="text/css" href="css/result.css">
     <script src='js/result.js'></script>
 
     	<div id='topMargin'>
