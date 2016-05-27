@@ -19,7 +19,7 @@
 
 .mainmenu {
 	margin: 10px;
-	margin-top: 10%;
+	margin-top: 6%;
 	height: 70%;
 	bottom: 0;
 }
@@ -36,7 +36,7 @@
 .icon {
 	height: 27vw;
 	margin: 2vw;
-	max-height: 180px;
+	max-height: 160px;
 	cursor:pointer;
 }
 

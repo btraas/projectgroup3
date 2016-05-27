@@ -2,6 +2,7 @@ var level = 1; // the level of difficulty
 var gameMode = 0; // 0 for classic game, 1 for challenge mode
 var fakeNums = 0; // the number of fake numbers
 
+
 var score = 0; //user score
 var buttonRadius = 0; //button radius
 var buttonMargin = 0; //button margin
@@ -14,6 +15,15 @@ var progress = [2, 2, 2, 2, 2,
 				2, 2, 2, 2, 2]; //user progress 0: off, 1: on, 2:empty
 var progressIndex = 0;// user progress index
 var lock = null;
+
+// Speed Demon Achievement vars
+var lastGridTime = 0;
+var speedDemonMS = 2000;
+
+// Challenge Master Achievement vars
+var CMLevel = 7;
+var CMGrids = 3;
+
 
 // get values from cookie based on difficulty level
 gridSize = getCookie("gridSize");
@@ -53,7 +63,7 @@ function createGrid() // {{{
         //When user is done drawing(pattern: user input)
         onDraw:function(pattern) {
                 var answer = decodeURI(getCookie('answer')).split('|').join('');
-                console.log("onDraw");
+        //        console.log("onDraw");
                 //when user input is correct
                 if(pattern == answer) {
                 //Removing pattern from visual
@@ -61,9 +71,43 @@ function createGrid() // {{{
             		SFX.play('resources/sounds/sfx_ui_check.ogg');
                 	progress[progressIndex++] = 1;
 
+					console.log("Milliseconds: "+(x.time() - lastGridTime));
+
+					// Achievement 2: Speed Demon
+					if(x.time() - lastGridTime < speedDemonMS)
+					{
+						// Achievement object #2. 2nd parameter says not to load automatically
+					    var a = new Achievement(2, true);
+					    // Load, and run the complete() function as a callback
+						a.load(a.complete);
+					}
+
+					// Achievement 3: Challenge Master
+					if(gameMode==1 && level >= CMLevel)
+					{
+						var numComplete = 0;
+						// Achievement object #3. 2nd parameter says not to load automatically
+						var a = new Achievement(3, true);
+						for(var i=0; i<progress.length; i++)
+						{
+							if(progress[i] == 1) numComplete++;
+						}
+						if(numComplete >= CMGrids)
+						{
+                        	// Load, and run the complete() function as a callback
+                        	a.load(a.complete);
+						}
+						else if(numComplete > a.value)
+						{
+							a.load(function() {a.update(numComplete);});
+						}
+					}
+
+
 					//send to result
 					if(progressIndex >= progress.length){
 						onResult();
+						return;
 					}
 
 					// Generate new grid
@@ -86,12 +130,13 @@ function createGrid() // {{{
 
 					//Calc score
 					score += calcScore(x.time());
+					lastGridTime = x.time();
 				} else {
 					lock.error();
+					window.setTimeout(function() { lock.reset(); }, 100);
 				}
 
 				//Removing pattern from visual
-                window.setTimeout(function() { lock.reset(); }, 1000);
         }//end of onDraw fucntion
     };//end of grid }}}
 
@@ -167,7 +212,7 @@ $(document).on('pageshow', "[data-url='/game.php']", function(){
 
 	var matrixMultiplier = 1.3;
 
-
+	
 	// set matrix width / height by window width
 	var minHeightWidth = $(window).width();
 
@@ -233,9 +278,13 @@ function skip() // {{{ Skip button
 {
 	SFX.play('resources/sounds/sfx_ui_skip.ogg');
 
+	lastGridTime = x.time();
+	
+
 	//Direc user to result scene if all progress is done
 	if(progressIndex >= progress.length - 1){
 		onResult();	
+		return;
 	} 
 
 	//Make current progress Skipped(failed)
