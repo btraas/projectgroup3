@@ -33,7 +33,7 @@
 	var rank = <?php echo $rows['rank']; ?>;
 	var score = <?php echo $score; ?>;
 </script>
-
+    <script src='js/theme.js'></script>
 	<link id="resultCSS" rel="stylesheet" type="text/css" href="css/result.css">
     <script src='js/result.js'></script>
 
@@ -54,7 +54,7 @@
 
 		</div>
 
-		<div class='menu'>
+		<div class='result_menu'>
 			<!-- the first row of bottons -->
 			<div class='firstRow'>
 				<input type="image" src="resources/images/result_buttons_home.png" onclick="$('#home').click()" class="homeBtn">
@@ -66,7 +66,7 @@
 			<div class='secondRow'>
                 <input type="image" src="resources/images/result_buttons_level.png" onclick="goSelect()" class="selectBtn">
 				<a id='difficulty' href='./difficulty.php' data-transition='flow' data-direction='reverse'></a>
-                <input type="image" src="resources/images/result_buttons_retry.png" onclick="goPlay()" class="playBtn">
+                <input type="image" src="resources/images/result_buttons_retry.png" onclick="goPlay()" class="replayBtn">
 				<a id='game' href='./game.php' data-transition='flow' data-direction='reverse'></a>
 			</div>
 		</div>

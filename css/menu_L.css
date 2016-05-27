@@ -20,15 +20,26 @@
 .mainmenu {
 	margin: 10px;
 	margin-top: 10%;
+	height: 70%;
 	bottom: 0;
-    -webkit-filter: invert(1);
-    filter: invert(1);
+}
+
+.main_menu_row{
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2%;
+	margin-bottom: 2%;
+/*	background-color:#cccccc;*/
 }
 
 .icon {
-	width: 12%;
-	padding: 15px;
+	height: 27vw;
+	margin: 2vw;
+	max-height: 180px;
 	cursor:pointer;
+    -webkit-filter: invert(1);
+    filter: invert(1);
 }
 
 .difficulty {
@@ -44,4 +55,5 @@
 	margin: 15px;
 	margin-top: 0px;
 }
+
 

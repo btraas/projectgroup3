@@ -167,10 +167,18 @@ $(document).on('pageshow', "[data-url='/game.php']", function(){
 
 	var matrixMultiplier = 1.3;
 
+
 	// set matrix width / height by window width
-	var minHeightWidth = $('#maincontainer').width();
-	if(($('#maincontainer').height() - 100) < minHeightWidth) minHeightWidth = $('#maincontainer').height() - 100;
-	matrixSize = minHeightWidth * matrixMultiplier;
+	var minHeightWidth = $(window).width();
+
+	if(minHeightWidth > 1000){
+		minHeighWidth = 1000;
+	}
+
+	if(($(window).height() - 100) < minHeightWidth) {
+		minHeightWidth = $(window).height() - 100;
+		matrixSize = minHeightWidth * matrixMultiplier;
+	}
 	//if($('#maincontainer').width() > 1000) matrixSize = 1000 * matrixMultiplier;
 
 	// Math to determine elements sizes

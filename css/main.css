@@ -9,7 +9,7 @@ body, .ui-page {
   position: fixed;
   background-color: #232323;
 }
-
+/*
 .menu {
     margin-top: 20px;
     width: 100%;
@@ -20,7 +20,7 @@ body, .ui-page {
     font-size: 160%;
     font-weight: bold;
     border:none;
-}
+}*/
 
 /** set fixed size of the page **/
 .maincontainer {
@@ -151,11 +151,10 @@ body, .ui-page {
 }
 
 .bottom.skip {
-  height: 16%;
   width: 95%;
   border:none;
   position: absolute;
-  bottom: 0;
+  bottom: 1%;
   margin-left: 2.5%;
 }
 
@@ -186,6 +185,7 @@ body, .ui-page {
   50% { background-color: #FFA83F; box-shadow: 0 0 10px #EC7822; }
   100% { background-color: #EC7822; box-shadow: 0 0 3px #EC7822; }
 }
+
 
 .jGrowl-close {
 	font-size: 150% !important;

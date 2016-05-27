@@ -45,6 +45,8 @@
   height: 100px;
   margin: 10px auto;
   cursor:pointer;
+    -webkit-filter: invert(1);
+    filter: invert(1);
 }
 
 .postBtn {
@@ -52,6 +54,9 @@
 	width: 95px;
 	height: 100px;
  	margin: 10px auto;
+    -webkit-filter: invert(1);
+    filter: invert(1);
+
 }
 
 .selectBtn {
@@ -59,13 +64,17 @@
 	width: 95px;
  	height: 100px;
  	margin: 10px auto;
+         -webkit-filter: invert(1);
+    filter: invert(1);
 }
 
-.playBtn {
+.replayBtn {
 	cursor:pointer;
 	width: 95px;
  	height: 100px;
  	margin: 10px auto;	
+    -webkit-filter: invert(1);
+    filter: invert(1);
 }
 
 .firstRow {
