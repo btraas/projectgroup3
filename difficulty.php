@@ -1,5 +1,5 @@
 <?php include('header.php'); ?>
-	<link rel="stylesheet" type="text/css" href="css/difficulty.css">
+	<link id="difficultyCSS" rel="stylesheet" type="text/css" href="css/difficulty.css">
     <script src='js/difficulty.js'></script>
 
 		<?php include('menu_button.php'); ?>

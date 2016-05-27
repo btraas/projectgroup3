@@ -23,6 +23,8 @@
     text-align: center;
 }
 .lvimg > img {
-	width: 60%;
+	width:20%;
 	min-width: 200px;
+    -webkit-filter: invert(1);
+    filter: invert(1);
 }

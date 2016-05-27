@@ -20,22 +20,14 @@
 .mainmenu {
 	margin: 10px;
 	margin-top: 10%;
-	height: 70%;
 	bottom: 0;
-}
-
-.main_menu_row{
-	width: 95%;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 2%;
-	margin-bottom: 2%;
-/*	background-color:#cccccc;*/
+    -webkit-filter: invert(1);
+    filter: invert(1);
 }
 
 .icon {
-	height: 27vw;
-	max-height: 200px;
+	width: 12%;
+	padding: 15px;
 	cursor:pointer;
 }
 

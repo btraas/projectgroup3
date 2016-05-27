@@ -1,7 +1,6 @@
 <?php include('header.php'); ?>
 
 	<!-- 3rd party and our common scripts / css -->
-    <script src='js/theme.js'></script>
 	<script id="patternLockJS" src='js/patternlock/patternLock.js'></script>
 	<link href="js/patternlock/patternLock.css"  rel="stylesheet" type="text/css" />
 	<script src='js/stopwatch.js'></script>
@@ -14,7 +13,7 @@
 
 	<script src='js/game.js'></script>
 	<!--<script src='js/difficulty.js'></script>-->
-	<link id="gameCSS" href="css/game_L.css" rel='stylesheet' type='text/css' />
+	<link id="gameCSS" href="css/game.css" rel='stylesheet' type='text/css' />
 	<link href="css/circle.css" rel='stylesheet' type='text/css' />
 
 		<?php include('menu_button.php'); ?>

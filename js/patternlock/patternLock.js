@@ -7,7 +7,7 @@
 
 // show the numbers for this many seconds
 var showSeconds = 7;
-var confirmTime = 200;
+var confirmTime = 150;
 
 ;(function (factory) {
     /** support UMD ***/
