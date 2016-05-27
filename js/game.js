@@ -308,7 +308,6 @@ function getNumCompleted()
     {
     	if(progress[i] == 1) numComplete++;
     }
-	alert('num complete: '+numComplete+'/'+progress.length);
 	return numComplete;
 }
 

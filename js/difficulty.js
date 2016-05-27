@@ -7,6 +7,9 @@ var fakeNums = 0;
 $(document).on('pageshow', "[data-url='/difficulty.php']", function(){
         $("#level").val(getCookie('level')).slider('refresh');
         document.getElementById('lvImg').src = 'resources/level/Lv'+getCookie('level')+'.png';
+
+		
+
 });
 
 // function that takes users to menu page
@@ -89,6 +92,7 @@ function updateImg(val) {
     setCookie("gridSize", gridSize, 365);
     setCookie("numberRange", numberRange, 365);
     setCookie("gameMode", gameMode, 365);
+	setCookie('leaderboard_gameMode', gameMode, 365);
     setCookie("fakeNums", fakeNums, 365);
     setCookie("level", val, 365);
 
@@ -97,4 +101,5 @@ function updateImg(val) {
 function onRadio(val) {
     gameMode = val;
     setCookie("gameMode", gameMode, 365);
+	setCookie('leaderboard_gameMode', gameMode, 365);
 }
