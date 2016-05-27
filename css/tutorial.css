@@ -4,6 +4,7 @@
 }
 .maincontainer .tutorial#tutorial_video iframe{
     width: 98%;
+    height: 60%;
     border: none;
 	margin-top: auto;
 	margin-bottom: auto;
