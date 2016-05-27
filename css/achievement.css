@@ -28,7 +28,6 @@
 }
 
 .achievement_text {
-	float: left;
 	margin: auto;
 }
 
@@ -41,12 +40,12 @@
 .achievement_title {
 	width:80%;
 	text-align: left;
-	font-size: 100%;
+	font-size: 125%;
 	font-weight: bold;
 }
 
 .achievement_detail {
-	width:90%;
+	width: 85%;
 	text-align:left;
-	font-size: 55%;
+	font-size: 100%;
 }

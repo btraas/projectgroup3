@@ -73,10 +73,13 @@ function getOrCreate($id, $u)
 	$q ="SELECT * FROM member_achievements WHERE username = '$u' AND achievement_id = $id";
 	//echo PHP_EOL.$q.PHP_EOL;
 	$r = runQ($q);
-	if(count($r > 0)) return $r;
-
-	$r = runQ("INSERT INTO member_achievements (achievement_id, achievement_value, username) VALUES($id, 0, '$u')");
-	return runQ("SELECT * FROM member_achievements WHERE username = '$u' AND achievement_id = $id");
+	//echo "before checking....";
+	if(!empty($r['username'])) return $r;
+	//echo "Not added yet!";
+	$q = "INSERT INTO member_achievements (achievement_id, achievement_value, username) VALUES($id, 0, '$u')";
+	$r = runQ($q);
+	$q = "SELECT * FROM member_achievements WHERE username = '$u' AND achievement_id = $id";
+	return runQ($q);
 
 }
 
