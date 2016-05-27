@@ -1,0 +1,30 @@
+
+/* set fixed size for text */
+#text{
+    margin: auto;
+    width: 320px;
+}
+
+/* set fixed size for level selection slider and set font*/
+.levelselection{
+    margin: auto;
+    width: 90%;
+    font-family: 'Segoe UI Emoji';
+}
+
+/* set fixed size for play button*/
+.game{
+    margin: auto;
+    width: 320px;
+}
+
+/* set level selection image cetre align */
+.lvimg{
+    text-align: center;
+}
+.lvimg > img {
+	width:20%;
+	min-width: 200px;
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}
