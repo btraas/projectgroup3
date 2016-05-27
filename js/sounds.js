@@ -225,8 +225,8 @@ function SoundEffect(file)
 
 		if(!this.audio.ended && !empty(this.src))
 		{
-			console.log('queueing SFX: '+file);
-			this.nextFile = file;
+			console.log('ignoring SFX: '+file);
+			//this.nextFile = file;
 			return false;
 		}
 
