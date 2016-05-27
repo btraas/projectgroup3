@@ -2,6 +2,7 @@ var level = 1; // the level of difficulty
 var gameMode = 0; // 0 for classic game, 1 for challenge mode
 var fakeNums = 0; // the number of fake numbers
 
+
 var score = 0; //user score
 var buttonRadius = 0; //button radius
 var buttonMargin = 0; //button margin
