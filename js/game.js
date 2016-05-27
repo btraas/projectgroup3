@@ -163,6 +163,14 @@ $(document).on('pageshow', "[data-url='/game.php']", function(){
 	matrixSize = minHeightWidth * matrixMultiplier;
 	//if($('#maincontainer').width() > 1000) matrixSize = 1000 * matrixMultiplier;
 
+
+	// get values from cookie based on difficulty level
+	gridSize = getCookie("gridSize");
+	numberRange = getCookie("numberRange");
+	gameMode = getCookie("gameMode");
+	fakeNums = getCookie("fakeNums");
+	level = getCookie("level");
+
 	// Math to determine elements sizes
 	buttonRadius = matrixSize / rowSize;
 	buttonMargin = buttonRadius / 5.4;
