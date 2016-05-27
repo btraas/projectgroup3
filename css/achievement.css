@@ -22,7 +22,8 @@
 /* style for ico  */
 .achievement_icon {
 	float: left;
-	margin: 10px 5px;
+	height: 70%;
+	width: 15%;
 }
 
 .achievement_text {
