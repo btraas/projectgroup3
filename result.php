@@ -35,7 +35,18 @@
 </script>
 
     <script src='js/theme.js'></script>
-	<link id="resultCSS" rel="stylesheet" type="text/css" href="css/result.css">
+<?php
+        // light theme    
+        if($_COOKIE['theme'] == 1) {         
+    ?>
+    	 <link id="resultCSS" rel="stylesheet" type="text/css" href="css/result_2.css">
+    <?php
+        } else { // dark theme
+    ?>
+	    <link id="resultCSS" rel="stylesheet" type="text/css" href="css/result.css">
+    <?php
+        }
+    ?>
     <script src='js/result.js'></script>
 
     	<div id='topMargin'>

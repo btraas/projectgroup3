@@ -2,7 +2,18 @@
 
 	<!-- 3rd party and our common scripts / css -->
 	<script id="patternLockJS" src='js/patternlock/patternLock.js'></script>
-	<link href="js/patternlock/patternLock.css"  rel="stylesheet" type="text/css" />
+    <?php
+        // light theme    
+        if($_COOKIE['theme'] == 1) {         
+    ?>
+    	<link href="js/patternlock/patternLock_L.css"  rel="stylesheet" type="text/css" />
+    <?php
+        } else { // dark theme
+    ?>
+    	<link href="js/patternlock/patternLock.css"  rel="stylesheet" type="text/css" />
+    <?php
+        }
+    ?>
 	<script src='js/stopwatch.js'></script>
 
 
@@ -12,8 +23,21 @@
 	<script src='js/check_cross.js'></script>
 
 	<script src='js/game.js'></script>
-	<!--<script src='js/difficulty.js'></script>-->
-	<link id="gameCSS" href="css/game.css" rel='stylesheet' type='text/css' />
+	<!--<script src='js/difficulty.js'></script>-->    
+    <?php
+        // light theme    
+        if($_COOKIE['theme'] == 1) {         
+    ?>
+	        <link id="gameCSS" href="css/game_L.css" rel='stylesheet' type='text/css' />
+    <?php
+        } else { // dark theme
+    ?>
+        <link id="gameCSS" href="css/game.css" rel='stylesheet' type='text/css' />
+    <?php
+        }
+    ?>
+
+	
 	<link href="css/circle.css" rel='stylesheet' type='text/css' />
 
 		<?php include('menu_button.php'); ?>
