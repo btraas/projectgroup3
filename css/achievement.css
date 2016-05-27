@@ -1,11 +1,11 @@
 
-.achievenment_wrapper {
+.achievement_wrapper {
 	margin: auto auto;
 	height:80%;
 
 }
 
-.achievenment {
+.achievement {
 	margin: 20px 15px;
 	height:18%;
 	border: 1px solid white;
@@ -13,14 +13,27 @@
 	border-radius: 10px;
 }
 
-.achievenment_ico {
+.achievement_ico {
 	float: left;
 	margin: 5px 10px;
 }
 
-.achievenment_text {
-	 float: left;
-	 margin-left: 15px;
-	 margin-top: 20px;
-	 font-size: 130%;
+.achievement_text {
+	 margin-left: 10px;
+
 }
+
+.achievement_title {
+
+	 margin-left: 15px;
+	 font-size: 130%;
+	 font-weight: bold;
+
+}
+
+.achievement_detail {
+
+	 font-size: 90%;
+
+}
+
