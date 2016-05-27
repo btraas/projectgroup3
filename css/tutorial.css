@@ -1,0 +1,11 @@
+.maincontainer .tutorial#tutorial_video {
+	width:100%;
+	height:100%;
+}
+.maincontainer .tutorial#tutorial_video iframe{
+    width: 98%;
+    height: 60%;
+    border: none;
+	margin-top: auto;
+	margin-bottom: auto;
+}
