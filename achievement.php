@@ -20,7 +20,18 @@
 
 
 <script src='js/achievement.js'></script>
-<link id="loginCSS" rel="stylesheet" type="text/css" href="css/achievement.css">
+ <?php
+        // light theme    
+        if($_COOKIE['theme'] == 1) {         
+    ?>
+        <link id="loginCSS" rel="stylesheet" type="text/css" href="css/achievement_L.css">
+    <?php
+        } else { // dark theme
+    ?>       
+        <link id="loginCSS" rel="stylesheet" type="text/css" href="css/achievement.css">
+    <?php
+        }
+    ?>
 
 <?php include('menu_button.php'); ?>
 

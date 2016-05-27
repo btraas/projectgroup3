@@ -16,7 +16,7 @@
 }
 
 .score {
-	color: white;
+	color: black;
     font-size: 180%;
 	text-align: center;
     padding-top: 5px;
@@ -25,12 +25,10 @@
 
 .ranking {
 	font-size: 180%;
-	color: #00FF90;
+	color: #00d6c6;
 	text-align: center;
 	margin-top: 30px;
 	font-weight: bold;
-    -webkit-filter: invert(1);
-    filter: invert(1);
 }
 
 .result_menu {
