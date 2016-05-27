@@ -4,7 +4,7 @@
 ?>
 
 <div class='logo_container' id="logocontainer" >
-<img class='logo' alt="gamelogo" src='resources/images/game_logo3.png' onClick="$.jGrowl('test message', {theme: 'jGrowl-info'});"/>
+<img class='logo' alt="gamelogo" src='resources/images/game_logo3.png' />
 </div>
 
 <div class='mainmenu'>

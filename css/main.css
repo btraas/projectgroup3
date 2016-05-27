@@ -187,8 +187,20 @@ body, .ui-page {
   100% { background-color: #EC7822; box-shadow: 0 0 3px #EC7822; }
 }
 
+
+.jGrowl-close {
+	font-size: 150% !important;
+	margin-top: -7px;
+}
+
 .jGrowl-info {
+	opacity: 1;
 	background-color: #DDDDDD;
 	color: black;
-	font-size: 130%;
+	font-size: 190%;
+	margin-top: 5px;
+	border-radius: 1px !important;
+	border: 1px solid black;
+	min-width: 298px;
+	margin: 0px !important;
 }

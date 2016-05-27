@@ -55,17 +55,17 @@
 }
 
 #topLayer {
-    margin: auto;
-    width:100%;
-    height:100%;
-    position: fixed;
+    width: 100%;
+    height: 100%;
+    position: absolute;
     z-index: 999;
     pointer-events: none;
 }
 
 #check {
+    margin:auto;
     width: 50%;
-    height: 40%;
+    height: 55%;
     /* IE 8 */
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     /* IE 5-7 */

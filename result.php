@@ -66,7 +66,7 @@
 			<div class='secondRow'>
                 <input type="image" src="resources/images/result_buttons_level.png" onclick="goSelect()" class="selectBtn">
 				<a id='difficulty' href='./difficulty.php' data-transition='flow' data-direction='reverse'></a>
-                <input type="image" src="resources/images/result_buttons_retry.png" onclick="goPlay()" class="playBtn">
+                <input type="image" src="resources/images/result_buttons_retry.png" onclick="goPlay()" class="replayBtn">
 				<a id='game' href='./game.php' data-transition='flow' data-direction='reverse'></a>
 			</div>
 		</div>

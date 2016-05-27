@@ -68,7 +68,7 @@
     filter: invert(1);
 }
 
-.playBtn {
+.replayBtn {
 	cursor:pointer;
 	width: 95px;
  	height: 100px;

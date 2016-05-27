@@ -34,6 +34,13 @@ var grid = {};
 //set grid on load
 function createGrid() // {{{
 {
+	// get values from cookie based on difficulty level
+	gridSize = getCookie("gridSize");
+	numberRange = getCookie("numberRange");
+	gameMode = getCookie("gameMode");
+	fakeNums = getCookie("fakeNums");
+	level = getCookie("level");
+
 	return { // {{{
         matrix : [gridSize, gridSize],
         margin : buttonMargin,
@@ -153,12 +160,22 @@ function drawCircle(){
 //When the game is first loaded
 $(document).on('pageshow', "[data-url='/game.php']", function(){
 
+	progress = [2, 2, 2, 2, 2,
+				2, 2, 2, 2, 2]; //user progress 0: off, 1: on, 2:empty
+	progressIndex = 0;
 	// set sizes
 
 	var matrixMultiplier = 1.3;
 
+
+
 	// set matrix width / height by window width
-	var minHeightWidth = $('#maincontainer').width();
+	var minHeightWidth = $(window).width();
+
+	if(minHeightWidth > 1000){
+		minHeighWidth = 1000;
+	}
+
 	if(($('#maincontainer').height() - 100) < minHeightWidth) minHeightWidth = $('#maincontainer').height() - 100;
 	matrixSize = minHeightWidth * matrixMultiplier;
 	//if($('#maincontainer').width() > 1000) matrixSize = 1000 * matrixMultiplier;

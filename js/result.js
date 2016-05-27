@@ -31,5 +31,3 @@ function goPost()  {
 	    window.location = 'post_score.php?username=' + username + "&gameMode=" + gameMode + "&random=" + window.btoa(score);
     }
 }
-
-
