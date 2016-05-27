@@ -13,6 +13,9 @@ $(document).on('pageshow', "[data-url^='/result.php']", function(){
 	// Load, and run the complete() function as a callback
 	a.load(a.complete);
 
+	// Achievement object #4 (large number of grids completed)
+	var b = new Achievement(4, true);
+	b.load(function() { b.add(pg); });
 });
 
 
