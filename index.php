@@ -8,26 +8,32 @@
 </div>
 
 <div class='mainmenu'>
-    <input type="image" src="resources/images/menu_settings.png" onclick="$('#settings').click()" class="icon settings">
-	<!-- just a placeholder (invisible) for jquery mobile transitions -->
-	<a id='settings' href='settings.php' data-transition='flow'></a>
+	<div class='main_menu_row'>
+	    <input type="image" src="resources/images/menu_settings.png" onclick="$('#settings').click()" class="icon settings">
+		<!-- just a placeholder (invisible) for jquery mobile transitions -->
+		<a id='settings' href='settings.php' data-transition='flow'></a>
+	</div>
 
-    <input type="image" src="resources/images/menu_leaderboards.png" value="Leaderboards" onclick="$('#leaderboards').click()" class="icon leaderboards">
-	<!-- just a placeholder (invisible) for jquery mobile transitions -->
-	<a id='leaderboards' href='leaderboards.php' data-transition='flow'></a>
-
-    <input type="image" src="resources/images/menu_info.png" onclick="$('#about').click()" class="icon about">
-	<!-- just a placeholder (invisible) for jquery mobile transitions -->
-	<a id='about' href='aboutus.php' data-transition='flow'></a>
-
-    <input type="image" src="resources/images/menu_achievement.png" onclick="$('#achievement').click()" class="icon achievement">
-	<!-- just a placeholder (invisible) for jquery mobile transitions -->
-	<a id='achievement' href='achievement.php' data-transition='flow'></a>
-
-    <input type="image" src="resources/images/menu_sign_up.png" onclick="$('#register').click()" class="icon signUp">
-	<!-- just a placeholder (invisible) for jquery mobile transitions -->
-	<a id='register' href='register.php' data-transition='flow'></a>
-
+	<div class='main_menu_row'>
+	    <input type="image" src="resources/images/menu_leaderboards.png" value="Leaderboards" onclick="$('#leaderboards').click()" class="icon leaderboards">
+		<!-- just a placeholder (invisible) for jquery mobile transitions -->
+		<a id='leaderboards' href='leaderboards.php' data-transition='flow'></a>
+	</div>
+	<div class='main_menu_row'>	
+	    <input type="image" src="resources/images/menu_info.png" onclick="$('#about').click()" class="icon about">
+		<!-- just a placeholder (invisible) for jquery mobile transitions -->
+		<a id='about' href='aboutus.php' data-transition='flow'></a>
+	</div>
+	<div class='main_menu_row'>
+	    <input type="image" src="resources/images/menu_achievement.png" onclick="$('#achievement').click()" class="icon achievement">
+		<!-- just a placeholder (invisible) for jquery mobile transitions -->
+		<a id='achievement' href='achievement.php' data-transition='flow'></a>
+	</div>
+	<div class='main_menu_row'>
+	    <input type="image" src="resources/images/menu_sign_up.png" onclick="$('#register').click()" class="icon signUp">
+		<!-- just a placeholder (invisible) for jquery mobile transitions -->
+		<a id='register' href='register.php' data-transition='flow'></a>
+	</div>
 	<?php
 		if(trim($_SESSION['SESS_USERNAME']) == '') {
 	?>

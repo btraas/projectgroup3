@@ -23,6 +23,12 @@
 	bottom: 0;
 }
 
+.main_menu_row{
+	width: 95%;
+	margin-left:auto;
+	margin-top:1%;
+}
+
 .icon {
 	width: 12%;
 	padding: 15px;
