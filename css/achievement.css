@@ -7,12 +7,11 @@
 /* achievement box */
 .achievement_row {
 	padding: 5px;
-	margin: 20px 15px;
+	margin: 5% 4% 4% 4%;
 	height:18%;
 
 	background-color: #000000;
 	border-radius: 10px;
-	position:relative;
 
     background-image: url("../../resources/images/achievement_grey.png");
     background-size: 0% 100%; /*your percentage is the first one (width), second one (100%) is for height*/
@@ -34,17 +33,20 @@
 }
 
 .achievement_percentage {
-	margin: auto;
-	float: right;
+	position: absolute;
+	right: 5%;
 	font-size: 170%;
 }
 
 .achievement_title {
+	width:80%;
 	text-align: left;
 	font-size: 100%;
 	font-weight: bold;
 }
 
 .achievement_detail {
+	width:90%;
+	text-align:left;
 	font-size: 55%;
 }
