@@ -1,13 +1,13 @@
+//$('.list').load('leaderboards_table.php');
+
+$(document).on('pageshow', "[data-url='/leaderboards.php']", function()
+{
+	$('.list').load('leaderboards_table.php');
+});
+
 function radioClick(val){
         setCookie('leaderboard_gameMode', val , 365);
         //location.reload();
 
-		$.mobile.changePage(
-		window.location.href,
-		{
-	  		allowSamePageTransition : false,
-	  		transition              : 'none',
-	  		showLoadMsg             : false,
-	  		reloadPage              : true
-		});
+		$('.list').load('leaderboards_table.php');
 }
