@@ -6,7 +6,7 @@ var fakeNums = 0; // the number of fake numbers
 var score = 0; //user score
 var buttonRadius = 0; //button radius
 var buttonMargin = 0; //button margin
-var matrixSize = 320; //physical matrix size
+var matrixSize = 500; //physical matrix size
 var gridSize = 5; //size of grid 5x5, 4x4
 var rowSize = gridSize; //row size
 var numberRange = 4; //number of answers
@@ -215,13 +215,14 @@ $(document).on('pageshow', "[data-url='/game.php']", function(){
 	var minHeightWidth = $(window).width();
 
 	if(minHeightWidth > 1000){
-		minHeighWidth = 1000;
+		minHeightWidth = 1000;
 	}
 
 	if(($(window).height() - 100) < minHeightWidth) {
 		minHeightWidth = $(window).height() - 100;
 		matrixSize = minHeightWidth * matrixMultiplier;
 	}
+	alert(minHeightWidth);
 	//if($('#maincontainer').width() > 1000) matrixSize = 1000 * matrixMultiplier;
 
 	// Math to determine elements sizes

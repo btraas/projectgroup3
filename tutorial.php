@@ -13,6 +13,6 @@
 </script>
 <?php include('menu_button.php'); ?>
 	<div class="tutorial" id="tutorial_video">
-    	<iframe src="https://www.youtube.com/embed/OXWrjWDQh7Q"></iframe>
+    	<iframe src="https://www.youtube.com/embed/OXWrjWDQh7Q?rel=0&amp;autoplay=1"></iframe>
 	</div>
 <?php include('footer.php'); ?>

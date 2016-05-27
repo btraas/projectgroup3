@@ -14,8 +14,8 @@ $(document).on('pageshow', "[data-url='/difficulty.php']", function(){
 
 function setText()
 {
-	var classic_html = " <tr style='vertical-align: top;'><td style='text-align: right;'><b>Classic: </b></td><td>Drag from 1-x consecutive numbers to complete the grid</p></td></tr>";
-	var challenge_html = "<tr style='vertical-align: top;'><td style='text-align: right;'><b>Challenge: </b></td><td>Drag between even numbers only. Numbers are not consecutive</td></tr>";
+	var classic_html = " <tr style='vertical-align: top;'><td>Drag from 1-x consecutive numbers to complete the grid</p></td></tr>";
+	var challenge_html = "<tr style='vertical-align: top;'><td>Drag between even numbers only. Numbers are not consecutive.</td></tr>";
 	if($('#classic-mode').is(':checked')) $('#info-table').html(classic_html);
 	else $('#info-table').html(challenge_html);
 }
