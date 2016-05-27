@@ -302,10 +302,10 @@ var confirmTime = 150;
         }
     };
 
-
     function showFakeNums() {
         // for challenge mode
-        var fakeArray = [];
+        var fakeNumbers = [];
+        var fakeAnswers = [];
         var valid = false;
         var next;
 
@@ -317,25 +317,24 @@ var confirmTime = 150;
             throw new Error('No cookie');
         } 
 
-        console.log("xxx2:" + answer[0] + answer[1] + answer[2] + answer[3]);
 
         // generates fake numbers
-        while(fakeArray.length < fakeNums){
+        while(fakeNumbers.length < fakeNums){
 
             valid = true;
             next= getRandomOdd(99);
-            for(var i = 0; i < fakeArray.length; i++) {
-                if(fakeArray[i] == next) {
+            for(var i = 0; i < fakeNumbers.length; i++) {
+                if(fakeNumbers[i] == next) {
                     valid = false;
                 }
             }
 
             if(valid) {
-                fakeArray[fakeArray.length] = next;
+                fakeNumbers[fakeNumbers.length] = next;
             }
         }
         // generates fake index for displaying fake numbers
-        for(var i = 0; i < fakeArray.length; i++){
+        for(var i = 0; i < fakeNumbers.length; i++){
             var vaild = false;
             var nextPos;
             var fakeIdx;
@@ -352,21 +351,24 @@ var confirmTime = 150;
                 }
 
                 // fake number can not be same as other fake numbers
-                for(var k = 0; k < fakeArray.length; k++) {
-                    if(nextPos == fakeArray[k]) {
+                for(var k = 0; k < fakeNumbers.length; k++) {
+                    if(nextPos == fakeNumbers[k]) {
                         vaild = false;
                     }
                 }
 
             } while(!vaild);
-            
-            console.log("fakeNumber:" + fakeArray[i]);
 
-            fakeIdx = "index" + nextPos;
-            var html = "<div class='number'>"+fakeArray[i]+"</div>";
+//          console.log("fakeNumber:" + fakeNumbers[i]);
+//          console.log("fakeIndex:" + nextPos);
+
+            fakeAnswers[fakeAnswers.length] = nextPos;
+            fakeIdx = "index" + (nextPos - 1);
+            var html = "<div class='number'>"+fakeNumbers[i]+"</div>";
             document.getElementById(fakeIdx).innerHTML = html;
         }
     }
+
 
     // timer object for showing numbers
     var timer_numbers = 0;
