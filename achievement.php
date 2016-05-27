@@ -22,11 +22,6 @@
 <script src='js/achievement.js'></script>
 <link id="loginCSS" rel="stylesheet" type="text/css" href="css/achievement.css">
 
-<script type="text/javascript">
-	//loop result BGM for result
-	BGM.loop('resources/sounds/bgm_eastern_valley.mp3');
-</script>
-
 <?php include('menu_button.php'); ?>
 
 
