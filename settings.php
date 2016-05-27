@@ -14,10 +14,10 @@
         <div class="theme_switcher">
             <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
 		    <legend class='theme' id="theme_text">Dark/Light Theme</legend>
-            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="0" <?php if(@$_COOKIE['theme']!=1) echo "checked"; ?> onclick="settheme(this.value), Dtheme()"/>
-			<label for="radio-choice-a1">Dark</label>
-			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="1" <?php if(@$_COOKIE['theme']==1) echo "checked"; ?> onclick="settheme(this.value), Ltheme()"/>
-			<label for="radio-choice-b1">Light</label>
+            <input type="radio" name="radio-choice-a1" id="radio-choice-c1" value="0" <?php if(@$_COOKIE['theme']!=1) echo "checked"; ?> onclick="settheme(this.value), Dtheme()"/>
+			<label for="radio-choice-c1">Dark</label>
+			<input type="radio" name="radio-choice-a1" id="radio-choice-d1" value="1" <?php if(@$_COOKIE['theme']==1) echo "checked"; ?> onclick="settheme(this.value), Ltheme()"/>
+			<label for="radio-choice-d1">Light</label>
             </fieldset>
         </div>
 
