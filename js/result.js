@@ -8,6 +8,11 @@ $(document).on('pageshow', "[data-url^='/result.php']", function(){
 		$('.postBtn').attr("src", "resources/images/result_buttons_leaderboards_post.png");
 	}
 
+	// Achievement object #1. 2nd parameter says not to load automatically
+	var a = new Achievement(1, true);
+	// Load, and run the complete() function as a callback
+	a.load(a.complete);
+
 });
 
 
@@ -34,6 +39,6 @@ function goPost()  {
 		setCookie('posted', 't', 1);
 		
 		$('.postBtn').attr("src", "resources/images/result_buttons_leaderboards_rank.png");
-	    window.location = 'post_score.php?username=' + username + "&gameMode=" + gameMode + "&random=" + window.btoa(score);
+	    window.location = 'score_post.php?username=' + username + "&gameMode=" + gameMode + "&random=" + window.btoa(score);
     }
 }

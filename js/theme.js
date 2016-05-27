@@ -13,10 +13,11 @@ function Ltheme(){
     document.getElementById('mainCSS').href = "css/main_L.css";
     document.getElementById('menuCSS').href = "css/menu_L.css";  
     document.getElementById('settingsCSS').href = "css/settings_L.css";
-    document.getElementById('difficultyCSS').href = "css/difficulty_L.css"; 
+    document.getElementById('difficultyCSS').href = "css/difficulty_L.css";
 }
 
 // set cookie for theme
 function settheme(value){
     setCookie("theme",value,365); //save theme
+    location.reload();
 }
