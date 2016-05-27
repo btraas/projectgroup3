@@ -40,11 +40,14 @@
 }
 
 .achievement_title {
+	width:80%;
 	text-align: left;
 	font-size: 100%;
 	font-weight: bold;
 }
 
 .achievement_detail {
+	width:90%;
+	text-align:left;
 	font-size: 55%;
 }
