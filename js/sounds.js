@@ -120,6 +120,15 @@ function BackgroundMusic(file)
 	}
 
 	/**
+	*	Pause shortcut
+	*/
+
+	this.pause = function()
+	{
+		self.audio.pause();
+	}
+
+	/**
 	*	Replay function. Ignores passed parameters (when this is called via event)
 	*/
 	this.replay = function()
