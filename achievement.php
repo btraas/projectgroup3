@@ -38,7 +38,7 @@
             while($rows=mysql_fetch_array($result)){ // Start looping
 
 ?>
-			<div class="achievement" style="background-size: <?php echo $rows['percent_complete']; ?>% 100% ">
+			<div class="achievement_row" style="background-size: <?php echo $rows['percent_complete']; ?>% 100% ">
 				<div class="achievement_percentage"><?php echo $rows['percent_complete']; ?>%</div>
 				<div class="achievement_icon"><img alt="achievement" src="<?php echo $rows['achievement_image']; ?>" width="40" height="100%" /></div>
 					<div class="achievement_text">
