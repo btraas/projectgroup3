@@ -17,7 +17,7 @@
 	// Connect to server and select database.
 	mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)or die("cannot connect");
 	mysql_select_db(DB_DATABASE)or die("cannot select DB");
-	$view_name="achievements_view"; // Table name
+
 ?>
 
 <link id="loginCSS" rel="stylesheet" type="text/css" href="css/achievement.css">
@@ -28,20 +28,26 @@
 <div class="achievement_wrapper">
 
 <?php
-	        $sql="SELECT * FROM $view_name WHERE username = '$username' OR username IS NULL";
+	        $sql="CALL GetAchievements('$username')";
 
 	        $result=mysql_query($sql);
             while($rows=mysql_fetch_array($result)){ // Start looping table row
+
 ?>
 
-			<div class="achievement">
-					<div class="achievement_ico"><img alt="achievement" src="resources/images/achievement1.png" width="50" height="100%" /></div>
+			<div class="achievement" id="<?php echo $rows['achievement_id']; ?>">
+					<div class="achievement_ico"><img alt="achievement" src="<?php echo $rows['achievement_image']; ?>" width="50" height="100%" /></div>
 					<div class="achievement_text">
 						<div class="achievement_title"><?php echo $rows['achievement_name']; ?></div>
 						<div class="achievement_detail"><?php echo $rows['achievement_description']; ?></div>
 					</div>
 			</div>
 
+			<script>
+				    var progress = document.getElementById("<?php echo $rows['achievement_id']; ?>");
+				    progress.style.backgroundSize = "<?php echo $rows['percent_complete']; ?> 100%";
+
+			</script>
 <?php
 	}
 ?>
