@@ -153,6 +153,8 @@ function drawCircle(){
 //When the game is first loaded
 $(document).on('pageshow', "[data-url='/game.php']", function(){
 
+	progress = [2, 2, 2, 2, 2,
+				2, 2, 2, 2, 2]; //user progress 0: off, 1: on, 2:empty
 	// set sizes
 
 	var matrixMultiplier = 1.3;
@@ -162,7 +164,6 @@ $(document).on('pageshow', "[data-url='/game.php']", function(){
 	if(($('#maincontainer').height() - 100) < minHeightWidth) minHeightWidth = $('#maincontainer').height() - 100;
 	matrixSize = minHeightWidth * matrixMultiplier;
 	//if($('#maincontainer').width() > 1000) matrixSize = 1000 * matrixMultiplier;
-
 
 	// get values from cookie based on difficulty level
 	gridSize = getCookie("gridSize");
