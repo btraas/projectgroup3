@@ -6,6 +6,7 @@ function Dtheme(){
     document.getElementById('menuCSS').href = "css/menu.css"; 
     document.getElementById('settingsCSS').href = "css/settings.css";
     document.getElementById('difficultyCSS').href = "css/difficulty.css"; 
+    location.reload();
 }
 //Ligth theme replace the source of css root
 function Ltheme(){
@@ -13,7 +14,8 @@ function Ltheme(){
     document.getElementById('mainCSS').href = "css/main_L.css";
     document.getElementById('menuCSS').href = "css/menu_L.css";  
     document.getElementById('settingsCSS').href = "css/settings_L.css";
-    document.getElementById('difficultyCSS').href = "css/difficulty_L.css"; 
+    document.getElementById('difficultyCSS').href = "css/difficulty_L.css";
+    location.reload();
 }
 
 // set cookie for theme
