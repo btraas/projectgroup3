@@ -9,7 +9,18 @@
 	include('header.php');
 ?>
 
-<link id="leaderboardsCSS" rel="stylesheet" type="text/css" href="css/leaderboards.css">
+ <?php
+        // light theme    
+        if($_COOKIE['theme'] == 1) {         
+    ?>
+        <link id="leaderboardsCSS" rel="stylesheet" type="text/css" href="css/leaderboards_L.css">
+    <?php
+        } else { // dark theme
+    ?>       
+        <link id="leaderboardsCSS" rel="stylesheet" type="text/css" href="css/leaderboards.css">
+    <?php
+        }
+    ?>
 
 
 <script src='js/leaderboards.js'></script>
