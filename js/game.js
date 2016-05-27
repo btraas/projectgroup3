@@ -129,6 +129,7 @@ function createGrid() // {{{
 					score += calcScore(x.time());
 					lastGridTime = x.time();
 				} else {
+					SFX.play('resources/sounds/sfx_ui_wrong.ogg');
 					lock.error();
 					window.setTimeout(function() { lock.reset(); }, 100);
 				}
