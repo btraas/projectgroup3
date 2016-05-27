@@ -5,7 +5,7 @@
 
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link id="menuCSS" rel="stylesheet" type="text/css" href="css/menu.css">
     <title>Memory Swipe</title>
 
     <!-- Main jQuery scripts & CSS (unchanging) {{{ -->
