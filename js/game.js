@@ -85,13 +85,10 @@ function createGrid() // {{{
 					// Achievement 3: Challenge Master
 					if(gameMode==1 && level >= CMLevel)
 					{
-						var numComplete = 0;
+						var numComplete = getNumCompleted();
 						// Achievement object #3. 2nd parameter says not to load automatically
 						var a = new Achievement(3, true);
-						for(var i=0; i<progress.length; i++)
-						{
-							if(progress[i] == 1) numComplete++;
-						}
+
 						if(numComplete >= CMGrids)
 						{
                         	// Load, and run the complete() function as a callback
@@ -304,9 +301,19 @@ function skip() // {{{ Skip button
 	showUserProgress();
 } // }}} end of skip()
 
+function getNumCompleted()
+{
+	var numComplete = 0;
+	for(var i=0; i<progress.length; i++)
+    {
+    	if(progress[i] == 1) numComplete++;
+    }
+	return numComplete;
+}
+
 //Send user to result scene
 function onResult()  {
-		window.location = 'result.php?random='+window.btoa(score); // "random" is the post key, score is the value, in base64
+		window.location = 'result.php?random='+window.btoa(score)+"&pg="+window.btoa(getNumCompleted()); // "random" is the post key, score is the value, in base64
 }
 
 //Visualizing user progress {{{

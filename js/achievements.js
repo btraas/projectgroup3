@@ -60,5 +60,11 @@ function Achievement(id, noLoad)
 	
 	}
 
+	this.add = function(value)
+	{
+		if(self.value + value >= self.max) self.complete();
+		else self.update(self.value+value);
+	}
+
 	if(!noLoad) this.load();
 } // }}}

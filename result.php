@@ -9,10 +9,13 @@
 	mysql_select_db(DB_DATABASE)or die("cannot select DB");
 	$tb_name="leaderboards"; // Table name
 
+	// base 64 so user doesn't try to cheat
 	$score=base64_decode(@$_GET['random']);
 	if($score==0 || $score == null) {
 		$score = 0;
 	}
+
+	$progress = intval(base64_decode(@$_GET['pg']));
 
 	$gm = @$_COOKIE['gameMode'];
 
@@ -32,9 +35,9 @@
 	BGM.loop('resources/sounds/bgm_scoreboard.mp3');
 	var rank = <?php echo $rows['rank']; ?>;
 	var score = <?php echo $score; ?>;
+	var pg = <?php echo $progress ?>;
 </script>
 
-    <script src='js/theme.js'></script>
 <?php
         // light theme    
         if($_COOKIE['theme'] == 1) {         
