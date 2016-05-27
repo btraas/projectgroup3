@@ -28,6 +28,7 @@
 
 <!-- This needs to be in this PHP file to set these variables -->
 <script>
+	//loop result BGM for result
 	BGM.loop('resources/sounds/bgm_scoreboard.mp3');
 	var rank = <?php echo $rows['rank']; ?>;
 	var score = <?php echo $score; ?>;
