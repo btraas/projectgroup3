@@ -4,12 +4,12 @@ $(document).ready(function(){
   $('.bxslider1').bxSlider({
     slideWidth: 200,
     slideHeight: 100,
-    minSlides: 5,
-    maxSlides: 5,
+    minSlides: 1,
+    maxSlides: 1,
     slideMargin: 10,
-    randomStart: true,
+    randomStart: false,
     controls: true,
-    responsive: false,
-    auto:true
+    responsive: true,
+    auto: false
   });
 });
