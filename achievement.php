@@ -35,8 +35,8 @@
 
 ?>
 			<div class="achievement" style="background-size: <?php echo $rows['percent_complete']; ?>% 100% ">
-				<div class="achievement_percentage"><?php echo $rows['percent_complete']; ?></div>
-				<div class="achievement_ico"><img alt="achievement" src="<?php echo $rows['achievement_image']; ?>" width="40" height="100%" /></div>
+				<div class="achievement_percentage"><?php echo $rows['percent_complete']; ?>%</div>
+				<div class="achievement_icon"><img alt="achievement" src="<?php echo $rows['achievement_image']; ?>" width="40" height="100%" /></div>
 					<div class="achievement_text">
 						<div class="achievement_title"><?php echo $rows['achievement_name']; ?></div>
 						<div class="achievement_detail"><?php echo $rows['achievement_description']; ?></div>
