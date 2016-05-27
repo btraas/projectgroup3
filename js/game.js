@@ -69,7 +69,7 @@ function createGrid() // {{{
                 //Removing pattern from visual
                 	showCheck();
             		SFX.play('resources/sounds/sfx_ui_check.ogg');
-                	progress[progressIndex++] = 1;
+                	if(progressIndex < (progress.length - 1)) progress[progressIndex++] = 1;
 
 					console.log("Milliseconds: "+(x.time() - lastGridTime));
 
@@ -308,12 +308,15 @@ function getNumCompleted()
     {
     	if(progress[i] == 1) numComplete++;
     }
+	alert('num complete: '+numComplete+'/'+progress.length);
 	return numComplete;
 }
 
 //Send user to result scene
 function onResult()  {
-		window.location = 'result.php?random='+window.btoa(score)+"&pg="+window.btoa(getNumCompleted()); // "random" is the post key, score is the value, in base64
+		var n = getNumCompleted();
+		n = window.btoa(n);
+		window.location = 'result.php?random='+window.btoa(score)+"&pg="+n; // "random" is the post key, score is the value, in base64
 }
 
 //Visualizing user progress {{{
