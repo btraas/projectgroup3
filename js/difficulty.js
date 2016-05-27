@@ -9,16 +9,6 @@ $(document).on('pageshow', "[data-url='/difficulty.php']", function(){
         document.getElementById('lvImg').src = 'resources/level/Lv'+getCookie('level')+'.png';
 });
 
-// function that takes users to menu page
-function goHome() {
-    window.location = 'index.php';
-}
-
-// function that takes users to game page
-function goPlay() {
-    window.location = "game.php";
-}
-
 // function that changes images when swiping slider
 function updateImg(val) {
     document.getElementById('lvImg').src = 'resources/level/Lv'+val+'.png';

@@ -1,15 +1,7 @@
 //tutorial.js
+BGM.volume(0);
 
-$(document).ready(function(){
-  $('.bxslider1').bxSlider({
-    slideWidth: 200,
-    slideHeight: 100,
-    minSlides: 1,
-    maxSlides: 1,
-    slideMargin: 10,
-    randomStart: false,
-    controls: true,
-    responsive: true,
-    auto: false
-  });
+//exit the current bgm when they get out this page
+$(document).on('pagebeforehide', "[data-url='/tutorial.php']", function(){
+    BGM.volume(getCookie('bgm'));
 });

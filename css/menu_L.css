@@ -36,7 +36,7 @@
 .icon {
 	height: 27vw;
 	margin: 2vw;
-	max-height: 10px;
+	max-height: 160px;
 	cursor:pointer;
     -webkit-filter: invert(1);
     filter: invert(1);
@@ -55,5 +55,3 @@
 	margin: 15px;
 	margin-top: 0px;
 }
-
-

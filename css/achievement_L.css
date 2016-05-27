@@ -10,14 +10,15 @@
 	margin: 5% 4% 4% 4%;
 	height:18%;
 
-	background-color: #ffffff;
+	background-color: #000000;
 	border-radius: 10px;
 
     background-image: url("../../resources/images/achievement_grey.png");
     background-size: 0% 100%; /*your percentage is the first one (width), second one (100%) is for height*/
-    background-repeat: no-repeat;
-
+    background-repeat: no-repeat;  
+    -webkit-filter: invert(1);
 }
+
 /* style for ico  */
 .achievement_icon {
 	float: left;
@@ -25,12 +26,11 @@
 	width: 15%;
 	margin: 2%;
 	margin-left:0;
-    -webkit-filter: invert(1);
-    filter: invert(1);
 }
 
 .achievement_text {
 	margin: auto;
+    -webkit-filter: invert(1);
 }
 
 .achievement_percentage {
