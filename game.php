@@ -21,9 +21,9 @@
 	<!-- Javascript and CSS pertaining to this page -->
 
 	<!-- Script for animating check / cross -->
-	<!--<script src='js/check_cross.js'></script>
+	<script src='js/check_cross.js'></script>
 
-	<script src='js/game.js'></script>-->
+	<script src='js/game.js'></script>
 	<!--<script src='js/difficulty.js'></script>-->    
     <?php
         // light theme    
