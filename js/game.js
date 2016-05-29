@@ -382,10 +382,6 @@ function calcScore(time) {
 	return score;
 }//end of caclScore() }}}
 
-var firstTime = 0;
+location.reload();
 
-if(firstTime == 0){
-	firstTime = 1;
-	location.reload();
-}
 
