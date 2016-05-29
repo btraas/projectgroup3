@@ -42,8 +42,6 @@
     <script src='js/functions.js'></script>
     <script src='js/theme.js'></script>
 	<script src='js/achievements.js'></script>
-    <script src='js/game.js'></script>
-    <script src='js/game.js'></script>
 	<script>
 		$(document).on('pagebeforeshow', pageShow);
 
