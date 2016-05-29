@@ -382,6 +382,3 @@ function calcScore(time) {
 	return score;
 }//end of caclScore() }}}
 
-location.reload();
-
-
