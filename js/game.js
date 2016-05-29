@@ -65,10 +65,6 @@ function createGrid() // {{{
         //When user is done drawing(pattern: user input)
         onDraw:function(pattern) {
 
-        	if(progressIndex == 0){
-        		location.reload();
-        	}
-
                 var answer = decodeURI(getCookie('answer')).split('|').join('');
         //        console.log("onDraw");
                 //when user input is correct

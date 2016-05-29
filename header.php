@@ -35,6 +35,10 @@
 
 
     <!--Cookies-->
+    <!-- Script for animating check / cross -->
+    <script src='js/check_cross.js'></script>
+    <script src='js/game.js'></script>
+    <script src='js/game.js'></script>
     <script src='js/cookie.js'></script>
     <script src='js/sounds.js'></script>
     <script src='js/functions.js'></script>
