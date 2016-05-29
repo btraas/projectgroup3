@@ -223,8 +223,12 @@ $(document).on('pageshow', "[data-url='/game.php']", function(){
 
 	if(($(window).height() - 100) < minHeightWidth) {
 		minHeightWidth = $(window).height() - 100;
-		matrixSize = minHeightWidth * matrixMultiplier;
 	}
+
+	if(minHeightWidth < 320) minHeightWidth = 320;
+
+	matrixSize = minHeightWidth * matrixMultiplier;
+
 	//alert(minHeightWidth);
 	//if($('#maincontainer').width() > 1000) matrixSize = 1000 * matrixMultiplier;
 
