@@ -379,9 +379,9 @@ function calcScore(time) {
 	var timeleft = 120 - mins * 60 - secs;
 
 	if(timeleft >= 0) {
-		score += 10 * (1 + level/10) + timeleft;
+		score += 10 * level + timeleft;
 	} else {
-		score += 10 * (1 + level/10);
+		score += 10 * level;
 	}
 
 	return score;
