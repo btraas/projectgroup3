@@ -324,7 +324,7 @@ function getNumCompleted()
 
 //Send user to result scene
 function onResult()  {
-		window.location = 'result.php?random='+window.btoa(score)+"&pg="+window.btoa(getNumCompleted()); // "random" is the post key, score is the value, in base64
+		window.location = 'result.php?random=' + window.btoa(score) + "&pg=" + window.btoa(getNumCompleted()); // "random" is the post key, score is the value, in base64
 }
 
 //Visualizing user progress {{{
@@ -376,12 +376,12 @@ function calcScore(time) {
 	secs = Math.floor( time / 1000 );
 
 	var score = 0;
-	var timeleft = 120 - mins*60 - secs;
+	var timeleft = 120 - mins * 60 - secs;
 
 	if(timeleft >= 0) {
-		score += 10 + timeleft;
+		score += 10 * (1 + level/10) + timeleft;
 	} else {
-		score += 10;
+		score += 10 * (1 + level/10);
 	}
 
 	return score;
