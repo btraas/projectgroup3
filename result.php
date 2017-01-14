@@ -5,8 +5,8 @@
 	require_once('config.php');
 
 	// Connect to server and select database.
-	mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)or die("cannot connect");
-	mysql_select_db(DB_DATABASE)or die("cannot select DB");
+	//mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)or die("cannot connect");
+	//mysql_select_db(DB_DATABASE)or die("cannot select DB");
 	$tb_name="leaderboards"; // Table name
 
 	// base 64 so user doesn't try to cheat
@@ -19,14 +19,15 @@
 
 	$gm = @$_COOKIE['gameMode'];
 
-	$score = mysql_real_escape_string($score);
+	$score = clean($score);
 	$sql = "SELECT COUNT(*) + 1 AS rank FROM $tb_name WHERE gamemode = $gm AND $score <= score ;";
 
-	$result=mysql_query($sql);
-	$rows=mysql_fetch_array($result);
-	mysql_close();
+	//$result=mysql_query($sql);
+	//$rows=mysql_fetch_array($result);
+	//mysql_close();
+	$rows = runQ($sql);
 
-	$rank = empty(@$_COOKIE['rank']) ? $rows['rank'] : $_COOKIE['rank'];
+	$rank = empty(@$_COOKIE['rank']) ? @$rows['rank'] : @$_COOKIE['rank'];
 
 
     include('header.php');

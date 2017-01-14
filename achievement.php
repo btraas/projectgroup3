@@ -12,9 +12,6 @@
 	$username = $_SESSION['SESS_USERNAME'];
     
 	require_once('config.php');
-	// Connect to server and select database.
-	mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)or die("cannot connect");
-	mysql_select_db(DB_DATABASE)or die("cannot select DB");
 
 ?>
 
@@ -23,26 +20,29 @@
  <?php
         // light theme    
         if($_COOKIE['theme'] == 1) {         
-    ?>
-        <link id="loginCSS" rel="stylesheet" type="text/css" href="css/achievement_L.css">
-    <?php
+
+			echo <<<EOF
+<link id="loginCSS" rel="stylesheet" type="text/css" href="css/achievement_L.css">
+EOF;
+
         } else { // dark theme
-    ?>       
-        <link id="loginCSS" rel="stylesheet" type="text/css" href="css/achievement.css">
-    <?php
+			echo <<<EOF
+<link id="loginCSS" rel="stylesheet" type="text/css" href="css/achievement.css">
+EOF;
+
         }
-    ?>
 
-<?php include('menu_button.php'); ?>
+		include('menu_button.php');
 
-
+		echo	<<<EOF
 <div class="achievement_wrapper">
+EOF;
 
-<?php
-	        $sql="CALL GetAchievements('$username')";
+        $sql="CALL GetAchievements('$username')";
 
-	        $result=mysql_query($sql);
-            while($rows=mysql_fetch_array($result)){ // Start looping
+        $result=runQ($sql);
+        //while($rows=mysql_fetch_array($result)){ // Start looping
+		foreach($result AS $rows) {
 
 			if($rows['percent_complete']<100) 
 			{
@@ -60,7 +60,7 @@
 					
 			</div>
 <?php
-	}
+		}
 ?>
 
 </div>

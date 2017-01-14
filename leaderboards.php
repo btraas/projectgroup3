@@ -2,8 +2,8 @@
     require_once('config.php');
 
     // Connect to server and select database.
-    mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)or die("cannot connect");
-    mysql_select_db(DB_DATABASE)or die("cannot select DB");
+    //mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)or die("cannot connect");
+    //mysql_select_db(DB_DATABASE)or die("cannot select DB");
     $tb_name="leaderboards"; // Table name
 
 	include('header.php');

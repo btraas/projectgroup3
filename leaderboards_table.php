@@ -2,8 +2,8 @@
 	require_once('config.php');
 
     // Connect to server and select database.
-    mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)or die("cannot connect");
-    mysql_select_db(DB_DATABASE)or die("cannot select DB");
+    //mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)or die("cannot connect");
+    //mysql_select_db(DB_DATABASE)or die("cannot select DB");
     $tb_name="leaderboards"; // Table name
 ?>
 <table>
@@ -31,24 +31,24 @@
 
                         //echo $sql;
 
-                        $result=mysql_query($sql);
+                        $result=runQ($sql);
                         $num = 1;
                         $highlighted = false;
 
                         $username = $_COOKIE["username"];
-                        $rank = $_COOKIE["rank"];
-                        $score = $_COOKIE["score"];
+                        $rank = @$_COOKIE["rank"];
+                        $score = @$_COOKIE["score"];
 
-                        while($rows=mysql_fetch_array($result)){ // Start looping table row
+                        foreach($result AS $row){ // Start looping table row
 
 
             ?>
 
 
-                            <tr <?php if(!$highlighted && $rows['username']==$username && $rows['score']==$score) { echo "class='highlight'"; $highlighted = true; } ?>>
+                            <tr <?php if(!$highlighted && $row['username']==$username && $row['score']==$score) { echo "class='highlight'"; $highlighted = true; } ?>>
                                 <td><?php echo $num++ ?></td>
-                                <td><?php echo ucwords($rows['username']); ?></td>
-                                <td><?php echo ucwords($rows['score']); ?></td>
+                                <td><?php echo ucwords($row['username']); ?></td>
+                                <td><?php echo ucwords($row['score']); ?></td>
                             </tr>
 <?php
                         }
@@ -62,6 +62,6 @@
                             </tr>
             <?php
 						}
-                         mysql_close(); // close database connection
+                         //mysql_close(); // close database connection
             ?>
 </table>

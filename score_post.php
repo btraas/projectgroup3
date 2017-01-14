@@ -2,8 +2,6 @@
 require_once('config.php');
 
 // Connect to server and select database.
-mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)or die("cannot connect");
-mysql_select_db(DB_DATABASE)or die("cannot select DB");
 $tb_name="leaderboards"; // Table name
 
 $gameMode=$_GET['gameMode'];
@@ -22,15 +20,14 @@ if($username == '')
 // Insert topic to database
 $sql="INSERT INTO $tb_name(username, score, gamemode, datetime) VALUES('$username', '$score', '$gameMode', '$datetime')";
 
-$result=mysql_query($sql);
+$result=runQ($sql);
 
 if($result)
 
 	header("Location:result.php?random=" .$_GET['random']);
 else {
-	echo "ERROR".mysql_error();
+	echo "ERROR";
 }
 
-mysql_close();
 ?>
 

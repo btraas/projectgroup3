@@ -38,25 +38,32 @@
 		<!-- just a placeholder (invisible) for jquery mobile transitions -->
 		<a id='register' href='register.php' data-transition='flow'></a>
 	<!-- </div> -->
+
 	<?php
-		if(trim($_SESSION['SESS_USERNAME']) == '') {
-	?>	<!--<div class='main_menu_row'>-->
+
+		if(trim(@$_SESSION['SESS_USERNAME']) == '') 
+
+			echo <<<EOF
+
+		<!--<div class='main_menu_row'>-->
 
 	    <input type="image" src="resources/images/menu_sign_in.png" onclick="$('#login').click()" class="icon signIn">
 		<!-- just a placeholder (invisible) for jquery mobile transitions -->
 		<a id='login' href='login.php' data-transition='flow'></a>
 		</div>
 
-	<?php
-		} else {
-	?>	<!--<div class='main_menu_row'>-->
-	    <input type="image" src="resources/images/menu_sign_out.png" onclick="$('#logout').click()" class="icon signOut">
-		<!-- just a placeholder (invisible) for jquery mobile transitions -->
-		<a id='logout' href='logout.php' data-transition='flow'></a>
-		</div>
+EOF;
 
-	<?php
-		}
+		 else 
+
+			echo <<<EOF
+<!--<div class='main_menu_row'>-->
+    <input type="image" src="resources/images/menu_sign_out.png" onclick="$('#logout').click()" class="icon signOut">
+	<!-- just a placeholder (invisible) for jquery mobile transitions -->
+	<a id='logout' href='logout.php' data-transition='flow'></a>
+	</div>
+EOF;
+	
 	?>
 
 	<div class='main_menu_row'>

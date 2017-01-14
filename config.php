@@ -5,6 +5,7 @@
     define('DB_PASSWORD', 'c2910WithChiEn');
     define('HOMEURL', 'index.php');
 
+	ini_set('display_errors', 1);
 
 //Function to sanitize values received from the form. Prevents SQL injection
 function clean($str) {
@@ -12,33 +13,42 @@ function clean($str) {
     if(get_magic_quotes_gpc()) {
         $str = stripslashes($str);
     }
-    return mysql_real_escape_string($str);
+
+	$con = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+
+    $str = mysqli_real_escape_string($con, $str);
+	mysqli_close($con);
+	return $str;
 }
 
 function runQ($query)
 {
     //Connect to mysql server
-    $link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
-    if(!$link) {
-        die('Failed to connect to server: ' . mysql_error());
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+    if(!$con) {
+        die('Failed to connect to server: ' . mysqli_error());
     }
 
-    //Select database
-    $db = mysql_select_db(DB_DATABASE);
-    if(!$db) {
-        die("Unable to select database");
+    $result=mysqli_query($con, $query);
+    if(!$result) {
+        return false;
     }
 
-    $result=mysql_query($query);
-	if(!$result) die('Query failed');
 
-	$arr = mysql_fetch_assoc($result);
-	mysql_close();
+    $data = array();
+    $i = 0;
 
-	return $arr;
+    while($row = mysqli_fetch_assoc($result))
+    {
+        $data[] = $row;
+    }
+    mysqli_close($con);
+
+    //if ($lines == 1) return @$data[0];
+
+    return $data;
 
 
 }
-
 
 ?>

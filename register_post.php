@@ -14,17 +14,6 @@
 	// create date and time
 	$datetime=date("d/m/y H:i:s"); 
 
-	//Connect to mysql server
-	$link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
-	if(!$link) {
-		die('Failed to connect to server: ' . mysql_error());
-	}
-	
-	//Select database
-	$db = mysql_select_db(DB_DATABASE);
-	if(!$db) {
-		die("Unable to select database");
-	}
 	
 	//Sanitize the POST values
 	$username = clean($_POST['username']);
@@ -60,16 +49,10 @@
 	if($username != '') {
 		$qry = "SELECT * FROM members WHERE username='$username'";
 
-		$result = mysql_query($qry);
-		if($result) {
-			if(mysql_num_rows($result) > 0) {
-				$errmsg_arr[] = 'Username already in use';
-				$errflag = true;
-			}
-			@mysql_free_result($result);
-		}
-		else {
-			die("Query failed");
+		$result = runQ($qry);
+		if(count($result) > 0) {
+			$errmsg_arr[] = 'Username already in use';
+			$errflag = true;
 		}
 	}
 	
@@ -83,7 +66,7 @@
 
 	//Create INSERT query
 	$qry = "INSERT INTO members(username, passcode, datetime) VALUES('$username','".md5($_POST['password'])."', '$datetime')";
-	$result = @mysql_query($qry);
+	$result = runQ($qry);
 	
 	//Check whether the query was successful or not
 	if($result) {
